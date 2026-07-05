@@ -15,11 +15,22 @@ header p{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size
 .nav button:hover{background:var(--ink);color:var(--paper)}
 .nav button.active{background:var(--ink);color:var(--paper)}
 .hidden{display:none!important}
-.start-screen{text-align:center;padding:40px 0}
+.start-screen{text-align:center;padding:20px 0}
 .start-screen h2{font-size:1.3rem;font-weight:400;font-style:italic;margin-bottom:12px}
 .start-screen p{font-size:.9rem;opacity:.655;line-height:1.6;margin-bottom:24px}
-.start-screen>button{background:var(--ink);color:var(--paper);border:2px solid var(--ink);padding:14px 48px;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;cursor:pointer;transition:.15s;border-radius:0}
+.start-screen>button{width:100%;background:var(--ink);color:var(--paper);border:2px solid var(--ink);padding:16px;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;cursor:pointer;transition:.15s;border-radius:0}
 .start-screen>button:hover{background:var(--accent);border-color:var(--accent)}
+.home-dashboard{border:2px solid var(--ink);margin-bottom:20px}
+.home-stats{display:grid;grid-template-columns:repeat(3,1fr)}
+.home-stat{text-align:center;padding:18px 8px;border-right:1px solid var(--line)}
+.home-stat:last-child{border-right:none}
+.home-stat-num{font-size:1.6rem;font-weight:700;font-style:italic}
+.home-stat-label{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:2px;opacity:.6;margin-top:4px}
+.home-mastery{padding:14px 20px;border-top:1px solid var(--line)}
+.home-mastery-label{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.55rem;text-transform:uppercase;letter-spacing:2px;opacity:.6;margin-bottom:8px;text-align:center}
+.home-mastery-track{height:10px;border:2px solid var(--ink);background:var(--paper-tint);overflow:hidden}
+.home-mastery-legend{display:flex;gap:14px;justify-content:center;margin-top:8px}
+.home-mastery-legend span{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.5rem;text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;gap:4px;opacity:.655}
 .progress-bar{height:6px;border:1px solid var(--line);background:var(--paper-tint);margin-bottom:16px}
 .progress-fill{height:100%;background:var(--accent2);transition:width .3s ease}
 .stats-row{display:flex;justify-content:space-between;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.7rem;text-transform:uppercase;letter-spacing:1px;opacity:.6;margin-bottom:16px}
@@ -165,7 +176,7 @@ header p{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size
 .mastery-fill .mf-new{background:var(--paper-tint);height:100%}
 .mastery-legend{display:flex;gap:16px;justify-content:center;margin-top:8px;flex-wrap:wrap}
 .mastery-legend span{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.5rem;text-transform:uppercase;letter-spacing:1px;display:flex;align-items:center;gap:4px;opacity:.655}
-.mastery-legend .ml-dot{width:8px;height:8px;border:1px solid var(--line)}
+.mastery-legend .ml-dot,.home-mastery-legend .ml-dot{width:8px;height:8px;border:1px solid var(--line)}
 .bucket-label{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.45rem;text-transform:uppercase;letter-spacing:1px;padding:2px 6px;border:1px solid var(--line);color:var(--ink);opacity:.65;white-space:nowrap}
 *:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .settings-page{border:2px solid var(--ink);padding:28px 24px}
