@@ -2,7 +2,7 @@
 :root{--paper:#f3f0e7;--ink:#0b1026;--accent:#d8542f;--accent2:#1f6f6b;--gold:#c79a3a;--good:#1f6f6b;--bad:#b23b2e;--line:#cfc7b3;--paper-tint:#ece8dd;--good-tint:#e4f0ee;--bad-tint:#f5e4e2;--medium-tint:#f5f0e0}
 [data-theme="dark"]{--paper:#1a1a2e;--ink:#e0ddd4;--accent:#e8714a;--accent2:#3abfb0;--gold:#dbb24a;--good:#3abfb0;--bad:#d45d52;--line:#3a3a52;--paper-tint:#22223a;--good-tint:#1a2e2b;--bad-tint:#2e1a1a;--medium-tint:#2e2a1a}
 body{font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;background:var(--paper);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;align-items:center;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
-.container{max-width:900px;width:100%;padding:28px 36px}
+.container{max-width:1100px;width:100%;padding:28px 48px}
 header{display:flex;align-items:center;justify-content:center;margin-bottom:24px;border-bottom:2px solid var(--ink);padding-bottom:18px;position:relative}
 header h1{font-size:1.6rem;font-weight:400;font-style:italic;letter-spacing:.5px}
 header p{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.6rem;text-transform:uppercase;letter-spacing:3px;opacity:.655;margin-top:8px}
