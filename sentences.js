@@ -4902,10 +4902,10 @@ const SENTENCES = {
 "forsake":[
 ["He _____d his comfortable life to volunteer in remote communities.","disavow","repudiate","deplore"],
 ["She could never _____ her principles, no matter the consequences.","abstain","disdain","revoke"],
-["The soldiers felt _____n by a government that ignored their sacrifice.","rescind","denounce","disparage"],
+["The soldiers felt the government had chosen to _____ them by ignoring their sacrifice.","rescind","denounce","disparage"],
 ["He _____d his homeland and emigrated to start over.","repudiate","deplore","abstain"],
 ["She _____ her legal career to pursue painting full-time.","disdain","revoke","rescind"],
-["The community was _____n by politicians who made promises they never kept.","denounce","disparage","rebuke"],
+["The community realized the politicians had chosen to _____ them after making empty promises.","denounce","disparage","rebuke"],
 ["He refused to _____ his friend even when everyone else turned away.","deplore","abstain","disdain"],
 ["She _____ the easy path and chose the one that challenged her most.","revoke","rescind","denounce"]
 ],
