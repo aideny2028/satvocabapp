@@ -9,27 +9,27 @@
   --ink-secondary:rgba(0,0,0,.55);
   --accent:#111111;
   --accent-soft:rgba(0,0,0,.06);
-  --good:#1a7a42;
-  --good-soft:rgba(26,122,66,.08);
-  --bad:#c0392b;
-  --bad-soft:rgba(192,57,43,.08);
-  --gold:#b8860b;
-  --gold-soft:rgba(184,134,11,.08);
+  --good:#16a34a;
+  --good-soft:rgba(22,163,74,.1);
+  --bad:#dc2626;
+  --bad-soft:rgba(220,38,38,.08);
+  --gold:#d97706;
+  --gold-soft:rgba(217,119,6,.08);
   --teal:#111111;
   --teal-soft:rgba(0,0,0,.06);
   --line:rgba(0,0,0,.15);
   --line-strong:rgba(0,0,0,.3);
   --paper-tint:#f5f5f5;
   --bar-fill:#111111;
-  --bar-text:#ffffff;
-  --easy-color:#1a7a42;
-  --easy-bg:rgba(26,122,66,.08);
-  --medium-color:#b8860b;
-  --medium-bg:rgba(184,134,11,.08);
-  --hard-color:#c0392b;
-  --hard-bg:rgba(192,57,43,.08);
-  --learned-color:#1a7a42;
-  --learning-color:#b8860b;
+  --bar-text:#111111;
+  --easy-color:#16a34a;
+  --easy-bg:rgba(22,163,74,.1);
+  --medium-color:#d97706;
+  --medium-bg:rgba(217,119,6,.08);
+  --hard-color:#dc2626;
+  --hard-bg:rgba(220,38,38,.08);
+  --learned-color:#16a34a;
+  --learning-color:#d97706;
   --unseen-color:#cccccc;
   --ease:cubic-bezier(.4,0,.2,1);
   --ease-bounce:cubic-bezier(.34,1.56,.64,1);
@@ -558,8 +558,12 @@ header h1{
   display:flex;align-items:center;justify-content:center;
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
   font-size:.6rem;font-weight:700;letter-spacing:1px;
-  color:var(--bar-text);
-  text-shadow:0 0 4px var(--bar-fill);
+  color:var(--bg);
+  text-shadow:
+    -1px -1px 0 var(--ink),
+     1px -1px 0 var(--ink),
+    -1px  1px 0 var(--ink),
+     1px  1px 0 var(--ink);
 }
 .daily-banner .db-streak{text-align:right;min-width:70px}
 .daily-banner .db-streak-num{
