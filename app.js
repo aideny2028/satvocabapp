@@ -19,10 +19,7 @@ let session={words:[],current:0,score:0,streak:0,answered:[],retryQueue:[],retry
 function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function randInt(min,max){return Math.floor(Math.random()*(max-min+1))+min}
 function pick(arr){return arr[Math.floor(Math.random()*arr.length)]}
-function countSyllables(w){w=w.toLowerCase().replace(/[^a-z]/g,'');if(w.length<=2)return 1;w=w.replace(/e$/,'');const m=w.match(/[aeiouy]+/g);return m?Math.max(1,m.length):1}
-function difficultyScore(wordObj){const w=wordObj.w.toLowerCase();const len=w.length;const syl=countSyllables(w);let score=0;score+=Math.min(len*0.6,9);score+=syl*1.2;if(/ph|ght|ough|ious|eous|uous/.test(w))score+=1.5;if(/^(un|re|pre|dis|mis|over|under|out)/.test(w))score-=1;if(w.includes('-'))score+=1;if(syl>=5)score+=2;if(len>=12)score+=2;return score}
-function getWordDifficulty(wordObj){const s=difficultyScore(wordObj);if(s<7)return'easy';if(s<9.5)return'medium';return'hard'}
-const DIFF_CACHE=W.map(w=>getWordDifficulty(w));
+const DIFF_CACHE=W.map(w=>w.diff||'medium');
 function pickSessionWords(){const goal=getDailyGoal();const today=todayKey();const due=[];const unseen=[];const notDue=[];W.forEach((w,i)=>{const l=state.leitner[i];const obj={...w,_idx:i};if(!l||l.b===0){unseen.push(obj)}else if(l.due<=today){due.push(obj)}else{notDue.push(obj)}});shuffle(due);shuffle(unseen);shuffle(notDue);const pool=[...due,...unseen,...notDue];return pool.slice(0,goal)}
 function defTokens(d){return d.toLowerCase().replace(/[^a-z ]/g,'').split(/\s+/).filter(w=>w.length>3&&!['that','this','with','from','have','been','were','they','their','being','which','about','would','make','like','into','than','them','then','more','very','when','what','some','only','also','such','most','other','extremely','excessively','quality','having','often','manner','state','tending','related'].includes(w))}
 function defSimilarity(a,b){const ta=new Set(defTokens(a));const tb=new Set(defTokens(b));if(ta.size===0||tb.size===0)return 0;let shared=0;for(const w of ta)if(tb.has(w))shared++;return shared/Math.max(ta.size,tb.size)}
