@@ -924,6 +924,118 @@ header h1{
   outline-offset:3px;
 }
 
+/* ─── Quiz Active: Lock to Viewport ─── */
+body.quiz-active{
+  height:100vh;
+  overflow:hidden;
+}
+body.quiz-active .container{
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  padding-bottom:12px;
+}
+body.quiz-active header{
+  margin-bottom:10px;
+  padding-bottom:8px;
+}
+body.quiz-active header h1{
+  font-size:1.2rem;
+}
+body.quiz-active .nav{
+  margin-bottom:10px;
+}
+body.quiz-active .nav button{
+  padding:6px 8px;
+  font-size:.6rem;
+}
+body.quiz-active #quizView{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  min-height:0;
+}
+body.quiz-active .daily-banner{
+  display:none;
+}
+body.quiz-active #quizActive{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  min-height:0;
+}
+body.quiz-active .exit-row{
+  margin-bottom:4px;
+}
+body.quiz-active .exit-btn{
+  padding:4px 10px;
+  font-size:.55rem;
+}
+body.quiz-active .progress-bar{
+  margin-bottom:6px;
+}
+body.quiz-active .stats-row{
+  margin-bottom:6px;
+  font-size:.6rem;
+}
+body.quiz-active .question-card{
+  flex:1;
+  min-height:0;
+  overflow-y:auto;
+  padding:14px 18px;
+  margin-bottom:0;
+}
+body.quiz-active .q-type{
+  font-size:.55rem;
+  margin-bottom:4px;
+}
+body.quiz-active .q-word{
+  font-size:1.3rem;
+  margin:6px 0 2px;
+}
+body.quiz-active .q-text{
+  font-size:.95rem;
+  line-height:1.4;
+  margin-top:6px;
+}
+body.quiz-active .q-sentence{
+  font-size:1rem;
+  line-height:1.5;
+  margin:4px 0 2px;
+}
+body.quiz-active .options{
+  gap:4px;
+  margin-top:10px;
+}
+body.quiz-active .option{
+  padding:8px 12px;
+  min-height:36px;
+  font-size:.85rem;
+  gap:8px;
+}
+body.quiz-active .option .letter{
+  width:22px;
+  height:22px;
+  font-size:.6rem;
+}
+body.quiz-active .check-btn,
+body.quiz-active .next-btn{
+  padding:10px;
+  margin-top:6px;
+  font-size:.65rem;
+  flex-shrink:0;
+}
+body.quiz-active .feedback{
+  padding:8px 12px;
+  margin-top:6px;
+  font-size:.85rem;
+  flex-shrink:0;
+}
+body.quiz-active .kb-hint{
+  margin-top:4px;
+  font-size:.5rem;
+}
+
 /* ─── Mobile ─── */
 @media(max-width:600px){
   .container{padding:16px 14px 32px}
