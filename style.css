@@ -925,38 +925,37 @@ header h1{
 }
 
 /* ─── Quiz Active: Lock to Viewport ─── */
+/* Principle: 3-zone flex layout (header / content / footer).
+   Content zone centers the question; footer pins check/feedback/continue.
+   Nav + header + banner hidden during quiz (Duolingo pattern).
+   dvh avoids mobile browser-chrome overflow; vh is fallback. */
+
 body.quiz-active{
   height:100vh;
+  height:100dvh;
   overflow:hidden;
 }
 body.quiz-active .container{
   height:100%;
   display:flex;
   flex-direction:column;
-  padding-bottom:12px;
+  padding-top:12px;
+  padding-bottom:0;
 }
-body.quiz-active header{
-  margin-bottom:10px;
-  padding-bottom:8px;
+
+/* ── Hide chrome during quiz (Duolingo pattern) ── */
+body.quiz-active header,
+body.quiz-active .nav,
+body.quiz-active .daily-banner{
+  display:none;
 }
-body.quiz-active header h1{
-  font-size:1.2rem;
-}
-body.quiz-active .nav{
-  margin-bottom:10px;
-}
-body.quiz-active .nav button{
-  padding:6px 8px;
-  font-size:.6rem;
-}
+
+/* ── Quiz view becomes the full flex column ── */
 body.quiz-active #quizView{
   flex:1;
   display:flex;
   flex-direction:column;
   min-height:0;
-}
-body.quiz-active .daily-banner{
-  display:none;
 }
 body.quiz-active #quizActive{
   flex:1;
@@ -964,73 +963,91 @@ body.quiz-active #quizActive{
   flex-direction:column;
   min-height:0;
 }
+
+/* ── ZONE 1: Header — exit + progress + stats ── */
 body.quiz-active .exit-row{
-  margin-bottom:4px;
+  margin-bottom:clamp(2px,0.5vh,6px);
 }
 body.quiz-active .exit-btn{
   padding:4px 10px;
   font-size:.55rem;
 }
 body.quiz-active .progress-bar{
-  margin-bottom:6px;
+  margin-bottom:clamp(4px,0.8vh,8px);
 }
 body.quiz-active .stats-row{
-  margin-bottom:6px;
+  margin-bottom:clamp(4px,0.8vh,10px);
   font-size:.6rem;
 }
+
+/* ── ZONE 2: Content — question card (centered, content-sized) ── */
 body.quiz-active .question-card{
-  padding:14px 18px;
+  flex:0 1 auto;
+  padding:clamp(10px,2vh,20px) clamp(14px,2vw,24px);
   margin-bottom:0;
 }
 body.quiz-active .q-type{
   font-size:.55rem;
-  margin-bottom:4px;
+  margin-bottom:clamp(2px,0.4vh,6px);
 }
 body.quiz-active .q-word{
-  font-size:1.3rem;
-  margin:6px 0 2px;
+  font-size:clamp(1.1rem,2.5vw,1.5rem);
+  margin:clamp(4px,0.5vh,8px) 0 2px;
+}
+body.quiz-active .q-pos{
+  margin-bottom:clamp(2px,0.3vh,6px);
 }
 body.quiz-active .q-text{
-  font-size:.95rem;
+  font-size:clamp(0.88rem,1.8vw,1.05rem);
   line-height:1.4;
-  margin-top:6px;
+  margin-top:clamp(4px,0.5vh,8px);
 }
 body.quiz-active .q-sentence{
-  font-size:1rem;
-  line-height:1.5;
-  margin:4px 0 2px;
+  font-size:clamp(0.9rem,1.8vw,1.1rem);
+  line-height:1.4;
+  margin:clamp(2px,0.4vh,6px) 0 2px;
 }
 body.quiz-active .options{
-  gap:4px;
-  margin-top:10px;
+  gap:clamp(3px,0.5vh,8px);
+  margin-top:clamp(6px,1vh,16px);
 }
 body.quiz-active .option{
-  padding:8px 12px;
-  min-height:36px;
-  font-size:.85rem;
-  gap:8px;
+  padding:clamp(6px,1vh,14px) clamp(10px,1.5vw,16px);
+  min-height:clamp(32px,5vh,48px);
+  font-size:clamp(0.8rem,1.6vw,0.95rem);
+  gap:clamp(6px,1vw,12px);
 }
 body.quiz-active .option .letter{
-  width:22px;
-  height:22px;
-  font-size:.6rem;
+  width:clamp(18px,3vh,28px);
+  height:clamp(18px,3vh,28px);
+  font-size:clamp(0.5rem,1vw,0.7rem);
 }
+
+/* ── ZONE 3: Footer — pinned to bottom ── */
 body.quiz-active .check-btn,
 body.quiz-active .next-btn{
-  padding:10px;
-  margin-top:6px;
+  padding:clamp(8px,1.2vh,14px);
+  margin-top:clamp(4px,0.6vh,10px);
   font-size:.65rem;
   flex-shrink:0;
 }
 body.quiz-active .feedback{
-  padding:8px 12px;
-  margin-top:6px;
-  font-size:.85rem;
+  padding:clamp(6px,1vh,12px) 12px;
+  margin-top:clamp(4px,0.6vh,8px);
+  font-size:clamp(0.78rem,1.5vw,0.92rem);
   flex-shrink:0;
 }
 body.quiz-active .kb-hint{
-  margin-top:4px;
+  margin-top:clamp(2px,0.4vh,8px);
+  padding-bottom:clamp(4px,0.6vh,10px);
   font-size:.5rem;
+}
+
+/* ── Short viewport fallback (landscape / small screens) ── */
+@media(max-height:550px){
+  body.quiz-active .stats-row{display:none}
+  body.quiz-active .exit-row{margin-bottom:2px}
+  body.quiz-active .kb-hint{display:none}
 }
 
 /* ─── Mobile ─── */
