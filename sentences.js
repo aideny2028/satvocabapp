@@ -10038,571 +10038,2261 @@ const SENTENCES = {
 ["The _____ provided welcome relief from the stifling heat.","innuendo","respite","presage"],
 ["The _____ was so soft it barely moved the tall grass.","paradox","vestige","boon"],
 ["She closed her eyes and let the _____ cool her sun-warmed skin.","hiatus","portent","amenity"]
+],
+"proponent":[
+["The senator was a vocal _____ of renewable energy legislation.","critic","opponent","beneficiary"],
+["As a longtime _____ of education reform, she pushed for increased funding.","detractor","rival","skeptic"]
+],
+"conjecture":[
+["Without evidence, his theory remained mere _____.","certainty","proof","doctrine"],
+["The detective warned against _____ and focused on the facts.","analysis","testimony","verification"]
+],
+"attenuate":[
+["The thick walls helped _____ the noise from the street.","amplify","magnify","broadcast"],
+["Over time, the medication began to _____ the severity of her symptoms.","intensify","provoke","aggravate"]
+],
+"quintessential":[
+["The small café with checkered tablecloths was the _____ Parisian bistro.","atypical","unusual","ordinary"],
+["She was the _____ example of determination, never giving up despite setbacks.","mediocre","improbable","reluctant"]
+],
+"anomalous":[
+["The _____ temperature readings prompted scientists to recheck their instruments.","expected","routine","standard"],
+["His calm reaction to the crisis was _____ given his usually anxious temperament.","typical","predictable","ordinary"]
+],
+"belie":[
+["Her calm expression _____d the anxiety she felt inside.","revealed","confirmed","expressed"],
+["The building's modest exterior _____d the opulence within.","displayed","exposed","indicated"]
+],
+"enumerate":[
+["The professor asked students to _____ the causes of the French Revolution.","ignore","overlook","suppress"],
+["She began to _____ the reasons why the project had failed.","conceal","obscure","dismiss"]
+],
+"undermine":[
+["Constant criticism can _____ a child's self-confidence.","strengthen","bolster","fortify"],
+["The scandal threatened to _____ public trust in the institution.","reinforce","support","enhance"]
+],
+"transpose":[
+["The editor accidentally _____d two paragraphs in the manuscript.","deleted","preserved","copied"],
+["Musicians sometimes _____ a piece into a different key to suit the singer.","compose","improvise","rehearse"]
+],
+"incongruous":[
+["The modern glass tower looked _____ among the historic brick buildings.","harmonious","compatible","fitting"],
+["His formal suit seemed _____ at the casual beach party.","appropriate","suitable","natural"]
+],
+"prolific":[
+["The _____ author published over forty novels in her career.","unproductive","idle","inactive"],
+["The garden was _____, yielding more vegetables than the family could eat.","barren","sparse","meager"]
+],
+"scrutinize":[
+["The auditor would _____ every transaction for signs of fraud.","overlook","ignore","skim"],
+["She _____d the contract carefully before signing it.","glanced","dismissed","neglected"]
+],
+"substantiate":[
+["The lawyer needed more evidence to _____ her client's alibi.","disprove","refute","undermine"],
+["He could not _____ his claims with any reliable data.","retract","deny","withdraw"]
+],
+"catalyst":[
+["The assassination served as a _____ for the outbreak of war.","deterrent","obstacle","hindrance"],
+["Her inspiring speech was the _____ that motivated the team to act.","barrier","setback","impediment"]
+],
+"extrapolate":[
+["Scientists _____ future climate trends from historical temperature data.","fabricate","disregard","conceal"],
+["From a few data points, researchers attempted to _____ the full pattern.","obscure","simplify","dismiss"]
+],
+"intricate":[
+["The watchmaker repaired the _____ mechanism with steady hands.","simple","crude","basic"],
+["The novel's _____ plot kept readers guessing until the final chapter.","straightforward","predictable","plain"]
+],
+"anecdotal":[
+["The evidence for the remedy was purely _____, not scientifically proven.","empirical","statistical","verified"],
+["While _____ reports suggested improvement, the clinical trials showed no effect.","documented","measured","quantified"]
+],
+"attest":[
+["Several witnesses can _____ to her presence at the meeting.","deny","dispute","contradict"],
+["The ruins _____ to the grandeur of the ancient civilization.","obscure","conceal","erase"]
+],
+"conducive":[
+["A quiet library is _____ to focused study.","hostile","detrimental","harmful"],
+["The warm climate was _____ to growing tropical fruit.","unfavorable","adverse","prohibitive"]
+],
+"connotation":[
+["The word 'home' carries a warm _____ that 'house' does not.","definition","pronunciation","spelling"],
+["In politics, certain terms have a negative _____ that shapes public opinion.","syntax","etymology","abbreviation"]
+],
+"efficacy":[
+["Researchers tested the _____ of the new drug in a double-blind study.","toxicity","scarcity","fragility"],
+["The _____ of the training program was measured by employee performance gains.","expense","duration","schedule"]
+],
+"erratic":[
+["His _____ behavior worried his friends and family.","consistent","steady","predictable"],
+["The stock's _____ performance made investors nervous.","stable","reliable","uniform"]
+],
+"homogeneous":[
+["The scientist needed a _____ mixture with no visible particles.","diverse","varied","mixed"],
+["The town's population was remarkably _____, lacking cultural diversity.","eclectic","assorted","heterogeneous"]
+],
+"inadvertent":[
+["The _____ release of confidential data caused a major scandal.","deliberate","intentional","calculated"],
+["Her _____ remark offended several people at the dinner party.","planned","purposeful","premeditated"]
+],
+"inherent":[
+["There is an _____ risk in any surgical procedure.","acquired","artificial","external"],
+["Creativity is an _____ quality that cannot be easily taught.","learned","borrowed","imposed"]
+],
+"precarious":[
+["The hiker found herself in a _____ position on the narrow ledge.","secure","stable","comfortable"],
+["The company's _____ financial situation threatened layoffs.","robust","solid","thriving"]
+],
+"precipitous":[
+["The _____ decline in sales alarmed the board of directors.","gradual","steady","moderate"],
+["They gazed down the _____ cliff face to the valley below.","gentle","flat","level"]
+],
+"proliferation":[
+["The _____ of social media platforms has changed how people communicate.","decline","scarcity","reduction"],
+["Arms control treaties aim to prevent the _____ of nuclear weapons.","elimination","decrease","shortage"]
+],
+"reiterate":[
+["Let me _____ the importance of submitting your work on time.","retract","withdraw","abandon"],
+["The teacher _____d the instructions for students who arrived late.","omitted","concealed","skipped"]
+],
+"synthesize":[
+["The researcher aimed to _____ data from multiple studies into a single theory.","fragment","scatter","separate"],
+["Students must learn to _____ information from various sources into a coherent essay.","isolate","divide","exclude"]
+],
+"tenacious":[
+["The _____ reporter pursued the story for months despite threats.","apathetic","indifferent","feeble"],
+["With _____ determination, she overcame every obstacle in her path.","halfhearted","weak","timid"]
+],
+"unprecedented":[
+["The pandemic caused an _____ disruption to global travel.","routine","expected","familiar"],
+["Her achievement was _____ in the history of the organization.","ordinary","common","typical"]
+],
+"adversity":[
+["She showed remarkable resilience in the face of _____.","prosperity","comfort","luxury"],
+["Overcoming _____ built his character and strengthened his resolve.","ease","privilege","fortune"]
+],
+"condescending":[
+["His _____ tone made his colleagues feel belittled.","respectful","humble","sincere"],
+["She found the manager's _____ attitude impossible to tolerate.","encouraging","supportive","gracious"]
+],
+"convergence":[
+["The _____ of technology and art has created new forms of expression.","separation","divergence","division"],
+["The _____ of several rivers created a wide delta at the coast.","splitting","dispersal","branching"]
+],
+"digression":[
+["After a lengthy _____, the speaker returned to the main topic.","summary","conclusion","introduction"],
+["The professor's entertaining _____s made the lectures unpredictable but enjoyable.","outlines","reviews","analyses"]
+],
+"divergent":[
+["The siblings held _____ opinions on how to manage their parents' estate.","identical","matching","unified"],
+["_____ thinking encourages exploring many possible solutions to a problem.","conventional","uniform","standard"]
+],
+"exemplary":[
+["Her _____ conduct earned her the Employee of the Year award.","poor","mediocre","average"],
+["The school held up his academic record as _____.","deficient","substandard","unremarkable"]
+],
+"extenuating":[
+["The judge considered _____ circumstances before passing sentence.","aggravating","incriminating","damning"],
+["Without _____ factors, the penalty would have been much harsher.","worsening","compounding","intensifying"]
+],
+"inconsequential":[
+["The error was _____ and had no effect on the final result.","significant","crucial","vital"],
+["What seemed like an _____ decision at the time changed her life.","momentous","critical","pivotal"]
+],
+"inevitable":[
+["Change is _____ in a rapidly evolving industry.","avoidable","unlikely","improbable"],
+["The _____ conclusion was that the project needed more funding.","uncertain","doubtful","questionable"]
+],
+"integrity":[
+["A leader's _____ is essential for earning the trust of the public.","dishonesty","corruption","deceit"],
+["She refused the bribe, valuing her _____ above personal gain.","greed","ambition","convenience"]
+],
+"longevity":[
+["A balanced diet contributes to _____ and overall health.","brevity","decline","fragility"],
+["The _____ of the Roman Empire is a testament to its strong institutions.","collapse","downfall","weakness"]
+],
+"pretentious":[
+["The _____ restaurant charged outrageous prices for tiny portions.","modest","humble","unpretending"],
+["His _____ vocabulary made simple ideas sound unnecessarily complex.","plain","direct","straightforward"]
+],
+"provocative":[
+["The artist's _____ exhibit challenged viewers to question social norms.","bland","conventional","tame"],
+["She asked a _____ question that sparked a heated classroom debate.","mundane","routine","dull"]
+],
+"subtle":[
+["The _____ differences between the two paintings were hard to spot.","obvious","glaring","stark"],
+["She gave a _____ hint that she wanted to leave the party.","blatant","explicit","blunt"]
+],
+"suppress":[
+["The government attempted to _____ news of the protests.","broadcast","publicize","promote"],
+["She struggled to _____ a laugh during the solemn ceremony.","express","release","amplify"]
+],
+"tactful":[
+["A _____ response can defuse a tense situation.","blunt","careless","reckless"],
+["She was _____ in delivering criticism, always pairing it with encouragement.","harsh","insensitive","brusque"]
+],
+"wary":[
+["Investors grew _____ after the market's sudden downturn.","reckless","trusting","careless"],
+["The cat was _____ of strangers and hid under the bed.","eager","welcoming","indifferent"]
+],
+"volatile":[
+["The _____ political situation made foreign investment risky.","stable","calm","predictable"],
+["His _____ temper meant that arguments could erupt without warning.","steady","composed","placid"]
+],
+"bolster":[
+["New evidence helped _____ the prosecution's case.","weaken","undermine","diminish"],
+["The coach's pep talk _____ed the team's confidence before the final match.","shattered","eroded","dampened"]
+],
+"galvanize":[
+["The crisis _____d the community into collective action.","paralyzed","discouraged","subdued"],
+["Her passionate speech _____d supporters to volunteer for the campaign.","bored","dissuaded","alienated"]
+],
+"harbinger":[
+["The robin is often seen as a _____ of spring.","remnant","product","conclusion"],
+["Many viewed the economic downturn as a _____ of worse times ahead.","remedy","solution","aftermath"]
+],
+"meander":[
+["The river _____s through the valley before reaching the sea.","rushes","plunges","surges"],
+["We _____ed through the old town, stopping at whatever caught our eye.","sprinted","marched","hurried"]
+],
+"peripheral":[
+["The issue of parking was _____ to the main debate about housing.","central","essential","fundamental"],
+["He caught a glimpse of movement in his _____ vision.","focused","direct","primary"]
+],
+"redundant":[
+["The phrase 'free gift' is _____ since gifts are inherently free.","essential","necessary","concise"],
+["Automation made several factory positions _____.","vital","indispensable","critical"]
+],
+"collaborate":[
+["The two universities agreed to _____ on the research project.","compete","clash","withdraw"],
+["Artists and engineers _____d to design the interactive museum exhibit.","disputed","separated","rivaled"]
+],
+"discredit":[
+["The leaked emails were used to _____ the politician's campaign.","endorse","validate","praise"],
+["New findings helped _____ the outdated theory.","confirm","support","strengthen"]
+],
+"underscore":[
+["The accident _____d the need for stricter safety regulations.","minimized","obscured","downplayed"],
+["Her resignation _____d the severity of the internal conflict.","concealed","dismissed","trivialized"]
+],
+"juxtapose":[
+["The exhibit _____d ancient artifacts with modern replicas.","separated","isolated","removed"],
+["The filmmaker chose to _____ scenes of poverty with images of wealth.","merge","unify","blend"]
+],
+"debilitate":[
+["The chronic illness continued to _____ her over the years.","strengthen","invigorate","energize"],
+["Harsh sanctions can _____ a country's economy.","fortify","revitalize","empower"]
+],
+"extemporaneous":[
+["His _____ remarks at the ceremony were surprisingly eloquent.","rehearsed","scripted","prepared"],
+["The best debaters can deliver _____ arguments with confidence.","memorized","practiced","prewritten"]
+],
+"fledgling":[
+["The _____ company struggled to compete against industry giants.","established","dominant","veteran"],
+["As a _____ pilot, she logged extra hours in the simulator.","experienced","seasoned","expert"]
+],
+"abstinence":[
+["The monk practiced _____ from all worldly pleasures.","indulgence","excess","consumption"],
+["Her _____ from social media lasted an entire month.","obsession","addiction","immersion"]
+],
+"spontaneity":[
+["The trip lacked _____, with every minute planned in advance.","rigidity","structure","routine"],
+["He valued _____ and often made plans at the last minute.","predictability","caution","discipline"]
+],
+"unfounded":[
+["The accusations against him proved to be completely _____.","substantiated","verified","confirmed"],
+["Her fears about the procedure turned out to be _____.","justified","warranted","legitimate"]
+],
+"abandon":[
+["The hikers had to _____ their campsite when the wildfire swept through the valley.","perpetuate","consolidate","garner"],
+["After years of neglect, the city decided to _____ the crumbling bridge entirely.","enhance","commemorate","ratify"]
+],
+"aberrant":[
+["The scientist flagged the _____ data point that deviated sharply from the expected pattern.","predominant","pristine","rudimentary"],
+["His _____ conduct at the formal dinner shocked everyone who knew him as polite.","laudable","steadfast","pertinent"]
+],
+"abeyance":[
+["The project was held in _____ while the company awaited regulatory approval.","carnage","levity","discord"],
+["Negotiations fell into _____ after both sides refused to compromise on key terms.","aplomb","grandeur","scrutiny"]
+],
+"ablution":[
+["The monks performed their morning _____ in the cold stream behind the monastery.","axiom","schism","stigma"],
+["Before entering the sacred temple, worshippers were required to complete a ritual _____.","embargo","moratorium","pact"]
+],
+"abnegate":[
+["The ascetic chose to _____ all worldly pleasures in pursuit of spiritual enlightenment.","brandish","garner","exploit"],
+["She decided to _____ her claim to the inheritance out of principle.","kindle","amass","flaunt"]
+],
+"abominable":[
+["The _____ conditions in the factory led inspectors to shut it down immediately.","feasible","bucolic","laudable"],
+["Critics called the dictator's treatment of prisoners utterly _____.","prudent","exemplary","idyllic"]
+],
+"aboriginal":[
+["The museum's exhibit showcased the _____ peoples who inhabited the region for millennia.","itinerant","mercenary","peripheral"],
+["Scientists studied the _____ flora and fauna that existed long before settlers arrived.","contrived","superficial","provincial"]
+],
+"abortive":[
+["The rebels' _____ attempt to seize the capital ended in their swift capture.","momentous","pivotal","illustrious"],
+["After several _____ negotiations, the two countries abandoned the peace talks.","robust","viable","potent"]
+],
+"abrasive":[
+["Her _____ manner of criticizing colleagues made the office environment tense.","affable","amiable","bucolic"],
+["The manager's _____ tone during meetings alienated even his most loyal supporters.","diplomatic","genial","serene"]
+],
+"abreast":[
+["Doctors must stay _____ of the latest medical research to treat patients effectively.","devoid","bereft","exempt"],
+["She reads industry journals daily to keep _____ of emerging technology trends.","aloof","oblivious","negligible"]
+],
+"abscission":[
+["The _____ of leaves from the oak tree signaled the arrival of autumn.","genesis","apex","hubris"],
+["Botanists studied the natural _____ of fruit from the branch once it reached full ripeness.","accretion","amalgamation","confluence"]
+],
+"absolve":[
+["The jury's verdict served to _____ the defendant of all criminal charges.","incriminate","arraign","impeach"],
+["Only a full investigation could _____ the officer of the accusations against him.","impugn","malign","infringe"]
+],
+"abundance":[
+["The fertile valley produced an _____ of crops that fed the entire region.","impasse","ailment","exodus"],
+["Tourists flock to the reef to witness the _____ of marine life thriving there.","scarcity","moratorium","plight"]
+],
+"abut":[
+["The new shopping center will _____ the residential neighborhood along its eastern boundary.","transcend","surpass","deplete"],
+["Their property lines _____ each other, separated only by a narrow fence.","polarize","fluctuate","cascade"]
+],
+"abysmal":[
+["The team's _____ performance this season has led to calls for a new coach.","preeminent","illustrious","laudable"],
+["Living conditions in the overcrowded shelter were nothing short of _____.","pristine","optimal","idyllic"]
+],
+"acclimate":[
+["New employees need several weeks to _____ to the company's fast-paced work culture.","squander","thwart","vanquish"],
+["Mountaineers must _____ to the thin air before attempting the summit.","relinquish","supplant","brandish"]
+],
+"acclivity":[
+["The runners struggled up the steep _____ during the final mile of the race.","chasm","alcove","moratorium"],
+["Hikers rested at the base of the _____ before beginning the difficult ascent.","bulwark","impasse","schism"]
+],
+"accomplice":[
+["Police arrested the burglar's _____, who had served as the getaway driver.","philanthropist","protagonist","connoisseur"],
+["The court found her guilty as an _____ in the elaborate fraud scheme.","benefactor","recluse","zealot"]
+],
+"accrete":[
+["Over centuries, layers of sediment _____ along the riverbed to form new land.","erode","deplete","diminish"],
+["Power and influence gradually _____ to those who remain longest in the organization.","dissipate","squander","relinquish"]
+],
+"accrue":[
+["Interest will _____ on the savings account at a rate of three percent annually.","deplete","diminish","squander"],
+["Benefits that _____ from regular exercise include improved mood and better sleep.","erode","terminate","detract"]
+],
+"acerbity":[
+["The _____ of the critic's review left the young playwright devastated.","levity","bliss","aplomb"],
+["She delivered her objections with such _____ that no one dared to respond.","nostalgia","humility","grandeur"]
+],
+"acidulous":[
+["The wine had a pleasantly _____ taste that paired well with the rich cheese.","ponderous","somber","listless"],
+["Her _____ wit made audiences laugh even as it stung its targets.","bucolic","solemn","devout"]
+],
+"acoustics":[
+["The concert hall was redesigned to improve its _____ for orchestral performances.","aesthetics","acrimony","affluence"],
+["Poor _____ in the lecture room made it difficult for students in back rows to hear.","amenities","rhetoric","sentiment"]
+],
+"acquisitive":[
+["The _____ collector bought every rare painting that appeared at auction.","altruistic","frugal","indifferent"],
+["His _____ nature drove him to amass a fortune in real estate and art.","philanthropic","ascetic","listless"]
+],
+"acquittal":[
+["The _____ came after the defense attorney demonstrated a clear lack of evidence.","verdict","embargo","moratorium"],
+["Public outrage followed the controversial _____ of the corporate executive.","conviction","ultimatum","sanction"]
+],
+"acrimonious":[
+["The _____ divorce proceedings dragged on for over two years.","amicable","cordial","idyllic"],
+["What began as a policy disagreement turned into an _____ public feud.","harmonious","bucolic","affable"]
+],
+"actuarial":[
+["The insurance company relied on _____ tables to calculate premium rates.","rhetorical","aesthetic","bucolic"],
+["Her _____ analysis revealed that the pension fund was severely underfunded.","superficial","trivial","cursory"]
+],
+"actuary":[
+["The _____ calculated that the company's risk exposure had doubled in five years.","charlatan","protagonist","philanthropist"],
+["Before launching the new policy, the firm hired an _____ to assess potential claims.","zealot","recluse","bigot"]
+],
+"addendum":[
+["The author included an _____ at the back of the book with updated statistics.","excerpt","axiom","allegory"],
+["Lawyers attached an _____ to the contract clarifying the delivery timeline.","anecdote","cliché","anthem"]
+],
+"adherent":[
+["She was a devoted _____ of the philosophy that education transforms communities.","detractor","antagonist","skeptic"],
+["Each _____ of the movement pledged to uphold its core principles.","opponent","recluse","charlatan"]
+],
+"adjunct":[
+["The swimming pool was a welcome _____ to the hotel's existing fitness center.","prerequisite","criterion","mandate"],
+["He served as an _____ professor while pursuing his doctoral research.","predominant","cardinal","pivotal"]
+],
+"admonition":[
+["The teacher's stern _____ about plagiarism made every student think twice.","acclaim","accolade","adulation"],
+["Despite his mother's _____, the boy continued to play near the busy road.","commendation","benediction","levity"]
+],
+"adventitious":[
+["The _____ discovery of penicillin revolutionized the field of modern medicine.","deliberate","premeditated","obligatory"],
+["Botanists noted the _____ roots growing from the plant's stem rather than its base.","intrinsic","innate","inherent"]
+],
+"aegis":[
+["The research project was conducted under the _____ of the National Science Foundation.","stigma","schism","anarchy"],
+["Refugees found safety under the _____ of the international relief organization.","tyranny","turmoil","malaise"]
+],
+"affluence":[
+["The neighborhood's visible _____ was evident in its manicured lawns and luxury cars.","plight","turmoil","malaise"],
+["Despite the country's growing _____, poverty persisted in rural communities.","scarcity","lethargy","anarchy"]
+],
+"ailment":[
+["The doctor diagnosed the patient's chronic _____ as a mild thyroid condition.","antidote","remedy","vigor"],
+["Many common _____s can be treated effectively with rest and proper nutrition.","faculties","aptitudes","endowments"]
+],
+"albeit":[
+["The proposal was accepted, _____ with some significant modifications.","notwithstanding","henceforth","moreover"],
+["She agreed to attend the meeting, _____ reluctantly and only for a brief time.","consequently","furthermore","henceforth"]
+],
+"alcove":[
+["She found a quiet _____ in the library where she could study without distraction.","barrage","cascade","bastion"],
+["The restaurant featured a private _____ with soft lighting for intimate dinners.","bulwark","chasm","apex"]
+],
+"allude":[
+["The professor would often _____ to classical mythology in her literature lectures.","assert","decree","stipulate"],
+["He did not name anyone directly but seemed to _____ to his rival's failures.","proclaim","denounce","brandish"]
+],
+"amass":[
+["The investor managed to _____ a considerable fortune through shrewd stock trades.","squander","relinquish","deplete"],
+["Over decades, the museum was able to _____ one of the finest art collections.","divest","diminish","disperse"]
+],
+"ambient":[
+["The _____ lighting in the restaurant created a warm and inviting atmosphere.","glaring","blatant","conspicuous"],
+["Researchers measured the _____ temperature of the forest floor throughout the season.","intrinsic","cardinal","pivotal"]
+],
+"amnesty":[
+["The government declared a general _____ for all political prisoners held during the regime.","sanction","ultimatum","verdict"],
+["Under the tax _____ program, citizens could report unpaid taxes without facing penalties.","indictment","reprimand","arraignment"]
+],
+"amoral":[
+["The philosopher argued that nature is fundamentally _____, operating without ethical concern.","pious","devout","conscientious"],
+["Critics described the corporation's _____ pursuit of profit as deeply troubling.","altruistic","principled","scrupulous"]
+],
+"ample":[
+["The grant provided _____ funding for the research team to complete their three-year study.","scant","negligible","meager"],
+["There was _____ evidence to support the prosecution's case against the defendant.","insufficient","trivial","sparse"]
+],
+"anachronism":[
+["The rotary phone on the executive's desk seemed like an _____ in the modern office.","innovation","novelty","paradigm"],
+["Historians noted that the film's use of a wristwatch in medieval scenes was an obvious _____.","genesis","precedent","axiom"]
+],
+"anarchy":[
+["After the sudden collapse of the government, the country descended into complete _____.","bureaucracy","accord","harmony"],
+["Without any leadership, the organization fell into a state of _____ and confusion.","hierarchy","decorum","protocol"]
+],
+"ancillary":[
+["The hospital hired _____ staff to handle administrative tasks so nurses could focus on care.","cardinal","pivotal","predominant"],
+["Parking revenue was merely an _____ benefit of the city's downtown revitalization plan.","cardinal","intrinsic","paramount"]
+],
+"annihilate":[
+["The volcanic eruption threatened to _____ every village within a twenty-mile radius.","perpetuate","commemorate","replenish"],
+["The champion boxer managed to _____ his opponent in just two rounds.","console","reconcile","commend"]
+],
+"annotate":[
+["Students were asked to _____ the primary source document with their own analysis.","redact","abridge","recant"],
+["The editor carefully _____d the manuscript with suggestions for improving clarity.","expunged","abridged","censored"]
+],
+"annuity":[
+["After retirement, she relied on a fixed _____ to cover her monthly living expenses.","embargo","moratorium","stipulation"],
+["The financial advisor recommended purchasing an _____ to guarantee income in old age.","dividend","exemption","indemnity"]
+],
+"anoint":[
+["The bishop prepared to _____ the new king with sacred oil during the coronation.","impeach","arraign","depose"],
+["Party leaders quietly _____ed their preferred candidate well before the official vote.","thwarted","rebuked","ostracized"]
+],
+"anthem":[
+["The crowd rose to their feet as the national _____ echoed through the stadium.","elegy","tirade","epitaph"],
+["The protest song became an _____ for the civil rights movement across the country.","anecdote","allegory","axiom"]
+],
+"antidote":[
+["Doctors administered the _____ within minutes of the patient being bitten by the snake.","ailment","malaise","symptom"],
+["Many believe that humor is the best _____ to the stress of modern life.","catalyst","harbinger","precursor"]
+],
+"antiquity":[
+["The museum's collection of artifacts from _____ included pottery dating back three thousand years.","novelty","modernity","futurity"],
+["Scholars of _____ have long debated the true cause of the Roman Empire's decline.","innovation","posterity","adolescence"]
+],
+"apex":[
+["The climbers finally reached the _____ of the mountain after a grueling six-day ascent.","nadir","chasm","abyss"],
+["Many historians consider that period the _____ of the civilization's cultural achievement.","decline","genesis","prelude"]
+],
+"aplomb":[
+["Despite the unexpected question, the candidate answered with remarkable _____ and confidence.","chagrin","turmoil","trepidation"],
+["She handled the crisis with such _____ that no one suspected how nervous she truly was.","lethargy","malaise","hubris"]
+],
+"apparition":[
+["The pale _____ that appeared in the hallway sent the children screaming from the room.","bastion","bulwark","alcove"],
+["Villagers claimed to have seen a ghostly _____ drifting through the cemetery at midnight.","axiom","precept","criterion"]
+],
+"appellation":[
+["The region earned the _____ 'Silicon Valley' because of its concentration of tech companies.","anomaly","antidote","addendum"],
+["He disliked the _____ 'prodigy' and preferred to be recognized simply for hard work.","stigma","mandate","embargo"]
+],
+"apposite":[
+["The lawyer's _____ quotation from the statute strengthened her closing argument considerably.","irrelevant","tangential","trivial"],
+["His _____ remark about the budget cut made the board reconsider its decision.","superficial","inconclusive","frivolous"]
+],
+"appreciable":[
+["There was no _____ difference in test scores between the two teaching methods.","negligible","trivial","superficial"],
+["The new policy produced an _____ improvement in employee satisfaction within six months.","imperceptible","infinitesimal","nominal"]
+],
+"apprehensive":[
+["She felt _____ about starting at the new school where she knew no one.","nonchalant","cavalier","complacent"],
+["Investors grew increasingly _____ as the stock market continued its downward spiral.","exuberant","buoyant","complacent"]
+],
+"apropos":[
+["Her comment about teamwork was especially _____ given the department's recent collaboration struggles.","irrelevant","tangential","inconsequential"],
+["The historian's _____ comparison to a similar past crisis enlightened the entire audience.","frivolous","trivial","superficial"]
+],
+"aptitude":[
+["The young musician showed a remarkable _____ for composing melodies even as a child.","aversion","antipathy","impediment"],
+["Her natural _____ for mathematics led her to pursue a career in engineering.","deficiency","lethargy","antipathy"]
+],
+"arbitrate":[
+["The neutral diplomat was invited to _____ the territorial dispute between the two nations.","exacerbate","foment","incite"],
+["A retired judge agreed to _____ the contract disagreement outside of court.","instigate","provoke","inflame"]
+],
+"ardent":[
+["She was an _____ supporter of environmental conservation and volunteered every weekend.","apathetic","indifferent","complacent"],
+["His _____ devotion to the cause inspired many others to join the movement.","halfhearted","lukewarm","listless"]
+],
+"aria":[
+["The soprano's breathtaking _____ brought the entire audience to tears during the second act.","tirade","harangue","barrage"],
+["He practiced the difficult _____ for months before performing it at the opera house.","anthem","elegy","dirge"]
+],
+"aristocracy":[
+["The French Revolution was fueled by the common people's resentment toward the ruling _____.","anarchy","bureaucracy","democracy"],
+["Members of the _____ lived in sprawling estates while peasants struggled to survive.","proletariat","constituency","militia"]
+],
+"armistice":[
+["The signing of the _____ brought an end to four years of devastating warfare.","embargo","sanction","ultimatum"],
+["Both sides agreed to an _____ so that humanitarian aid could reach the civilians.","schism","carnage","moratorium"]
+],
+"arraign":[
+["The judge will _____ the suspect in court tomorrow morning to hear the formal charges.","absolve","acquit","exonerate"],
+["Prosecutors moved quickly to _____ the executives on charges of securities fraud.","commend","vindicate","pardon"]
+],
+"artifice":[
+["The con artist relied on elaborate _____ to swindle unsuspecting victims out of their savings.","candor","sincerity","integrity"],
+["Behind her friendly smile lay layers of _____ designed to manipulate those around her.","humility","forthright","probity"]
+],
+"ascendancy":[
+["The empire's _____ over the region lasted for nearly three centuries.","decline","demise","subordination"],
+["Her rapid _____ in the corporate world surprised even her most supportive mentors.","downfall","stagnation","lethargy"]
+],
+"assent":[
+["The board members nodded in _____ after the chairman presented the new strategic plan.","dissent","objection","discord"],
+["Without the governor's _____, the proposed legislation could not become law.","veto","rebuff","repudiation"]
+],
+"assert":[
+["The witness continued to _____ her innocence despite the mounting evidence against her.","recant","retract","renounce"],
+["Scientists _____ that climate change is the most pressing threat of this century.","gainsay","refute","abjure"]
+],
+"astringent":[
+["The professor's _____ critique of the thesis left the doctoral student shaken.","affable","genial","amiable"],
+["Her _____ editorial about the mayor's failures provoked a fierce public response.","blithe","buoyant","complacent"]
+],
+"autocrat":[
+["The _____ ruled the nation with an iron fist, tolerating no opposition whatsoever.","philanthropist","diplomat","democrat"],
+["Citizens feared the _____ would abolish the remaining democratic institutions.","mediator","benefactor","adherent"]
+],
+"avid":[
+["She was an _____ reader who finished at least three novels every week.","reluctant","apathetic","indifferent"],
+["The _____ birdwatcher rose before dawn each morning to observe rare species.","listless","complacent","halfhearted"]
+],
+"avow":[
+["He chose to publicly _____ his commitment to reforming the criminal justice system.","conceal","recant","renounce"],
+["The senator _____ed her support for the bill on the floor of the chamber.","retracted","abjured","repudiated"]
+],
+"axiom":[
+["In mathematics, the statement that equals added to equals produce equals is a fundamental _____.","fallacy","conjecture","paradox"],
+["The coach lived by the _____ that consistent practice leads to lasting improvement.","anomaly","aberration","whim"]
+],
+"baffle":[
+["The encryption method continued to _____ even the most experienced code breakers.","enlighten","edify","elucidate"],
+["The sudden disappearance of the artifacts _____d investigators for over a decade.","elucidated","substantiated","corroborated"]
+],
+"banality":[
+["The speech's _____ disappointed an audience expecting fresh and original ideas.","eloquence","grandeur","profundity"],
+["Critics condemned the novel for its _____, calling it a collection of tired clichés.","brilliance","novelty","ingenuity"]
+],
+"barrage":[
+["The press secretary faced a _____ of questions about the administration's sudden policy reversal.","dearth","scarcity","paucity"],
+["A _____ of complaints from angry customers forced the company to issue a recall.","trickle","respite","lull"]
+],
+"barren":[
+["Years of drought had left the once-fertile farmland completely _____ and unproductive.","lush","abundant","fecund"],
+["The explorers crossed miles of _____ desert before finally reaching the oasis.","verdant","bountiful","prolific"]
+],
+"bastion":[
+["The university has long been regarded as a _____ of free speech and academic inquiry.","bane","impediment","detriment"],
+["The ancient fortress served as the last _____ against the invading army.","vulnerability","liability","deficiency"]
+],
+"befuddle":[
+["The contradictory directions on the form managed to _____ even the most careful applicants.","enlighten","clarify","edify"],
+["Too many cocktails at the reception had clearly _____d the keynote speaker.","sobered","elucidated","composed"]
+],
+"begrudge":[
+["She did not _____ her colleague the promotion, knowing it was well deserved.","bestow","commend","acclaim"],
+["Some voters _____ the tax breaks given to large corporations while small businesses struggle.","applaud","sanction","endorse"]
+],
+"beleaguer":[
+["Constant lawsuits continued to _____ the company throughout its difficult first year.","bolster","buttress","fortify"],
+["Protesters _____ed the mayor with daily demonstrations outside city hall.","commended","applauded","vindicated"]
+],
+"bellicose":[
+["The general's _____ rhetoric raised fears of an imminent military confrontation.","pacifist","conciliatory","amicable"],
+["His _____ attitude at the negotiating table made a peaceful resolution nearly impossible.","affable","diplomatic","cordial"]
+],
+"bemoan":[
+["Residents gathered at the town hall to _____ the closure of the local hospital.","celebrate","acclaim","tout"],
+["Critics _____ the decline of investigative journalism in the digital age.","commend","applaud","laud"]
+],
+"benefactor":[
+["The anonymous _____ donated five million dollars to build the new children's hospital.","debtor","antagonist","detractor"],
+["Without a generous _____, the small theater company would have been forced to close.","adversary","plaintiff","bigot"]
+],
+"bestow":[
+["The queen prepared to _____ the medal of honor upon the decorated war hero.","confiscate","revoke","rescind"],
+["The university decided to _____ an honorary degree on the distinguished civil rights leader.","withhold","retract","divest"]
+],
+"betoken":[
+["Dark clouds on the horizon _____ an approaching storm that could last for days.","obscure","gainsay","refute"],
+["The sudden drop in consumer spending may _____ a broader economic downturn.","nullify","preclude","invalidate"]
+],
+"bigot":[
+["The _____ refused to associate with anyone who held different religious beliefs.","philanthropist","mediator","altruist"],
+["She denounced the politician as a _____ for his discriminatory remarks about immigrants.","diplomat","benefactor","advocate"]
+],
+"blatant":[
+["The politician's _____ lie was immediately contradicted by the publicly available records.","subtle","imperceptible","covert"],
+["His _____ disregard for the safety regulations put the entire workforce at risk.","discreet","prudent","inconspicuous"]
+],
+"bliss":[
+["The couple described their honeymoon on the tropical island as a week of pure _____.","turmoil","chagrin","malaise"],
+["Ignorance is _____, or so the old saying goes, but knowledge is power.","anguish","remorse","strife"]
+],
+"blithe":[
+["His _____ disregard for the deadline infuriated his project manager.","somber","solemn","apprehensive"],
+["She danced through life with a _____ cheerfulness that others found both charming and naive.","grave","austere","melancholy"]
+],
+"brandish":[
+["The protester began to _____ a flag above his head as the crowd cheered.","conceal","stifle","repress"],
+["The villain _____ed a sword, threatening anyone who dared to approach the castle gate.","sheathed","concealed","relinquished"]
+],
+"brevity":[
+["The professor valued _____ and penalized essays that padded their arguments with filler.","verbosity","prolixity","redundancy"],
+["The _____ of the CEO's resignation letter surprised everyone who expected a lengthy explanation.","grandeur","abundance","profundity"]
+],
+"broach":[
+["She was nervous about how to _____ the subject of a salary raise with her boss.","suppress","evade","circumvent"],
+["The diplomat carefully _____ed the sensitive topic of border disputes at the summit.","avoided","skirted","concealed"]
+],
+"bucolic":[
+["The painter captured the _____ beauty of rolling green hills and grazing sheep.","urban","tumultuous","sordid"],
+["They retired to a _____ village far from the noise and stress of city life.","industrial","chaotic","turbulent"]
+],
+"bulwark":[
+["A strong judiciary serves as a _____ against the abuse of governmental power.","liability","impediment","detriment"],
+["The seawall acted as a _____ protecting the coastal town from devastating storm surges.","vulnerability","deficiency","hazard"]
+],
+"bungle":[
+["The inexperienced surgeon managed to _____ what should have been a routine procedure.","execute","expedite","accomplish"],
+["If the movers _____ the delivery again, we will hire a different company.","orchestrate","streamline","facilitate"]
+],
+"buoyant":[
+["Despite the setbacks, her _____ personality kept the entire team motivated and positive.","somber","listless","morose"],
+["The _____ economy gave investors confidence to put more money into the stock market.","stagnant","sluggish","turbulent"]
+],
+"bureaucracy":[
+["Navigating the government's _____ to get a simple permit took several frustrating months.","anarchy","autonomy","transparency"],
+["The hospital's excessive _____ delayed the approval of urgently needed medical treatments.","efficiency","simplicity","clarity"]
+],
+"cabal":[
+["A secretive _____ within the government plotted to overthrow the newly elected president.","coalition","constituency","assembly"],
+["Historians discovered that a _____ of merchants had conspired to fix grain prices.","tribunal","quorum","caucus"]
+],
+"candid":[
+["The journalist appreciated the senator's _____ response to the difficult question about policy failures.","evasive","guarded","cryptic"],
+["In her _____ memoir, the actress revealed struggles she had hidden from the public for years.","contrived","inscrutable","reticent"]
+],
+"cantankerous":[
+["The _____ old man shouted at every child who dared to step on his lawn.","affable","amiable","genial"],
+["Dealing with the _____ committee chairman required extraordinary patience and diplomacy.","accommodating","congenial","gracious"]
+],
+"cardinal":[
+["Honesty is a _____ virtue that forms the foundation of any trustworthy relationship.","trivial","negligible","ancillary"],
+["The detective identified the _____ mistake in the suspect's alibi that unraveled the case.","minor","peripheral","inconsequential"]
+],
+"carnage":[
+["The battlefield was a scene of unspeakable _____ after the two armies clashed at dawn.","tranquility","accord","harmony"],
+["First responders were unprepared for the _____ they encountered at the site of the explosion.","serenity","bliss","composure"]
+],
+"cascade":[
+["A _____ of water tumbled over the rocky cliff into the crystal-clear pool below.","trickle","dearth","scarcity"],
+["The initial software error triggered a _____ of failures across the entire network.","lull","respite","moratorium"]
+],
+"castigate":[
+["The editorial _____d the governor for ignoring the worsening education crisis in rural districts.","commended","lauded","acclaimed"],
+["Parents who publicly _____ their children risk damaging the child's self-esteem.","commend","acclaim","extol"]
+],
+"catharsis":[
+["Writing in her journal every evening provided a much-needed emotional _____ after stressful days.","suppression","inhibition","restraint"],
+["The audience experienced a collective _____ during the play's powerful and tragic final scene.","lethargy","apathy","stagnation"]
+],
+"cavalier":[
+["His _____ attitude toward workplace safety regulations put his entire crew at risk.","meticulous","conscientious","prudent"],
+["She was offended by his _____ dismissal of her carefully researched proposal.","respectful","solemn","deferential"]
+],
+"cede":[
+["The defeated nation was forced to _____ its northern territories under the terms of the treaty.","annex","acquire","amass"],
+["Rather than fight a losing battle, the company chose to _____ market share to its rival.","garner","consolidate","monopolize"]
+],
+"celerity":[
+["The emergency team responded with impressive _____, arriving at the scene within minutes.","lethargy","hesitation","sluggishness"],
+["The _____ with which the legislation was passed surprised even its strongest supporters.","delay","reluctance","stagnation"]
+],
+"chaff":[
+["The farmer separated the wheat from the _____ using a traditional winnowing technique.","bounty","abundance","harvest"],
+["An editor's job is to sift through the _____ and find the material worth publishing.","essence","substance","crux"]
+],
+"chagrin":[
+["Much to her _____, she realized she had called the client by the wrong name.","delight","aplomb","bliss"],
+["He could not hide his _____ when the promotion went to his less experienced colleague.","exuberance","composure","elation"]
+],
+"charisma":[
+["The candidate's natural _____ drew enormous crowds to every campaign rally.","apathy","lethargy","timidity"],
+["Her _____ and warmth made everyone in the room feel immediately welcome.","aloofness","reticence","malaise"]
+],
+"charlatan":[
+["The self-proclaimed healer was exposed as a _____ who had no medical training at all.","connoisseur","benefactor","luminary"],
+["Investors lost millions after trusting a _____ who fabricated his financial credentials.","philanthropist","protagonist","virtuoso"]
+],
+"chasm":[
+["A deep _____ separated the two cliffs, making passage without a bridge impossible.","alcove","apex","acclivity"],
+["The ideological _____ between the two political parties continued to widen with each election.","accord","affinity","rapport"]
+],
+"chicanery":[
+["The audit uncovered years of financial _____ that had cost shareholders millions of dollars.","integrity","probity","transparency"],
+["Voters were disgusted by the political _____ used to suppress turnout in key districts.","candor","forthrightness","sincerity"]
+],
+"chronic":[
+["The patient suffered from _____ back pain that no treatment had been able to resolve.","acute","fleeting","sporadic"],
+["The city's _____ traffic congestion has worsened steadily over the past decade.","intermittent","sporadic","transient"]
+],
+"circumscribe":[
+["The new regulations _____ the authority of local officials in matters of land development.","expand","augment","amplify"],
+["Cultural norms often _____ the roles available to women in traditional societies.","broaden","bolster","liberate"]
+],
+"cliché":[
+["The graduation speech was full of every _____ imaginable, from 'follow your dreams' to 'the sky's the limit.'","novelty","innovation","epiphany"],
+["Calling the city 'a melting pot' has become such a _____ that it no longer carries much meaning.","axiom","revelation","profundity"]
+],
+"codify":[
+["The committee's goal was to _____ the unwritten customs into a formal set of bylaws.","abrogate","repeal","nullify"],
+["Parliament voted to _____ the existing trade practices into binding legislation.","rescind","revoke","abolish"]
+],
+"commemorate":[
+["The community gathered to _____ the anniversary of the town's founding with a parade.","forget","neglect","disregard"],
+["A bronze statue was erected to _____ the soldiers who gave their lives in the war.","desecrate","disparage","demolish"]
+],
+"commend":[
+["The principal took time to _____ the students for their outstanding volunteer work.","castigate","admonish","chastise"],
+["Supervisors should regularly _____ employees who exceed expectations to boost morale.","reprimand","rebuke","berate"]
+],
+"commodity":[
+["In many developing nations, clean water has become a precious and scarce _____.","luxury","ideology","abstraction"],
+["Oil remains the most heavily traded _____ on the global market.","doctrine","sentiment","conjecture"]
+],
+"communal":[
+["The apartment building featured a _____ garden where all residents could grow vegetables.","solitary","private","exclusive"],
+["In the village, meals were a _____ affair with everyone contributing a dish.","individual","secluded","hermetic"]
+],
+"compile":[
+["Researchers spent three years working to _____ the data into a comprehensive database.","disperse","dismantle","squander"],
+["The editor asked her team to _____ all the relevant articles into a single anthology.","scatter","fragment","dissolve"]
+],
+"complacent":[
+["The team grew _____ after winning five games in a row and then lost badly.","vigilant","apprehensive","diligent"],
+["Critics warned that citizens who become _____ about democracy risk losing their freedoms.","astute","ardent","zealous"]
+],
+"comply":[
+["All restaurants must _____ with the health department's sanitation requirements.","defy","flout","contravene"],
+["The company was fined because it failed to _____ with the new environmental regulations.","resist","subvert","circumvent"]
+],
+"comprise":[
+["The anthology _____s essays, poems, and short stories from authors around the world.","excludes","omits","diminishes"],
+["Twelve distinct departments _____ the university's college of arts and sciences.","fragment","deplete","dissolve"]
+],
+"concerted":[
+["It took a _____ effort from the entire community to rebuild after the hurricane.","halfhearted","sporadic","solitary"],
+["Through _____ action, the coalition managed to secure enough votes to pass the measure.","haphazard","unilateral","listless"]
+],
+"concurrent":[
+["The two _____ investigations into the scandal were conducted by separate federal agencies.","sequential","successive","subsequent"],
+["She managed three _____ projects without letting any of them fall behind schedule.","sporadic","intermittent","alternating"]
+],
+"confiscate":[
+["Airport security will _____ any prohibited items found in carry-on luggage.","bestow","restore","reimburse"],
+["The court ordered officials to _____ the smuggler's assets, including two luxury yachts.","return","relinquish","endow"]
+],
+"connoisseur":[
+["As a _____ of fine wine, she could identify the region and vintage with a single sip.","novice","charlatan","philistine"],
+["The art _____ immediately recognized the painting as an authentic seventeenth-century masterpiece.","dilettante","bigot","skeptic"]
+],
+"conscientious":[
+["The _____ student double-checked every answer before submitting the final examination.","careless","cavalier","negligent"],
+["Her _____ approach to laboratory safety earned her the respect of the entire research team.","flippant","haphazard","reckless"]
+],
+"console":[
+["Friends gathered to _____ the grieving family after the unexpected loss of their patriarch.","castigate","chastise","berate"],
+["Nothing the therapist said could _____ her after she learned she had not been selected.","provoke","aggravate","incense"]
+],
+"consolidate":[
+["The CEO planned to _____ the three regional offices into a single headquarters.","fragment","disperse","dismantle"],
+["After the acquisition, the company moved quickly to _____ its dominance in the market.","relinquish","divest","cede"]
+],
+"conspicuous":[
+["The bright red door made the otherwise plain building _____ from a great distance.","imperceptible","inconspicuous","obscure"],
+["His _____ absence from the ceremony did not go unnoticed by the other guests.","subtle","negligible","covert"]
+],
+"contrived":[
+["The plot twist felt _____ and forced, as though the writer had run out of ideas.","spontaneous","authentic","candid"],
+["Critics dismissed the film's happy ending as _____ and emotionally dishonest.","genuine","forthright","organic"]
+],
+"conversant":[
+["Any applicant must be _____ with data analysis software to be considered for the position.","unfamiliar","oblivious","naive"],
+["After years of study, she became fully _____ with the intricacies of contract law.","ignorant","detached","indifferent"]
+],
+"countenance":[
+["The judge's stern _____ revealed nothing about how she would rule on the case.","demeanor","rhetoric","discourse"],
+["His worried _____ betrayed the anxiety he was trying so hard to conceal.","composure","aplomb","artifice"]
+],
+"crass":[
+["His _____ joke about the layoffs offended nearly everyone in the conference room.","tactful","discreet","refined"],
+["The company's _____ exploitation of the tragedy for advertising purposes drew widespread condemnation.","prudent","judicious","diplomatic"]
+],
+"credence":[
+["The new archaeological evidence lent _____ to the theory that the settlement was much older.","doubt","skepticism","refutation"],
+["Few scientists gave _____ to the claim that the substance could cure all diseases.","disproof","rebuke","dissent"]
+],
+"criterion":[
+["The primary _____ for admission to the program was a minimum grade point average.","anomaly","addendum","anecdote"],
+["Safety was the most important _____ the engineers used when evaluating the bridge design.","aberration","digression","tangent"]
+],
+"cull":[
+["Editors had to _____ the best essays from more than three hundred submissions.","compile","amass","aggregate"],
+["The rancher was forced to _____ the weakest animals from the herd before winter.","replenish","augment","nurture"]
+],
+"culminate":[
+["Years of painstaking research _____ in a groundbreaking discovery that changed the field.","originate","commence","inaugurate"],
+["The festival will _____ in a spectacular fireworks display over the harbor.","commence","initiate","inaugurate"]
+],
+"cynical":[
+["After years of broken promises, voters had become deeply _____ about politicians' motives.","credulous","naive","gullible"],
+["His _____ view of human nature made it difficult for him to trust anyone.","idealistic","optimistic","sanguine"]
+],
+"decadence":[
+["Historians often cite moral _____ as one factor in the fall of the Roman Empire.","austerity","frugality","humility"],
+["The _____ of the royal court, with its lavish banquets and gold fixtures, shocked the peasants.","modesty","restraint","temperance"]
+],
+"decimate":[
+["The invasive beetle species threatened to _____ the region's ash tree population.","replenish","restore","bolster"],
+["The prolonged drought _____d the farmers' crops, leaving entire fields barren.","nurtured","cultivated","replenished"]
+],
+"decree":[
+["The king issued a _____ banning all public gatherings until the plague subsided.","petition","entreaty","supplication"],
+["By royal _____, all taxes were doubled to fund the construction of the new palace.","request","recommendation","suggestion"]
+],
+"deem":[
+["The committee _____ed the applicant's qualifications insufficient for the senior position.","ignored","overlooked","neglected"],
+["Experts _____ the new vaccine safe and effective after extensive clinical trials.","dispute","gainsay","impugn"]
+],
+"default":[
+["The borrower's _____ on the loan triggered a series of legal actions by the bank.","surplus","bounty","windfall"],
+["If the company is unable to make payments, it may be forced into _____ on its bonds.","compliance","fulfillment","accord"]
+],
+"deference":[
+["The young attorney showed appropriate _____ to the senior judge throughout the proceedings.","contempt","defiance","insolence"],
+["Out of _____ to her grandmother's wishes, she agreed to hold the ceremony at the old church.","disregard","hubris","irreverence"]
+],
+"deluge":[
+["The sudden _____ of rain turned the streets into rivers within a matter of minutes.","drought","trickle","dearth"],
+["After the scandal broke, the company's phone lines were swamped by a _____ of complaints.","scarcity","paucity","respite"]
+],
+"demeanor":[
+["The witness maintained a calm _____ despite the aggressive cross-examination by the lawyer.","tirade","harangue","diatribe"],
+["Her professional _____ during the crisis earned her the admiration of the entire staff.","artifice","chicanery","duplicity"]
+],
+"demise":[
+["The _____ of the once-thriving newspaper was caused by the rise of online media.","genesis","inception","emergence"],
+["After the founder's sudden _____, the company struggled to find a suitable successor.","ascendancy","resurgence","triumph"]
+],
+"demolish":[
+["City planners voted to _____ the condemned building and replace it with a public park.","erect","construct","fortify"],
+["The debater managed to _____ her opponent's argument with a single well-placed statistic.","bolster","corroborate","substantiate"]
+],
+"denote":[
+["In this diagram, the red arrows _____ the flow of information between departments.","obscure","conceal","obfuscate"],
+["The symbol on the map _____s the location of historical landmarks throughout the city.","disguises","masks","veils"]
+],
+"depict":[
+["The mural _____s scenes of daily life in the town during the early nineteen hundreds.","obscure","conceal","distort"],
+["The documentary _____s the harsh realities faced by migrant workers in the agricultural industry.","embellish","fabricate","exaggerate"]
+],
+"deplete":[
+["Overfishing threatens to _____ the ocean's fish stocks to dangerously low levels.","replenish","augment","bolster"],
+["Running the marathon in extreme heat can _____ the body's reserves of water and electrolytes.","restore","replenish","fortify"]
+],
+"depose":[
+["The military coup sought to _____ the president and install a new leader.","inaugurate","anoint","enthrone"],
+["Rebel forces finally managed to _____ the dictator after years of civil war.","enthrone","install","reinstate"]
+],
+"descry":[
+["From the mountaintop, she could barely _____ the village in the haze below.","overlook","disregard","ignore"],
+["The lookout managed to _____ the enemy ships through the fog just before they attacked.","obscure","conceal","mask"]
+],
+"detached":[
+["The scientist maintained a _____ perspective, refusing to let personal beliefs influence her research.","biased","partisan","ardent"],
+["His _____ manner during the emotional testimony struck many jurors as cold and uncaring.","passionate","fervent","vehement"]
+],
+"detract":[
+["The noisy construction next door will _____ from the enjoyment of the outdoor concert.","enhance","augment","bolster"],
+["Critics argued that the excessive special effects _____ from the film's powerful storyline.","complement","accentuate","elevate"]
+],
+"deviate":[
+["The pilot was forced to _____ from the planned flight path to avoid severe turbulence.","adhere","comply","conform"],
+["Employees who _____ from the standard procedure must file a written justification.","abide","persevere","conform"]
+],
+"devoid":[
+["The report was _____ of any concrete data, relying entirely on vague generalizations.","replete","abundant","brimming"],
+["Her speech was _____ of emotion, delivered in a flat monotone that bored the audience.","saturated","infused","imbued"]
+],
+"devout":[
+["The _____ congregation gathered every morning at dawn for prayers at the chapel.","irreverent","secular","apathetic"],
+["He was a _____ follower of the philosophy and read its texts every single day.","casual","indifferent","skeptical"]
+],
+"dexterous":[
+["The _____ surgeon performed the delicate operation with remarkable precision and speed.","clumsy","maladroit","bungling"],
+["Her _____ handling of the fragile antique pottery impressed the museum curator.","fumbling","awkward","ponderous"]
+],
+"dialectical":[
+["The professor employed a _____ method of teaching, challenging students through structured debate.","dogmatic","pedantic","monotonous"],
+["Hegel's _____ approach to philosophy examines how contradictions drive intellectual progress.","empirical","superficial","rudimentary"]
+],
+"digress":[
+["The lecturer had a tendency to _____ into lengthy personal anecdotes during class.","adhere","comply","persevere"],
+["If you _____ too far from the main argument, your essay will lose its coherence.","consolidate","compile","condense"]
+],
+"dilapidated":[
+["The _____ farmhouse had a sagging roof and broken windows that let in the winter wind.","pristine","immaculate","resplendent"],
+["City officials condemned the _____ building after engineers found severe structural damage.","robust","sturdy","fortified"]
+],
+"dilate":[
+["The eye doctor used drops to _____ the patient's pupils before the examination.","constrict","diminish","compress"],
+["When a speaker _____s on a topic, the audience may lose interest in the main point.","condenses","abridges","truncates"]
+],
+"diminish":[
+["Nothing could _____ her enthusiasm for the project, even after the funding was cut.","augment","bolster","enhance"],
+["The scandal served to _____ the senator's once-stellar reputation among constituents.","elevate","aggrandize","accentuate"]
+],
+"discourse":[
+["The professor's scholarly _____ on the origins of democracy lasted nearly two hours.","tirade","platitude","cliché"],
+["Healthy political _____ requires a willingness to listen to opposing viewpoints.","dogma","anarchy","turmoil"]
+],
+"discreet":[
+["The aide made a _____ phone call to warn the senator before the news became public.","blatant","conspicuous","overt"],
+["She was _____ about her charitable donations, never seeking public recognition.","flamboyant","ostentatious","brazen"]
+],
+"disenfranchise":[
+["The new voting restrictions threatened to _____ thousands of eligible citizens.","empower","endow","enact"],
+["Critics argued that the redistricting plan was designed to _____ minority communities.","enfranchise","liberate","ratify"]
+],
+"disinterested":[
+["A _____ mediator was brought in to resolve the dispute between the two business partners.","biased","partisan","vested"],
+["The judge's _____ evaluation of the evidence ensured a fair verdict for both sides.","prejudiced","invested","subjective"]
+],
+"dismantle":[
+["Workers were hired to _____ the old factory equipment before the building could be renovated.","assemble","erect","consolidate"],
+["The new administration promised to _____ the bureaucratic barriers that delayed business permits.","fortify","entrench","perpetuate"]
+],
+"dispassionate":[
+["The journalist provided a _____ account of the events, free from any editorial bias.","vehement","ardent","fervent"],
+["A _____ analysis of the data reveals that neither side is entirely correct.","biased","impassioned","partisan"]
+],
+"disposition":[
+["Her cheerful _____ made her a favorite among patients at the children's hospital.","artifice","pretense","facade"],
+["The dog's gentle _____ made it the perfect therapy animal for the nursing home.","hostility","malice","aggression"]
+],
+"disproportion":[
+["There is a striking _____ between the CEO's salary and what entry-level workers earn.","balance","equity","parity"],
+["The _____ between the resources allocated to urban and rural schools drew sharp criticism.","equivalence","symmetry","accord"]
+],
+"distill":[
+["The editor asked the writer to _____ the lengthy report into a concise two-page summary.","elaborate","amplify","embellish"],
+["Great teachers can _____ complex theories into ideas that any student can understand.","obfuscate","complicate","mystify"]
+],
+"diverse":[
+["The university prides itself on attracting a _____ student body from over sixty countries.","homogeneous","uniform","monolithic"],
+["A _____ portfolio of investments helps protect against sudden losses in any single sector.","monotonous","singular","redundant"]
+],
+"divest":[
+["Shareholders pressured the company to _____ itself of all fossil fuel holdings.","acquire","amass","accumulate"],
+["The university decided to _____ its endowment of stocks in the tobacco industry.","garner","accrue","consolidate"]
+],
+"dogma":[
+["Scientists are trained to question _____ and rely instead on evidence-based conclusions.","skepticism","inquiry","hypothesis"],
+["The political party's rigid _____ left no room for members who held moderate views.","ambiguity","flexibility","nuance"]
+],
+"domestic":[
+["The government imposed tariffs to protect _____ manufacturers from cheaper foreign competition.","foreign","itinerant","exotic"],
+["She preferred quiet _____ life to the hectic pace of international business travel.","nomadic","transient","turbulent"]
+],
+"edify":[
+["The museum exhibit was designed to _____ visitors about the history of space exploration.","befuddle","mislead","baffle"],
+["The professor's lectures never failed to _____ even students who initially found the topic dull.","confuse","delude","bore"]
+],
+"egalitarian":[
+["The organization's _____ principles ensured that every member had an equal vote on major decisions.","elitist","autocratic","hierarchical"],
+["She advocated for a more _____ society in which wealth and opportunity are shared fairly.","oligarchic","stratified","feudal"]
+],
+"elite":[
+["Only the _____ athletes were selected to represent their country at the international competition.","mediocre","lackluster","rudimentary"],
+["The scholarship program was designed to attract the academic _____ from high schools nationwide.","novices","amateurs","laggards"]
+],
+"emaciate":[
+["Months of severe illness had _____d the patient, leaving her frail and barely able to walk.","nourished","fortified","invigorated"],
+["The stray dog was so _____d that every rib was visible beneath its thin coat.","robust","vigorous","stout"]
+],
+"emanate":[
+["A warm glow seemed to _____ from the windows of the cozy cottage on the hill.","absorb","suppress","contain"],
+["Strange sounds _____d from the abandoned building, frightening the children who walked past.","ceased","abated","subsided"]
+],
+"embargo":[
+["The international _____ on arms sales to the region was intended to reduce the violence.","accord","alliance","treaty"],
+["Economists predicted that the trade _____ would severely damage the country's export industry.","amnesty","subsidy","bounty"]
+],
+"embody":[
+["The monument was built to _____ the nation's commitment to freedom and justice.","undermine","subvert","negate"],
+["She _____ies the qualities of a great leader: integrity, vision, and compassion.","lacks","repudiates","belies"]
+],
+"enact":[
+["Congress voted to _____ new legislation that would strengthen consumer protection laws.","repeal","rescind","abrogate"],
+["The city council plans to _____ an ordinance banning single-use plastic bags by next year.","revoke","nullify","abolish"]
+],
+"encompass":[
+["The national park's boundaries _____ over two million acres of protected wilderness.","exclude","omit","restrict"],
+["Her doctoral research _____es topics ranging from climate science to urban planning.","neglects","overlooks","narrows"]
+],
+"encroach":[
+["Developers continue to _____ upon wetland areas despite environmental protection orders.","retreat","withdraw","recede"],
+["The desert has begun to _____ on what was once productive agricultural land.","recede","diminish","abate"]
+],
+"endemic":[
+["Malaria is _____ to tropical regions, where warm climates allow mosquitoes to thrive.","foreign","exotic","alien"],
+["Corruption has become so _____ in the institution that reform efforts seem almost futile.","rare","sporadic","anomalous"]
+],
+"endow":[
+["The generous alumnus decided to _____ the university with funds for a new science building.","deplete","divest","deprive"],
+["Nature _____ed her with a powerful singing voice that captivated audiences worldwide.","stripped","deprived","denied"]
+],
+"enhance":[
+["The new lighting system will significantly _____ the safety of the pedestrian walkway.","diminish","impair","undermine"],
+["Adding fresh herbs can _____ the flavor of almost any simple dish.","detract","deplete","hamper"]
+],
+"entreat":[
+["She _____ed the judge to grant her client one final chance to present new evidence.","commanded","decreed","compelled"],
+["The refugees _____ed the border guards to allow them passage to safety.","demanded","mandated","coerced"]
+],
+"equitable":[
+["The mediator proposed an _____ division of the estate that satisfied both siblings.","biased","unjust","partisan"],
+["All employees deserve _____ access to training opportunities regardless of their position.","preferential","discriminatory","arbitrary"]
+],
+"erode":[
+["Years of scandal have begun to _____ the public's trust in elected officials.","bolster","fortify","reinforce"],
+["Coastal storms continue to _____ the cliffs, threatening homes built near the edge.","strengthen","restore","buttress"]
+],
+"estrange":[
+["His constant criticism eventually _____d him from his closest friends and family.","endeared","reconciled","united"],
+["The bitter argument over the inheritance threatened to _____ the two brothers permanently.","reconcile","unite","bond"]
+],
+"euphemism":[
+["Saying someone 'passed away' instead of 'died' is a common _____ used to soften the impact.","hyperbole","platitude","axiom"],
+["The company used the _____ 'rightsizing' to avoid the harsh connotation of 'mass layoffs.'","slander","invective","tirade"]
+],
+"exacting":[
+["The _____ standards of the watchmaker required every component to be measured to the micron.","lenient","lax","negligent"],
+["Her _____ attention to detail made her the ideal candidate for the quality assurance role.","careless","cavalier","haphazard"]
+],
+"excerpt":[
+["The teacher read a brief _____ from the novel to spark the students' interest.","tome","compendium","anthology"],
+["The magazine published an _____ from the senator's forthcoming memoir.","addendum","appendix","annotation"]
+],
+"exemplify":[
+["Her career achievements _____ what is possible with talent combined with relentless dedication.","contradict","undermine","belie"],
+["These case studies _____ the challenges that small businesses face during economic downturns.","obscure","distort","misrepresent"]
+],
+"exempt":[
+["Nonprofit organizations are typically _____ from paying federal income taxes.","obligated","liable","subject"],
+["Students who scored above ninety-five on the placement test were _____ from the introductory course.","required","compelled","bound"]
+],
+"exodus":[
+["The civil war triggered a massive _____ of refugees fleeing across the border.","influx","accumulation","abundance"],
+["The company's poor management led to an _____ of talented employees seeking better opportunities.","influx","retention","aggregation"]
+],
+"expedite":[
+["The manager hired additional staff to _____ the processing of the backlogged applications.","delay","impede","hamper"],
+["Paying an extra fee will _____ the delivery of your passport renewal.","hinder","thwart","obstruct"]
+],
+"explicit":[
+["The contract contained _____ instructions about what constituted a breach of the agreement.","vague","ambiguous","implicit"],
+["The teacher gave _____ directions for the experiment, leaving no room for misinterpretation.","cryptic","obscure","equivocal"]
+],
+"exploit":[
+["The corporation sought to _____ the natural resources of the region with little regard for the locals.","conserve","preserve","relinquish"],
+["Critics accused the lobbyist of trying to _____ the loophole for personal financial gain.","rectify","amend","reform"]
+],
+"exposition":[
+["The opening chapter served as an _____ of the novel's complex historical setting.","climax","denouement","epilogue"],
+["The professor's clear _____ of the theory made even the most difficult concepts accessible.","obfuscation","distortion","suppression"]
+],
+"exuberant":[
+["The _____ crowd erupted in cheers when the home team scored the winning goal.","somber","listless","subdued"],
+["Children ran through the park with _____ energy, laughing and shouting in delight.","lethargic","sluggish","morose"]
+],
+"facet":[
+["The committee examined every _____ of the proposal before making its final decision.","totality","summation","aggregate"],
+["Her research explored an overlooked _____ of the civil rights movement.","entirety","whole","totality"]
+],
+"facetious":[
+["His _____ comment about the budget crisis was poorly received by the anxious board members.","solemn","earnest","grave"],
+["She was being _____ when she suggested the company hold meetings on the beach.","sincere","somber","forthright"]
+],
+"fallacy":[
+["The argument that correlation proves causation is a well-known logical _____.","axiom","theorem","postulate"],
+["The debater quickly exposed the _____ in her opponent's reasoning about tax policy.","truth","precept","verity"]
+],
+"fallow":[
+["The farmer left several fields _____ this season to allow the soil to recover its nutrients.","cultivated","prolific","fertile"],
+["After a _____ period of creative stagnation, the artist returned with her most ambitious work yet.","prolific","productive","thriving"]
+],
+"fanatical":[
+["The dictator's _____ followers carried out his orders without hesitation or moral reflection.","apathetic","indifferent","dispassionate"],
+["Her _____ devotion to the cause sometimes alienated people who might otherwise have supported it.","lukewarm","moderate","detached"]
+],
+"fawn":[
+["The courtiers would _____ over the king, hoping to win his favor and patronage.","scorn","rebuff","defy"],
+["Job applicants who _____ over the interviewer often come across as insincere.","criticize","rebuke","castigate"]
+],
+"feasible":[
+["Engineers determined that building a tunnel under the river was technically _____.","impractical","untenable","futile"],
+["The committee reviewed the proposal to see whether the timeline was financially _____.","impossible","prohibitive","ludicrous"]
+],
+"feckless":[
+["The _____ manager failed to address the problems even as they spiraled out of control.","conscientious","diligent","resolute"],
+["Voters grew tired of the _____ politicians who made grand promises but achieved nothing.","competent","steadfast","industrious"]
+],
+"feign":[
+["He tried to _____ surprise when his colleagues presented him with the birthday cake.","display","manifest","exhibit"],
+["The spy learned to _____ loyalty to the regime while secretly passing information to allies.","demonstrate","avow","profess"]
+],
+"fester":[
+["If left unaddressed, workplace grievances can _____ and eventually poison team morale.","resolve","abate","dissipate"],
+["The untreated wound began to _____, forcing the hiker to seek emergency medical care.","heal","mend","recover"]
+],
+"fiscal":[
+["The government adopted a strict _____ policy to reduce the ballooning national debt.","aesthetic","dialectical","secular"],
+["The company's _____ year ends in March, when the annual financial report is published.","academic","liturgical","judicial"]
+],
+"flaunt":[
+["She liked to _____ her diamond necklace at every social gathering she attended.","conceal","downplay","suppress"],
+["The billionaire was known to _____ his wealth by driving a different luxury car each day.","understate","minimize","repress"]
+],
+"flippant":[
+["His _____ response to the safety concerns alarmed the factory's risk management team.","solemn","earnest","grave"],
+["Making _____ remarks during a serious disciplinary hearing is certain to make things worse.","reverent","deferential","somber"]
+],
+"fluctuate":[
+["Oil prices _____ daily depending on global supply and geopolitical events.","stabilize","stagnate","solidify"],
+["Her mood would _____ dramatically, swinging from elation to despair within hours.","persist","endure","stabilize"]
+],
+"foment":[
+["The agitator was arrested for trying to _____ unrest among the factory workers.","quell","suppress","pacify"],
+["Social media was used to _____ outrage over the government's handling of the crisis.","alleviate","mollify","placate"]
+],
+"formidable":[
+["The team faced a _____ opponent who had not lost a single match all season.","feeble","negligible","trivial"],
+["Climbing the north face of the mountain presents a _____ challenge even for expert alpinists.","effortless","negligible","rudimentary"]
+],
+"forthright":[
+["The CEO's _____ admission of the company's mistakes helped restore public trust.","evasive","inscrutable","equivocal"],
+["She was always _____ in her opinions, never hiding behind diplomatic vagueness.","reticent","cryptic","devious"]
+],
+"founder":[
+["Without additional funding, the ambitious space exploration project will likely _____.","thrive","flourish","prosper"],
+["The negotiations began to _____ when neither side would compromise on the key issue.","succeed","prosper","culminate"]
+],
+"frail":[
+["The _____ elderly woman needed assistance just to walk from her bed to the window.","robust","vigorous","sturdy"],
+["Years of illness had left him _____ and unable to perform even basic physical tasks.","resilient","hardy","stout"]
+],
+"futile":[
+["Attempts to negotiate a ceasefire proved _____ as both sides continued their attacks.","fruitful","productive","viable"],
+["He made one last _____ effort to change her mind before she boarded the plane.","successful","effective","potent"]
+],
+"gainsay":[
+["No one could _____ the evidence that the company had violated environmental regulations.","affirm","corroborate","substantiate"],
+["It is difficult to _____ the professor's conclusion when the data so clearly supports it.","endorse","ratify","confirm"]
+],
+"garner":[
+["The documentary managed to _____ widespread acclaim from both critics and general audiences.","forfeit","squander","relinquish"],
+["Her years of volunteer work helped her _____ the community support needed to win the election.","lose","dissipate","squander"]
+],
+"gauge":[
+["Pollsters struggled to _____ the public's true feelings about the controversial policy.","dictate","impose","decree"],
+["Teachers often use practice exams to _____ how well students have mastered the material.","stipulate","mandate","prescribe"]
+],
+"genesis":[
+["The _____ of the conflict can be traced back to a border dispute decades ago.","demise","culmination","conclusion"],
+["Historians studied the _____ of the industrial revolution and its earliest innovations.","termination","epilogue","aftermath"]
+],
+"germane":[
+["The judge ruled that the testimony was not _____ to the case and should be excluded.","irrelevant","tangential","extraneous"],
+["Only information _____ to the research question should be included in the literature review.","peripheral","superfluous","trivial"]
+],
+"gesticulate":[
+["The animated teacher would _____ wildly while explaining complex physics problems to her class.","stagnate","languish","abstain"],
+["Unable to speak the local language, the tourist had to _____ to communicate basic needs.","deliberate","procrastinate","ruminate"]
+],
+"glean":[
+["Detectives were able to _____ crucial details about the suspect from the surveillance footage.","overlook","suppress","obscure"],
+["Researchers _____ insights from thousands of patient records to identify patterns in the disease.","fabricate","contrive","discard"]
+],
+"glib":[
+["The salesman's _____ assurances failed to convince the skeptical customer of the product's quality.","earnest","thoughtful","sincere"],
+["Critics dismissed the politician's _____ answers as lacking any real substance or depth.","profound","substantive","candid"]
+],
+"grandeur":[
+["The _____ of the cathedral's towering spires left every visitor awestruck.","banality","mediocrity","squalor"],
+["Nothing could prepare tourists for the _____ of the Grand Canyon at sunrise.","monotony","plainness","triviality"]
+],
+"gullible":[
+["The scammer targeted _____ elderly individuals who trusted strangers too easily.","shrewd","skeptical","astute"],
+["Only the most _____ investor would fall for such an obvious pyramid scheme.","cynical","discerning","prudent"]
+],
+"hamper":[
+["Heavy fog continued to _____ rescue operations along the mountain trail.","expedite","facilitate","bolster"],
+["Bureaucratic red tape can _____ the delivery of emergency aid to disaster-stricken areas.","accelerate","advance","enhance"]
+],
+"haphazard":[
+["The _____ arrangement of files made it nearly impossible to find any particular document.","systematic","meticulous","methodical"],
+["His _____ approach to studying left him unprepared for the final examination.","rigorous","deliberate","conscientious"]
+],
+"havoc":[
+["The hurricane wreaked _____ on the coastal communities, destroying hundreds of homes.","tranquility","serenity","harmony"],
+["A single computer virus can wreak _____ on an entire corporate network within hours.","order","stability","composure"]
+],
+"heed":[
+["Drivers who fail to _____ the warning signs on mountain roads risk serious accidents.","ignore","disregard","flout"],
+["The council refused to _____ the scientists' advice about the environmental dangers.","dismiss","rebuff","neglect"]
+],
+"heresy":[
+["In the sixteenth century, questioning the established church doctrine was considered _____.","orthodoxy","dogma","canon"],
+["Suggesting that the company's founder had made errors was treated as _____ by loyal employees.","gospel","convention","tradition"]
+],
+"hermetic":[
+["The laboratory required a _____ seal on every container to prevent contamination.","porous","permeable","defective"],
+["The reclusive author led a nearly _____ existence, rarely communicating with the outside world.","gregarious","communal","sociable"]
+],
+"hinder":[
+["The snowstorm threatened to _____ all travel along the interstate highway.","facilitate","expedite","advance"],
+["Lack of funding will _____ the university's ability to conduct groundbreaking research.","bolster","promote","enhance"]
+],
+"hoary":[
+["The politician dusted off the _____ argument that tax cuts automatically spur economic growth.","novel","innovative","fresh"],
+["Grandpa repeated the same _____ jokes at every family dinner, yet everyone still laughed.","original","inventive","unprecedented"]
+],
+"hubris":[
+["The CEO's _____ led her to dismiss every warning about the company's risky investments.","humility","prudence","deference"],
+["Ancient Greek tragedies often portray heroes whose _____ leads to their inevitable downfall.","temperance","modesty","restraint"]
+],
+"humility":[
+["Despite winning the Nobel Prize, the scientist accepted the honor with remarkable _____.","hubris","arrogance","vanity"],
+["True _____ involves recognizing one's limitations without seeking praise for doing so.","conceit","pretension","bravado"]
+],
+"idiosyncrasy":[
+["His habit of humming during meetings was an _____ that colleagues found endearing.","convention","norm","standard"],
+["Every artist has some creative _____ that makes their work uniquely recognizable.","uniformity","conformity","orthodoxy"]
+],
+"idyllic":[
+["The brochure described the seaside village as an _____ retreat far from the stresses of modern life.","sordid","tumultuous","turbulent"],
+["They spent an _____ summer afternoon reading under the shade of an old oak tree.","somber","dreary","bleak"]
+],
+"illustrious":[
+["The award honored the scientist's _____ career spanning more than four decades of discovery.","lackluster","obscure","mediocre"],
+["She came from an _____ family whose ancestors had shaped the nation's political history.","undistinguished","infamous","obscure"]
+],
+"imbue":[
+["The director wanted to _____ the film with a sense of hope despite its dark subject matter.","deplete","divest","strip"],
+["Her travels abroad _____d her with a deep appreciation for cultural diversity.","deprived","drained","stripped"]
+],
+"imminent":[
+["Scientists warned that another volcanic eruption was _____ and ordered an immediate evacuation.","remote","improbable","distant"],
+["The dark clouds signaled that a severe thunderstorm was _____.","unlikely","averted","distant"]
+],
+"impair":[
+["Prolonged exposure to loud music can permanently _____ a person's hearing.","enhance","bolster","fortify"],
+["Sleep deprivation is known to _____ judgment and slow reaction times significantly.","sharpen","augment","improve"]
+],
+"impartial":[
+["The dispute required an _____ arbiter who had no connection to either of the two parties.","biased","partisan","prejudiced"],
+["Journalists strive to provide _____ coverage that presents all sides of a controversial issue.","subjective","slanted","one-sided"]
+],
+"impasse":[
+["Negotiations reached an _____ when both delegations refused to make any further concessions.","accord","resolution","breakthrough"],
+["The labor dispute created an _____ that halted production at the factory for three weeks.","agreement","consensus","accord"]
+],
+"impeach":[
+["The legislature voted to _____ the governor on charges of corruption and abuse of power.","acquit","exonerate","vindicate"],
+["Opposition leaders called for a motion to _____ the president for violating the constitution.","commend","endorse","absolve"]
+],
+"impede":[
+["The fallen tree across the road continued to _____ traffic for several hours.","facilitate","expedite","advance"],
+["Strict regulations can sometimes _____ the development of innovative new technologies.","promote","accelerate","bolster"]
+],
+"imperceptible":[
+["The change in temperature was so _____ that no one in the room even noticed it.","conspicuous","blatant","palpable"],
+["Over years, the _____ erosion of the hillside eventually caused a dramatic landslide.","obvious","appreciable","pronounced"]
+],
+"implore":[
+["The mother _____d the search team not to give up looking for her missing child.","commanded","decreed","mandated"],
+["Villagers _____d the government to send aid before the river flooded their homes.","demanded","coerced","compelled"]
+],
+"imply":[
+["The report does not state the conclusion outright but seems to _____ that fraud occurred.","assert","decree","proclaim"],
+["Her silence appeared to _____ agreement, even though she had said nothing at all.","declare","stipulate","mandate"]
+],
+"improvident":[
+["The _____ heir squandered the family fortune within just five years of inheriting it.","provident","prudent","frugal"],
+["His _____ spending habits left him with no savings to fall back on during the recession.","thrifty","parsimonious","judicious"]
+],
+"impugn":[
+["The defense attorney attempted to _____ the credibility of the prosecution's key witness.","corroborate","substantiate","vindicate"],
+["Publishing the leaked documents was intended to _____ the senator's reputation before the election.","commend","bolster","exonerate"]
+],
+"impunity":[
+["The dictator acted with _____, knowing that no court had the power to hold him accountable.","liability","consequence","accountability"],
+["Corporations that pollute rivers with _____ must eventually face stricter enforcement measures.","restraint","prudence","remorse"]
+],
+"incandescent":[
+["The _____ glow of the molten glass illuminated the entire workshop.","dim","opaque","somber"],
+["Her _____ performance on stage captivated the audience from the very first note.","lackluster","listless","pedestrian"]
+],
+"incensed":[
+["The community was _____ when the company dumped toxic waste into the local river.","placated","appeased","indifferent"],
+["Voters grew _____ after discovering that officials had misused public funds for personal trips.","complacent","apathetic","nonchalant"]
+],
+"inception":[
+["Since its _____ in 1920, the organization has advocated for workers' rights around the world.","demise","conclusion","termination"],
+["From its very _____, the project was plagued by budget overruns and delays.","culmination","epilogue","finale"]
+],
+"incipient":[
+["Early detection of the _____ disease greatly improved the patient's chances of recovery.","advanced","chronic","terminal"],
+["The diplomat recognized the _____ signs of unrest and urged the government to act quickly.","culminating","entrenched","residual"]
+],
+"incite":[
+["The activist was arrested for attempting to _____ a riot outside the government building.","quell","suppress","pacify"],
+["Inflammatory speeches can _____ violence even among otherwise peaceful protesters.","mollify","placate","soothe"]
+],
+"inclusive":[
+["The new curriculum was designed to be _____ of students with diverse learning needs.","exclusive","restrictive","discriminatory"],
+["An _____ workplace policy ensures that employees of all backgrounds feel valued and respected.","exclusionary","insular","selective"]
+],
+"inconclusive":[
+["The test results were _____, so the doctor ordered additional blood work for the patient.","definitive","unequivocal","irrefutable"],
+["After months of investigation, the evidence remained frustratingly _____ and the case went cold.","conclusive","decisive","categorical"]
+],
+"incriminate":[
+["The leaked emails appeared to _____ several top executives in the insider-trading scandal.","exonerate","absolve","vindicate"],
+["He refused to testify, fearing his words might _____ his business partner.","acquit","clear","vindicate"]
+],
+"indignant":[
+["Residents were _____ when the city approved construction of a landfill near their school.","complacent","apathetic","indifferent"],
+["The _____ employee demanded to know why she had been passed over for promotion again.","resigned","nonchalant","acquiescent"]
+],
+"indiscriminate":[
+["The bombing campaign caused _____ destruction, hitting civilian areas as well as military targets.","selective","targeted","deliberate"],
+["His _____ use of antibiotics for every minor ailment contributed to drug-resistant bacteria.","judicious","prudent","discriminating"]
+],
+"inert":[
+["The body lay _____ on the ground, giving no sign of movement or life.","animated","agile","dynamic"],
+["Noble gases are chemically _____ and rarely react with other elements.","volatile","reactive","potent"]
+],
+"infallible":[
+["No scientific theory is _____; all are subject to revision based on new evidence.","flawed","errant","dubious"],
+["She trusted his judgment as though it were _____, never questioning a single recommendation.","fallible","erratic","unreliable"]
+],
+"infamous":[
+["The _____ criminal mastermind had evaded law enforcement for over twenty years.","obscure","anonymous","unknown"],
+["The city's _____ pollution problem has been the subject of numerous international news reports.","laudable","commendable","illustrious"]
+],
+"infer":[
+["From the sudden drop in sales, analysts _____red that consumer confidence had weakened.","asserted","proclaimed","decreed"],
+["Readers can _____ the author's political views from the themes running through the novel.","dictate","stipulate","mandate"]
+],
+"inflammable":[
+["The warehouse stored _____ chemicals that required special fire-prevention equipment.","inert","fireproof","impervious"],
+["Keep _____ materials away from heat sources to prevent a potentially catastrophic fire.","nonreactive","stable","innocuous"]
+],
+"influx":[
+["The _____ of tourists during the summer months overwhelmed the small island's infrastructure.","exodus","departure","emigration"],
+["A sudden _____ of investment capital fueled rapid growth in the technology sector.","outflow","drain","deficit"]
+],
+"infringe":[
+["Using the artist's work without permission would _____ upon her intellectual property rights.","uphold","honor","reinforce"],
+["The new regulations were struck down because they _____d on citizens' constitutional freedoms.","protected","safeguarded","bolstered"]
+],
+"innovative":[
+["The company's _____ approach to renewable energy won it several industry awards.","conventional","outdated","rudimentary"],
+["Her _____ teaching methods transformed the way students engaged with complex material.","traditional","antiquated","stagnant"]
+],
+"inscrutable":[
+["The diplomat's _____ expression made it impossible to tell whether she approved of the proposal.","transparent","candid","overt"],
+["The ancient text remained _____ to scholars who could not decipher its unusual symbols.","accessible","explicit","lucid"]
+],
+"intermittent":[
+["The _____ rain showers throughout the day kept picnickers constantly guessing about the weather.","constant","perpetual","unceasing"],
+["The patient experienced _____ episodes of dizziness that came and went without warning.","chronic","persistent","continuous"]
+],
+"intrinsic":[
+["Curiosity is an _____ part of human nature that drives scientific discovery.","extraneous","peripheral","superficial"],
+["The gemstone's _____ value comes from its rarity rather than from any market manipulation.","artificial","extrinsic","contrived"]
+],
+"invalidate":[
+["A single procedural error was enough to _____ the results of the entire experiment.","ratify","corroborate","substantiate"],
+["The court's ruling effectively _____d the contract between the two companies.","upheld","endorsed","affirmed"]
+],
+"invoke":[
+["The defense attorney chose to _____ a rarely used statute to support her client's case.","repeal","rescind","nullify"],
+["Leaders often _____ the memory of past heroes to inspire citizens during times of crisis.","suppress","disregard","dismiss"]
+],
+"irate":[
+["The _____ customers formed a long line at the service desk, demanding full refunds.","placid","content","complacent"],
+["She grew increasingly _____ as the airline delayed her flight for the third time that day.","serene","nonchalant","composed"]
+],
+"ironic":[
+["It was deeply _____ that the fire station itself burned down while the crew was on another call.","predictable","expected","unsurprising"],
+["The _____ twist of the story was that the detective was the criminal all along.","straightforward","logical","conventional"]
+],
+"irrefutable":[
+["The DNA evidence provided _____ proof that the suspect had been at the crime scene.","dubious","inconclusive","speculative"],
+["Her argument was supported by _____ data that left no room for reasonable disagreement.","tenuous","debatable","questionable"]
+],
+"irreverent":[
+["The comedian's _____ jokes about sacred traditions angered many conservative viewers.","pious","solemn","reverent"],
+["His _____ attitude toward authority figures often landed him in trouble at school.","deferential","respectful","devout"]
+],
+"itinerant":[
+["The _____ musician traveled from town to town, performing wherever he could find an audience.","stationary","sedentary","settled"],
+["During the harvest season, _____ workers migrated across the region picking crops.","permanent","established","rooted"]
+],
+"jeopardize":[
+["Releasing classified information could _____ the safety of undercover agents in the field.","safeguard","fortify","bolster"],
+["Skipping the final exam would _____ her chances of graduating on time.","ensure","enhance","guarantee"]
+],
+"kindle":[
+["The inspiring speech helped _____ a new sense of hope among the disaster-stricken community.","extinguish","suppress","quell"],
+["A single act of injustice can _____ widespread outrage that lasts for generations.","stifle","squelch","dampen"]
+],
+"lackluster":[
+["The team's _____ performance disappointed fans who had expected a strong showing.","stellar","illustrious","formidable"],
+["Critics gave the film _____ reviews, calling it uninspired and forgettable.","glowing","effusive","laudatory"]
+],
+"lament":[
+["Environmentalists _____ the destruction of ancient forests for commercial development.","celebrate","commend","acclaim"],
+["The poet's verses _____ the loss of innocence that comes with growing older.","applaud","exalt","tout"]
+],
+"lampoon":[
+["The satirical show regularly _____s public figures with its clever and biting sketches.","commends","lauds","venerates"],
+["Political cartoonists have long _____ed leaders who abuse their positions of power.","revered","extolled","eulogized"]
+],
+"lapse":[
+["A momentary _____ in concentration caused the goalkeeper to miss the easy save.","vigilance","perseverance","diligence"],
+["After a brief _____ in her exercise routine, she returned to the gym with renewed commitment.","persistence","continuity","consistency"]
+],
+"laudable":[
+["The charity's _____ mission to provide clean water to remote villages attracted generous donors.","deplorable","contemptible","reprehensible"],
+["While her intentions were _____, the execution of the plan left much to be desired.","reprehensible","ignoble","despicable"]
+],
+"legacy":[
+["The former president's _____ of educational reform continued to benefit students for decades.","inception","genesis","prelude"],
+["She wanted to leave a lasting _____ by establishing scholarships for first-generation college students.","prologue","preamble","precursor"]
+],
+"lethargy":[
+["The extreme heat induced a deep _____ that left everyone too exhausted to work.","vigor","exuberance","alacrity"],
+["After the illness passed, the lingering _____ made even simple tasks feel overwhelming.","vitality","dynamism","fervor"]
+],
+"levity":[
+["A moment of _____ during the tense negotiations helped ease the atmosphere in the room.","gravity","solemnity","austerity"],
+["The professor's occasional _____ made even the driest lecture topics entertaining for students.","severity","grimness","sobriety"]
+],
+"liaison":[
+["The company appointed a _____ to coordinate communication between the engineering and marketing teams.","adversary","antagonist","recluse"],
+["She served as the official _____ between the university and the local government.","opponent","detractor","hermit"]
+],
+"listless":[
+["The _____ students stared blankly at the board, clearly unengaged by the monotonous lecture.","animated","exuberant","ardent"],
+["After days without adequate food, the refugees grew _____ and struggled to keep moving.","energetic","buoyant","vigorous"]
+],
+"litigious":[
+["The company's _____ reputation made other firms hesitant to enter into contracts with it.","amicable","conciliatory","accommodating"],
+["Living in a _____ society means that even minor disputes can end up in court.","harmonious","congenial","pacific"]
+],
+"lofty":[
+["The organization set _____ goals of eradicating poverty within a single generation.","modest","trivial","mundane"],
+["From the _____ summit, hikers could see the entire valley stretching out below them.","low","sunken","subterranean"]
+],
+"ludicrous":[
+["The defendant's explanation for the missing funds was so _____ that the jury openly laughed.","credible","plausible","rational"],
+["Paying that _____ price for a simple cup of coffee is something she refused to do.","reasonable","modest","negligible"]
+],
+"lure":[
+["The promise of high returns was used to _____ unsuspecting investors into the fraudulent scheme.","repel","deter","dissuade"],
+["Competitive salaries helped the startup _____ top talent away from established technology firms.","rebuff","repulse","discourage"]
+],
+"maladroit":[
+["The intern's _____ handling of the client presentation cost the firm a lucrative contract.","dexterous","adroit","proficient"],
+["His _____ attempt at diplomacy only worsened relations between the two feuding departments.","skillful","nimble","adept"]
+],
+"malaise":[
+["A general _____ settled over the workforce after the company announced another round of layoffs.","exuberance","vitality","vigor"],
+["The economic _____ that gripped the nation led to widespread pessimism about the future.","prosperity","buoyancy","dynamism"]
+],
+"malfeasance":[
+["The investigation uncovered years of financial _____ by senior officials in the department.","integrity","probity","rectitude"],
+["The mayor was removed from office after being convicted of _____ in the use of public funds.","compliance","diligence","virtue"]
+],
+"malign":[
+["Political opponents sought to _____ her character with unfounded accusations of corruption.","commend","extol","laud"],
+["He used anonymous online accounts to _____ the reputation of his business rival.","praise","acclaim","venerate"]
+],
+"mediate":[
+["The United Nations sent an envoy to _____ the peace talks between the warring nations.","inflame","exacerbate","provoke"],
+["A neutral third party was brought in to _____ the labor dispute before it escalated further.","foment","instigate","aggravate"]
+],
+"menial":[
+["The new hire resented being assigned only _____ tasks like filing and fetching coffee.","pivotal","prestigious","formidable"],
+["Years of performing _____ chores did not diminish her determination to finish her degree.","illustrious","exalted","esteemed"]
+],
+"mercenary":[
+["Critics accused the lawyer of having purely _____ motives, caring only about his enormous fees.","altruistic","philanthropic","magnanimous"],
+["The company's _____ approach to healthcare prioritized profits over patient well-being.","benevolent","charitable","humanitarian"]
+],
+"momentous":[
+["The signing of the peace treaty was a _____ occasion celebrated by citizens of both nations.","trivial","inconsequential","negligible"],
+["The discovery of antibiotics was one of the most _____ breakthroughs in medical history.","mundane","insignificant","trifling"]
+],
+"monotonous":[
+["The _____ hum of the machinery made it difficult for factory workers to stay alert.","varied","dynamic","stimulating"],
+["After months of the same _____ routine, she decided to change careers entirely.","diverse","exhilarating","novel"]
+],
+"moratorium":[
+["The government imposed a _____ on offshore drilling while environmental risks were reassessed.","mandate","endorsement","decree"],
+["The university declared a _____ on new construction until funding issues were resolved.","acceleration","commencement","authorization"]
+],
+"munificent":[
+["The _____ donation from the anonymous benefactor funded the construction of an entire wing.","parsimonious","stingy","miserly"],
+["Her _____ gift to the children's hospital provided equipment for three new operating rooms.","meager","negligible","paltry"]
+],
+"naive":[
+["It would be _____ to assume that one meeting could resolve decades of conflict.","shrewd","astute","judicious"],
+["The _____ investor believed every claim the salesman made without verifying a single one.","skeptical","cynical","discerning"]
+],
+"negligible":[
+["The environmental impact of the small project was deemed _____ by the regulatory agency.","substantial","appreciable","formidable"],
+["The difference in cost between the two plans was so _____ that it barely mattered.","significant","pronounced","considerable"]
+],
+"nettle":[
+["His condescending tone was sure to _____ even the most patient members of the committee.","placate","soothe","mollify"],
+["It _____d her that her contributions to the project were never acknowledged publicly.","delighted","appeased","gratified"]
+],
+"nimble":[
+["The _____ gymnast executed a flawless routine on the balance beam without a single wobble.","clumsy","ponderous","lumbering"],
+["A _____ mind is essential for solving complex problems under tight deadlines.","sluggish","dull","torpid"]
+],
+"nostalgia":[
+["Visiting her childhood home filled her with a bittersweet wave of _____.","indifference","apathy","detachment"],
+["The old photographs triggered a powerful sense of _____ for summers spent at the lake.","animosity","aversion","antipathy"]
+],
+"novelty":[
+["The _____ of the new technology wore off quickly once users discovered its limitations.","banality","familiarity","monotony"],
+["Tourists were drawn to the shop for the _____ of its handmade, one-of-a-kind souvenirs.","tradition","convention","routine"]
+],
+"nullify":[
+["The appeals court moved to _____ the lower court's ruling on the grounds of procedural error.","ratify","affirm","uphold"],
+["A single mathematical error was enough to _____ the results of the entire study.","validate","corroborate","endorse"]
+],
+"objective":[
+["A good journalist strives to present an _____ account of events, free from personal bias.","subjective","partisan","biased"],
+["The committee relied on _____ criteria rather than personal opinions to evaluate the candidates.","arbitrary","prejudiced","speculative"]
+],
+"obligatory":[
+["Attendance at the safety briefing is _____ for all employees working on the construction site.","optional","voluntary","discretionary"],
+["The _____ training session must be completed before any new hire can begin work.","elective","supplementary","ancillary"]
+],
+"omnipotent":[
+["The emperor believed himself to be _____, convinced that no force on earth could challenge him.","feeble","impotent","powerless"],
+["In the novel, the villain becomes nearly _____ after acquiring the ancient magical artifact.","vulnerable","frail","helpless"]
+],
+"opaque":[
+["The company's _____ financial reporting made it impossible for investors to assess the true risks.","transparent","lucid","explicit"],
+["The frosted glass was completely _____, preventing anyone from seeing into the conference room.","translucent","transparent","clear"]
+],
+"opportunist":[
+["Critics called the politician a shameless _____ who shifted positions whenever it suited his career.","idealist","altruist","philanthropist"],
+["The _____ took advantage of the housing crisis to buy properties at rock-bottom prices.","benefactor","mediator","adherent"]
+],
+"optimal":[
+["Scientists worked to determine the _____ temperature for growing the bacterial cultures.","substandard","inferior","marginal"],
+["The coach adjusted the lineup to create the _____ combination of speed and defensive strength.","worst","minimal","mediocre"]
+],
+"orchestrate":[
+["The event planner managed to _____ a flawless gala for over five hundred distinguished guests.","bungle","botch","neglect"],
+["Prosecutors alleged that the CEO _____d the cover-up of the company's environmental violations.","exposed","thwarted","averted"]
+],
+"oust":[
+["The board of directors voted to _____ the CEO after a series of costly financial blunders.","install","appoint","anoint"],
+["Rebel forces attempted to _____ the ruling party through a swift military coup.","reinstate","inaugurate","enthrone"]
+],
+"overt":[
+["The general's _____ hostility toward the peace envoy complicated the diplomatic negotiations.","covert","subtle","discreet"],
+["Unlike the covert surveillance, the police presence at the rally was entirely _____.","clandestine","surreptitious","inconspicuous"]
+],
+"pact":[
+["The two rival companies signed a _____ to share technology and reduce development costs.","schism","dispute","feud"],
+["The non-aggression _____ between the nations lasted for nearly fifty years before tensions resurfaced.","hostility","conflict","discord"]
+],
+"palpable":[
+["The tension in the courtroom was _____ as the jury prepared to deliver its verdict.","imperceptible","negligible","intangible"],
+["There was a _____ sense of relief when the missing hikers were found alive and safe.","subtle","invisible","abstract"]
+],
+"parsimonious":[
+["The _____ billionaire famously refused to tip more than five percent at any restaurant.","munificent","lavish","prodigal"],
+["Her _____ management of the budget left no room for even the smallest luxury.","extravagant","generous","profligate"]
+],
+"patronize":[
+["Customers who regularly _____ the local bakery appreciate its commitment to fresh ingredients.","boycott","shun","avoid"],
+["She hated when coworkers _____d her by explaining simple concepts she already understood.","respected","deferred","revered"]
+],
+"pedantic":[
+["The _____ professor spent an entire lecture correcting students' minor grammatical errors.","casual","blithe","cavalier"],
+["His _____ insistence on following every obscure rule slowed the project down considerably.","flexible","adaptable","pragmatic"]
+],
+"perennial":[
+["Funding for public schools remains a _____ issue in every election cycle.","transient","fleeting","ephemeral"],
+["Traffic congestion is a _____ problem that no city administration has managed to solve completely.","temporary","sporadic","intermittent"]
+],
+"perilous":[
+["Crossing the _____ mountain pass in winter required nerves of steel and expert navigation.","safe","trivial","benign"],
+["The refugees undertook a _____ journey across open water in a dangerously overcrowded boat.","secure","uneventful","mundane"]
+],
+"perpetuate":[
+["Repeating stereotypes in media only serves to _____ harmful misconceptions about minority groups.","eradicate","rectify","abolish"],
+["The scholarship fund was established to _____ the founder's commitment to accessible education.","terminate","curtail","nullify"]
+],
+"perplexing":[
+["The detective found the lack of any physical evidence at the crime scene deeply _____.","straightforward","transparent","self-evident"],
+["Scientists have struggled for decades to solve the _____ mystery of dark matter.","obvious","elementary","rudimentary"]
+],
+"persevere":[
+["Despite numerous setbacks, the researchers continued to _____ until they found a viable solution.","capitulate","abandon","surrender"],
+["Her ability to _____ through years of grueling training earned her a spot on the Olympic team.","relent","falter","succumb"]
+],
+"pertinent":[
+["The lawyer asked the witness to share only information _____ to the case at hand.","irrelevant","tangential","extraneous"],
+["Before making a decision, the committee reviewed all _____ documents and research findings.","trivial","superfluous","unrelated"]
+],
+"petition":[
+["Thousands of residents signed the _____ urging the city council to preserve the historic building.","decree","mandate","edict"],
+["Environmental groups submitted a _____ demanding stricter regulations on industrial emissions.","verdict","ruling","sanction"]
+],
+"petulant":[
+["The _____ child threw a tantrum when told he could not have a second dessert.","composed","stoic","serene"],
+["Her _____ refusal to compromise made it impossible to reach any agreement.","gracious","accommodating","amenable"]
+],
+"philanthropist":[
+["The renowned _____ donated millions to build schools in underserved communities across the country.","miser","opportunist","mercenary"],
+["As a dedicated _____, she spent her retirement funding clean water projects in developing nations.","charlatan","autocrat","recluse"]
+],
+"pious":[
+["The _____ congregation observed every religious holiday with solemn reverence and prayer.","irreverent","secular","agnostic"],
+["She lived a _____ life devoted to charitable works and daily spiritual practice.","hedonistic","profane","impious"]
+],
+"pivotal":[
+["The general's decision to flank the enemy proved to be the _____ moment of the battle.","trivial","inconsequential","negligible"],
+["Her testimony played a _____ role in convincing the jury to deliver a guilty verdict.","peripheral","minor","ancillary"]
+],
+"plaintiff":[
+["The _____ alleged that the pharmaceutical company had knowingly sold a defective product.","defendant","advocate","mediator"],
+["The judge dismissed the case after the _____ failed to provide sufficient evidence of harm.","respondent","arbitrator","benefactor"]
+],
+"plight":[
+["The documentary shed light on the _____ of families displaced by the devastating flood.","prosperity","affluence","privilege"],
+["International organizations mobilized to address the dire _____ of refugees fleeing the conflict.","fortune","abundance","luxury"]
+],
+"polarize":[
+["The controversial policy decision threatened to _____ the electorate along ideological lines.","unite","reconcile","consolidate"],
+["Social media has the power to _____ public opinion on even the most nuanced issues.","harmonize","unify","mediate"]
+],
+"ponderous":[
+["The _____ bureaucratic process required applicants to fill out dozens of redundant forms.","nimble","agile","streamlined"],
+["The professor's _____ lectures put half the class to sleep before the first hour was over.","riveting","dynamic","spirited"]
+],
+"portend":[
+["The sudden gathering of dark clouds seemed to _____ a violent storm approaching from the west.","preclude","negate","dispel"],
+["Economic indicators _____ a period of slow growth for the coming fiscal year.","invalidate","contradict","disprove"]
+],
+"postulate":[
+["The researcher _____d that early childhood nutrition affects cognitive development later in life.","disproved","refuted","debunked"],
+["Einstein _____d that the speed of light is constant regardless of the observer's motion.","negated","retracted","invalidated"]
+],
+"potent":[
+["The _____ medication relieved the patient's symptoms within a matter of hours.","weak","inert","ineffectual"],
+["Education remains one of the most _____ tools for reducing poverty across generations.","feeble","futile","impotent"]
+],
+"precept":[
+["The teacher instilled in her students the _____ that honesty is the foundation of all trust.","fallacy","whim","aberration"],
+["The organization operates according to the _____ that every individual deserves equal treatment.","anomaly","digression","caprice"]
+],
+"precipitate":[
+["The sudden interest rate hike could _____ a sharp decline in the housing market.","avert","forestall","prevent"],
+["Careless remarks by the diplomat _____d a full-blown diplomatic crisis between the two nations.","averted","prevented","defused"]
+],
+"predecessor":[
+["The new director inherited many unresolved problems from her _____.","successor","protégé","descendant"],
+["Unlike his _____, the current mayor has prioritized public transportation improvements.","heir","successor","progeny"]
+],
+"predominant":[
+["Agriculture remains the _____ industry in many developing countries around the world.","marginal","negligible","ancillary"],
+["English has become the _____ language of international business and diplomacy.","secondary","minor","subsidiary"]
+],
+"preeminent":[
+["She is widely regarded as the _____ authority on Renaissance art in the academic world.","obscure","mediocre","unremarkable"],
+["The hospital is _____ in the field of cardiac surgery, attracting patients from around the globe.","inferior","average","middling"]
+],
+"premise":[
+["The entire argument rests on the _____ that all people are motivated primarily by self-interest.","conclusion","outcome","consequence"],
+["If the initial _____ of the study is flawed, then all subsequent findings become questionable.","result","epilogue","aftermath"]
+],
+"premonition":[
+["She had an unsettling _____ that something terrible would happen during the voyage.","certainty","recollection","reminiscence"],
+["His _____ about the earthquake proved eerily accurate when tremors struck the next morning.","afterthought","hindsight","nostalgia"]
+],
+"prerogative":[
+["Setting the company's strategic direction is the _____ of the board of directors.","obligation","penalty","burden"],
+["The judge reminded the jury that reaching a verdict was their _____ and theirs alone.","duty","liability","requirement"]
+],
+"prevalent":[
+["Misinformation about vaccines has become alarmingly _____ on social media platforms.","rare","scarce","sporadic"],
+["Corruption was so _____ in the government that citizens had come to accept it as normal.","uncommon","negligible","anomalous"]
+],
+"pristine":[
+["The national park's _____ wilderness has remained largely untouched by human development.","dilapidated","polluted","degraded"],
+["Archaeologists discovered the ancient pottery in remarkably _____ condition deep underground.","deteriorated","corroded","tarnished"]
+],
+"prodigal":[
+["The _____ heir spent his entire inheritance on luxury cars and extravagant parties.","frugal","parsimonious","prudent"],
+["Her _____ spending habits left her deeply in debt by the time she turned thirty.","thrifty","abstemious","temperate"]
+],
+"prodigious":[
+["The child displayed _____ talent at the piano, mastering complex sonatas by age eight.","negligible","modest","mediocre"],
+["The construction project required a _____ amount of concrete, steel, and skilled labor.","scant","meager","trivial"]
+],
+"proficient":[
+["After years of practice, she became highly _____ in three foreign languages.","inept","incompetent","maladroit"],
+["The job posting required applicants to be _____ in data analysis and statistical software.","unskilled","novice","deficient"]
+],
+"prohibitive":[
+["The _____ cost of the treatment put it out of reach for most uninsured patients.","negligible","modest","affordable"],
+["Housing prices in the city center have become _____, forcing families to move to the suburbs.","reasonable","accessible","nominal"]
+],
+"prominence":[
+["The young scientist rose to _____ after publishing a groundbreaking paper on gene therapy.","obscurity","anonymity","insignificance"],
+["The issue of cybersecurity has gained increasing _____ in national defense discussions.","irrelevance","triviality","obscurity"]
+],
+"prophetic":[
+["The economist's _____ warning about the housing bubble proved devastatingly accurate.","misguided","erroneous","fallacious"],
+["In hindsight, the author's novel seemed almost _____ in its depiction of a global pandemic.","retrospective","nostalgic","anachronistic"]
+],
+"prospective":[
+["The university invites _____ students to visit the campus before submitting their applications.","former","retired","departing"],
+["The company interviewed several _____ candidates before selecting someone for the leadership role.","previous","outgoing","incumbent"]
+],
+"protagonist":[
+["The novel's _____ is a young woman who defies social conventions to pursue her education.","antagonist","villain","nemesis"],
+["As the _____ of the reform movement, she faced constant threats from powerful opponents.","adversary","detractor","opponent"]
+],
+"protracted":[
+["The _____ negotiations between the union and management lasted well over six months.","brief","fleeting","cursory"],
+["A _____ drought devastated the region's agricultural output for three consecutive years.","momentary","transient","ephemeral"]
+],
+"provident":[
+["The _____ farmer stored extra grain each year in preparation for potential droughts.","improvident","reckless","prodigal"],
+["Her _____ decision to save aggressively in her twenties gave her financial security in retirement.","imprudent","wasteful","negligent"]
+],
+"provincial":[
+["His _____ outlook prevented him from appreciating the diverse customs he encountered abroad.","cosmopolitan","worldly","sophisticated"],
+["Critics dismissed the novel as too _____, lacking the scope to appeal to an international audience.","urbane","refined","eclectic"]
+],
+"proviso":[
+["The contract included a _____ that allowed either party to terminate the agreement with notice.","omission","oversight","loophole"],
+["She agreed to take the position with the _____ that she could work remotely two days a week.","mandate","decree","verdict"]
+],
+"prudent":[
+["It would be _____ to save at least six months of living expenses for emergencies.","reckless","improvident","foolhardy"],
+["The _____ investor diversified her portfolio to minimize exposure to any single market sector.","impulsive","haphazard","negligent"]
+],
+"purport":[
+["The documents _____ to prove that the company was aware of the defect before selling the product.","deny","refute","disprove"],
+["Several websites _____ to offer miracle cures, but none have any scientific backing.","disclaim","retract","debunk"]
+],
+"qualm":[
+["She had no _____ about reporting the safety violation to the authorities immediately.","eagerness","enthusiasm","certainty"],
+["Despite initial _____s about the plan, he agreed to move forward after reviewing the data.","convictions","assurances","confidences"]
+],
+"quarantine":[
+["Health officials placed the infected passengers under a strict fourteen-day _____.","amnesty","liberation","exemption"],
+["The veterinarian recommended a _____ for the new animals to prevent the spread of disease.","inoculation","discharge","release"]
+],
+"quorum":[
+["The meeting could not proceed because the committee lacked a _____ of voting members.","majority","surplus","abundance"],
+["Without a _____, the board was unable to pass any binding resolutions at the session.","consensus","mandate","plurality"]
+],
+"ramification":[
+["The environmental _____ of the oil spill will be felt in the region for decades.","genesis","inception","origin"],
+["Few lawmakers considered the long-term _____s of cutting funding for public education.","origins","causes","antecedents"]
+],
+"rampant":[
+["Corruption was _____ throughout the government, touching every level of the administration.","contained","negligible","scarce"],
+["Rumors spread _____ through the office after the CEO's sudden resignation.","sparingly","intermittently","sporadically"]
+],
+"ratify":[
+["Both nations must _____ the treaty before its provisions can take legal effect.","repeal","abrogate","nullify"],
+["The senate voted overwhelmingly to _____ the new trade agreement with its neighbor.","rescind","veto","revoke"]
+],
+"rebuff":[
+["The ambassador _____ed the proposal, declaring the terms completely unacceptable.","welcomed","endorsed","embraced"],
+["Her repeated attempts to schedule a meeting were _____ed by the busy executive.","accommodated","accepted","facilitated"]
+],
+"recant":[
+["Under pressure from the inquisition, the scientist was forced to _____ his controversial theory.","affirm","assert","avow"],
+["The witness chose to _____ her earlier statement after realizing she had been mistaken.","corroborate","reiterate","maintain"]
+],
+"reciprocal":[
+["The two countries established _____ trade agreements that benefited both economies equally.","unilateral","one-sided","exploitative"],
+["Their friendship was built on _____ respect and a genuine concern for each other's well-being.","unrequited","asymmetric","inequitable"]
+],
+"recluse":[
+["The famous author became a _____ in her later years, rarely leaving her country estate.","socialite","extrovert","celebrity"],
+["The billionaire tech founder lived as a _____, shunning public appearances and interviews.","philanthropist","diplomat","demagogue"]
+],
+"rectify":[
+["The company took immediate steps to _____ the billing errors that had frustrated its customers.","exacerbate","perpetuate","compound"],
+["Engineers worked overnight to _____ the software glitch before the product launch.","ignore","worsen","aggravate"]
+],
+"redress":[
+["The court awarded financial _____ to the families affected by the defective product.","penalty","liability","burden"],
+["Workers filed a lawsuit seeking _____ for years of unpaid overtime wages.","punishment","censure","retribution"]
+],
+"regal":[
+["The actress carried herself with a _____ bearing that commanded attention in every scene.","humble","shabby","uncouth"],
+["The _____ procession through the capital marked the beginning of the new monarch's reign.","squalid","mundane","pedestrian"]
+],
+"reimburse":[
+["The company promised to _____ employees for all approved travel expenses within thirty days.","charge","invoice","debit"],
+["The insurance policy will _____ the homeowner for damage caused by the storm.","penalize","fine","withhold"]
+],
+"relinquish":[
+["The aging monarch was unwilling to _____ the throne despite growing calls for abdication.","seize","acquire","retain"],
+["She refused to _____ her claim to the property even under significant legal pressure.","assert","maintain","consolidate"]
+],
+"remorse":[
+["The convicted man showed genuine _____ for his actions and apologized to the victim's family.","indifference","defiance","satisfaction"],
+["Without any visible _____, the embezzler calmly described how he had stolen millions.","pride","jubilation","apathy"]
+],
+"render":[
+["The heavy snowfall _____ed the mountain roads completely impassable for several days.","maintained","preserved","restored"],
+["The artist used oil paints to _____ a stunningly lifelike portrait of the royal family.","distort","obscure","obliterate"]
+],
+"renounce":[
+["The prince chose to _____ his title in order to marry the woman he loved.","claim","assert","embrace"],
+["She publicly _____d her membership in the organization after learning about its corrupt practices.","affirmed","endorsed","ratified"]
+],
+"repeal":[
+["Activists campaigned for years to _____ the outdated law that discriminated against minorities.","enact","ratify","codify"],
+["Congress voted to _____ the controversial provision after widespread public opposition.","enforce","uphold","implement"]
+],
+"repercussion":[
+["The economic _____s of the factory closure were felt throughout the entire community.","origins","causes","antecedents"],
+["Scientists warned of the serious environmental _____s of continued deforestation.","prerequisites","precursors","foundations"]
+],
+"replenish":[
+["The store needed to _____ its inventory before the holiday shopping season began.","deplete","exhaust","diminish"],
+["After the long hike, she stopped at a stream to _____ her water supply.","drain","squander","consume"]
+],
+"repress":[
+["The authoritarian government used military force to _____ the growing pro-democracy movement.","encourage","foment","incite"],
+["She tried to _____ her anger, but it was clear from her expression that she was furious.","express","display","vent"]
+],
+"reprimand":[
+["The officer received a formal _____ for failing to follow standard protocol during the operation.","commendation","accolade","citation"],
+["The teacher issued a stern _____ to the students who were caught cheating on the exam.","acclaim","endorsement","praise"]
+],
+"requisite":[
+["Candidates must have the _____ qualifications before they can be considered for the position.","optional","superfluous","ancillary"],
+["The project lacked the _____ funding to move beyond the initial planning phase.","excessive","surplus","redundant"]
+],
+"resonate":[
+["The speaker's message about equality continued to _____ with audiences long after the event.","alienate","repel","estrange"],
+["The film's themes of loss and redemption _____ deeply with viewers of all ages.","bore","repulse","antagonize"]
+],
+"reverberate":[
+["The sound of the explosion _____d through the valley for several seconds.","faded","subsided","dissipated"],
+["The effects of the policy decision will _____ through the economy for years to come.","diminish","vanish","dissolve"]
+],
+"rhetoric":[
+["The politician's fiery _____ energized the crowd but offered few concrete solutions.","silence","reticence","inaction"],
+["Classical training in _____ was considered essential for any aspiring public leader in ancient Rome.","apathy","ignorance","lethargy"]
+],
+"rigorous":[
+["The drug must pass _____ clinical trials before it can be approved for public use.","lenient","cursory","superficial"],
+["The university is known for its _____ academic standards that challenge even the brightest students.","lax","casual","relaxed"]
+],
+"robust":[
+["The country's _____ economy attracted foreign investors seeking strong returns.","fragile","frail","stagnant"],
+["A _____ immune system is essential for fighting off infections and maintaining good health.","feeble","impaired","deficient"]
+],
+"rudimentary":[
+["The survivors built a _____ shelter from branches and leaves to survive the cold night.","elaborate","sophisticated","ornate"],
+["Students must first master the _____ concepts before tackling advanced mathematical proofs.","complex","advanced","intricate"]
+],
+"rustic":[
+["The _____ cabin, with its exposed wooden beams, was the perfect retreat from city life.","urban","modern","ostentatious"],
+["Guests enjoyed the _____ charm of the farmhouse, complete with a stone fireplace and well water.","sleek","contemporary","lavish"]
+],
+"sanction":[
+["The United Nations imposed economic _____s on the country for its human rights violations.","rewards","incentives","subsidies"],
+["The committee refused to _____ the use of public funds for the controversial project.","prohibit","reject","oppose"]
+],
+"sardonic":[
+["His _____ smile suggested he found amusement in others' misfortunes.","sincere","warm","affable"],
+["The critic's _____ review of the film left its director both humiliated and furious.","laudatory","effusive","generous"]
+],
+"scant":[
+["There was _____ evidence to support the defendant's claim of self-defense.","ample","abundant","copious"],
+["The researchers had only _____ resources to fund their ambitious multi-year study.","plentiful","generous","munificent"]
+],
+"schism":[
+["A deep _____ developed within the organization over the direction of its future strategy.","accord","harmony","consensus"],
+["The theological _____ divided the church into two rival denominations that exist to this day.","unity","alliance","reconciliation"]
+],
+"scrutiny":[
+["The company's financial records came under intense _____ after reports of accounting fraud.","neglect","disregard","indifference"],
+["Every detail of the proposed merger was subjected to careful _____ by federal regulators.","oversight","apathy","complacency"]
+],
+"secular":[
+["The constitution guarantees a _____ government that does not favor any particular religion.","theocratic","devout","ecclesiastical"],
+["The university offers a _____ education focused on critical thinking rather than religious doctrine.","parochial","liturgical","sectarian"]
+],
+"sentiment":[
+["Public _____ shifted dramatically against the war after images of civilian casualties emerged.","apathy","indifference","lethargy"],
+["The _____ expressed in her farewell speech moved many colleagues to tears.","hostility","antagonism","enmity"]
+],
+"sequester":[
+["The judge decided to _____ the jury to prevent media coverage from influencing their verdict.","expose","publicize","broadcast"],
+["Scientists plan to _____ the carbon dioxide deep underground to reduce greenhouse emissions.","release","disperse","emit"]
+],
+"shrewd":[
+["The _____ negotiator secured a deal that was far more favorable than anyone had expected.","naive","gullible","obtuse"],
+["Her _____ investment in the startup paid off enormously when the company went public.","reckless","imprudent","foolhardy"]
+],
+"skeptical":[
+["Voters remained _____ of the candidate's promises after years of broken pledges.","credulous","gullible","naive"],
+["Scientists are naturally _____ of claims that have not been verified through rigorous testing.","trusting","uncritical","accepting"]
+],
+"slander":[
+["The celebrity filed a lawsuit for _____ after a talk show host made false accusations on air.","praise","commendation","acclaim"],
+["Spreading _____ about a colleague can result in serious legal consequences and professional ruin.","accolades","endorsements","plaudits"]
+],
+"solemn":[
+["The crowd stood in _____ silence as the flag-draped casket was carried past.","festive","jovial","exuberant"],
+["He made a _____ promise to his dying father that he would take care of the family.","flippant","casual","lighthearted"]
+],
+"solicit":[
+["The charity sent letters to _____ donations from businesses throughout the community.","withhold","refuse","decline"],
+["The consulting firm was hired to _____ feedback from employees about the proposed changes.","suppress","disregard","stifle"]
+],
+"solitary":[
+["The _____ lighthouse keeper spent months alone on the remote island without any visitors.","gregarious","communal","sociable"],
+["She preferred a _____ walk along the beach to the noise of the crowded boardwalk.","communal","collective","collaborative"]
+],
+"somber":[
+["A _____ mood hung over the town after the devastating flood claimed several lives.","jubilant","exuberant","festive"],
+["The documentary's _____ tone reflected the gravity of the humanitarian crisis it depicted.","lighthearted","buoyant","jovial"]
+],
+"sordid":[
+["The investigation revealed the _____ details of the corruption scheme within the department.","noble","pristine","laudable"],
+["The journalist exposed the _____ living conditions in the overcrowded and unregulated dormitories.","idyllic","immaculate","wholesome"]
+],
+"speculate":[
+["Analysts could only _____ about the reasons behind the CEO's sudden and unexplained resignation.","confirm","verify","substantiate"],
+["It is unwise to _____ in volatile markets without understanding the risks involved.","ascertain","corroborate","validate"]
+],
+"sporadic":[
+["_____ gunfire was heard throughout the night, keeping residents in a constant state of fear.","Constant","Incessant","Perpetual"],
+["The patient experienced _____ episodes of chest pain that came without any clear trigger.","chronic","persistent","continual"]
+],
+"squander":[
+["He managed to _____ his entire inheritance within just two years of reckless spending.","conserve","invest","preserve"],
+["Critics accused the government of _____ing taxpayer money on unnecessary vanity projects.","prudently allocating","investing","conserving"]
+],
+"stagnant":[
+["The _____ economy showed no signs of growth despite the government's stimulus efforts.","booming","robust","thriving"],
+["_____ water in the abandoned pool became a breeding ground for mosquitoes.","Flowing","Fresh","Pristine"]
+],
+"staunch":[
+["She remained a _____ defender of civil liberties throughout her long career in public service.","wavering","fickle","halfhearted"],
+["The senator was a _____ ally of the president and supported every major policy initiative.","reluctant","irresolute","unreliable"]
+],
+"steadfast":[
+["Despite enormous pressure to resign, the whistleblower remained _____ in her commitment to the truth.","vacillating","fickle","wavering"],
+["His _____ loyalty to the organization earned him the respect and admiration of his peers.","capricious","erratic","unreliable"]
+],
+"stigma":[
+["The _____ attached to mental illness prevents many people from seeking the help they need.","acclaim","distinction","honor"],
+["Efforts to reduce the _____ surrounding addiction have led to more compassionate treatment programs.","prestige","accolade","commendation"]
+],
+"stipulate":[
+["The lease _____s that tenants must provide sixty days' notice before vacating the apartment.","implies","suggests","hints"],
+["The contract clearly _____s the penalties for late delivery of the finished product.","obscures","omits","overlooks"]
+],
+"stringent":[
+["The laboratory follows _____ safety protocols to prevent any accidental contamination.","lenient","lax","permissive"],
+["_____ admissions criteria ensure that only the most qualified candidates are accepted.","Relaxed","Flexible","Loose"]
+],
+"subordinate":[
+["In the military hierarchy, a lieutenant is _____ to a captain in the chain of command.","superior","preeminent","paramount"],
+["She refused to _____ her own research priorities to the demands of the funding agency.","elevate","prioritize","champion"]
+],
+"subservient":[
+["The dictator demanded that the press remain completely _____ to the interests of the state.","defiant","autonomous","independent"],
+["She refused to be _____ to anyone and insisted on making her own decisions.","dominant","assertive","authoritative"]
+],
+"substantive":[
+["The committee expected _____ proposals backed by data, not vague promises of improvement.","superficial","trivial","hollow"],
+["Despite hours of discussion, the meeting produced no _____ progress toward a resolution.","marginal","negligible","peripheral"]
+],
+"subvert":[
+["Foreign agents attempted to _____ the election by spreading disinformation online.","uphold","fortify","bolster"],
+["The activist group sought to _____ the oppressive regime through a campaign of civil disobedience.","reinforce","sustain","perpetuate"]
+],
+"suffice":[
+["A brief summary will _____ for now; we can discuss the details at tomorrow's meeting.","fall short","fail","disappoint"],
+["One coat of paint should _____ to cover the minor scratches on the wall.","overwhelm","exceed","inundate"]
+],
+"superficial":[
+["The inspection was _____ and failed to uncover the structural damage hidden beneath the surface.","thorough","rigorous","exhaustive"],
+["His understanding of the subject was _____, limited to a few facts memorized for the test.","profound","comprehensive","substantive"]
+],
+"supplant":[
+["Digital streaming services have largely _____ed traditional video rental stores.","preserved","reinforced","sustained"],
+["The ambitious deputy maneuvered quietly to _____ the aging chairman of the committee.","support","uphold","reinforce"]
+],
+"supposition":[
+["The theory remains a _____ until researchers can gather enough evidence to confirm it.","certainty","axiom","fact"],
+["Her argument was based on a _____ that had never been tested or verified.","proof","verity","theorem"]
+],
+"surpass":[
+["This year's fundraising results _____ all previous records set by the organization.","trail","fall short of","undercut"],
+["The student's final essay managed to _____ even the professor's high expectations.","disappoint","undermine","diminish"]
+],
+"susceptible":[
+["Young children are especially _____ to respiratory infections during the winter months.","immune","resistant","impervious"],
+["The low-lying coastal areas are highly _____ to flooding during hurricane season.","fortified","impenetrable","invulnerable"]
+],
+"sustenance":[
+["The stranded sailors had barely enough _____ to survive the three weeks at sea.","abundance","surplus","luxury"],
+["Clean water and basic _____ are fundamental needs that every human being deserves.","affluence","opulence","extravagance"]
+],
+"tangible":[
+["The new policy has already produced _____ results that can be measured and documented.","abstract","intangible","theoretical"],
+["She wanted _____ proof of his commitment, not just words and empty promises.","vague","elusive","speculative"]
+],
+"temperate":[
+["The region's _____ climate makes it ideal for growing grapes and producing fine wine.","extreme","volatile","harsh"],
+["His _____ response to the insult demonstrated remarkable self-control and maturity.","vehement","impulsive","volatile"]
+],
+"temporal":[
+["The monks focused on spiritual matters and had little interest in _____ concerns like wealth.","eternal","spiritual","celestial"],
+["The study examined the _____ relationship between industrial pollution and disease rates over time.","spatial","static","perpetual"]
+],
+"terminate":[
+["The company decided to _____ the contract after the supplier repeatedly missed deadlines.","renew","extend","perpetuate"],
+["Management reserves the right to _____ employment for any violation of the code of conduct.","extend","inaugurate","commence"]
+],
+"thesis":[
+["Her doctoral _____ examined the effects of social media on adolescent self-esteem.","digression","tangent","footnote"],
+["The student defended her _____ before a panel of distinguished professors.","rebuttal","refutation","antithesis"]
+],
+"thwart":[
+["Security forces managed to _____ the plot to assassinate the prime minister.","facilitate","abet","enable"],
+["Bad weather _____ed their plans to launch the satellite on the scheduled date.","expedited","advanced","bolstered"]
+],
+"tout":[
+["The company began to _____ its new product as a revolutionary breakthrough in skincare.","disparage","malign","denigrate"],
+["Politicians often _____ their accomplishments while downplaying their failures.","conceal","belittle","understate"]
+],
+"transcend":[
+["Great works of art _____ cultural boundaries and speak to universal human experiences.","reinforce","entrench","confine"],
+["The athlete's determination allowed her to _____ the physical limitations imposed by her injury.","submit to","succumb to","reinforce"]
+],
+"trivial":[
+["The manager dismissed the complaint as _____ and refused to take any further action.","momentous","pivotal","substantial"],
+["Spending hours debating such a _____ issue was a waste of the committee's valuable time.","significant","crucial","consequential"]
+],
+"tumultuous":[
+["The country endured a _____ decade of civil unrest, economic crises, and political upheaval.","tranquil","serene","placid"],
+["The _____ crowd surged forward when the gates to the stadium finally opened.","orderly","placid","subdued"]
+],
+"turbulent":[
+["The airline warned passengers to expect _____ conditions over the mountain range.","calm","serene","placid"],
+["The company navigated a _____ period of leadership changes and market uncertainty.","stable","tranquil","uneventful"]
+],
+"turmoil":[
+["The country was plunged into political _____ after the president was unexpectedly overthrown.","stability","tranquility","harmony"],
+["Financial _____ in the markets caused widespread panic among investors and retirees.","prosperity","serenity","equilibrium"]
+],
+"tycoon":[
+["The media _____ owned dozens of television stations and newspapers across the country.","pauper","recluse","novice"],
+["The real estate _____ built a vast empire of commercial properties spanning three continents.","philanthropist","mediator","adherent"]
+],
+"tyranny":[
+["The people rose up in revolution to overthrow the _____ that had oppressed them for decades.","democracy","liberty","autonomy"],
+["History shows that unchecked power inevitably leads to _____ and the suffering of the people.","freedom","justice","equity"]
+],
+"ulterior":[
+["She suspected that his generous offer concealed an _____ motive to gain access to her contacts.","transparent","overt","candid"],
+["The diplomat's _____ purpose for attending the dinner became clear only after the deal was signed.","stated","explicit","apparent"]
+],
+"ultimatum":[
+["The union issued an _____ demanding better wages or threatening a full-scale strike.","compromise","suggestion","proposal"],
+["The landlord delivered an _____ requiring the tenant to pay the overdue rent within three days.","invitation","entreaty","recommendation"]
+],
+"unassuming":[
+["Despite her enormous success, the scientist remained _____ and approachable in every interaction.","pretentious","ostentatious","haughty"],
+["The _____ exterior of the restaurant belied the extraordinary culinary experience waiting inside.","grandiose","flamboyant","imposing"]
+],
+"undercut":[
+["The rival company attempted to _____ its competitors by slashing prices below cost.","inflate","augment","bolster"],
+["Leaked documents _____cut the president's claim that no wrongdoing had occurred.","bolstered","affirmed","substantiated"]
+],
+"unequivocal":[
+["The board issued an _____ statement of support for the embattled CEO.","ambiguous","vague","equivocal"],
+["The test results provided _____ evidence that the new drug was effective.","inconclusive","ambivalent","tentative"]
+],
+"unilateral":[
+["The president's _____ decision to withdraw troops angered key allies who had not been consulted.","mutual","collective","reciprocal"],
+["Critics condemned the _____ action as a violation of the international agreement.","collaborative","bilateral","consensual"]
+],
+"unkempt":[
+["His _____ appearance and wrinkled clothes suggested he had slept in his car overnight.","immaculate","polished","pristine"],
+["The _____ garden had become so overgrown that the path to the front door was barely visible.","manicured","groomed","cultivated"]
+],
+"unorthodox":[
+["The scientist's _____ methods were initially ridiculed but eventually produced groundbreaking results.","conventional","traditional","orthodox"],
+["Her _____ approach to teaching, including field trips and debates, engaged even reluctant students.","standard","customary","routine"]
+],
+"unpalatable":[
+["The committee found the proposed budget cuts politically _____ and refused to endorse them.","agreeable","appealing","welcome"],
+["The truth about the company's environmental record was _____ but could no longer be ignored.","pleasant","gratifying","palatable"]
+],
+"unscrupulous":[
+["The _____ landlord charged exorbitant rent while refusing to make necessary repairs.","conscientious","principled","ethical"],
+["_____ vendors sold counterfeit goods to tourists who could not tell the difference.","Reputable","Honest","Scrupulous"]
+],
+"untenable":[
+["The general declared the defensive position _____ and ordered an immediate retreat.","impregnable","fortified","viable"],
+["Mounting evidence made the suspect's alibi increasingly _____ in the eyes of the jury.","credible","irrefutable","substantiated"]
+],
+"unwieldy":[
+["The _____ bureaucratic process required applicants to submit forms to six different departments.","streamlined","efficient","nimble"],
+["The antique wardrobe was so _____ that it took four movers to carry it up the stairs.","compact","manageable","portable"]
+],
+"valor":[
+["The soldier was awarded the medal for extraordinary _____ displayed during the rescue mission.","cowardice","timidity","trepidation"],
+["Stories of her _____ on the battlefield inspired an entire generation of young recruits.","fear","hesitation","diffidence"]
+],
+"vanquish":[
+["The underdog team managed to _____ the defending champions in a stunning upset victory.","surrender to","capitulate to","concede to"],
+["The hero set out on a quest to _____ the dragon terrorizing the kingdom.","befriend","appease","placate"]
+],
+"vehement":[
+["The senator's _____ opposition to the bill surprised even members of her own party.","mild","apathetic","indifferent"],
+["The crowd broke into _____ protest when the verdict was announced in the courtroom.","subdued","listless","halfhearted"]
+],
+"veracious":[
+["The historian was known for her _____ accounts that relied strictly on primary sources.","fictitious","fabricated","speculative"],
+["A _____ witness is essential for any trial that depends heavily on eyewitness testimony.","deceitful","mendacious","duplicitous"]
+],
+"verdict":[
+["The jury delivered a guilty _____ after just three hours of deliberation.","petition","entreaty","supplication"],
+["The judge asked the foreperson to read the _____ aloud to the packed courtroom.","allegation","accusation","indictment"]
+],
+"versatile":[
+["The _____ actress was equally convincing in both comedic and dramatic roles.","rigid","inflexible","limited"],
+["A _____ kitchen tool that can chop, blend, and puree saves considerable counter space.","specialized","narrow","restricted"]
+],
+"viable":[
+["After extensive testing, the prototype proved to be a _____ alternative to the existing design.","impractical","untenable","futile"],
+["The board considered several proposals but found only one to be financially _____.","prohibitive","unfeasible","unworkable"]
+],
+"visceral":[
+["The documentary provoked a _____ reaction in viewers who were deeply moved by its imagery.","detached","cerebral","analytical"],
+["She felt a _____ sense of dread the moment she stepped into the abandoned building.","intellectual","dispassionate","reasoned"]
+],
+"volition":[
+["He left the company of his own _____, not because he was forced to resign.","coercion","compulsion","obligation"],
+["The decision to testify was made entirely of her own _____, without any external pressure.","mandate","decree","directive"]
+],
+"voracious":[
+["The _____ reader consumed an average of three novels every single week.","reluctant","indifferent","listless"],
+["Teenagers are known for their _____ appetites, often eating twice as much as adults.","scant","meager","modest"]
+],
+"vulnerable":[
+["Elderly people living alone are especially _____ to telephone scams and identity theft.","immune","impervious","resistant"],
+["The unpatched software left the company's servers _____ to cyberattacks from hostile actors.","fortified","impregnable","invulnerable"]
+],
+"warrant":[
+["The severity of the safety violations _____s an immediate shutdown of the facility.","precludes","negates","invalidates"],
+["The evidence did not _____ the extreme measures proposed by the prosecution.","undermine","invalidate","prohibit"]
+],
+"xenophobia":[
+["The rise of _____ in the country led to discriminatory policies targeting immigrant communities.","tolerance","hospitality","inclusivity"],
+["Political leaders must speak out against _____ whenever it threatens social cohesion.","patriotism","solidarity","benevolence"]
+],
+"yeoman":[
+["The assistant did _____ work organizing thousands of documents for the complex legal case.","negligible","superficial","cursory"],
+["She performed _____ service for the campaign, knocking on doors in every neighborhood.","shoddy","lackluster","halfhearted"]
+],
+"zealot":[
+["The political _____ refused to consider any viewpoint that contradicted his own rigid beliefs.","moderate","pragmatist","mediator"],
+["History warns us that a _____ with power can inflict tremendous damage on a free society.","diplomat","pacifist","philanthropist"]
 ]
-,
-"proponent":[["The senator was a vocal _____ of renewable energy legislation.", "critic", "opponent", "beneficiary"], ["As a longtime _____ of education reform, she pushed for increased funding.", "detractor", "rival", "skeptic"]],
-"conjecture":[["Without evidence, his theory remained mere _____.", "certainty", "proof", "doctrine"], ["The detective warned against _____ and focused on the facts.", "analysis", "testimony", "verification"]],
-"attenuate":[["The thick walls helped _____ the noise from the street.", "amplify", "magnify", "broadcast"], ["Over time, the medication began to _____ the severity of her symptoms.", "intensify", "provoke", "aggravate"]],
-"quintessential":[["The small caf\u00e9 with checkered tablecloths was the _____ Parisian bistro.", "atypical", "unusual", "ordinary"], ["She was the _____ example of determination, never giving up despite setbacks.", "mediocre", "improbable", "reluctant"]],
-"anomalous":[["The _____ temperature readings prompted scientists to recheck their instruments.", "expected", "routine", "standard"], ["His calm reaction to the crisis was _____ given his usually anxious temperament.", "typical", "predictable", "ordinary"]],
-"belie":[["Her calm expression _____d the anxiety she felt inside.", "revealed", "confirmed", "expressed"], ["The building's modest exterior _____d the opulence within.", "displayed", "exposed", "indicated"]],
-"enumerate":[["The professor asked students to _____ the causes of the French Revolution.", "ignore", "overlook", "suppress"], ["She began to _____ the reasons why the project had failed.", "conceal", "obscure", "dismiss"]],
-"undermine":[["Constant criticism can _____ a child's self-confidence.", "strengthen", "bolster", "fortify"], ["The scandal threatened to _____ public trust in the institution.", "reinforce", "support", "enhance"]],
-"transpose":[["The editor accidentally _____d two paragraphs in the manuscript.", "deleted", "preserved", "copied"], ["Musicians sometimes _____ a piece into a different key to suit the singer.", "compose", "improvise", "rehearse"]],
-"incongruous":[["The modern glass tower looked _____ among the historic brick buildings.", "harmonious", "compatible", "fitting"], ["His formal suit seemed _____ at the casual beach party.", "appropriate", "suitable", "natural"]],
-"prolific":[["The _____ author published over forty novels in her career.", "unproductive", "idle", "inactive"], ["The garden was _____, yielding more vegetables than the family could eat.", "barren", "sparse", "meager"]],
-"scrutinize":[["The auditor would _____ every transaction for signs of fraud.", "overlook", "ignore", "skim"], ["She _____d the contract carefully before signing it.", "glanced", "dismissed", "neglected"]],
-"substantiate":[["The lawyer needed more evidence to _____ her client's alibi.", "disprove", "refute", "undermine"], ["He could not _____ his claims with any reliable data.", "retract", "deny", "withdraw"]],
-"catalyst":[["The assassination served as a _____ for the outbreak of war.", "deterrent", "obstacle", "hindrance"], ["Her inspiring speech was the _____ that motivated the team to act.", "barrier", "setback", "impediment"]],
-"extrapolate":[["Scientists _____ future climate trends from historical temperature data.", "fabricate", "disregard", "conceal"], ["From a few data points, researchers attempted to _____ the full pattern.", "obscure", "simplify", "dismiss"]],
-"intricate":[["The watchmaker repaired the _____ mechanism with steady hands.", "simple", "crude", "basic"], ["The novel's _____ plot kept readers guessing until the final chapter.", "straightforward", "predictable", "plain"]],
-"anecdotal":[["The evidence for the remedy was purely _____, not scientifically proven.", "empirical", "statistical", "verified"], ["While _____ reports suggested improvement, the clinical trials showed no effect.", "documented", "measured", "quantified"]],
-"attest":[["Several witnesses can _____ to her presence at the meeting.", "deny", "dispute", "contradict"], ["The ruins _____ to the grandeur of the ancient civilization.", "obscure", "conceal", "erase"]],
-"conducive":[["A quiet library is _____ to focused study.", "hostile", "detrimental", "harmful"], ["The warm climate was _____ to growing tropical fruit.", "unfavorable", "adverse", "prohibitive"]],
-"connotation":[["The word 'home' carries a warm _____ that 'house' does not.", "definition", "pronunciation", "spelling"], ["In politics, certain terms have a negative _____ that shapes public opinion.", "syntax", "etymology", "abbreviation"]],
-"efficacy":[["Researchers tested the _____ of the new drug in a double-blind study.", "toxicity", "scarcity", "fragility"], ["The _____ of the training program was measured by employee performance gains.", "expense", "duration", "schedule"]],
-"erratic":[["His _____ behavior worried his friends and family.", "consistent", "steady", "predictable"], ["The stock's _____ performance made investors nervous.", "stable", "reliable", "uniform"]],
-"homogeneous":[["The scientist needed a _____ mixture with no visible particles.", "diverse", "varied", "mixed"], ["The town's population was remarkably _____, lacking cultural diversity.", "eclectic", "assorted", "heterogeneous"]],
-"inadvertent":[["The _____ release of confidential data caused a major scandal.", "deliberate", "intentional", "calculated"], ["Her _____ remark offended several people at the dinner party.", "planned", "purposeful", "premeditated"]],
-"inherent":[["There is an _____ risk in any surgical procedure.", "acquired", "artificial", "external"], ["Creativity is an _____ quality that cannot be easily taught.", "learned", "borrowed", "imposed"]],
-"precarious":[["The hiker found herself in a _____ position on the narrow ledge.", "secure", "stable", "comfortable"], ["The company's _____ financial situation threatened layoffs.", "robust", "solid", "thriving"]],
-"precipitous":[["The _____ decline in sales alarmed the board of directors.", "gradual", "steady", "moderate"], ["They gazed down the _____ cliff face to the valley below.", "gentle", "flat", "level"]],
-"proliferation":[["The _____ of social media platforms has changed how people communicate.", "decline", "scarcity", "reduction"], ["Arms control treaties aim to prevent the _____ of nuclear weapons.", "elimination", "decrease", "shortage"]],
-"reiterate":[["Let me _____ the importance of submitting your work on time.", "retract", "withdraw", "abandon"], ["The teacher _____d the instructions for students who arrived late.", "omitted", "concealed", "skipped"]],
-"synthesize":[["The researcher aimed to _____ data from multiple studies into a single theory.", "fragment", "scatter", "separate"], ["Students must learn to _____ information from various sources into a coherent essay.", "isolate", "divide", "exclude"]],
-"tenacious":[["The _____ reporter pursued the story for months despite threats.", "apathetic", "indifferent", "feeble"], ["With _____ determination, she overcame every obstacle in her path.", "halfhearted", "weak", "timid"]],
-"unprecedented":[["The pandemic caused an _____ disruption to global travel.", "routine", "expected", "familiar"], ["Her achievement was _____ in the history of the organization.", "ordinary", "common", "typical"]],
-"adversity":[["She showed remarkable resilience in the face of _____.", "prosperity", "comfort", "luxury"], ["Overcoming _____ built his character and strengthened his resolve.", "ease", "privilege", "fortune"]],
-"condescending":[["His _____ tone made his colleagues feel belittled.", "respectful", "humble", "sincere"], ["She found the manager's _____ attitude impossible to tolerate.", "encouraging", "supportive", "gracious"]],
-"convergence":[["The _____ of technology and art has created new forms of expression.", "separation", "divergence", "division"], ["The _____ of several rivers created a wide delta at the coast.", "splitting", "dispersal", "branching"]],
-"digression":[["After a lengthy _____, the speaker returned to the main topic.", "summary", "conclusion", "introduction"], ["The professor's entertaining _____s made the lectures unpredictable but enjoyable.", "outlines", "reviews", "analyses"]],
-"divergent":[["The siblings held _____ opinions on how to manage their parents' estate.", "identical", "matching", "unified"], ["_____ thinking encourages exploring many possible solutions to a problem.", "conventional", "uniform", "standard"]],
-"exemplary":[["Her _____ conduct earned her the Employee of the Year award.", "poor", "mediocre", "average"], ["The school held up his academic record as _____.", "deficient", "substandard", "unremarkable"]],
-"extenuating":[["The judge considered _____ circumstances before passing sentence.", "aggravating", "incriminating", "damning"], ["Without _____ factors, the penalty would have been much harsher.", "worsening", "compounding", "intensifying"]],
-"inconsequential":[["The error was _____ and had no effect on the final result.", "significant", "crucial", "vital"], ["What seemed like an _____ decision at the time changed her life.", "momentous", "critical", "pivotal"]],
-"inevitable":[["Change is _____ in a rapidly evolving industry.", "avoidable", "unlikely", "improbable"], ["The _____ conclusion was that the project needed more funding.", "uncertain", "doubtful", "questionable"]],
-"integrity":[["A leader's _____ is essential for earning the trust of the public.", "dishonesty", "corruption", "deceit"], ["She refused the bribe, valuing her _____ above personal gain.", "greed", "ambition", "convenience"]],
-"longevity":[["A balanced diet contributes to _____ and overall health.", "brevity", "decline", "fragility"], ["The _____ of the Roman Empire is a testament to its strong institutions.", "collapse", "downfall", "weakness"]],
-"pretentious":[["The _____ restaurant charged outrageous prices for tiny portions.", "modest", "humble", "unpretending"], ["His _____ vocabulary made simple ideas sound unnecessarily complex.", "plain", "direct", "straightforward"]],
-"provocative":[["The artist's _____ exhibit challenged viewers to question social norms.", "bland", "conventional", "tame"], ["She asked a _____ question that sparked a heated classroom debate.", "mundane", "routine", "dull"]],
-"subtle":[["The _____ differences between the two paintings were hard to spot.", "obvious", "glaring", "stark"], ["She gave a _____ hint that she wanted to leave the party.", "blatant", "explicit", "blunt"]],
-"suppress":[["The government attempted to _____ news of the protests.", "broadcast", "publicize", "promote"], ["She struggled to _____ a laugh during the solemn ceremony.", "express", "release", "amplify"]],
-"tactful":[["A _____ response can defuse a tense situation.", "blunt", "careless", "reckless"], ["She was _____ in delivering criticism, always pairing it with encouragement.", "harsh", "insensitive", "brusque"]],
-"wary":[["Investors grew _____ after the market's sudden downturn.", "reckless", "trusting", "careless"], ["The cat was _____ of strangers and hid under the bed.", "eager", "welcoming", "indifferent"]],
-"volatile":[["The _____ political situation made foreign investment risky.", "stable", "calm", "predictable"], ["His _____ temper meant that arguments could erupt without warning.", "steady", "composed", "placid"]],
-"bolster":[["New evidence helped _____ the prosecution's case.", "weaken", "undermine", "diminish"], ["The coach's pep talk _____ed the team's confidence before the final match.", "shattered", "eroded", "dampened"]],
-"galvanize":[["The crisis _____d the community into collective action.", "paralyzed", "discouraged", "subdued"], ["Her passionate speech _____d supporters to volunteer for the campaign.", "bored", "dissuaded", "alienated"]],
-"harbinger":[["The robin is often seen as a _____ of spring.", "remnant", "product", "conclusion"], ["Many viewed the economic downturn as a _____ of worse times ahead.", "remedy", "solution", "aftermath"]],
-"meander":[["The river _____s through the valley before reaching the sea.", "rushes", "plunges", "surges"], ["We _____ed through the old town, stopping at whatever caught our eye.", "sprinted", "marched", "hurried"]],
-"peripheral":[["The issue of parking was _____ to the main debate about housing.", "central", "essential", "fundamental"], ["He caught a glimpse of movement in his _____ vision.", "focused", "direct", "primary"]],
-"redundant":[["The phrase 'free gift' is _____ since gifts are inherently free.", "essential", "necessary", "concise"], ["Automation made several factory positions _____.", "vital", "indispensable", "critical"]],
-"collaborate":[["The two universities agreed to _____ on the research project.", "compete", "clash", "withdraw"], ["Artists and engineers _____d to design the interactive museum exhibit.", "disputed", "separated", "rivaled"]],
-"discredit":[["The leaked emails were used to _____ the politician's campaign.", "endorse", "validate", "praise"], ["New findings helped _____ the outdated theory.", "confirm", "support", "strengthen"]],
-"underscore":[["The accident _____d the need for stricter safety regulations.", "minimized", "obscured", "downplayed"], ["Her resignation _____d the severity of the internal conflict.", "concealed", "dismissed", "trivialized"]],
-"juxtapose":[["The exhibit _____d ancient artifacts with modern replicas.", "separated", "isolated", "removed"], ["The filmmaker chose to _____ scenes of poverty with images of wealth.", "merge", "unify", "blend"]],
-"debilitate":[["The chronic illness continued to _____ her over the years.", "strengthen", "invigorate", "energize"], ["Harsh sanctions can _____ a country's economy.", "fortify", "revitalize", "empower"]],
-"extemporaneous":[["His _____ remarks at the ceremony were surprisingly eloquent.", "rehearsed", "scripted", "prepared"], ["The best debaters can deliver _____ arguments with confidence.", "memorized", "practiced", "prewritten"]],
-"fledgling":[["The _____ company struggled to compete against industry giants.", "established", "dominant", "veteran"], ["As a _____ pilot, she logged extra hours in the simulator.", "experienced", "seasoned", "expert"]],
-"abstinence":[["The monk practiced _____ from all worldly pleasures.", "indulgence", "excess", "consumption"], ["Her _____ from social media lasted an entire month.", "obsession", "addiction", "immersion"]],
-"spontaneity":[["The trip lacked _____, with every minute planned in advance.", "rigidity", "structure", "routine"], ["He valued _____ and often made plans at the last minute.", "predictability", "caution", "discipline"]],
-"unfounded":[["The accusations against him proved to be completely _____.", "substantiated", "verified", "confirmed"], ["Her fears about the procedure turned out to be _____.", "justified", "warranted", "legitimate"]]
-,
-"abandon":[["Parents should _____ their children to think independently."], ["The board voted to _____ the outdated regulations."]],
-"aberrant":[["Her _____ approach to leadership earned the respect of her peers."], ["The company's _____ growth strategy caught the attention of investors."]],
-"abeyance":[["What began as a minor disagreement escalated into a full-blown _____."], ["The _____ between the two factions threatened to derail the project."]],
-"ablution":[["The report highlighted the growing _____ within the organization."], ["The treaty represented a significant _____ in international relations."]],
-"abnegate":[["Parents should _____ their children to think independently."], ["The board voted to _____ the outdated regulations."]],
-"abominable":[["Her _____ approach to leadership earned the respect of her peers."], ["The museum's collection included several _____ artifacts from the period."]],
-"aboriginal":[["The company's _____ growth strategy caught the attention of investors."], ["Her _____ approach to leadership earned the respect of her peers."]],
-"abortive":[["The _____ landscape stretched endlessly before the travelers."], ["The _____ conditions in the region made travel extremely dangerous."]],
-"abrasive":[["Her _____ remarks during the meeting surprised everyone present."], ["The _____ student impressed the admissions committee with her essay."]],
-"abreast":[["He was determined to _____ despite the obstacles in his path."], ["She tried to _____ the situation before it escalated further."]],
-"abscission":[["His _____ was evident in the way he handled the delicate matter."], ["The _____ of the situation became apparent to everyone in the room."]],
-"absolve":[["The journalist attempted to _____ the truth behind the allegations."], ["The mayor promised to _____ the concerns raised by residents."]],
-"abundance":[["The report highlighted the growing _____ within the organization."], ["His _____ for detail made him invaluable to the research team."]],
-"abut":[["The journalist attempted to _____ the truth behind the allegations."], ["The professor encouraged students to _____ their assumptions about the topic."]],
-"abysmal":[["The evidence presented was too _____ to support such a bold claim."], ["The testimony was _____ and left the jury unconvinced."]],
-"acclimate":[["The board voted to _____ the outdated regulations."], ["Parents should _____ their children to think independently."]],
-"acclivity":[["She demonstrated remarkable _____ throughout the difficult ordeal."], ["The professor's lecture focused on the _____ of modern governance."]],
-"accomplice":[["The professor's lecture focused on the _____ of modern governance."], ["The community recognized the _____ of preserving its historical landmarks."]],
-"accrete":[["It is important to _____ when faced with difficult circumstances."], ["Experts recommend that leaders _____ their approaches to problem-solving."]],
-"accrue":[["The board voted to _____ the outdated regulations."], ["The mayor promised to _____ the concerns raised by residents."]],
-"acerbity":[["The _____ of the situation became apparent to everyone in the room."], ["A deep _____ settled over the town after the factory closed."]],
-"acidulous":[["The museum's collection included several _____ artifacts from the period."], ["The _____ conditions in the region made travel extremely dangerous."]],
-"acoustics":[["She demonstrated remarkable _____ throughout the difficult ordeal."], ["His _____ was evident in the way he handled the delicate matter."]],
-"acquisitive":[["The evidence presented was too _____ to support such a bold claim."], ["The _____ conditions in the region made travel extremely dangerous."]],
-"acquittal":[["The report highlighted the growing _____ within the organization."], ["The _____ of the situation became apparent to everyone in the room."]],
-"acrimonious":[["His _____ attitude toward the project concerned his colleagues."], ["The testimony was _____ and left the jury unconvinced."]],
-"actuarial":[["Critics described the proposal as _____ and lacking substance."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"actuary":[["The discovery was a _____ that reshaped the field entirely."], ["The community recognized the _____ of preserving its historical landmarks."]],
-"addendum":[["A deep _____ settled over the town after the factory closed."], ["The professor's lecture focused on the _____ of modern governance."]],
-"adherent":[["The _____ of the situation became apparent to everyone in the room."], ["His _____ was evident in the way he handled the delicate matter."]],
-"adjunct":[["The professor's lecture focused on the _____ of modern governance."], ["The _____ of the situation became apparent to everyone in the room."]],
-"admonition":[["The report highlighted the growing _____ within the organization."], ["The community recognized the _____ of preserving its historical landmarks."]],
-"adventitious":[["The _____ landscape stretched endlessly before the travelers."], ["The _____ conditions in the region made travel extremely dangerous."]],
-"aegis":[["The treaty represented a significant _____ in international relations."], ["The professor's lecture focused on the _____ of modern governance."]],
-"affluence":[["The report highlighted the growing _____ within the organization."], ["The discovery was a _____ that reshaped the field entirely."]],
-"ailment":[["She accepted the award with characteristic _____ and gratitude."], ["His _____ for detail made him invaluable to the research team."]],
-"albeit":[["The plan moved forward, _____ some members voiced objections."], ["She remained optimistic, _____ the setbacks they had encountered."]],
-"alcove":[["The discovery was a _____ that reshaped the field entirely."], ["The treaty represented a significant _____ in international relations."]],
-"allude":[["He was determined to _____ despite the obstacles in his path."], ["Experts recommend that leaders _____ their approaches to problem-solving."]],
-"amass":[["Critics began to _____ the administration's handling of the crisis."], ["The organization sought to _____ its long-standing policies."]],
-"ambient":[["The company's _____ growth strategy caught the attention of investors."], ["Critics described the proposal as _____ and lacking substance."]],
-"amnesty":[["The _____ of the situation became apparent to everyone in the room."], ["His _____ for detail made him invaluable to the research team."]],
-"amoral":[["His _____ attitude toward the project concerned his colleagues."], ["Critics described the proposal as _____ and lacking substance."]],
-"ample":[["Critics described the proposal as _____ and lacking substance."], ["The _____ landscape stretched endlessly before the travelers."]],
-"anachronism":[["The professor's lecture focused on the _____ of modern governance."], ["His _____ for detail made him invaluable to the research team."]],
-"anarchy":[["The professor's lecture focused on the _____ of modern governance."], ["She demonstrated remarkable _____ throughout the difficult ordeal."]],
-"ancillary":[["Her _____ remarks during the meeting surprised everyone present."], ["The evidence presented was too _____ to support such a bold claim."]],
-"annihilate":[["The diplomat attempted to _____ the escalating tensions between the nations."], ["The journalist attempted to _____ the truth behind the allegations."]],
-"annotate":[["Historians have sought to _____ the events that led to the conflict."], ["The board voted to _____ the outdated regulations."]],
-"annuity":[["A deep _____ settled over the town after the factory closed."], ["The professor's lecture focused on the _____ of modern governance."]],
-"anoint":[["The journalist attempted to _____ the truth behind the allegations."], ["Historians have sought to _____ the events that led to the conflict."]],
-"anthem":[["She accepted the award with characteristic _____ and gratitude."], ["The artist's work captured the _____ of the era with stunning clarity."]],
-"antidote":[["His _____ was evident in the way he handled the delicate matter."], ["There was a sense of _____ among the committee members after the vote."]],
-"antiquity":[["There was a sense of _____ among the committee members after the vote."], ["The professor's lecture focused on the _____ of modern governance."]],
-"apex":[["His _____ for detail made him invaluable to the research team."], ["The community recognized the _____ of preserving its historical landmarks."]],
-"aplomb":[["His _____ was evident in the way he handled the delicate matter."], ["The _____ between the two factions threatened to derail the project."]],
-"apparition":[["The report highlighted the growing _____ within the organization."], ["The artist's work captured the _____ of the era with stunning clarity."]],
-"appellation":[["She demonstrated remarkable _____ throughout the difficult ordeal."], ["The professor's lecture focused on the _____ of modern governance."]],
-"apposite":[["The _____ student impressed the admissions committee with her essay."], ["His _____ attitude toward the project concerned his colleagues."]],
-"appreciable":[["His _____ attitude toward the project concerned his colleagues."], ["The journalist's _____ investigation uncovered years of corruption."]],
-"apprehensive":[["The evidence presented was too _____ to support such a bold claim."], ["The journalist's _____ investigation uncovered years of corruption."]],
-"apropos":[["The museum's collection included several _____ artifacts from the period."], ["The testimony was _____ and left the jury unconvinced."]],
-"aptitude":[["His _____ was evident in the way he handled the delicate matter."], ["The treaty represented a significant _____ in international relations."]],
-"arbitrate":[["The professor encouraged students to _____ their assumptions about the topic."], ["Historians have sought to _____ the events that led to the conflict."]],
-"ardent":[["The evidence presented was too _____ to support such a bold claim."], ["The _____ student impressed the admissions committee with her essay."]],
-"aria":[["What began as a minor disagreement escalated into a full-blown _____."], ["His _____ for detail made him invaluable to the research team."]],
-"aristocracy":[["A deep _____ settled over the town after the factory closed."], ["She accepted the award with characteristic _____ and gratitude."]],
-"armistice":[["The _____ of the situation became apparent to everyone in the room."], ["What began as a minor disagreement escalated into a full-blown _____."]],
-"arraign":[["He was determined to _____ despite the obstacles in his path."], ["The scientist worked tirelessly to _____ her hypothesis with new data."]],
-"artifice":[["A deep _____ settled over the town after the factory closed."], ["The _____ of the situation became apparent to everyone in the room."]],
-"ascendancy":[["The professor's lecture focused on the _____ of modern governance."], ["She demonstrated remarkable _____ throughout the difficult ordeal."]],
-"assent":[["Historians have sought to _____ the events that led to the conflict."], ["She tried to _____ the situation before it escalated further."]],
-"assert":[["It is important to _____ when faced with difficult circumstances."], ["The professor encouraged students to _____ their assumptions about the topic."]],
-"astringent":[["The museum's collection included several _____ artifacts from the period."], ["The _____ nature of the problem required a creative solution."]],
-"autocrat":[["The _____ of the situation became apparent to everyone in the room."], ["The discovery was a _____ that reshaped the field entirely."]],
-"avid":[["The _____ conditions in the region made travel extremely dangerous."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"avow":[["The board voted to _____ the outdated regulations."], ["The scientist worked tirelessly to _____ her hypothesis with new data."]],
-"axiom":[["A deep _____ settled over the town after the factory closed."], ["The professor's lecture focused on the _____ of modern governance."]],
-"baffle":[["The professor encouraged students to _____ their assumptions about the topic."], ["Critics began to _____ the administration's handling of the crisis."]],
-"banality":[["The treaty represented a significant _____ in international relations."], ["The _____ between the two factions threatened to derail the project."]],
-"barrage":[["The professor's lecture focused on the _____ of modern governance."], ["His _____ was evident in the way he handled the delicate matter."]],
-"barren":[["The company's _____ growth strategy caught the attention of investors."], ["Critics described the proposal as _____ and lacking substance."]],
-"bastion":[["The _____ between the two factions threatened to derail the project."], ["The treaty represented a significant _____ in international relations."]],
-"befuddle":[["Experts recommend that leaders _____ their approaches to problem-solving."], ["The mayor promised to _____ the concerns raised by residents."]],
-"begrudge":[["She tried to _____ the situation before it escalated further."], ["It is important to _____ when faced with difficult circumstances."]],
-"beleaguer":[["She tried to _____ the situation before it escalated further."], ["The diplomat attempted to _____ the escalating tensions between the nations."]],
-"bellicose":[["Her _____ approach to leadership earned the respect of her peers."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"bemoan":[["Critics began to _____ the administration's handling of the crisis."], ["The professor encouraged students to _____ their assumptions about the topic."]],
-"benefactor":[["A deep _____ settled over the town after the factory closed."], ["The artist's work captured the _____ of the era with stunning clarity."]],
-"bestow":[["He was determined to _____ despite the obstacles in his path."], ["The committee decided to _____ the proposal after careful deliberation."]],
-"betoken":[["He was determined to _____ despite the obstacles in his path."], ["The board voted to _____ the outdated regulations."]],
-"bigot":[["The artist's work captured the _____ of the era with stunning clarity."], ["She demonstrated remarkable _____ throughout the difficult ordeal."]],
-"blatant":[["Despite the _____ challenges, the team managed to complete the project."], ["The committee found the candidate's qualifications _____."]],
-"bliss":[["The _____ of the situation became apparent to everyone in the room."], ["The artist's work captured the _____ of the era with stunning clarity."]],
-"blithe":[["Despite the _____ challenges, the team managed to complete the project."], ["The company's _____ growth strategy caught the attention of investors."]],
-"brandish":[["She tried to _____ the situation before it escalated further."], ["Historians have sought to _____ the events that led to the conflict."]],
-"brevity":[["The _____ between the two factions threatened to derail the project."], ["The discovery was a _____ that reshaped the field entirely."]],
-"broach":[["The scientist worked tirelessly to _____ her hypothesis with new data."], ["Parents should _____ their children to think independently."]],
-"bucolic":[["The evidence presented was too _____ to support such a bold claim."], ["Critics described the proposal as _____ and lacking substance."]],
-"bulwark":[["The artist's work captured the _____ of the era with stunning clarity."], ["The professor's lecture focused on the _____ of modern governance."]],
-"bungle":[["The scientist worked tirelessly to _____ her hypothesis with new data."], ["Experts recommend that leaders _____ their approaches to problem-solving."]],
-"buoyant":[["The _____ student impressed the admissions committee with her essay."], ["The museum's collection included several _____ artifacts from the period."]],
-"bureaucracy":[["The community recognized the _____ of preserving its historical landmarks."], ["The _____ between the two factions threatened to derail the project."]],
-"cabal":[["The treaty represented a significant _____ in international relations."], ["There was a sense of _____ among the committee members after the vote."]],
-"candid":[["Her _____ approach to leadership earned the respect of her peers."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"cantankerous":[["The _____ landscape stretched endlessly before the travelers."], ["The committee found the candidate's qualifications _____."]],
-"cardinal":[["The committee found the candidate's qualifications _____."], ["The museum's collection included several _____ artifacts from the period."]],
-"carnage":[["The _____ between the two factions threatened to derail the project."], ["A deep _____ settled over the town after the factory closed."]],
-"cascade":[["The _____ of the situation became apparent to everyone in the room."], ["The discovery was a _____ that reshaped the field entirely."]],
-"castigate":[["He was determined to _____ despite the obstacles in his path."], ["It is important to _____ when faced with difficult circumstances."]],
-"catharsis":[["There was a sense of _____ among the committee members after the vote."], ["The _____ between the two factions threatened to derail the project."]],
-"cavalier":[["The _____ nature of the problem required a creative solution."], ["His _____ attitude toward the project concerned his colleagues."]],
-"cede":[["Historians have sought to _____ the events that led to the conflict."], ["The diplomat attempted to _____ the escalating tensions between the nations."]],
-"celerity":[["The _____ between the two factions threatened to derail the project."], ["The community recognized the _____ of preserving its historical landmarks."]],
-"chaff":[["The _____ of the situation became apparent to everyone in the room."], ["The _____ between the two factions threatened to derail the project."]],
-"chagrin":[["The _____ of the situation became apparent to everyone in the room."], ["She demonstrated remarkable _____ throughout the difficult ordeal."]],
-"charisma":[["A deep _____ settled over the town after the factory closed."], ["The _____ of the situation became apparent to everyone in the room."]],
-"charlatan":[["His _____ was evident in the way he handled the delicate matter."], ["His _____ for detail made him invaluable to the research team."]],
-"chasm":[["The report highlighted the growing _____ within the organization."], ["The _____ between the two factions threatened to derail the project."]],
-"chicanery":[["His _____ was evident in the way he handled the delicate matter."], ["The community recognized the _____ of preserving its historical landmarks."]],
-"chronic":[["The journalist's _____ investigation uncovered years of corruption."], ["Her _____ approach to leadership earned the respect of her peers."]],
-"circumscribe":[["Experts recommend that leaders _____ their approaches to problem-solving."], ["The diplomat attempted to _____ the escalating tensions between the nations."]],
-"cliché":[["The artist's work captured the _____ of the era with stunning clarity."], ["The community recognized the _____ of preserving its historical landmarks."]],
-"codify":[["The professor encouraged students to _____ their assumptions about the topic."], ["The scientist worked tirelessly to _____ her hypothesis with new data."]],
-"commemorate":[["The board voted to _____ the outdated regulations."], ["The organization sought to _____ its long-standing policies."]],
-"commend":[["The board voted to _____ the outdated regulations."], ["Critics began to _____ the administration's handling of the crisis."]],
-"commodity":[["The treaty represented a significant _____ in international relations."], ["She accepted the award with characteristic _____ and gratitude."]],
-"communal":[["The _____ conditions in the region made travel extremely dangerous."], ["The testimony was _____ and left the jury unconvinced."]],
-"compile":[["Critics began to _____ the administration's handling of the crisis."], ["The organization sought to _____ its long-standing policies."]],
-"complacent":[["Despite the _____ challenges, the team managed to complete the project."], ["The _____ student impressed the admissions committee with her essay."]],
-"comply":[["The organization sought to _____ its long-standing policies."], ["The journalist attempted to _____ the truth behind the allegations."]],
-"comprise":[["Critics began to _____ the administration's handling of the crisis."], ["The professor encouraged students to _____ their assumptions about the topic."]],
-"concerted":[["The _____ landscape stretched endlessly before the travelers."], ["His _____ attitude toward the project concerned his colleagues."]],
-"concurrent":[["The museum's collection included several _____ artifacts from the period."], ["The _____ landscape stretched endlessly before the travelers."]],
-"confiscate":[["Parents should _____ their children to think independently."], ["The scientist worked tirelessly to _____ her hypothesis with new data."]],
-"connoisseur":[["The _____ of the situation became apparent to everyone in the room."], ["The report highlighted the growing _____ within the organization."]],
-"conscientious":[["Despite the _____ challenges, the team managed to complete the project."], ["The committee found the candidate's qualifications _____."]],
-"console":[["Experts recommend that leaders _____ their approaches to problem-solving."], ["The professor encouraged students to _____ their assumptions about the topic."]],
-"consolidate":[["Experts recommend that leaders _____ their approaches to problem-solving."], ["It is important to _____ when faced with difficult circumstances."]],
-"conspicuous":[["The evidence presented was too _____ to support such a bold claim."], ["The journalist's _____ investigation uncovered years of corruption."]],
-"contrived":[["The journalist's _____ investigation uncovered years of corruption."], ["The _____ nature of the problem required a creative solution."]],
-"conversant":[["The _____ nature of the problem required a creative solution."], ["The evidence presented was too _____ to support such a bold claim."]],
-"countenance":[["The report highlighted the growing _____ within the organization."], ["His _____ was evident in the way he handled the delicate matter."]],
-"crass":[["The _____ landscape stretched endlessly before the travelers."], ["The journalist's _____ investigation uncovered years of corruption."]],
-"credence":[["His _____ for detail made him invaluable to the research team."], ["The community recognized the _____ of preserving its historical landmarks."]],
-"criterion":[["The artist's work captured the _____ of the era with stunning clarity."], ["The discovery was a _____ that reshaped the field entirely."]],
-"cull":[["Historians have sought to _____ the events that led to the conflict."], ["The board voted to _____ the outdated regulations."]],
-"culminate":[["The organization sought to _____ its long-standing policies."], ["Parents should _____ their children to think independently."]],
-"cynical":[["The _____ landscape stretched endlessly before the travelers."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"decadence":[["The professor's lecture focused on the _____ of modern governance."], ["The artist's work captured the _____ of the era with stunning clarity."]],
-"decimate":[["The scientist worked tirelessly to _____ her hypothesis with new data."], ["The professor encouraged students to _____ their assumptions about the topic."]],
-"decree":[["She accepted the award with characteristic _____ and gratitude."], ["The artist's work captured the _____ of the era with stunning clarity."]],
-"deem":[["The journalist attempted to _____ the truth behind the allegations."], ["The mayor promised to _____ the concerns raised by residents."]],
-"default":[["She accepted the award with characteristic _____ and gratitude."], ["What began as a minor disagreement escalated into a full-blown _____."]],
-"deference":[["His _____ for detail made him invaluable to the research team."], ["She demonstrated remarkable _____ throughout the difficult ordeal."]],
-"deluge":[["The treaty represented a significant _____ in international relations."], ["The _____ between the two factions threatened to derail the project."]],
-"demeanor":[["She accepted the award with characteristic _____ and gratitude."], ["There was a sense of _____ among the committee members after the vote."]],
-"demise":[["His _____ was evident in the way he handled the delicate matter."], ["The community recognized the _____ of preserving its historical landmarks."]],
-"demolish":[["The committee decided to _____ the proposal after careful deliberation."], ["She tried to _____ the situation before it escalated further."]],
-"denote":[["The scientist worked tirelessly to _____ her hypothesis with new data."], ["The organization sought to _____ its long-standing policies."]],
-"depict":[["The professor encouraged students to _____ their assumptions about the topic."], ["The journalist attempted to _____ the truth behind the allegations."]],
-"deplete":[["Parents should _____ their children to think independently."], ["The committee decided to _____ the proposal after careful deliberation."]],
-"depose":[["It is important to _____ when faced with difficult circumstances."], ["The committee decided to _____ the proposal after careful deliberation."]],
-"descry":[["She tried to _____ the situation before it escalated further."], ["Experts recommend that leaders _____ their approaches to problem-solving."]],
-"detached":[["Her _____ approach to leadership earned the respect of her peers."], ["The company's _____ growth strategy caught the attention of investors."]],
-"detract":[["The journalist attempted to _____ the truth behind the allegations."], ["The professor encouraged students to _____ their assumptions about the topic."]],
-"deviate":[["The diplomat attempted to _____ the escalating tensions between the nations."], ["He was determined to _____ despite the obstacles in his path."]],
-"devoid":[["Her _____ approach to leadership earned the respect of her peers."], ["Despite the _____ challenges, the team managed to complete the project."]],
-"devout":[["Despite the _____ challenges, the team managed to complete the project."], ["Critics described the proposal as _____ and lacking substance."]],
-"dexterous":[["His _____ attitude toward the project concerned his colleagues."], ["Critics described the proposal as _____ and lacking substance."]],
-"dialectical":[["The company's _____ growth strategy caught the attention of investors."], ["Despite the _____ challenges, the team managed to complete the project."]],
-"digress":[["The journalist attempted to _____ the truth behind the allegations."], ["The committee decided to _____ the proposal after careful deliberation."]],
-"dilapidated":[["The committee found the candidate's qualifications _____."], ["Critics described the proposal as _____ and lacking substance."]],
-"dilate":[["The scientist worked tirelessly to _____ her hypothesis with new data."], ["The committee decided to _____ the proposal after careful deliberation."]],
-"diminish":[["The journalist attempted to _____ the truth behind the allegations."], ["Experts recommend that leaders _____ their approaches to problem-solving."]],
-"discourse":[["The professor's lecture focused on the _____ of modern governance."], ["His _____ was evident in the way he handled the delicate matter."]],
-"discreet":[["Critics described the proposal as _____ and lacking substance."], ["The _____ nature of the problem required a creative solution."]],
-"disenfranchise":[["Experts recommend that leaders _____ their approaches to problem-solving."], ["It is important to _____ when faced with difficult circumstances."]],
-"disinterested":[["Her _____ remarks during the meeting surprised everyone present."], ["The testimony was _____ and left the jury unconvinced."]],
-"dismantle":[["The professor encouraged students to _____ their assumptions about the topic."], ["Historians have sought to _____ the events that led to the conflict."]],
-"dispassionate":[["The testimony was _____ and left the jury unconvinced."], ["The committee found the candidate's qualifications _____."]],
-"disposition":[["A deep _____ settled over the town after the factory closed."], ["The _____ between the two factions threatened to derail the project."]],
-"disproportion":[["The artist's work captured the _____ of the era with stunning clarity."], ["She demonstrated remarkable _____ throughout the difficult ordeal."]],
-"distill":[["It is important to _____ when faced with difficult circumstances."], ["The mayor promised to _____ the concerns raised by residents."]],
-"diverse":[["The company's _____ growth strategy caught the attention of investors."], ["The _____ student impressed the admissions committee with her essay."]],
-"divest":[["Critics began to _____ the administration's handling of the crisis."], ["The committee decided to _____ the proposal after careful deliberation."]],
-"dogma":[["She accepted the award with characteristic _____ and gratitude."], ["The artist's work captured the _____ of the era with stunning clarity."]],
-"domestic":[["The committee found the candidate's qualifications _____."], ["The company's _____ growth strategy caught the attention of investors."]],
-"edify":[["He was determined to _____ despite the obstacles in his path."], ["The professor encouraged students to _____ their assumptions about the topic."]],
-"egalitarian":[["The evidence presented was too _____ to support such a bold claim."], ["The _____ nature of the problem required a creative solution."]],
-"elite":[["His _____ for detail made him invaluable to the research team."], ["She accepted the award with characteristic _____ and gratitude."]],
-"emaciate":[["He was determined to _____ despite the obstacles in his path."], ["Experts recommend that leaders _____ their approaches to problem-solving."]],
-"emanate":[["The journalist attempted to _____ the truth behind the allegations."], ["The scientist worked tirelessly to _____ her hypothesis with new data."]],
-"embargo":[["She demonstrated remarkable _____ throughout the difficult ordeal."], ["His _____ for detail made him invaluable to the research team."]],
-"embody":[["Parents should _____ their children to think independently."], ["The scientist worked tirelessly to _____ her hypothesis with new data."]],
-"enact":[["The scientist worked tirelessly to _____ her hypothesis with new data."], ["Critics began to _____ the administration's handling of the crisis."]],
-"encompass":[["The board voted to _____ the outdated regulations."], ["He was determined to _____ despite the obstacles in his path."]],
-"encroach":[["Parents should _____ their children to think independently."], ["Historians have sought to _____ the events that led to the conflict."]],
-"endemic":[["His _____ attitude toward the project concerned his colleagues."], ["The journalist's _____ investigation uncovered years of corruption."]],
-"endow":[["Experts recommend that leaders _____ their approaches to problem-solving."], ["She tried to _____ the situation before it escalated further."]],
-"enhance":[["The committee decided to _____ the proposal after careful deliberation."], ["The professor encouraged students to _____ their assumptions about the topic."]],
-"entreat":[["Experts recommend that leaders _____ their approaches to problem-solving."], ["Critics began to _____ the administration's handling of the crisis."]],
-"equitable":[["His _____ attitude toward the project concerned his colleagues."], ["The company's _____ growth strategy caught the attention of investors."]],
-"erode":[["Historians have sought to _____ the events that led to the conflict."], ["Critics began to _____ the administration's handling of the crisis."]],
-"estrange":[["The committee decided to _____ the proposal after careful deliberation."], ["Critics began to _____ the administration's handling of the crisis."]],
-"euphemism":[["She accepted the award with characteristic _____ and gratitude."], ["She demonstrated remarkable _____ throughout the difficult ordeal."]],
-"exacting":[["The museum's collection included several _____ artifacts from the period."], ["The company's _____ growth strategy caught the attention of investors."]],
-"excerpt":[["The _____ of the situation became apparent to everyone in the room."], ["The _____ between the two factions threatened to derail the project."]],
-"exemplify":[["The organization sought to _____ its long-standing policies."], ["The board voted to _____ the outdated regulations."]],
-"exempt":[["The company's _____ growth strategy caught the attention of investors."], ["The _____ student impressed the admissions committee with her essay."]],
-"exodus":[["The _____ of the situation became apparent to everyone in the room."], ["The community recognized the _____ of preserving its historical landmarks."]],
-"expedite":[["Historians have sought to _____ the events that led to the conflict."], ["She tried to _____ the situation before it escalated further."]],
-"explicit":[["The journalist's _____ investigation uncovered years of corruption."], ["The _____ student impressed the admissions committee with her essay."]],
-"exploit":[["The scientist worked tirelessly to _____ her hypothesis with new data."], ["The organization sought to _____ its long-standing policies."]],
-"exposition":[["The _____ of the situation became apparent to everyone in the room."], ["His _____ was evident in the way he handled the delicate matter."]],
-"exuberant":[["The testimony was _____ and left the jury unconvinced."], ["Despite the _____ challenges, the team managed to complete the project."]],
-"facet":[["There was a sense of _____ among the committee members after the vote."], ["The treaty represented a significant _____ in international relations."]],
-"facetious":[["Despite the _____ challenges, the team managed to complete the project."], ["The museum's collection included several _____ artifacts from the period."]],
-"fallacy":[["The community recognized the _____ of preserving its historical landmarks."], ["There was a sense of _____ among the committee members after the vote."]],
-"fallow":[["The company's _____ growth strategy caught the attention of investors."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"fanatical":[["The committee found the candidate's qualifications _____."], ["The _____ conditions in the region made travel extremely dangerous."]],
-"fawn":[["The journalist attempted to _____ the truth behind the allegations."], ["The mayor promised to _____ the concerns raised by residents."]],
-"feasible":[["The testimony was _____ and left the jury unconvinced."], ["His _____ attitude toward the project concerned his colleagues."]],
-"feckless":[["Critics described the proposal as _____ and lacking substance."], ["Her _____ approach to leadership earned the respect of her peers."]],
-"feign":[["The professor encouraged students to _____ their assumptions about the topic."], ["She tried to _____ the situation before it escalated further."]],
-"fester":[["She tried to _____ the situation before it escalated further."], ["Parents should _____ their children to think independently."]],
-"fiscal":[["The museum's collection included several _____ artifacts from the period."], ["The testimony was _____ and left the jury unconvinced."]],
-"flaunt":[["Parents should _____ their children to think independently."], ["She tried to _____ the situation before it escalated further."]],
-"flippant":[["The committee found the candidate's qualifications _____."], ["The _____ landscape stretched endlessly before the travelers."]],
-"fluctuate":[["The scientist worked tirelessly to _____ her hypothesis with new data."], ["Critics began to _____ the administration's handling of the crisis."]],
-"foment":[["The committee decided to _____ the proposal after careful deliberation."], ["He was determined to _____ despite the obstacles in his path."]],
-"formidable":[["The testimony was _____ and left the jury unconvinced."], ["The company's _____ growth strategy caught the attention of investors."]],
-"forthright":[["Her _____ approach to leadership earned the respect of her peers."], ["The testimony was _____ and left the jury unconvinced."]],
-"founder":[["She tried to _____ the situation before it escalated further."], ["He was determined to _____ despite the obstacles in his path."]],
-"frail":[["The _____ landscape stretched endlessly before the travelers."], ["The _____ conditions in the region made travel extremely dangerous."]],
-"futile":[["The committee found the candidate's qualifications _____."], ["The museum's collection included several _____ artifacts from the period."]],
-"gainsay":[["The mayor promised to _____ the concerns raised by residents."], ["Experts recommend that leaders _____ their approaches to problem-solving."]],
-"garner":[["Historians have sought to _____ the events that led to the conflict."], ["The committee decided to _____ the proposal after careful deliberation."]],
-"gauge":[["The journalist attempted to _____ the truth behind the allegations."], ["The mayor promised to _____ the concerns raised by residents."]],
-"genesis":[["The _____ between the two factions threatened to derail the project."], ["The report highlighted the growing _____ within the organization."]],
-"germane":[["Despite the _____ challenges, the team managed to complete the project."], ["The _____ landscape stretched endlessly before the travelers."]],
-"gesticulate":[["It is important to _____ when faced with difficult circumstances."], ["The professor encouraged students to _____ their assumptions about the topic."]],
-"glean":[["The committee decided to _____ the proposal after careful deliberation."], ["The board voted to _____ the outdated regulations."]],
-"glib":[["Her _____ approach to leadership earned the respect of her peers."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"grandeur":[["The community recognized the _____ of preserving its historical landmarks."], ["There was a sense of _____ among the committee members after the vote."]],
-"gullible":[["Despite the _____ challenges, the team managed to complete the project."], ["The _____ conditions in the region made travel extremely dangerous."]],
-"hamper":[["It is important to _____ when faced with difficult circumstances."], ["The organization sought to _____ its long-standing policies."]],
-"haphazard":[["The museum's collection included several _____ artifacts from the period."], ["Critics described the proposal as _____ and lacking substance."]],
-"havoc":[["She accepted the award with characteristic _____ and gratitude."], ["The report highlighted the growing _____ within the organization."]],
-"heed":[["The committee decided to _____ the proposal after careful deliberation."], ["The journalist attempted to _____ the truth behind the allegations."]],
-"heresy":[["A deep _____ settled over the town after the factory closed."], ["His _____ for detail made him invaluable to the research team."]],
-"hermetic":[["The testimony was _____ and left the jury unconvinced."], ["The _____ student impressed the admissions committee with her essay."]],
-"hinder":[["Experts recommend that leaders _____ their approaches to problem-solving."], ["Critics began to _____ the administration's handling of the crisis."]],
-"hoary":[["The committee found the candidate's qualifications _____."], ["His _____ attitude toward the project concerned his colleagues."]],
-"hubris":[["There was a sense of _____ among the committee members after the vote."], ["The professor's lecture focused on the _____ of modern governance."]],
-"humility":[["She accepted the award with characteristic _____ and gratitude."], ["His _____ for detail made him invaluable to the research team."]],
-"idiosyncrasy":[["A deep _____ settled over the town after the factory closed."], ["The artist's work captured the _____ of the era with stunning clarity."]],
-"idyllic":[["The committee found the candidate's qualifications _____."], ["Her _____ approach to leadership earned the respect of her peers."]],
-"illustrious":[["The _____ landscape stretched endlessly before the travelers."], ["The company's _____ growth strategy caught the attention of investors."]],
-"imbue":[["He was determined to _____ despite the obstacles in his path."], ["The professor encouraged students to _____ their assumptions about the topic."]],
-"imminent":[["The _____ conditions in the region made travel extremely dangerous."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"impair":[["He was determined to _____ despite the obstacles in his path."], ["The diplomat attempted to _____ the escalating tensions between the nations."]],
-"impartial":[["The committee found the candidate's qualifications _____."], ["The journalist's _____ investigation uncovered years of corruption."]],
-"impasse":[["The treaty represented a significant _____ in international relations."], ["She accepted the award with characteristic _____ and gratitude."]],
-"impeach":[["Parents should _____ their children to think independently."], ["She tried to _____ the situation before it escalated further."]],
-"impede":[["Historians have sought to _____ the events that led to the conflict."], ["Critics began to _____ the administration's handling of the crisis."]],
-"imperceptible":[["Critics described the proposal as _____ and lacking substance."], ["The journalist's _____ investigation uncovered years of corruption."]],
-"implore":[["Historians have sought to _____ the events that led to the conflict."], ["Critics began to _____ the administration's handling of the crisis."]],
-"imply":[["The board voted to _____ the outdated regulations."], ["It is important to _____ when faced with difficult circumstances."]],
-"improvident":[["The _____ conditions in the region made travel extremely dangerous."], ["The journalist's _____ investigation uncovered years of corruption."]],
-"impugn":[["Experts recommend that leaders _____ their approaches to problem-solving."], ["The scientist worked tirelessly to _____ her hypothesis with new data."]],
-"impunity":[["What began as a minor disagreement escalated into a full-blown _____."], ["The community recognized the _____ of preserving its historical landmarks."]],
-"incandescent":[["The museum's collection included several _____ artifacts from the period."], ["Critics described the proposal as _____ and lacking substance."]],
-"incensed":[["The _____ student impressed the admissions committee with her essay."], ["The company's _____ growth strategy caught the attention of investors."]],
-"inception":[["The community recognized the _____ of preserving its historical landmarks."], ["A deep _____ settled over the town after the factory closed."]],
-"incipient":[["Critics described the proposal as _____ and lacking substance."], ["The _____ nature of the problem required a creative solution."]],
-"incite":[["The committee decided to _____ the proposal after careful deliberation."], ["The journalist attempted to _____ the truth behind the allegations."]],
-"inclusive":[["The committee found the candidate's qualifications _____."], ["The _____ student impressed the admissions committee with her essay."]],
-"inconclusive":[["The _____ conditions in the region made travel extremely dangerous."], ["The _____ nature of the problem required a creative solution."]],
-"incriminate":[["The board voted to _____ the outdated regulations."], ["Parents should _____ their children to think independently."]],
-"indignant":[["Her _____ remarks during the meeting surprised everyone present."], ["The company's _____ growth strategy caught the attention of investors."]],
-"indiscriminate":[["The museum's collection included several _____ artifacts from the period."], ["Despite the _____ challenges, the team managed to complete the project."]],
-"inert":[["The committee found the candidate's qualifications _____."], ["The _____ nature of the problem required a creative solution."]],
-"infallible":[["The _____ conditions in the region made travel extremely dangerous."], ["The testimony was _____ and left the jury unconvinced."]],
-"infamous":[["Her _____ remarks during the meeting surprised everyone present."], ["The _____ nature of the problem required a creative solution."]],
-"infer":[["The scientist worked tirelessly to _____ her hypothesis with new data."], ["He was determined to _____ despite the obstacles in his path."]],
-"inflammable":[["The _____ student impressed the admissions committee with her essay."], ["The testimony was _____ and left the jury unconvinced."]],
-"influx":[["The _____ between the two factions threatened to derail the project."], ["She accepted the award with characteristic _____ and gratitude."]],
-"infringe":[["Experts recommend that leaders _____ their approaches to problem-solving."], ["He was determined to _____ despite the obstacles in his path."]],
-"innovative":[["The company's _____ growth strategy caught the attention of investors."], ["The journalist's _____ investigation uncovered years of corruption."]],
-"inscrutable":[["The journalist's _____ investigation uncovered years of corruption."], ["The testimony was _____ and left the jury unconvinced."]],
-"intermittent":[["Her _____ approach to leadership earned the respect of her peers."], ["Despite the _____ challenges, the team managed to complete the project."]],
-"intrinsic":[["The evidence presented was too _____ to support such a bold claim."], ["Her _____ approach to leadership earned the respect of her peers."]],
-"invalidate":[["It is important to _____ when faced with difficult circumstances."], ["Historians have sought to _____ the events that led to the conflict."]],
-"invoke":[["The scientist worked tirelessly to _____ her hypothesis with new data."], ["Parents should _____ their children to think independently."]],
-"irate":[["The testimony was _____ and left the jury unconvinced."], ["The _____ landscape stretched endlessly before the travelers."]],
-"ironic":[["The _____ conditions in the region made travel extremely dangerous."], ["The evidence presented was too _____ to support such a bold claim."]],
-"irrefutable":[["The evidence presented was too _____ to support such a bold claim."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"irreverent":[["Despite the _____ challenges, the team managed to complete the project."], ["The committee found the candidate's qualifications _____."]],
-"itinerant":[["The evidence presented was too _____ to support such a bold claim."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"jeopardize":[["The committee decided to _____ the proposal after careful deliberation."], ["She tried to _____ the situation before it escalated further."]],
-"kindle":[["The mayor promised to _____ the concerns raised by residents."], ["Parents should _____ their children to think independently."]],
-"lackluster":[["His _____ attitude toward the project concerned his colleagues."], ["The museum's collection included several _____ artifacts from the period."]],
-"lament":[["Critics began to _____ the administration's handling of the crisis."], ["He was determined to _____ despite the obstacles in his path."]],
-"lampoon":[["Historians have sought to _____ the events that led to the conflict."], ["He was determined to _____ despite the obstacles in his path."]],
-"lapse":[["She demonstrated remarkable _____ throughout the difficult ordeal."], ["A deep _____ settled over the town after the factory closed."]],
-"laudable":[["The company's _____ growth strategy caught the attention of investors."], ["The _____ student impressed the admissions committee with her essay."]],
-"legacy":[["His _____ was evident in the way he handled the delicate matter."], ["The discovery was a _____ that reshaped the field entirely."]],
-"lethargy":[["What began as a minor disagreement escalated into a full-blown _____."], ["The _____ between the two factions threatened to derail the project."]],
-"levity":[["His _____ was evident in the way he handled the delicate matter."], ["The discovery was a _____ that reshaped the field entirely."]],
-"liaison":[["His _____ was evident in the way he handled the delicate matter."], ["The report highlighted the growing _____ within the organization."]],
-"listless":[["The _____ student impressed the admissions committee with her essay."], ["The evidence presented was too _____ to support such a bold claim."]],
-"litigious":[["The committee found the candidate's qualifications _____."], ["Critics described the proposal as _____ and lacking substance."]],
-"lofty":[["The committee found the candidate's qualifications _____."], ["Critics described the proposal as _____ and lacking substance."]],
-"ludicrous":[["Her _____ remarks during the meeting surprised everyone present."], ["The _____ nature of the problem required a creative solution."]],
-"lure":[["The scientist worked tirelessly to _____ her hypothesis with new data."], ["He was determined to _____ despite the obstacles in his path."]],
-"maladroit":[["The _____ student impressed the admissions committee with her essay."], ["The committee found the candidate's qualifications _____."]],
-"malaise":[["The artist's work captured the _____ of the era with stunning clarity."], ["She accepted the award with characteristic _____ and gratitude."]],
-"malfeasance":[["The professor's lecture focused on the _____ of modern governance."], ["The discovery was a _____ that reshaped the field entirely."]],
-"malign":[["The committee decided to _____ the proposal after careful deliberation."], ["The mayor promised to _____ the concerns raised by residents."]],
-"mediate":[["The scientist worked tirelessly to _____ her hypothesis with new data."], ["It is important to _____ when faced with difficult circumstances."]],
-"menial":[["Her _____ remarks during the meeting surprised everyone present."], ["His _____ attitude toward the project concerned his colleagues."]],
-"mercenary":[["The _____ landscape stretched endlessly before the travelers."], ["His _____ attitude toward the project concerned his colleagues."]],
-"momentous":[["The committee found the candidate's qualifications _____."], ["The company's _____ growth strategy caught the attention of investors."]],
-"monotonous":[["The committee found the candidate's qualifications _____."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"moratorium":[["The report highlighted the growing _____ within the organization."], ["The treaty represented a significant _____ in international relations."]],
-"munificent":[["The evidence presented was too _____ to support such a bold claim."], ["Critics described the proposal as _____ and lacking substance."]],
-"naive":[["The _____ landscape stretched endlessly before the travelers."], ["The testimony was _____ and left the jury unconvinced."]],
-"negligible":[["The testimony was _____ and left the jury unconvinced."], ["The _____ student impressed the admissions committee with her essay."]],
-"nettle":[["The journalist attempted to _____ the truth behind the allegations."], ["The professor encouraged students to _____ their assumptions about the topic."]],
-"nimble":[["The _____ landscape stretched endlessly before the travelers."], ["The museum's collection included several _____ artifacts from the period."]],
-"nostalgia":[["The report highlighted the growing _____ within the organization."], ["The treaty represented a significant _____ in international relations."]],
-"novelty":[["She demonstrated remarkable _____ throughout the difficult ordeal."], ["There was a sense of _____ among the committee members after the vote."]],
-"nullify":[["Parents should _____ their children to think independently."], ["The scientist worked tirelessly to _____ her hypothesis with new data."]],
-"objective":[["Critics described the proposal as _____ and lacking substance."], ["The _____ student impressed the admissions committee with her essay."]],
-"obligatory":[["The _____ student impressed the admissions committee with her essay."], ["Critics described the proposal as _____ and lacking substance."]],
-"omnipotent":[["The _____ nature of the problem required a creative solution."], ["Despite the _____ challenges, the team managed to complete the project."]],
-"opaque":[["Her _____ approach to leadership earned the respect of her peers."], ["Critics described the proposal as _____ and lacking substance."]],
-"opportunist":[["His _____ for detail made him invaluable to the research team."], ["His _____ was evident in the way he handled the delicate matter."]],
-"optimal":[["Critics described the proposal as _____ and lacking substance."], ["The museum's collection included several _____ artifacts from the period."]],
-"orchestrate":[["The mayor promised to _____ the concerns raised by residents."], ["The board voted to _____ the outdated regulations."]],
-"oust":[["It is important to _____ when faced with difficult circumstances."], ["The organization sought to _____ its long-standing policies."]],
-"overt":[["His _____ attitude toward the project concerned his colleagues."], ["The museum's collection included several _____ artifacts from the period."]],
-"pact":[["The discovery was a _____ that reshaped the field entirely."], ["The community recognized the _____ of preserving its historical landmarks."]],
-"palpable":[["The testimony was _____ and left the jury unconvinced."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"parsimonious":[["His _____ attitude toward the project concerned his colleagues."], ["The museum's collection included several _____ artifacts from the period."]],
-"patronize":[["The mayor promised to _____ the concerns raised by residents."], ["The scientist worked tirelessly to _____ her hypothesis with new data."]],
-"pedantic":[["The _____ nature of the problem required a creative solution."], ["The testimony was _____ and left the jury unconvinced."]],
-"perennial":[["Her _____ approach to leadership earned the respect of her peers."], ["The _____ landscape stretched endlessly before the travelers."]],
-"perilous":[["The _____ landscape stretched endlessly before the travelers."], ["The company's _____ growth strategy caught the attention of investors."]],
-"perpetuate":[["Critics began to _____ the administration's handling of the crisis."], ["Historians have sought to _____ the events that led to the conflict."]],
-"perplexing":[["The _____ student impressed the admissions committee with her essay."], ["The journalist's _____ investigation uncovered years of corruption."]],
-"persevere":[["She tried to _____ the situation before it escalated further."], ["The mayor promised to _____ the concerns raised by residents."]],
-"pertinent":[["Despite the _____ challenges, the team managed to complete the project."], ["The journalist's _____ investigation uncovered years of corruption."]],
-"petition":[["The report highlighted the growing _____ within the organization."], ["She demonstrated remarkable _____ throughout the difficult ordeal."]],
-"petulant":[["The _____ conditions in the region made travel extremely dangerous."], ["The testimony was _____ and left the jury unconvinced."]],
-"philanthropist":[["She demonstrated remarkable _____ throughout the difficult ordeal."], ["A deep _____ settled over the town after the factory closed."]],
-"pious":[["Despite the _____ challenges, the team managed to complete the project."], ["The company's _____ growth strategy caught the attention of investors."]],
-"pivotal":[["Her _____ approach to leadership earned the respect of her peers."], ["The museum's collection included several _____ artifacts from the period."]],
-"plaintiff":[["There was a sense of _____ among the committee members after the vote."], ["She accepted the award with characteristic _____ and gratitude."]],
-"plight":[["The treaty represented a significant _____ in international relations."], ["His _____ for detail made him invaluable to the research team."]],
-"polarize":[["The board voted to _____ the outdated regulations."], ["The committee decided to _____ the proposal after careful deliberation."]],
-"ponderous":[["The museum's collection included several _____ artifacts from the period."], ["Critics described the proposal as _____ and lacking substance."]],
-"portend":[["Critics began to _____ the administration's handling of the crisis."], ["The professor encouraged students to _____ their assumptions about the topic."]],
-"postulate":[["Parents should _____ their children to think independently."], ["It is important to _____ when faced with difficult circumstances."]],
-"potent":[["Critics described the proposal as _____ and lacking substance."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"precept":[["The report highlighted the growing _____ within the organization."], ["His _____ for detail made him invaluable to the research team."]],
-"precipitate":[["It is important to _____ when faced with difficult circumstances."], ["Parents should _____ their children to think independently."]],
-"predecessor":[["His _____ for detail made him invaluable to the research team."], ["His _____ was evident in the way he handled the delicate matter."]],
-"predominant":[["The _____ landscape stretched endlessly before the travelers."], ["The committee found the candidate's qualifications _____."]],
-"preeminent":[["Critics described the proposal as _____ and lacking substance."], ["The company's _____ growth strategy caught the attention of investors."]],
-"premise":[["The treaty represented a significant _____ in international relations."], ["She demonstrated remarkable _____ throughout the difficult ordeal."]],
-"premonition":[["There was a sense of _____ among the committee members after the vote."], ["The discovery was a _____ that reshaped the field entirely."]],
-"prerogative":[["The artist's work captured the _____ of the era with stunning clarity."], ["She accepted the award with characteristic _____ and gratitude."]],
-"prevalent":[["His _____ attitude toward the project concerned his colleagues."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"pristine":[["Critics described the proposal as _____ and lacking substance."], ["Despite the _____ challenges, the team managed to complete the project."]],
-"prodigal":[["Her _____ remarks during the meeting surprised everyone present."], ["His _____ attitude toward the project concerned his colleagues."]],
-"prodigious":[["The journalist's _____ investigation uncovered years of corruption."], ["The evidence presented was too _____ to support such a bold claim."]],
-"proficient":[["Her _____ remarks during the meeting surprised everyone present."], ["The evidence presented was too _____ to support such a bold claim."]],
-"prohibitive":[["The _____ nature of the problem required a creative solution."], ["The _____ conditions in the region made travel extremely dangerous."]],
-"prominence":[["The discovery was a _____ that reshaped the field entirely."], ["There was a sense of _____ among the committee members after the vote."]],
-"prophetic":[["The testimony was _____ and left the jury unconvinced."], ["The committee found the candidate's qualifications _____."]],
-"prospective":[["The company's _____ growth strategy caught the attention of investors."], ["The museum's collection included several _____ artifacts from the period."]],
-"protagonist":[["A deep _____ settled over the town after the factory closed."], ["There was a sense of _____ among the committee members after the vote."]],
-"protracted":[["The company's _____ growth strategy caught the attention of investors."], ["Her _____ approach to leadership earned the respect of her peers."]],
-"provident":[["The company's _____ growth strategy caught the attention of investors."], ["The committee found the candidate's qualifications _____."]],
-"provincial":[["The _____ student impressed the admissions committee with her essay."], ["The testimony was _____ and left the jury unconvinced."]],
-"proviso":[["A deep _____ settled over the town after the factory closed."], ["The report highlighted the growing _____ within the organization."]],
-"prudent":[["His _____ attitude toward the project concerned his colleagues."], ["The _____ landscape stretched endlessly before the travelers."]],
-"purport":[["He was determined to _____ despite the obstacles in his path."], ["The organization sought to _____ its long-standing policies."]],
-"qualm":[["A deep _____ settled over the town after the factory closed."], ["She demonstrated remarkable _____ throughout the difficult ordeal."]],
-"quarantine":[["The artist's work captured the _____ of the era with stunning clarity."], ["What began as a minor disagreement escalated into a full-blown _____."]],
-"quorum":[["The professor's lecture focused on the _____ of modern governance."], ["She demonstrated remarkable _____ throughout the difficult ordeal."]],
-"ramification":[["The report highlighted the growing _____ within the organization."], ["The _____ between the two factions threatened to derail the project."]],
-"rampant":[["The museum's collection included several _____ artifacts from the period."], ["The _____ student impressed the admissions committee with her essay."]],
-"ratify":[["The mayor promised to _____ the concerns raised by residents."], ["Historians have sought to _____ the events that led to the conflict."]],
-"rebuff":[["Experts recommend that leaders _____ their approaches to problem-solving."], ["The mayor promised to _____ the concerns raised by residents."]],
-"recant":[["The board voted to _____ the outdated regulations."], ["The scientist worked tirelessly to _____ her hypothesis with new data."]],
-"reciprocal":[["The _____ landscape stretched endlessly before the travelers."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"recluse":[["She accepted the award with characteristic _____ and gratitude."], ["The _____ of the situation became apparent to everyone in the room."]],
-"rectify":[["It is important to _____ when faced with difficult circumstances."], ["The organization sought to _____ its long-standing policies."]],
-"redress":[["His _____ for detail made him invaluable to the research team."], ["The professor's lecture focused on the _____ of modern governance."]],
-"regal":[["The museum's collection included several _____ artifacts from the period."], ["The _____ nature of the problem required a creative solution."]],
-"reimburse":[["Experts recommend that leaders _____ their approaches to problem-solving."], ["The mayor promised to _____ the concerns raised by residents."]],
-"relinquish":[["The mayor promised to _____ the concerns raised by residents."], ["Historians have sought to _____ the events that led to the conflict."]],
-"remorse":[["The artist's work captured the _____ of the era with stunning clarity."], ["The report highlighted the growing _____ within the organization."]],
-"render":[["It is important to _____ when faced with difficult circumstances."], ["The scientist worked tirelessly to _____ her hypothesis with new data."]],
-"renounce":[["He was determined to _____ despite the obstacles in his path."], ["Critics began to _____ the administration's handling of the crisis."]],
-"repeal":[["It is important to _____ when faced with difficult circumstances."], ["He was determined to _____ despite the obstacles in his path."]],
-"repercussion":[["The artist's work captured the _____ of the era with stunning clarity."], ["The community recognized the _____ of preserving its historical landmarks."]],
-"replenish":[["Experts recommend that leaders _____ their approaches to problem-solving."], ["The journalist attempted to _____ the truth behind the allegations."]],
-"repress":[["The board voted to _____ the outdated regulations."], ["She tried to _____ the situation before it escalated further."]],
-"reprimand":[["She demonstrated remarkable _____ throughout the difficult ordeal."], ["A deep _____ settled over the town after the factory closed."]],
-"requisite":[["The _____ landscape stretched endlessly before the travelers."], ["The company's _____ growth strategy caught the attention of investors."]],
-"resonate":[["The scientist worked tirelessly to _____ her hypothesis with new data."], ["Experts recommend that leaders _____ their approaches to problem-solving."]],
-"reverberate":[["The board voted to _____ the outdated regulations."], ["The journalist attempted to _____ the truth behind the allegations."]],
-"rhetoric":[["His _____ for detail made him invaluable to the research team."], ["The treaty represented a significant _____ in international relations."]],
-"rigorous":[["The _____ conditions in the region made travel extremely dangerous."], ["The journalist's _____ investigation uncovered years of corruption."]],
-"robust":[["The museum's collection included several _____ artifacts from the period."], ["The committee found the candidate's qualifications _____."]],
-"rudimentary":[["The testimony was _____ and left the jury unconvinced."], ["Her _____ approach to leadership earned the respect of her peers."]],
-"rustic":[["The testimony was _____ and left the jury unconvinced."], ["The _____ conditions in the region made travel extremely dangerous."]],
-"sanction":[["The discovery was a _____ that reshaped the field entirely."], ["A deep _____ settled over the town after the factory closed."]],
-"sardonic":[["The _____ conditions in the region made travel extremely dangerous."], ["The testimony was _____ and left the jury unconvinced."]],
-"scant":[["Her _____ approach to leadership earned the respect of her peers."], ["Despite the _____ challenges, the team managed to complete the project."]],
-"schism":[["The artist's work captured the _____ of the era with stunning clarity."], ["The community recognized the _____ of preserving its historical landmarks."]],
-"scrutiny":[["A deep _____ settled over the town after the factory closed."], ["The discovery was a _____ that reshaped the field entirely."]],
-"secular":[["The testimony was _____ and left the jury unconvinced."], ["The company's _____ growth strategy caught the attention of investors."]],
-"sentiment":[["A deep _____ settled over the town after the factory closed."], ["The treaty represented a significant _____ in international relations."]],
-"sequester":[["The journalist attempted to _____ the truth behind the allegations."], ["The organization sought to _____ its long-standing policies."]],
-"shrewd":[["The _____ landscape stretched endlessly before the travelers."], ["The journalist's _____ investigation uncovered years of corruption."]],
-"skeptical":[["The _____ landscape stretched endlessly before the travelers."], ["Despite the _____ challenges, the team managed to complete the project."]],
-"slander":[["The treaty represented a significant _____ in international relations."], ["The _____ of the situation became apparent to everyone in the room."]],
-"solemn":[["The evidence presented was too _____ to support such a bold claim."], ["The _____ student impressed the admissions committee with her essay."]],
-"solicit":[["It is important to _____ when faced with difficult circumstances."], ["The board voted to _____ the outdated regulations."]],
-"solitary":[["Critics described the proposal as _____ and lacking substance."], ["The _____ nature of the problem required a creative solution."]],
-"somber":[["The museum's collection included several _____ artifacts from the period."], ["The _____ landscape stretched endlessly before the travelers."]],
-"sordid":[["Her _____ remarks during the meeting surprised everyone present."], ["The evidence presented was too _____ to support such a bold claim."]],
-"speculate":[["The organization sought to _____ its long-standing policies."], ["The diplomat attempted to _____ the escalating tensions between the nations."]],
-"sporadic":[["The _____ student impressed the admissions committee with her essay."], ["The _____ landscape stretched endlessly before the travelers."]],
-"squander":[["Historians have sought to _____ the events that led to the conflict."], ["The diplomat attempted to _____ the escalating tensions between the nations."]],
-"stagnant":[["The journalist's _____ investigation uncovered years of corruption."], ["The _____ conditions in the region made travel extremely dangerous."]],
-"staunch":[["The evidence presented was too _____ to support such a bold claim."], ["The committee found the candidate's qualifications _____."]],
-"steadfast":[["Despite the _____ challenges, the team managed to complete the project."], ["His _____ attitude toward the project concerned his colleagues."]],
-"stigma":[["The discovery was a _____ that reshaped the field entirely."], ["She demonstrated remarkable _____ throughout the difficult ordeal."]],
-"stipulate":[["The organization sought to _____ its long-standing policies."], ["He was determined to _____ despite the obstacles in his path."]],
-"stringent":[["Despite the _____ challenges, the team managed to complete the project."], ["Critics described the proposal as _____ and lacking substance."]],
-"subordinate":[["The museum's collection included several _____ artifacts from the period."], ["The company's _____ growth strategy caught the attention of investors."]],
-"subservient":[["The company's _____ growth strategy caught the attention of investors."], ["Her _____ approach to leadership earned the respect of her peers."]],
-"substantive":[["Her _____ approach to leadership earned the respect of her peers."], ["The _____ nature of the problem required a creative solution."]],
-"subvert":[["Historians have sought to _____ the events that led to the conflict."], ["Parents should _____ their children to think independently."]],
-"suffice":[["Experts recommend that leaders _____ their approaches to problem-solving."], ["It is important to _____ when faced with difficult circumstances."]],
-"superficial":[["The _____ conditions in the region made travel extremely dangerous."], ["His _____ attitude toward the project concerned his colleagues."]],
-"supplant":[["The scientist worked tirelessly to _____ her hypothesis with new data."], ["He was determined to _____ despite the obstacles in his path."]],
-"supposition":[["The _____ between the two factions threatened to derail the project."], ["There was a sense of _____ among the committee members after the vote."]],
-"surpass":[["It is important to _____ when faced with difficult circumstances."], ["The board voted to _____ the outdated regulations."]],
-"susceptible":[["The _____ conditions in the region made travel extremely dangerous."], ["Critics described the proposal as _____ and lacking substance."]],
-"sustenance":[["His _____ for detail made him invaluable to the research team."], ["A deep _____ settled over the town after the factory closed."]],
-"tangible":[["The committee found the candidate's qualifications _____."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"temperate":[["Her _____ remarks during the meeting surprised everyone present."], ["The _____ conditions in the region made travel extremely dangerous."]],
-"temporal":[["The _____ student impressed the admissions committee with her essay."], ["The museum's collection included several _____ artifacts from the period."]],
-"terminate":[["Parents should _____ their children to think independently."], ["The board voted to _____ the outdated regulations."]],
-"thesis":[["The artist's work captured the _____ of the era with stunning clarity."], ["She accepted the award with characteristic _____ and gratitude."]],
-"thwart":[["Parents should _____ their children to think independently."], ["The professor encouraged students to _____ their assumptions about the topic."]],
-"tout":[["Critics began to _____ the administration's handling of the crisis."], ["The board voted to _____ the outdated regulations."]],
-"transcend":[["The professor encouraged students to _____ their assumptions about the topic."], ["He was determined to _____ despite the obstacles in his path."]],
-"trivial":[["Critics described the proposal as _____ and lacking substance."], ["The _____ student impressed the admissions committee with her essay."]],
-"tumultuous":[["The journalist's _____ investigation uncovered years of corruption."], ["Her _____ remarks during the meeting surprised everyone present."]],
-"turbulent":[["The _____ student impressed the admissions committee with her essay."], ["Despite the _____ challenges, the team managed to complete the project."]],
-"turmoil":[["She demonstrated remarkable _____ throughout the difficult ordeal."], ["The artist's work captured the _____ of the era with stunning clarity."]],
-"tycoon":[["The community recognized the _____ of preserving its historical landmarks."], ["The _____ between the two factions threatened to derail the project."]],
-"tyranny":[["A deep _____ settled over the town after the factory closed."], ["She demonstrated remarkable _____ throughout the difficult ordeal."]],
-"ulterior":[["The evidence presented was too _____ to support such a bold claim."], ["The journalist's _____ investigation uncovered years of corruption."]],
-"ultimatum":[["She accepted the award with characteristic _____ and gratitude."], ["His _____ for detail made him invaluable to the research team."]],
-"unassuming":[["The company's _____ growth strategy caught the attention of investors."], ["The _____ student impressed the admissions committee with her essay."]],
-"undercut":[["The board voted to _____ the outdated regulations."], ["Critics began to _____ the administration's handling of the crisis."]],
-"unequivocal":[["The _____ landscape stretched endlessly before the travelers."], ["The _____ student impressed the admissions committee with her essay."]],
-"unilateral":[["The journalist's _____ investigation uncovered years of corruption."], ["The _____ student impressed the admissions committee with her essay."]],
-"unkempt":[["Her _____ remarks during the meeting surprised everyone present."], ["Her _____ approach to leadership earned the respect of her peers."]],
-"unorthodox":[["The museum's collection included several _____ artifacts from the period."], ["The _____ student impressed the admissions committee with her essay."]],
-"unpalatable":[["Her _____ approach to leadership earned the respect of her peers."], ["The evidence presented was too _____ to support such a bold claim."]],
-"unscrupulous":[["The _____ landscape stretched endlessly before the travelers."], ["The museum's collection included several _____ artifacts from the period."]],
-"untenable":[["Her _____ remarks during the meeting surprised everyone present."], ["The testimony was _____ and left the jury unconvinced."]],
-"unwieldy":[["The testimony was _____ and left the jury unconvinced."], ["The _____ student impressed the admissions committee with her essay."]],
-"valor":[["His _____ for detail made him invaluable to the research team."], ["What began as a minor disagreement escalated into a full-blown _____."]],
-"vanquish":[["The diplomat attempted to _____ the escalating tensions between the nations."], ["She tried to _____ the situation before it escalated further."]],
-"vehement":[["The _____ landscape stretched endlessly before the travelers."], ["The _____ conditions in the region made travel extremely dangerous."]],
-"veracious":[["The evidence presented was too _____ to support such a bold claim."], ["The journalist's _____ investigation uncovered years of corruption."]],
-"verdict":[["The _____ of the situation became apparent to everyone in the room."], ["What began as a minor disagreement escalated into a full-blown _____."]],
-"versatile":[["The _____ landscape stretched endlessly before the travelers."], ["His _____ attitude toward the project concerned his colleagues."]],
-"viable":[["Critics described the proposal as _____ and lacking substance."], ["Her _____ approach to leadership earned the respect of her peers."]],
-"visceral":[["The _____ student impressed the admissions committee with her essay."], ["Her _____ approach to leadership earned the respect of her peers."]],
-"volition":[["The treaty represented a significant _____ in international relations."], ["The report highlighted the growing _____ within the organization."]],
-"voracious":[["Critics described the proposal as _____ and lacking substance."], ["His _____ attitude toward the project concerned his colleagues."]],
-"vulnerable":[["The company's _____ growth strategy caught the attention of investors."], ["The _____ landscape stretched endlessly before the travelers."]],
-"warrant":[["He was determined to _____ despite the obstacles in his path."], ["The journalist attempted to _____ the truth behind the allegations."]],
-"xenophobia":[["The report highlighted the growing _____ within the organization."], ["A deep _____ settled over the town after the factory closed."]],
-"yeoman":[["What began as a minor disagreement escalated into a full-blown _____."], ["She accepted the award with characteristic _____ and gratitude."]],
-"zealot":[["The _____ between the two factions threatened to derail the project."], ["The professor's lecture focused on the _____ of modern governance."]]
 };
