@@ -227,7 +227,7 @@ header h1{
 }
 
 /* ─── Quiz Active ─── */
-.exit-row{display:flex;justify-content:flex-end;align-items:center;margin-bottom:12px}
+.exit-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
 .exit-btn{
   background:transparent;
   color:var(--ink-secondary);
@@ -242,6 +242,49 @@ header h1{
 }
 .exit-btn:hover{color:var(--ink);border-color:var(--ink);background:var(--accent-soft)}
 .exit-btn:active{opacity:.8}
+
+/* ─── Info Button & Panel ─── */
+.info-btn{
+  width:28px;height:28px;
+  background:transparent;
+  border:2px solid var(--line-strong);
+  color:var(--ink-secondary);
+  font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;
+  font-size:.85rem;
+  font-style:italic;
+  font-weight:700;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .15s var(--ease);
+}
+.info-btn:hover{color:var(--ink);border-color:var(--ink);background:var(--accent-soft)}
+.info-panel{
+  border:2px solid var(--line-strong);
+  background:var(--surface);
+  padding:12px 16px;
+  margin-bottom:8px;
+  animation:cardIn .15s var(--ease);
+}
+.info-panel.hidden{display:none}
+.info-panel table{
+  width:100%;
+  border-collapse:collapse;
+  font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
+  font-size:.65rem;
+  letter-spacing:.5px;
+}
+.info-panel td{
+  padding:5px 8px;
+  border-bottom:1px solid var(--line);
+  color:var(--ink-secondary);
+}
+.info-panel tr:last-child td{border-bottom:none}
+.info-panel td:first-child{
+  font-weight:700;
+  color:var(--ink);
+  white-space:nowrap;
+  width:90px;
+}
 
 .progress-bar{
   height:4px;
@@ -450,14 +493,6 @@ header h1{
 }
 .check-btn:active{opacity:.8}
 
-.kb-hint{
-  text-align:center;
-  font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
-  font-size:.55rem;
-  color:var(--ink-secondary);
-  margin-top:12px;
-  letter-spacing:.5px;
-}
 
 /* ─── Sentence Blank ─── */
 .q-sentence{font-size:1.1rem;line-height:1.8;margin:8px 0 4px}
@@ -1037,17 +1072,11 @@ body.quiz-active .feedback{
   font-size:clamp(0.78rem,1.5vw,0.92rem);
   flex-shrink:0;
 }
-body.quiz-active .kb-hint{
-  margin-top:clamp(2px,0.4vh,8px);
-  padding-bottom:clamp(4px,0.6vh,10px);
-  font-size:.5rem;
-}
 
 /* ── Short viewport fallback (landscape / small screens) ── */
 @media(max-height:550px){
   body.quiz-active .stats-row{display:none}
   body.quiz-active .exit-row{margin-bottom:2px}
-  body.quiz-active .kb-hint{display:none}
 }
 
 /* ─── Mobile ─── */
@@ -1082,5 +1111,5 @@ body.quiz-active .kb-hint{
 /* ─── Print ─── */
 @media print{
   body{background:#fff;color:#000}
-  .nav,.theme-toggle,.exit-row,.kb-hint,.start-screen>button,.summary-btns{display:none}
+  .nav,.theme-toggle,.exit-row,.start-screen>button,.summary-btns{display:none}
 }

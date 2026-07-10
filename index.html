@@ -26,8 +26,17 @@
 <div id="startScreen" class="start-screen"></div>
 <div id="quizActive" class="hidden">
 <div class="exit-row">
-<div></div>
+<button class="info-btn" onclick="toggleInfo()" aria-label="Keyboard shortcuts" title="Shortcuts">i</button>
 <button class="exit-btn" onclick="exitSession()">Save &amp; Exit</button>
+</div>
+<div class="info-panel hidden" id="infoPanel">
+<table>
+<tr><td>Click</td><td>Select answer</td></tr>
+<tr><td>Right-click</td><td>Cross out option</td></tr>
+<tr><td>Enter</td><td>Check answer / Continue</td></tr>
+<tr><td>1 – 4</td><td>Select option A – D</td></tr>
+<tr><td>Esc</td><td>Save &amp; exit</td></tr>
+</table>
 </div>
 <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
 <div class="stats-row">
@@ -43,7 +52,6 @@
 <button class="check-btn" id="checkBtn" onclick="checkAnswer()">Check Answer</button>
 <div class="feedback" id="feedback" aria-live="polite" role="status"></div>
 <button class="next-btn" id="nextBtn" onclick="nextQuestion()">Continue</button>
-<div class="kb-hint">Click to select · Right-click to cross out · Enter to check · Esc to exit</div>
 </div>
 <div id="summaryView" class="hidden"></div>
 </div>
