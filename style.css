@@ -80,7 +80,7 @@ body{
   -moz-osx-font-smoothing:grayscale;
   transition:background .3s var(--ease),color .3s var(--ease);
   line-height:1.5;
-  font-size:16px;
+  font-size:17px;
 }
 
 /* ─── Layout ─── */
@@ -101,7 +101,7 @@ header{
   position:relative;
 }
 header h1{
-  font-size:1.5rem;
+  font-size:1.6rem;
   font-weight:400;
   font-style:italic;
   letter-spacing:.3px;
@@ -139,7 +139,7 @@ header h1{
   border-right:1px solid var(--line);
   padding:10px 8px;
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
-  font-size:.65rem;
+  font-size:.7rem;
   text-transform:uppercase;
   letter-spacing:1.5px;
   cursor:pointer;
@@ -162,8 +162,8 @@ header h1{
 
 /* ─── Start / Home Screen ─── */
 .start-screen{text-align:center;padding:16px 0}
-.start-screen h2{font-size:1.2rem;font-weight:400;font-style:italic;margin-bottom:12px}
-.start-screen p{font-size:.92rem;opacity:.6;line-height:1.6;margin-bottom:24px}
+.start-screen h2{font-size:1.3rem;font-weight:400;font-style:italic;margin-bottom:12px}
+.start-screen p{font-size:.95rem;opacity:.6;line-height:1.6;margin-bottom:24px}
 .start-screen>button{
   width:100%;
   background:var(--ink);
@@ -199,7 +199,7 @@ header h1{
 }
 .home-stat:last-child{border-right:none}
 .home-stat:hover{background:var(--accent-soft)}
-.home-stat-num{font-size:1.6rem;font-weight:700;font-style:italic}
+.home-stat-num{font-size:1.8rem;font-weight:700;font-style:italic}
 .home-stat-label{
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
   font-size:.55rem;text-transform:uppercase;letter-spacing:2px;
@@ -337,7 +337,7 @@ header h1{
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
   font-size:.7rem;color:var(--ink-secondary);font-style:italic;margin-bottom:8px;
 }
-.q-text{font-size:1.05rem;line-height:1.6;margin-top:10px}
+.q-text{font-size:1.1rem;line-height:1.6;margin-top:10px}
 .retry-badge{
   display:inline-block;
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
@@ -362,7 +362,7 @@ header h1{
   align-items:center;
   gap:12px;
   transition:all .12s var(--ease);
-  font-size:.92rem;
+  font-size:.95rem;
   min-height:48px;
   position:relative;
 }
@@ -444,7 +444,7 @@ header h1{
   padding:14px 16px;
   margin-top:12px;
   font-style:italic;
-  font-size:.95rem;
+  font-size:1rem;
   border:2px solid transparent;
   transition:all .2s var(--ease);
 }
@@ -615,7 +615,7 @@ header h1{
   border:2px solid var(--ink);
   padding:24px;
 }
-.cal h2{font-size:1.2rem;margin-bottom:4px;text-align:center;font-weight:400;font-style:italic}
+.cal h2{font-size:1.3rem;margin-bottom:4px;text-align:center;font-weight:400;font-style:italic}
 .cal-sub{text-align:center;color:var(--ink-secondary);font-size:.85rem;margin-bottom:16px}
 .cal-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
 .cal-nav button{
@@ -701,7 +701,7 @@ header h1{
   padding:28px 24px;
 }
 .dash h2{
-  text-align:center;font-size:1.2rem;font-weight:400;
+  text-align:center;font-size:1.3rem;font-weight:400;
   font-style:italic;margin-bottom:20px;
 }
 .dash-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
@@ -712,7 +712,7 @@ header h1{
 }
 .dash-stat:last-child{border-right:none}
 .dash-stat:hover{background:var(--accent-soft)}
-.dash-stat .num{font-size:1.7rem;font-weight:700;font-style:italic}
+.dash-stat .num{font-size:1.9rem;font-weight:700;font-style:italic}
 .dash-stat .label{
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
   font-size:.55rem;text-transform:uppercase;letter-spacing:2px;
@@ -764,10 +764,10 @@ header h1{
   padding:28px 24px;
 }
 .review h2{
-  font-size:1.2rem;margin-bottom:8px;text-align:center;
+  font-size:1.3rem;margin-bottom:8px;text-align:center;
   font-weight:400;font-style:italic;
 }
-.review-sub{text-align:center;color:var(--ink-secondary);font-size:.85rem;margin-bottom:24px}
+.review-sub{text-align:center;color:var(--ink-secondary);font-size:.9rem;margin-bottom:24px}
 .review-empty{
   text-align:center;padding:48px 20px;
   color:var(--ink-secondary);font-style:italic;
@@ -859,8 +859,8 @@ header h1{
   border:2px solid var(--ink);
   padding:28px 24px;
 }
-.settings-page h2{font-size:1.2rem;font-weight:400;font-style:italic;margin-bottom:4px}
-.settings-page .settings-sub{color:var(--ink-secondary);font-size:.85rem;margin-bottom:24px}
+.settings-page h2{font-size:1.3rem;font-weight:400;font-style:italic;margin-bottom:4px;text-align:center}
+.settings-page .settings-sub{color:var(--ink-secondary);font-size:.9rem;margin-bottom:24px;text-align:center}
 .setting-group{
   margin-bottom:28px;padding-bottom:24px;
   border-bottom:1px solid var(--line);
@@ -871,7 +871,7 @@ header h1{
   font-size:.6rem;text-transform:uppercase;letter-spacing:3px;
   color:var(--ink-secondary);margin-bottom:12px;font-weight:600;
 }
-.setting-group p{font-size:.85rem;color:var(--ink-secondary);margin-bottom:12px;line-height:1.5}
+.setting-group p{font-size:.9rem;color:var(--ink-secondary);margin-bottom:12px;line-height:1.5}
 
 .goal-options{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .goal-btn{
@@ -923,7 +923,7 @@ header h1{
   border:solid var(--bg);border-width:0 2px 2px 0;
   transform:rotate(45deg);
 }
-.chk-row label{cursor:pointer;font-size:.9rem;flex:1}
+.chk-row label{cursor:pointer;font-size:.95rem;flex:1}
 .chk-row .chk-desc{
   font-size:.75rem;color:var(--ink-secondary);
   font-style:italic;display:block;margin-top:3px;
@@ -1116,7 +1116,7 @@ body.quiz-active .feedback{
 .wl-item:hover{background:var(--accent-soft)}
 .wl-main{display:flex;align-items:baseline;gap:8px;flex:1;min-width:0}
 .wl-word{
-  font-weight:700;font-style:italic;font-size:1rem;
+  font-weight:700;font-style:italic;font-size:1.05rem;
   white-space:nowrap;
 }
 .wl-pos{
