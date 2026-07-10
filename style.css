@@ -1103,7 +1103,7 @@ body.quiz-active .feedback{
   border-top:2px solid var(--ink);
 }
 .wl-item{
-  display:flex;justify-content:space-between;align-items:center;
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;
   padding:10px 12px;
   border-bottom:1px solid var(--line);
   cursor:default;
@@ -1141,7 +1141,7 @@ body.quiz-active .feedback{
 
 /* ─── Mobile ─── */
 @media(max-width:600px){
-  .container{padding:16px 14px 32px}
+  .container{padding:16px 14px 32px;overflow-x:hidden}
   .question-card{padding:20px 16px}
   .q-text{font-size:1rem}
   .q-word{font-size:1.5rem}
@@ -1159,11 +1159,14 @@ body.quiz-active .feedback{
   .home-stat{padding:14px 6px}
   .home-stat-num{font-size:1.3rem}
   .nav{gap:0;padding:0}
-  .nav button{padding:8px 4px;font-size:.55rem;letter-spacing:1px}
+  .nav button{padding:10px 4px;font-size:.5rem;letter-spacing:.5px;min-height:44px}
+  .theme-toggle{width:44px;height:44px;font-size:1.1rem}
+  .info-btn{width:44px;height:44px;font-size:.85rem}
   .score-big{font-size:2.5rem}
   .summary{padding:24px 16px}
   .cal{padding:16px}
-  .cal-grid .cal-day{min-height:42px;padding:4px 2px}
+  .cal-grid .cal-day{min-height:44px;padding:4px 2px}
+  .cal-nav button{width:44px;height:44px}
   .streak-display{padding:18px}
   .streak-display .streak-num{font-size:2.2rem}
   .wl-item{flex-direction:column;align-items:flex-start;gap:6px}
