@@ -61,13 +61,16 @@ function defaults() {
             wordToDef: true,
             defToWord: true,
             sentence: true,
-            synonym: true
+            synonym: true,
+            context: true,
+            passage: true
         },
         dailyLog: {},
         bestStreak: 0,
         dailyGoal: 20,
         leitner: {},
         retryInSession: false,
+        flagged: {},
         difficultyFilter: 'all',
         sessionHistory: [],
         timedMode: false,
@@ -130,14 +133,18 @@ function markForReview(idx) {
     renderReview()
 }
 
+const TYPE_COUNTERS = {
+    wordToDef: 'wt',
+    defToWord: 'dw',
+    sentence: 'sc',
+    synonym: 'sy',
+    context: 'cx',
+    passage: 'pq'
+};
+
 function pickTypeForWord(idx, enabledTypes) {
     const l = getLeitner(idx);
-    const typeMap = {
-        wordToDef: 'wt',
-        defToWord: 'dw',
-        sentence: 'sc',
-        synonym: 'sy'
-    };
+    const typeMap = TYPE_COUNTERS;
     const scored = enabledTypes.map(t => ({
         t,
         c: l[typeMap[t]] || 0
@@ -518,9 +525,39 @@ function getDistractors(correct, count, type) {
 
 function getEnabledTypes() {
     const qt = state.questionTypes || {};
-    const all = ['wordToDef', 'defToWord', 'sentence', 'synonym'];
+    const all = ['wordToDef', 'defToWord', 'sentence', 'synonym', 'context', 'passage'];
     const enabled = all.filter(k => qt[k] !== false);
     return enabled.length > 0 ? enabled : ['wordToDef']
+}
+
+// Phrasal-verb particles and other glue words: sharing only these does NOT
+// make two definitions synonymous ("to cut down" vs "to lay down").
+const WEAK_TOKENS = new Set(['down', 'away', 'back', 'over', 'upon', 'onto', 'without', 'toward', 'towards', 'give', 'take', 'make', 'lack', 'lacking', 'something', 'someone', 'person', 'thing', 'especially', 'usually', 'greatly', 'highly', 'strongly']);
+
+// Strongest near-synonym in the word list (same POS, most-similar definition).
+// Returns the index, or -1 when nothing clears the threshold.
+function findNearSynonym(idx) {
+    const me = W[idx];
+    let best = -1,
+        bestSim = 0.45; // must be a genuinely defensible synonym
+    for (let i = 0; i < W.length; i++) {
+        if (i === idx || W[i].p !== me.p) continue;
+        const sim = setSim(DEF_TOKEN_SETS[idx], DEF_TOKEN_SETS[i]);
+        if (sim > bestSim) {
+            // at least one shared token must carry real meaning
+            let strong = false;
+            for (const t of DEF_TOKEN_SETS[idx]) {
+                if (DEF_TOKEN_SETS[i].has(t) && !WEAK_TOKENS.has(t)) {
+                    strong = true;
+                    break
+                }
+            }
+            if (!strong) continue;
+            bestSim = sim;
+            best = i
+        }
+    }
+    return best
 }
 
 function startSession() {
@@ -586,8 +623,15 @@ function showQuestion() {
     let wordObj, isRetry = false;
     wordObj = session.words[session.current];
     if (wordObj._retry) isRetry = true;
-    const types = session.enabledTypes || ['wordToDef', 'defToWord'];
+    let types = session.enabledTypes || ['wordToDef', 'defToWord'];
     const wIdx = wordObj._idx != null ? wordObj._idx : W.findIndex(x => x.w === wordObj.w);
+    // Filter to the types this word can actually support
+    types = types.filter(t => {
+        if (t === 'passage') return typeof CONTEXTQ !== 'undefined' && CONTEXTQ[wordObj.w];
+        if (t === 'context') return typeof SENTENCES !== 'undefined' && SENTENCES[wordObj.w];
+        return true
+    });
+    if (types.length === 0) types = ['wordToDef'];
     const qType = wIdx >= 0 ? pickTypeForWord(wIdx, types) : pick(types);
     const card = document.getElementById('qCard');
     const qTypeEl = document.getElementById('qType');
@@ -692,12 +736,68 @@ function showQuestion() {
         qTextEl.innerHTML = `${isRetry?'<span class="retry-badge">Review</span>':''}<div class="q-sentence">${displaySentence.replace('_____','<span class="blank">_____</span>')}</div><div style="margin-top:8px;opacity:.55;font-size:.85rem">Select the word that best fills the blank.</div>`
     } else if (qType === 'synonym') {
         qTypeEl.textContent = 'Closest in meaning';
-        qTextEl.innerHTML = `<span class="q-word">${wordObj.w}</span>${isRetry?'<span class="retry-badge">Review</span>':''}<div class="q-pos">${wordObj.p}</div>Which description is closest in meaning?`;
+        // Real synonym matching when the list contains a near-synonym; otherwise
+        // fall back to the definition format (previously this type was just a
+        // relabeled copy of Define-the-term).
+        const synIdx = wIdx >= 0 ? findNearSynonym(wIdx) : -1;
+        if (synIdx >= 0) {
+            qTextEl.innerHTML = `${isRetry?'<span class="retry-badge">Review</span>':''}Which word is closest in meaning to <span class="q-word" style="font-size:1.2em">${wordObj.w}</span>?`;
+            const synWord = W[synIdx].w;
+            let distractors = getDistractors(wordObj, 4, 'word').filter(d => d !== synWord).slice(0, 3);
+            const optPairs = [{
+                t: synWord,
+                c: true
+            }, ...distractors.map(t => ({
+                t,
+                c: false
+            }))];
+            shuffle(optPairs);
+            options = optPairs.map(o => o.t);
+            correctIdx = optPairs.findIndex(o => o.c)
+        } else {
+            qTextEl.innerHTML = `<span class="q-word">${wordObj.w}</span>${isRetry?'<span class="retry-badge">Review</span>':''}<div class="q-pos">${wordObj.p}</div>Which description is closest in meaning?`;
+            const distractors = getDistractors(wordObj, 3, 'def');
+            const optPairs = [{
+                t: wordObj.d,
+                c: true
+            }, ...distractors.map(t => ({
+                t,
+                c: false
+            }))];
+            shuffle(optPairs);
+            options = optPairs.map(o => o.t);
+            correctIdx = optPairs.findIndex(o => o.c)
+        }
+    } else if (qType === 'context') {
+        // Digital-SAT "meaning in context" style: the word appears in a real
+        // sentence, and the student picks what it most nearly means there.
+        qTypeEl.textContent = 'Meaning in context';
+        const sArr = SENTENCES[wordObj.w];
+        const entry = sArr[Math.floor(Math.random() * sArr.length)];
+        const text = Array.isArray(entry) ? entry[0] : entry;
+        qTextEl.innerHTML = `${isRetry?'<span class="retry-badge">Review</span>':''}<div class="q-sentence">${fillBlank(text, wordObj.w)}</div><div class="q-stem">As used in this sentence, <em>${wordObj.w}</em> most nearly means:</div>`;
         const distractors = getDistractors(wordObj, 3, 'def');
         const optPairs = [{
             t: wordObj.d,
             c: true
         }, ...distractors.map(t => ({
+            t,
+            c: false
+        }))];
+        shuffle(optPairs);
+        options = optPairs.map(o => o.t);
+        correctIdx = optPairs.findIndex(o => o.c)
+    } else if (qType === 'passage') {
+        // Digital-SAT text-completion style: short original passage, blank,
+        // four same-POS single-word choices.
+        qTypeEl.textContent = 'SAT · Words in Context';
+        const entries = CONTEXTQ[wordObj.w];
+        const entry = entries[Math.floor(Math.random() * entries.length)];
+        qTextEl.innerHTML = `${isRetry?'<span class="retry-badge">Review</span>':''}<div class="q-sentence q-passage">${entry.p.replace('_____','<span class="blank">_____</span>')}</div><div class="q-stem">Which choice completes the text with the most logical and precise word?</div>`;
+        const optPairs = [{
+            t: wordObj.w,
+            c: true
+        }, ...entry.d.map(t => ({
             t,
             c: false
         }))];
@@ -728,8 +828,20 @@ function showQuestion() {
             e.preventDefault();
             toggleCrossOut(i)
         };
+        // Bluebook-style answer eliminator — right-click doesn't exist on touch
+        const x = document.createElement('button');
+        x.className = 'opt-x';
+        x.setAttribute('aria-label', 'Cross out option ' + letters[i]);
+        x.title = 'Cross out';
+        x.textContent = '×';
+        x.onclick = (e) => {
+            e.stopPropagation();
+            toggleCrossOut(i)
+        };
+        div.appendChild(x);
         optDiv.appendChild(div)
     });
+    updateFlagBtn(wIdx);
     card.dataset.correctIdx = correctIdx;
     card.dataset.wordJson = JSON.stringify(wordObj);
     card.dataset.isRetry = isRetry;
@@ -753,6 +865,28 @@ function selectOption(idx) {
     opts[idx].setAttribute('aria-pressed', 'true');
     card.dataset.selectedIdx = idx;
     document.getElementById('checkBtn').style.display = 'block'
+}
+
+// Bluebook-style flag: mark the current word mid-quiz to revisit later.
+// Flagged words surface in the Review tab alongside missed words.
+function updateFlagBtn(wIdx) {
+    const btn = document.getElementById('flagBtn');
+    if (!btn) return;
+    const flagged = wIdx >= 0 && state.flagged && state.flagged[wIdx];
+    btn.classList.toggle('active', !!flagged)
+}
+
+function toggleFlagCurrent() {
+    const card = document.getElementById('qCard');
+    if (!card.dataset.wordJson) return;
+    const wordObj = JSON.parse(card.dataset.wordJson);
+    const wIdx = wordObj._idx != null ? wordObj._idx : W.findIndex(x => x.w === wordObj.w);
+    if (wIdx < 0) return;
+    if (!state.flagged) state.flagged = {};
+    if (state.flagged[wIdx]) delete state.flagged[wIdx];
+    else state.flagged[wIdx] = true;
+    save();
+    updateFlagBtn(wIdx)
 }
 
 function toggleInfo() {
@@ -832,13 +966,8 @@ function checkAnswer() {
     const qType = card.dataset.qType || 'wordToDef';
     if (wIdx >= 0) {
         const l = getLeitner(wIdx);
-        const typeMap = {
-            wordToDef: 'wt',
-            defToWord: 'dw',
-            sentence: 'sc',
-            synonym: 'sy'
-        };
-        l[typeMap[qType]] = (l[typeMap[qType]] || 0) + 1
+        const key = TYPE_COUNTERS[qType] || 'wt';
+        l[key] = (l[key] || 0) + 1
     }
     if (chosen === correct) {
         session.score++;
@@ -983,7 +1112,9 @@ function bucketName(b) {
 
 function renderReview() {
     const rv = document.getElementById('reviewView');
-    const missEntries = Object.entries(state.missCount).map(([idx, count]) => {
+    // Missed words plus flagged-but-never-missed words (flag = ⚑ badge)
+    const keys = new Set([...Object.keys(state.missCount), ...Object.keys(state.flagged || {})]);
+    const missEntries = [...keys].map(idx => {
         const i = Number(idx);
         const l = state.leitner[i];
         return {
@@ -991,7 +1122,8 @@ function renderReview() {
             w: W[i]?.w || '?',
             p: W[i]?.p || '',
             d: W[i]?.d || '',
-            count,
+            count: state.missCount[i] || 0,
+            flagged: !!(state.flagged && state.flagged[i]),
             diff: DIFF_CACHE[i] || 'medium',
             bucket: l ? l.b : 0
         }
@@ -1000,7 +1132,7 @@ function renderReview() {
     if (missEntries.length === 0) {
         listHtml = '<div class="review-empty">No missed words yet. Complete a session to see words you got wrong here.</div>'
     } else {
-        listHtml = missEntries.map(w => `<div class="review-word"><span class="rw-term">${w.w}<span class="rw-pos">${w.p}</span> <span class="diff-tag ${w.diff}">${w.diff}</span> <span class="bucket-label">${bucketName(w.bucket)}</span></span><span class="rw-def">${w.d}</span><span style="display:flex;align-items:center;gap:8px;flex-shrink:0"><span class="rw-count">${w.count}&times;</span><button class="mark-review-btn" onclick="markForReview(${w.idx})">Reset</button></span></div>`).join('')
+        listHtml = missEntries.map(w => `<div class="review-word"><span class="rw-term">${w.w}<span class="rw-pos">${w.p}</span> <span class="diff-tag ${w.diff}">${w.diff}</span> <span class="bucket-label">${bucketName(w.bucket)}</span>${w.flagged?' <span class="rw-flag" title="Flagged during practice">&#9873;</span>':''}</span><span class="rw-def">${w.d}</span><span style="display:flex;align-items:center;gap:8px;flex-shrink:0"><span class="rw-count">${w.count>0?w.count+'&times;':''}</span><button class="mark-review-btn" onclick="markForReview(${w.idx})">Reset</button></span></div>`).join('')
     }
     rv.innerHTML = `<div class="review"><h2>Missed Words</h2><p class="review-sub">Words you've gotten wrong, sorted by frequency. Reset sends a word back to the start of the review cycle.</p>${missEntries.length>0?`<div class="review-actions" style="margin-bottom:20px;margin-top:0;padding-top:0;border-top:none"><button class="teal" onclick="practiceMissed()">Practice These</button></div>`:''}${listHtml}${missEntries.length>0?`<div class="review-actions"><button class="danger" onclick="clearMissed()">Clear List</button></div>`:''}</div>`
 }
@@ -1035,7 +1167,8 @@ function practiceList(idxs) {
 }
 
 function practiceMissed() {
-    practiceList(Object.keys(state.missCount).map(Number))
+    const keys = new Set([...Object.keys(state.missCount), ...Object.keys(state.flagged || {})]);
+    practiceList([...keys].map(Number))
 }
 
 // Retry only the words missed in the sitting that just ended
@@ -1047,6 +1180,7 @@ function retrySessionMissed() {
 function clearMissed() {
     if (!confirm('Clear the missed words list?')) return;
     state.missCount = {};
+    state.flagged = {};
     save();
     renderReview()
 }
@@ -1301,7 +1435,7 @@ function renderSettings() {
     const goal = getDailyGoal();
     const dgDisplay = goal === Infinity ? 'Any' : goal;
     const options = [5, 10, 15, 20, 25, 30, 40, 50];
-    sv.innerHTML = `<div class="settings-page"><h2>Settings</h2><p class="settings-sub">Configure your daily practice.</p><div class="setting-group"><h3>Daily goal (for streak)</h3><p>Minimum words per day to maintain your streak. Session size and timer can be set from the Practice tab.</p><div class="goal-options">${options.map(n=>`<div class="goal-btn${goal===n?' active':''}" onclick="setDailyGoal(${n})">${n}<div class="goal-label">words</div></div>`).join('')}<div class="goal-btn${goal===Infinity?' active':''}" onclick="setDailyGoal(0)">&infin;<div class="goal-label">any</div></div></div></div><div class="setting-group"><h3>Question types</h3><p>Toggle which question formats appear during practice.</p><div class="settings"><div class="chk-row"><input type="checkbox" id="sChkWordDef" ${state.questionTypes.wordToDef!==false?'checked':''}><label for="sChkWordDef">Define the term<span class="chk-desc">Given a word, select the correct definition</span></label></div><div class="chk-row"><input type="checkbox" id="sChkDefWord" ${state.questionTypes.defToWord!==false?'checked':''}><label for="sChkDefWord">Identify the word<span class="chk-desc">Given a definition, select the matching word</span></label></div><div class="chk-row"><input type="checkbox" id="sChkSentence" ${state.questionTypes.sentence!==false?'checked':''}><label for="sChkSentence">Sentence completion<span class="chk-desc">Fill in the blank with the word that fits the context</span></label></div><div class="chk-row"><input type="checkbox" id="sChkSynonym" ${state.questionTypes.synonym!==false?'checked':''}><label for="sChkSynonym">Closest in meaning<span class="chk-desc">Select the word most similar in meaning to the given term</span></label></div></div><div class="review-actions" style="margin-top:16px"><button onclick="saveSettingsTypes()">Save question types</button></div></div><div class="setting-group"><h3>Practice mode</h3><p>Adjust how your practice sessions work.</p><div class="settings"><div class="chk-row"><input type="checkbox" id="sChkRetry" ${state.retryInSession?'checked':''} onchange="state.retryInSession=this.checked;save()"><label for="sChkRetry">Retry missed words in session<span class="chk-desc">Words you get wrong will reappear later in the same sitting for another attempt</span></label></div></div></div><div class="setting-group"><h3>Backup</h3><p>Export your progress to a file, or import a previous backup.</p><div class="review-actions" style="justify-content:flex-start;gap:12px"><button onclick="exportProgress()">Export Progress</button><button onclick="importProgress()">Import Progress</button></div></div><div class="setting-group"><h3>Reset</h3><p>Clear all progress data and start fresh.</p><div class="review-actions" style="justify-content:flex-start"><button class="danger" onclick="if(confirm('Erase all progress? This cannot be undone.')){state=defaults();save();renderSettings();updateWordPoolInfo();updateDailyBanner();updateSittingDesc()}">Reset all progress</button></div></div></div>`
+    sv.innerHTML = `<div class="settings-page"><h2>Settings</h2><p class="settings-sub">Configure your daily practice.</p><div class="setting-group"><h3>Daily goal (for streak)</h3><p>Minimum words per day to maintain your streak. Session size and timer can be set from the Practice tab.</p><div class="goal-options">${options.map(n=>`<div class="goal-btn${goal===n?' active':''}" onclick="setDailyGoal(${n})">${n}<div class="goal-label">words</div></div>`).join('')}<div class="goal-btn${goal===Infinity?' active':''}" onclick="setDailyGoal(0)">&infin;<div class="goal-label">any</div></div></div></div><div class="setting-group"><h3>Question types</h3><p>Toggle which question formats appear during practice.</p><div class="settings"><div class="chk-row"><input type="checkbox" id="sChkWordDef" ${state.questionTypes.wordToDef!==false?'checked':''}><label for="sChkWordDef">Define the term<span class="chk-desc">Given a word, select the correct definition</span></label></div><div class="chk-row"><input type="checkbox" id="sChkDefWord" ${state.questionTypes.defToWord!==false?'checked':''}><label for="sChkDefWord">Identify the word<span class="chk-desc">Given a definition, select the matching word</span></label></div><div class="chk-row"><input type="checkbox" id="sChkSentence" ${state.questionTypes.sentence!==false?'checked':''}><label for="sChkSentence">Sentence completion<span class="chk-desc">Fill in the blank with the word that fits the context</span></label></div><div class="chk-row"><input type="checkbox" id="sChkSynonym" ${state.questionTypes.synonym!==false?'checked':''}><label for="sChkSynonym">Closest in meaning<span class="chk-desc">Select the word most similar in meaning to the given term</span></label></div><div class="chk-row"><input type="checkbox" id="sChkContext" ${state.questionTypes.context!==false?'checked':''}><label for="sChkContext">Meaning in context<span class="chk-desc">SAT style: what a word most nearly means in a given sentence</span></label></div><div class="chk-row"><input type="checkbox" id="sChkPassage" ${state.questionTypes.passage!==false?'checked':''}><label for="sChkPassage">SAT passage completion<span class="chk-desc">Official digital-SAT format: complete a short passage with the most logical and precise word</span></label></div></div><div class="review-actions" style="margin-top:16px"><button onclick="saveSettingsTypes()">Save question types</button></div></div><div class="setting-group"><h3>Practice mode</h3><p>Adjust how your practice sessions work.</p><div class="settings"><div class="chk-row"><input type="checkbox" id="sChkRetry" ${state.retryInSession?'checked':''} onchange="state.retryInSession=this.checked;save()"><label for="sChkRetry">Retry missed words in session<span class="chk-desc">Words you get wrong will reappear later in the same sitting for another attempt</span></label></div></div></div><div class="setting-group"><h3>Backup</h3><p>Export your progress to a file, or import a previous backup.</p><div class="review-actions" style="justify-content:flex-start;gap:12px"><button onclick="exportProgress()">Export Progress</button><button onclick="importProgress()">Import Progress</button></div></div><div class="setting-group"><h3>Reset</h3><p>Clear all progress data and start fresh.</p><div class="review-actions" style="justify-content:flex-start"><button class="danger" onclick="if(confirm('Erase all progress? This cannot be undone.')){state=defaults();save();renderSettings();updateWordPoolInfo();updateDailyBanner();updateSittingDesc()}">Reset all progress</button></div></div></div>`
 }
 
 function exportProgress() {
@@ -1373,6 +1507,12 @@ function sanitizeImport(imp) {
         }
     }
     if (typeof imp.retryInSession === 'boolean') out.retryInSession = imp.retryInSession;
+    if (imp.flagged && typeof imp.flagged === 'object' && !Array.isArray(imp.flagged)) {
+        for (const k of Object.keys(imp.flagged)) {
+            const idx = nonNegInt(Number(k), 99999);
+            if (idx !== null && imp.flagged[k]) out.flagged[idx] = true
+        }
+    }
     if (['all', 'easy', 'medium', 'hard'].includes(imp.difficultyFilter)) out.difficultyFilter = imp.difficultyFilter;
     if (Array.isArray(imp.sessionHistory)) {
         out.sessionHistory = imp.sessionHistory.filter(h => h && typeof h === 'object' && isDate(h.date)).map(h => ({
@@ -1437,7 +1577,9 @@ function saveSettingsTypes() {
         wordToDef: document.getElementById('sChkWordDef').checked,
         defToWord: document.getElementById('sChkDefWord').checked,
         sentence: document.getElementById('sChkSentence').checked,
-        synonym: document.getElementById('sChkSynonym').checked
+        synonym: document.getElementById('sChkSynonym').checked,
+        context: document.getElementById('sChkContext').checked,
+        passage: document.getElementById('sChkPassage').checked
     };
     save();
     renderSettings()

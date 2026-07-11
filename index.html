@@ -50,7 +50,10 @@
 </div>
 </div>
 <div class="exit-row">
+<span style="display:flex;gap:8px">
 <button class="info-btn" onclick="toggleInfo()" aria-label="Keyboard shortcuts" title="Shortcuts">i</button>
+<button class="flag-btn" id="flagBtn" onclick="toggleFlagCurrent()" aria-label="Flag word for review" title="Flag for review">&#9873;</button>
+</span>
 <button class="exit-btn" onclick="exitSession()">Save &amp; Exit</button>
 </div>
 <div class="info-panel hidden" id="infoPanel">
@@ -88,6 +91,7 @@
 <script src="words.js"></script>
 <script src="templates.js"></script>
 <script src="sentences.js"></script>
+<script src="contextq.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
