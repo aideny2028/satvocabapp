@@ -405,6 +405,7 @@ header h1{
   border-color:var(--ink);
   background:var(--accent-soft);
   border-width:2px;
+  box-shadow:inset 4px 0 0 var(--ink);
 }
 .option.selected .letter{
   background:var(--ink);color:var(--bg);border-color:var(--ink);
@@ -437,7 +438,7 @@ header h1{
 
 /* ─── Feedback ─── */
 .feedback{
-  text-align:center;
+  text-align:left;
   padding:14px 16px;
   margin-top:12px;
   font-style:italic;
@@ -1004,7 +1005,7 @@ body.quiz-active .q-type{
   margin-bottom:clamp(2px,0.4vh,6px);
 }
 body.quiz-active .q-word{
-  font-size:clamp(1.1rem,2.5vw,1.5rem);
+  font-size:clamp(1.3rem,4vw,1.7rem);
   margin:clamp(4px,0.5vh,8px) 0 2px;
 }
 body.quiz-active .q-pos{
@@ -1205,7 +1206,7 @@ body.quiz-active .feedback{
 .timer-content{display:flex;align-items:center;gap:10px;padding:6px 8px;border:1px solid var(--line);background:var(--bg)}
 .timer-bar-track{flex:1;height:8px;background:var(--accent-soft);border-radius:0;overflow:hidden}
 .timer-bar-fill{height:100%;background:var(--ink);border-radius:0;transition:width .25s linear}
-.timer-bar-fill.timer-low{background:var(--bad);animation:timer-pulse .6s ease-in-out infinite}
+.timer-bar-fill.timer-low{background:var(--bad);animation:timer-pulse .6s ease-in-out 4}
 .timer-text{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;color:var(--ink);min-width:28px;text-align:right;font-weight:600}
 .timer-text.timer-low-text{color:var(--bad)}
 .timer-hide-btn{background:none;border:none;color:var(--ink-secondary);cursor:pointer;font-size:1rem;padding:0 4px;line-height:1;opacity:.6;transition:opacity .15s}
@@ -1277,6 +1278,31 @@ body.quiz-active .feedback{
 /* ─── Small goal button ─── */
 
 /* ─── Print ─── */
+
+/* ─── Phase 11 additions ─── */
+.fb-example{font-style:normal;font-size:.92rem;opacity:.8;margin-top:8px;padding-top:8px;border-top:1px dashed currentColor;line-height:1.55}
+.fb-example u{text-underline-offset:2px}
+.summary-payoff{text-align:center;font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:4px 0 8px}
+.wl-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;align-self:center;background:var(--unseen-color)}
+.wl-dot.learning{background:var(--learning-color)}
+.wl-dot.learned{background:var(--learned-color)}
+.wl-letter{position:sticky;top:0;z-index:1;background:var(--bg);font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;font-size:.7rem;font-weight:700;letter-spacing:2px;color:var(--ink-secondary);padding:6px 14px 4px;border-bottom:1px solid var(--line-strong)}
+.dash-hero .dash-stat .num{font-size:2.1rem}
+.dash-hero{margin-bottom:0;border-bottom:1px solid var(--line)}
+.dash-secondary .dash-stat .num{font-size:1.2rem}
+.dash-secondary .dash-stat{padding:10px 4px}
+.of-total{font-size:1rem;opacity:.5;font-weight:400}
+.chart-caption{text-align:center;font-size:.85rem;opacity:.7;margin-top:8px;font-style:italic}
+.dash-empty{text-align:center;font-style:italic;opacity:.65;font-size:.95rem;margin:8px 0 16px}
+.cal-day-detail{text-align:center;font-size:.9rem;min-height:1.4em;margin:10px 0 4px;opacity:.85}
+.cal-day.has-log{cursor:pointer}
+.quiz-hint{border:1px dashed var(--line-strong);padding:8px 12px;font-size:.85rem;opacity:.75;margin-bottom:10px;text-align:center}
+@media(max-width:600px){
+  .dash-secondary{grid-template-columns:repeat(3,1fr)!important}
+  .dash-secondary .dash-stat{border-top:none!important}
+  .dash-hero .dash-stat:nth-child(odd){border-right:1px solid var(--line)!important}
+}
+
 @media print{
   body{background:#fff;color:#000}
   .nav,.theme-toggle,.exit-row,.start-screen>button,.summary-btns{display:none}

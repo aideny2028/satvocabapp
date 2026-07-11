@@ -542,7 +542,23 @@ function startSession() {
     document.getElementById('quizActive').classList.remove('hidden');
     document.getElementById('summaryView').classList.add('hidden');
     document.body.classList.add('quiz-active');
+    showFirstQuizHint();
     showQuestion()
+}
+
+// One-time hint — the shortcuts otherwise hide behind the "i" button
+function showFirstQuizHint() {
+    if (state.hintShown) return;
+    // Keyboard shortcuts are meaningless on touch-only devices
+    if (!(window.matchMedia && window.matchMedia('(hover: hover)').matches)) return;
+    state.hintShown = true;
+    save();
+    const hint = document.createElement('div');
+    hint.className = 'quiz-hint';
+    hint.innerHTML = 'Tip: press <strong>1&ndash;4</strong> to answer, <strong>Enter</strong> to continue. Right-click crosses out an option.';
+    const card = document.getElementById('qCard');
+    card.parentNode.insertBefore(hint, card);
+    setTimeout(() => hint.remove(), 12000)
 }
 
 function exitSession() {
@@ -769,6 +785,29 @@ function toggleCrossOut(idx) {
     opt.classList.toggle('crossed-out')
 }
 
+// Fill a sentence's blank with the (conjugated) word, underlined — used to
+// reinforce the word in context at the feedback moment.
+function fillBlank(text, word) {
+    return text.replace(/_____([a-z]*)/i, (mm, suf) => {
+        suf = suf.toLowerCase();
+        let w = word;
+        if (['d', 'ed', 'ied', 'led', 'red', 'ted'].includes(suf)) w = conjugatePast(word);
+        else if (['ing', 'ting'].includes(suf)) w = conjugateIng(word);
+        else if (['s', 'es', 'ies'].includes(suf)) w = conjugateS(word);
+        else if (suf === 'n') w = conjugateN(word);
+        else if (suf) return '<u>' + word + '</u>' + suf;
+        return '<u>' + w + '</u>'
+    })
+}
+
+function exampleSentenceHtml(word) {
+    const sArr = typeof SENTENCES !== 'undefined' && SENTENCES[word];
+    if (!sArr || !sArr.length) return '';
+    const entry = sArr[Math.floor(Math.random() * sArr.length)];
+    const text = Array.isArray(entry) ? entry[0] : entry;
+    return `<div class="fb-example">${fillBlank(text, word)}</div>`
+}
+
 function checkAnswer() {
     const card = document.getElementById('qCard');
     const chosen = parseInt(card.dataset.selectedIdx);
@@ -808,7 +847,7 @@ function checkAnswer() {
         // A correct answer on an in-session retry doesn't advance the box —
         // the word was just missed and still belongs in tomorrow's review.
         if (wIdx >= 0 && !wordObj._requeued) advanceLeitner(wIdx);
-        fb.innerHTML = `Correct — <em>${wordObj.w}</em>: ${wordObj.d}`;
+        fb.innerHTML = `Correct — <em>${wordObj.w}</em>: ${wordObj.d}` + exampleSentenceHtml(wordObj.w);
         fb.className = 'feedback correct-fb';
         const sd = document.getElementById('scoreDisp');
         const sk = document.getElementById('streakDisp');
@@ -841,7 +880,7 @@ function checkAnswer() {
             session.words.splice(pos, 0, again);
             session.total = session.words.length
         }
-        fb.innerHTML = timedOut ? `Time's up — the answer is <em>${wordObj.w}</em>: ${wordObj.d}` : `Incorrect — the answer is <em>${wordObj.w}</em>: ${wordObj.d}`;
+        fb.innerHTML = (timedOut ? `Time's up — the answer is <em>${wordObj.w}</em>: ${wordObj.d}` : `Incorrect — the answer is <em>${wordObj.w}</em>: ${wordObj.d}`) + exampleSentenceHtml(wordObj.w);
         fb.className = 'feedback wrong-fb'
     }
     state.totalAnswered++;
@@ -931,7 +970,11 @@ function showSummary() {
     }
     const missedCount = new Set(missed.map(m => m.word)).size;
     const retryBtn = missedCount > 0 ? `<button class="teal" onclick="retrySessionMissed()">Retry Missed (${missedCount})</button>` : '';
-    sv.innerHTML = `<div class="summary"><h2>${grade}</h2><div class="score-big">${session.score} <span class="of">/ ${total}</span></div><p style="text-align:center;opacity:.5;font-size:.85rem">${pct}% accuracy this sitting</p>${missedHtml}<div class="summary-btns">${retryBtn}<button onclick="startSession()">New Sitting</button><button class="secondary" onclick="showView('review')">Missed Log</button><button class="secondary" onclick="showView('stats')">View Record</button></div></div>`
+    // Streak / goal payoff line at the emotional peak of finishing a sitting
+    const streakNow = calcStreak();
+    const goalDone = getTodayLog().answered >= getEffectiveGoal();
+    const payoff = goalDone && streakNow > 0 ? `<p class="summary-payoff">Daily goal reached — ${streakNow}-day streak</p>` : '';
+    sv.innerHTML = `<div class="summary"><h2>${grade}</h2><div class="score-big">${session.score} <span class="of">/ ${total}</span></div><p style="text-align:center;opacity:.65;font-size:.85rem">${pct}% accuracy this sitting</p>${payoff}${missedHtml}<div class="summary-btns">${retryBtn}<button onclick="startSession()">New Sitting</button><button class="secondary" onclick="showView('review')">Missed Log</button><button class="secondary" onclick="showView('stats')">View Record</button></div></div>`
 }
 
 function bucketName(b) {
@@ -1123,6 +1166,26 @@ function renderSessionHistory() {
     return `<div class="session-history-list">${hist.map(h=>`<div class="sh-row"><span class="sh-date">${esc(String(h.date).slice(5))}</span><span class="sh-time">${esc(h.time||'')}</span><span class="sh-score">${h.score}/${h.total}</span><div class="sh-bar-track"><div class="sh-bar-fill${h.pct>=80?' good':h.pct>=60?' ok':' low'}" style="width:${h.pct}%"></div></div><span class="sh-pct">${h.pct}%</span></div>`).join('')}</div>`
 }
 
+// Plain-language takeaway under the accuracy chart — a bare line can read as
+// failure on days with harder material.
+function chartCaption() {
+    const logs = state.dailyLog || {};
+    const days = Object.keys(logs).sort();
+    if (days.length < 2) return '';
+    let best = null;
+    for (const d of days) {
+        const l = logs[d];
+        if (l.answered >= 5) {
+            const p = Math.round(l.correct / l.answered * 100);
+            if (!best || p > best.p) best = {
+                d,
+                p
+            }
+        }
+    }
+    return best ? `<p class="chart-caption">Best day: ${best.p}% on ${best.d.slice(5)}</p>` : ''
+}
+
 function renderStats() {
     const sv = document.getElementById('statsView');
     const accuracy = state.totalAnswered > 0 ? Math.round(state.totalCorrect / state.totalAnswered * 100) : 0;
@@ -1130,7 +1193,10 @@ function renderStats() {
     const learnedPct = Math.round(m.learned / W.length * 100);
     // Clamp so rounding can't push learned% + learning% past 100 (bar overflow)
     const learningPct = Math.min(Math.round(m.learning / W.length * 100), 100 - learnedPct);
-    sv.innerHTML = `<div class="dash"><h2>Cumulative Record</h2><div class="dash-grid"><div class="dash-stat"><div class="num">${state.totalAnswered}</div><div class="label">Answered</div></div><div class="dash-stat"><div class="num">${state.totalCorrect}</div><div class="label">Correct</div></div><div class="dash-stat"><div class="num">${accuracy}%</div><div class="label">Accuracy</div></div><div class="dash-stat"><div class="num">${state.sessionsCompleted}</div><div class="label">Sittings</div></div></div><div class="mastery-bar"><h3>Word Mastery</h3><div class="mastery-track"><div class="mastery-fill"><div class="mf-learned" style="width:${learnedPct}%"></div><div class="mf-learning" style="width:${learningPct}%"></div></div></div><div class="mastery-legend"><span><span class="ml-dot" style="background:var(--good)"></span> Learned ${m.learned}</span><span><span class="ml-dot" style="background:var(--gold)"></span> Learning ${m.learning}</span><span><span class="ml-dot" style="background:var(--paper-tint);border-color:var(--line)"></span> Unseen ${m.unseen}</span></div></div><div class="dash-section"><h3>Accuracy by Difficulty</h3>${renderDiffStats()}</div><div class="dash-section"><h3>Daily Accuracy</h3>${chartScaleButtons()}${buildProgressChart()}</div><div class="dash-section"><h3>Session History</h3>${renderSessionHistory()}</div><div class="reset-btn"><button onclick="if(confirm('Erase all progress? This cannot be undone.')){state=defaults();save();renderStats();updateWordPoolInfo()}">Reset Record</button></div></div>`
+    // First-run: explain what will appear here instead of a wall of zeros
+    const intro = state.totalAnswered === 0 ? `<p class="dash-empty">Your record will appear here after your first sitting.</p>` : '';
+    // Hero stats first (mastery + accuracy — what actually motivates), raw counters second
+    sv.innerHTML = `<div class="dash"><h2>Cumulative Record</h2>${intro}<div class="dash-grid dash-hero"><div class="dash-stat"><div class="num">${m.learned}<span class="of-total"> / ${W.length}</span></div><div class="label">Words Learned</div></div><div class="dash-stat"><div class="num">${accuracy}%</div><div class="label">Accuracy</div></div></div><div class="dash-grid dash-secondary"><div class="dash-stat"><div class="num">${state.totalAnswered}</div><div class="label">Answered</div></div><div class="dash-stat"><div class="num">${state.totalCorrect}</div><div class="label">Correct</div></div><div class="dash-stat"><div class="num">${state.sessionsCompleted}</div><div class="label">Sittings</div></div></div><div class="mastery-bar"><h3>Word Mastery</h3><div class="mastery-track"><div class="mastery-fill"><div class="mf-learned" style="width:${learnedPct}%"></div><div class="mf-learning" style="width:${learningPct}%"></div></div></div><div class="mastery-legend"><span><span class="ml-dot" style="background:var(--good)"></span> Learned ${m.learned}</span><span><span class="ml-dot" style="background:var(--gold)"></span> Learning ${m.learning}</span><span><span class="ml-dot" style="background:var(--paper-tint);border-color:var(--line)"></span> Unseen ${m.unseen}</span></div></div><div class="dash-section"><h3>Accuracy by Difficulty</h3>${renderDiffStats()}</div><div class="dash-section"><h3>Daily Accuracy</h3>${chartScaleButtons()}${buildProgressChart()}${chartCaption()}</div><div class="dash-section"><h3>Session History</h3>${renderSessionHistory()}</div><div class="reset-btn"><button onclick="if(confirm('Erase all progress? This cannot be undone.')){state=defaults();save();renderStats();updateWordPoolInfo()}">Reset Record</button></div></div>`
 }
 
 function updateDailyBanner() {
@@ -1138,7 +1204,9 @@ function updateDailyBanner() {
     const log = getTodayLog();
     const done = log.answered;
     const streak = calcStreak();
-    if (done === 0) {
+    // Keep the banner visible at 0 progress for returning users — that's
+    // exactly when the streak nudge matters. Hide only for brand-new users.
+    if (done === 0 && streak === 0 && state.totalAnswered === 0) {
         banner.classList.add('hidden');
         return
     }
@@ -1148,7 +1216,8 @@ function updateDailyBanner() {
     const complete = done >= eg;
     const goalText = eg === Infinity || eg === 1 ? '' : '<span class="of">/ ' + eg + '</span>';
     const countText = complete ? (eg === Infinity || eg === 1 ? done : eg) + ' ' + goalText : done + ' ' + goalText;
-    banner.innerHTML = `<div class="db-left"><div class="db-label">${complete?'Daily goal reached':'Today\'s progress'}</div><div class="db-count">${countText}</div></div><div class="db-bar"><div class="db-bar-track"><div class="db-bar-fill ${complete?'complete':''}" style="width:${pct}%"></div><div class="db-bar-text">${complete?'COMPLETE':pct+'%'}</div></div></div><div class="db-streak"><div class="db-streak-num">${streak}</div><div class="db-streak-label">${streak===1?'Day':'Days'} streak</div></div>`
+    const label = complete ? 'Daily goal reached' : done === 0 ? (streak > 0 ? 'Keep the streak alive' : 'Today\'s goal') : 'Today\'s progress';
+    banner.innerHTML = `<div class="db-left"><div class="db-label">${label}</div><div class="db-count">${countText}</div></div><div class="db-bar"><div class="db-bar-track"><div class="db-bar-fill ${complete?'complete':''}" style="width:${pct}%"></div><div class="db-bar-text">${complete?'COMPLETE':done===0?'':pct+'%'}</div></div></div><div class="db-streak"><div class="db-streak-num">${streak}</div><div class="db-streak-label">${streak===1?'Day':'Days'} streak</div></div>`
 }
 let calYear, calMonth;
 (function() {
@@ -1188,7 +1257,9 @@ function renderCalendar() {
         } else if (!isFuture) {
             inner += `<div class="cd-fill"><div class="cd-fill-inner" style="width:0"></div></div>`
         }
-        dayCells += `<div class="cal-day${isToday?' today':''}${isFuture?' future':''}">${inner}</div>`
+        // Tap a day for its detail — hover tooltips don't exist on touch
+        const clickable = !isFuture && answered > 0;
+        dayCells += `<div class="cal-day${isToday?' today':''}${isFuture?' future':''}${clickable?' has-log':''}"${clickable?` onclick="showDayDetail('${dateStr}')"`:''}>${inner}</div>`
     }
     let completedDays = 0,
         totalDaysWorked = 0;
@@ -1199,7 +1270,18 @@ function renderCalendar() {
         if (log && log.answered >= getEffectiveGoal()) completedDays++
     }
     const calGoal = getEffectiveGoal();
-    cv.innerHTML = `<div class="streak-display"><div class="streak-num">${streak}</div><div class="streak-label">${streak===1?'Day':'Days'} streak</div><div class="streak-best">Best: ${state.bestStreak} day${state.bestStreak!==1?'s':''}</div></div><div class="cal"><h2>Daily Practice Log</h2><p class="cal-sub">${getDailyGoal()===Infinity?'Any practice':getEffectiveGoal()+' words'} per day to maintain your streak</p><div class="cal-nav"><button onclick="calMonth--;if(calMonth<0){calMonth=11;calYear--}renderCalendar()">&larr;</button><span class="cal-month">${MONTHS[calMonth]} ${calYear}</span><button onclick="calMonth++;if(calMonth>11){calMonth=0;calYear++}renderCalendar()">&rarr;</button></div><div class="cal-grid">${dayCells}</div><div class="cal-legend"><span><span class="leg-box leg-teal"></span> In progress</span><span><span class="leg-box leg-gold"></span> Completed (${getDailyGoal()===Infinity?'1':getEffectiveGoal()}+)</span><span>${completedDays} goal day${completedDays!==1?'s':''} &middot; ${totalDaysWorked} practice day${totalDaysWorked!==1?'s':''} this month</span></div></div>`
+    const calEmpty = Object.keys(state.dailyLog).length === 0 ? `<p class="dash-empty">Practice on any day and it will be logged here.</p>` : '';
+    cv.innerHTML = `<div class="streak-display"><div class="streak-num">${streak}</div><div class="streak-label">${streak===1?'Day':'Days'} streak</div><div class="streak-best">Best: ${state.bestStreak} day${state.bestStreak!==1?'s':''}</div></div><div class="cal"><h2>Daily Practice Log</h2><p class="cal-sub">${getDailyGoal()===Infinity?'Any practice':getEffectiveGoal()+' words'} per day to maintain your streak</p>${calEmpty}<div class="cal-nav"><button onclick="calMonth--;if(calMonth<0){calMonth=11;calYear--}renderCalendar()" aria-label="Previous month">&larr;</button><span class="cal-month">${MONTHS[calMonth]} ${calYear}</span><button onclick="calMonth++;if(calMonth>11){calMonth=0;calYear++}renderCalendar()" aria-label="Next month">&rarr;</button></div><div class="cal-grid">${dayCells}</div><div class="cal-day-detail" id="calDayDetail"></div><div class="cal-legend"><span><span class="leg-box leg-teal"></span> In progress</span><span><span class="leg-box leg-gold"></span> Completed (${getDailyGoal()===Infinity?'1':getEffectiveGoal()}+)</span><span>${completedDays} goal day${completedDays!==1?'s':''} &middot; ${totalDaysWorked} practice day${totalDaysWorked!==1?'s':''} this month</span></div></div>`
+}
+
+function showDayDetail(dateStr) {
+    const el = document.getElementById('calDayDetail');
+    if (!el) return;
+    const log = state.dailyLog[dateStr];
+    if (!log) return;
+    const pct = log.answered > 0 ? Math.round(log.correct / log.answered * 100) : 0;
+    const met = log.answered >= getEffectiveGoal();
+    el.innerHTML = `<strong>${dateStr.slice(5)}</strong> — ${log.answered} answered, ${log.correct} correct (${pct}%)${met?' · goal met &#10003;':''}`
 }
 
 function setDailyGoal(n) {
@@ -1361,13 +1443,44 @@ function saveSettingsTypes() {
     renderSettings()
 }
 
+// Words due for review today vs never-seen words (drives the home dashboard)
+function countDueNew() {
+    const today = todayKey();
+    let due = 0,
+        fresh = 0;
+    W.forEach((w, i) => {
+        const l = state.leitner[i];
+        if (!l || l.b === 0) fresh++;
+        else if (l.b < 5 && l.due <= today) due++
+    });
+    return {
+        due,
+        fresh
+    }
+}
+
 function updateSittingDesc() {
     const el = document.getElementById('startScreen');
     if (!el) return;
     let html = '';
     const dc = countByDiff();
     const f = state.difficultyFilter || 'all';
-    html += `<button onclick="startSession()">Start Practicing</button>`;
+    // Status-forward home: what's due, the streak, and mastery — before the CTA
+    const dn = countDueNew();
+    const m = countMastery();
+    const streak = calcStreak();
+    const learnedPct = m.learned / W.length * 100;
+    const learningPct = m.learning / W.length * 100;
+    html += `<div class="home-dashboard"><div class="home-stats">` +
+        `<div class="home-stat"><div class="home-stat-num">${dn.due}</div><div class="home-stat-label">Due today</div></div>` +
+        `<div class="home-stat"><div class="home-stat-num">${streak}</div><div class="home-stat-label">Day streak</div></div>` +
+        `<div class="home-stat"><div class="home-stat-num">${m.learned}</div><div class="home-stat-label">Learned</div></div>` +
+        `</div><div class="home-mastery"><div class="home-mastery-track" style="display:flex">` +
+        `<div style="width:${learnedPct}%;background:var(--learned-color)"></div>` +
+        `<div style="width:${Math.min(learningPct,100-learnedPct)}%;background:var(--learning-color)"></div>` +
+        `</div><div class="home-mastery-legend"><span><span class="ml-dot" style="background:var(--learned-color)"></span> ${m.learned} learned</span><span><span class="ml-dot" style="background:var(--learning-color)"></span> ${m.learning} learning</span><span><span class="ml-dot" style="background:var(--unseen-color)"></span> ${m.unseen} unseen</span></div></div></div>`;
+    const cta = dn.due > 0 ? `Start — ${dn.due} due for review` : `Start Practicing`;
+    html += `<button onclick="startSession()">${cta}</button>`;
     html += `<button id="optionsToggle" class="options-toggle${optionsOpen?' open':''}" onclick="toggleOptions()">Customize <span class="toggle-arrow">${optionsOpen?'▴':'▾'}</span></button>`;
     html += `<div id="optionsBox" class="options-box${optionsOpen?' open':''}">`;
     html += `<div class="diff-filter"><span class="diff-filter-label">Focus</span><button class="diff-chip${f==='all'?' active':''}" onclick="setDiffFilter('all')">All <span class="chip-count">${dc.all}</span></button><button class="diff-chip easy${f==='easy'?' active':''}" onclick="setDiffFilter('easy')">Easy <span class="chip-count">${dc.easy}</span></button><button class="diff-chip medium${f==='medium'?' active':''}" onclick="setDiffFilter('medium')">Medium <span class="chip-count">${dc.medium}</span></button><button class="diff-chip hard${f==='hard'?' active':''}" onclick="setDiffFilter('hard')">Hard <span class="chip-count">${dc.hard}</span></button></div>`;
@@ -1418,7 +1531,12 @@ function renderWordList() {
     var container = document.getElementById('wordsView');
     var indices = [];
     for (var i = 0; i < W.length; i++) {
-        if (wlDiffFilter !== 'all' && DIFF_CACHE[i] !== wlDiffFilter) continue;
+        if (wlDiffFilter === 'weak') {
+            // Weak = missed at least once, or still in the early boxes after being seen
+            var lw = state.leitner[i];
+            var isWeak = (state.missCount[i] || 0) > 0 || (lw && lw.b > 0 && lw.b <= 2);
+            if (!isWeak) continue
+        } else if (wlDiffFilter !== 'all' && DIFF_CACHE[i] !== wlDiffFilter) continue;
         indices.push(i)
     }
     if (wlSort === 'za') {
@@ -1440,8 +1558,10 @@ function renderWordList() {
     }
     var html = '<div class="wl-wrap">';
     html += '<div class="wl-search-row"><input type="text" class="wl-search" id="wlSearch" placeholder="Search words..." oninput="filterWordList()"><span class="wl-count" id="wlCount">' + indices.length + ' words</span></div>';
-    html += '<div class="wl-controls"><div class="wl-filter-row"><span class="diff-filter-label">Filter</span><button class="size-btn' + (wlDiffFilter === 'all' ? ' active' : '') + '" onclick="setWlDiff(\'all\')">All</button><button class="size-btn' + (wlDiffFilter === 'easy' ? ' active' : '') + '" onclick="setWlDiff(\'easy\')">Easy</button><button class="size-btn' + (wlDiffFilter === 'medium' ? ' active' : '') + '" onclick="setWlDiff(\'medium\')">Medium</button><button class="size-btn' + (wlDiffFilter === 'hard' ? ' active' : '') + '" onclick="setWlDiff(\'hard\')">Hard</button></div><div class="wl-filter-row"><span class="diff-filter-label">Sort</span><button class="size-btn' + (wlSort === 'az' ? ' active' : '') + '" onclick="setWlSort(\'az\')">A–Z</button><button class="size-btn' + (wlSort === 'za' ? ' active' : '') + '" onclick="setWlSort(\'za\')">Z–A</button><button class="size-btn' + (wlSort === 'most' ? ' active' : '') + '" onclick="setWlSort(\'most\')">Most missed</button><button class="size-btn' + (wlSort === 'least' ? ' active' : '') + '" onclick="setWlSort(\'least\')">Least missed</button></div></div>';
+    html += '<div class="wl-controls"><div class="wl-filter-row"><span class="diff-filter-label">Filter</span><button class="size-btn' + (wlDiffFilter === 'all' ? ' active' : '') + '" onclick="setWlDiff(\'all\')">All</button><button class="size-btn' + (wlDiffFilter === 'easy' ? ' active' : '') + '" onclick="setWlDiff(\'easy\')">Easy</button><button class="size-btn' + (wlDiffFilter === 'medium' ? ' active' : '') + '" onclick="setWlDiff(\'medium\')">Medium</button><button class="size-btn' + (wlDiffFilter === 'hard' ? ' active' : '') + '" onclick="setWlDiff(\'hard\')">Hard</button><button class="size-btn' + (wlDiffFilter === 'weak' ? ' active' : '') + '" onclick="setWlDiff(\'weak\')">Weak</button></div><div class="wl-filter-row"><span class="diff-filter-label">Sort</span><button class="size-btn' + (wlSort === 'az' ? ' active' : '') + '" onclick="setWlSort(\'az\')">A–Z</button><button class="size-btn' + (wlSort === 'za' ? ' active' : '') + '" onclick="setWlSort(\'za\')">Z–A</button><button class="size-btn' + (wlSort === 'most' ? ' active' : '') + '" onclick="setWlSort(\'most\')">Most missed</button><button class="size-btn' + (wlSort === 'least' ? ' active' : '') + '" onclick="setWlSort(\'least\')">Least missed</button></div></div>';
     html += '<div class="wl-list" id="wlList">';
+    var alphaSort = wlSort === 'az' || wlSort === 'za';
+    var lastLetter = '';
     indices.forEach(function(i) {
         var word = W[i];
         var diff = DIFF_CACHE[i];
@@ -1450,8 +1570,17 @@ function renderWordList() {
         var bName = bucketName(bucket);
         var missed = state.missCount[i] || 0;
         var mastery = bucket === 5 ? 'learned' : bucket > 0 ? 'learning' : 'unseen';
+        // Sticky letter dividers give the 1,700-word alphabetical scroll landmarks
+        if (alphaSort) {
+            var letter = word.w.charAt(0).toUpperCase();
+            if (letter !== lastLetter) {
+                lastLetter = letter;
+                html += '<div class="wl-letter">' + letter + '</div>'
+            }
+        }
         html += '<div class="wl-item" data-word="' + word.w.toLowerCase() + '" data-diff="' + diff + '" data-missed="' + missed + '" data-idx="' + i + '" onclick="toggleWordExpand(this)">';
         html += '<div class="wl-main">';
+        html += '<span class="wl-dot ' + mastery + '" title="' + bName + '"></span>';
         html += '<span class="wl-word">' + word.w + '</span>';
         html += '<span class="wl-pos">' + word.p + '</span>';
         html += '<span class="wl-def">' + word.d + '</span>';
@@ -1509,6 +1638,10 @@ function filterWordList() {
         var match = item.dataset.word.includes(q) || item.querySelector('.wl-def').textContent.toLowerCase().includes(q);
         item.style.display = match ? '' : 'none';
         if (match) count++
+    });
+    // Letter dividers are meaningless over filtered results — hide while searching
+    document.querySelectorAll('.wl-letter').forEach(function(el) {
+        el.style.display = q ? 'none' : ''
     });
     document.getElementById('wlCount').textContent = count + ' words'
 }
