@@ -1213,10 +1213,10 @@ body.quiz-active .feedback{
 /* ─── Session Size & Timer Row ─── */
 .session-size-row,.session-timer-row{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:12px;flex-wrap:wrap}
 .session-size-row .diff-filter-label,.session-timer-row .diff-filter-label{width:70px;text-align:right;margin-right:12px;flex-shrink:0}
-.size-btn{background:var(--bg);color:var(--ink-secondary);border:1px solid var(--line);border-right:none;padding:8px 0;min-width:56px;text-align:center;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.7rem;letter-spacing:.5px;font-weight:600;cursor:pointer;transition:all .15s var(--ease)}
+.size-btn{background:var(--accent-soft);color:var(--ink);border:1px solid var(--line);border-right:none;padding:8px 0;min-width:56px;text-align:center;font-family:inherit;font-size:.78rem;cursor:pointer;transition:all .15s var(--ease);display:flex;align-items:center;justify-content:center}
 .size-btn:last-child,.size-btn:last-of-type{border-right:1px solid var(--line)}
-.size-btn:hover{background:var(--accent-soft)}
-.size-btn.active{background:var(--ink);color:var(--bg)}
+.size-btn:hover{border-color:var(--ink)}
+.size-btn.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 
 /* ─── Progress Chart ─── */
 .progress-chart{width:100%;max-width:580px;margin:12px auto;display:block}
