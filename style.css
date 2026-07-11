@@ -8,21 +8,16 @@ html{scroll-behavior:smooth}
   --surface:#ffffff;
   --ink:#111111;
   --ink-secondary:rgba(0,0,0,.65);
-  --accent:#111111;
   --accent-soft:rgba(0,0,0,.06);
   --good:#16a34a;
   --good-soft:rgba(22,163,74,.1);
   --bad:#dc2626;
   --bad-soft:rgba(220,38,38,.08);
   --gold:#d97706;
-  --gold-soft:rgba(217,119,6,.08);
-  --teal:#111111;
-  --teal-soft:rgba(0,0,0,.06);
   --line:rgba(0,0,0,.15);
   --line-strong:rgba(0,0,0,.3);
   --paper-tint:#f5f5f5;
   --bar-fill:#111111;
-  --bar-text:#111111;
   --easy-color:#16a34a;
   --easy-bg:rgba(22,163,74,.1);
   --medium-color:#d97706;
@@ -42,21 +37,16 @@ html{scroll-behavior:smooth}
   --surface:#141414;
   --ink:#f0f0f0;
   --ink-secondary:rgba(240,240,240,.75);
-  --accent:#f0f0f0;
   --accent-soft:rgba(255,255,255,.08);
   --good:#2ecc71;
   --good-soft:rgba(46,204,113,.1);
   --bad:#e74c3c;
   --bad-soft:rgba(231,76,60,.1);
   --gold:#f0c040;
-  --gold-soft:rgba(240,192,64,.1);
-  --teal:#f0f0f0;
-  --teal-soft:rgba(255,255,255,.06);
   --line:rgba(255,255,255,.15);
   --line-strong:rgba(255,255,255,.3);
   --paper-tint:#1a1a1a;
   --bar-fill:#f0f0f0;
-  --bar-text:#0a0a0a;
   --easy-color:#2ecc71;
   --easy-bg:rgba(46,204,113,.12);
   --medium-color:#f0c040;
@@ -750,7 +740,6 @@ header h1{
 .mastery-fill{height:100%;transition:width .5s var(--ease);display:flex}
 .mastery-fill .mf-learned{background:var(--learned-color);height:100%}
 .mastery-fill .mf-learning{background:var(--learning-color);height:100%}
-.mastery-fill .mf-new{background:transparent;height:100%}
 .mastery-legend{display:flex;gap:16px;justify-content:center;margin-top:10px;flex-wrap:wrap}
 .mastery-legend span{
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
@@ -831,17 +820,6 @@ header h1{
 .review-actions button.danger{border-color:var(--line-strong)}
 .review-actions button.danger:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 
-.review-filter{display:flex;gap:0;margin-bottom:20px;border:1px solid var(--line-strong)}
-.review-filter button{
-  flex:1;background:transparent;border:none;border-right:1px solid var(--line);
-  padding:8px;
-  font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
-  font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px;
-  cursor:pointer;transition:all .15s var(--ease);color:var(--ink);
-}
-.review-filter button:last-child{border-right:none}
-.review-filter button:hover{background:var(--accent-soft)}
-.review-filter button.active{background:var(--ink);color:var(--bg)}
 
 /* ─── Tags ─── */
 .diff-tag{
@@ -948,20 +926,6 @@ header h1{
 }
 
 /* ─── Most Missed ─── */
-.most-missed{margin-top:24px;border-top:1px solid var(--line-strong);padding-top:16px}
-.most-missed h3{
-  font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
-  font-size:.65rem;text-transform:uppercase;letter-spacing:2px;
-  color:var(--ink-secondary);margin-bottom:12px;
-}
-.mm-item{
-  display:flex;justify-content:space-between;
-  padding:8px 0;border-bottom:1px solid var(--line);font-size:.9rem;
-}
-.mm-item .count{
-  font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
-  font-size:.8rem;font-weight:700;
-}
 
 /* ─── Focus ─── */
 *:focus-visible{
@@ -1238,7 +1202,7 @@ body.quiz-active .feedback{
 .options-toggle.open{color:var(--ink);border-color:var(--ink)}
 .toggle-arrow{font-size:.6rem}
 .options-box{max-height:0;overflow:hidden;transition:max-height .4s var(--ease),opacity .3s var(--ease),padding .3s var(--ease),border-color .3s var(--ease);opacity:0;padding:0 20px;border:1px solid transparent;margin-top:0}
-.options-box.open{max-height:300px;opacity:1;padding:20px 20px 8px;border-color:var(--line);margin-top:12px}
+.options-box.open{max-height:640px;opacity:1;padding:20px 20px 8px;border-color:var(--line);margin-top:12px}
 .options-box .diff-filter,.options-box .session-size-row,.options-box .session-timer-row{justify-content:flex-start}
 
 /* ─── Session Size & Timer Row ─── */
@@ -1292,8 +1256,6 @@ body.quiz-active .feedback{
 .wl-ex-stats{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.78rem;color:var(--ink-secondary)}
 
 /* ─── Small goal button ─── */
-.goal-btn.small{padding:8px 12px;min-width:auto}
-.goal-btn.small .goal-label{font-size:.55rem}
 
 /* ─── Print ─── */
 @media print{

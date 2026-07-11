@@ -695,7 +695,19 @@ function showQuestion() {
         div.className = 'option';
         div.innerHTML = `<span class="letter">${letters[i]}</span><span>${opt}</span>`;
         div.dataset.idx = i;
+        // Real interactive semantics: focusable, announced as a button, and
+        // activatable with Enter/Space when focused via Tab.
+        div.setAttribute('role', 'button');
+        div.setAttribute('aria-pressed', 'false');
+        div.tabIndex = 0;
         div.onclick = () => selectOption(i);
+        div.onkeydown = (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                e.stopPropagation(); // keep the global handler from instantly submitting
+                selectOption(i)
+            }
+        };
         div.oncontextmenu = (e) => {
             e.preventDefault();
             toggleCrossOut(i)
@@ -716,9 +728,13 @@ function selectOption(idx) {
     const card = document.getElementById('qCard');
     if (card.dataset.answered === 'true') return;
     const opts = document.querySelectorAll('.option');
-    opts.forEach(o => o.classList.remove('selected'));
+    opts.forEach(o => {
+        o.classList.remove('selected');
+        o.setAttribute('aria-pressed', 'false')
+    });
     opts[idx].classList.remove('crossed-out');
     opts[idx].classList.add('selected');
+    opts[idx].setAttribute('aria-pressed', 'true');
     card.dataset.selectedIdx = idx;
     document.getElementById('checkBtn').style.display = 'block'
 }
@@ -1566,12 +1582,20 @@ function showView(v) {
     document.getElementById('statsView').classList.toggle('hidden', v !== 'stats');
     document.getElementById('settingsView').classList.toggle('hidden', v !== 'settings');
     document.getElementById('wordsView').classList.toggle('hidden', v !== 'words');
-    document.getElementById('navQuiz').classList.toggle('active', v === 'quiz');
-    document.getElementById('navCal').classList.toggle('active', v === 'calendar');
-    document.getElementById('navReview').classList.toggle('active', v === 'review');
-    document.getElementById('navStats').classList.toggle('active', v === 'stats');
-    document.getElementById('navSettings').classList.toggle('active', v === 'settings');
-    document.getElementById('navWords').classList.toggle('active', v === 'words');
+    const navMap = {
+        navQuiz: 'quiz',
+        navCal: 'calendar',
+        navReview: 'review',
+        navStats: 'stats',
+        navSettings: 'settings',
+        navWords: 'words'
+    };
+    for (const [id, view] of Object.entries(navMap)) {
+        const btn = document.getElementById(id);
+        btn.classList.toggle('active', v === view);
+        if (v === view) btn.setAttribute('aria-current', 'page');
+        else btn.removeAttribute('aria-current')
+    }
     if (v === 'stats') renderStats();
     if (v === 'review') renderReview();
     if (v === 'calendar') renderCalendar();

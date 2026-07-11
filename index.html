@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="SAT vocabulary trainer — 1,700+ words with spaced repetition, sentence completion, and SAT-style practice questions.">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
 <title>SAT Vocabulary Quiz</title>
 <script>
 // Apply theme before first paint to avoid a light-mode flash for dark users.
@@ -41,7 +43,7 @@
 <div class="timer-content" id="timerContent">
 <div class="timer-bar-track"><div class="timer-bar-fill" id="timerBar"></div></div>
 <span class="timer-text" id="timerText"></span>
-<button class="timer-hide-btn" onclick="hideTimer()" title="Hide timer">&times;</button>
+<button class="timer-hide-btn" onclick="hideTimer()" title="Hide timer" aria-label="Hide timer">&times;</button>
 </div>
 <div class="timer-show" id="timerShow" style="display:none">
 <button class="timer-show-btn" onclick="showTimerBar()">Show timer</button>
