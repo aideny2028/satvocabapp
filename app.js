@@ -57,7 +57,6 @@ function defaults() {
         sessionsCompleted: 0,
         totalCorrect: 0,
         totalAnswered: 0,
-        currentSession: null,
         questionTypes: {
             wordToDef: true,
             defToWord: true,
@@ -156,7 +155,7 @@ function countMastery() {
     for (let i = 0; i < W.length; i++) {
         const l = state.leitner[i];
         if (!l || l.b === 0) unseen++;
-        else if (l.b >= 4) n++;
+        else if (l.b >= 5) n++; // box 5 = Learned, matching bucketName and the word list
         else learning++
     }
     return {
@@ -249,6 +248,10 @@ function addDailyAnswer(isCorrect) {
     const log = getTodayLog();
     log.answered++;
     if (isCorrect) log.correct++;
+    // bestStreak is updated here, after real practice — not inside calcStreak,
+    // which render functions call and which should stay a pure getter.
+    const streak = calcStreak();
+    if (streak > state.bestStreak) state.bestStreak = streak;
     save()
 }
 
@@ -268,10 +271,6 @@ function calcStreak() {
             d.setDate(d.getDate() - 1)
         } else break
     }
-    if (streak > state.bestStreak) {
-        state.bestStreak = streak;
-        save()
-    }
     return streak
 }
 let session = {
@@ -289,10 +288,6 @@ function shuffle(a) {
         [a[i], a[j]] = [a[j], a[i]]
     }
     return a
-}
-
-function randInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min
 }
 
 function pick(arr) {
@@ -368,15 +363,22 @@ function defTokens(d) {
     return d.toLowerCase().replace(/[^a-z ]/g, '').split(/\s+/).filter(w => w.length > 3 && !['that', 'this', 'with', 'from', 'have', 'been', 'were', 'they', 'their', 'being', 'which', 'about', 'would', 'make', 'like', 'into', 'than', 'them', 'then', 'more', 'very', 'when', 'what', 'some', 'only', 'also', 'such', 'most', 'other', 'extremely', 'excessively', 'quality', 'having', 'often', 'manner', 'state', 'tending', 'related'].includes(w))
 }
 
-function defSimilarity(a, b) {
-    const ta = new Set(defTokens(a));
-    const tb = new Set(defTokens(b));
+function setSim(ta, tb) {
     if (ta.size === 0 || tb.size === 0) return 0;
     let shared = 0;
     for (const w of ta)
         if (tb.has(w)) shared++;
     return shared / Math.max(ta.size, tb.size)
 }
+
+function defSimilarity(a, b) {
+    return setSim(new Set(defTokens(a)), new Set(defTokens(b)))
+}
+
+// Token sets for all definitions, computed once — getDistractors compares the
+// current word against every other word per question, so per-question
+// re-tokenization of ~1,700 definitions was the app's hottest path.
+const DEF_TOKEN_SETS = W.map(w => new Set(defTokens(w.d)));
 
 function defContains(a, b) {
     const la = a.toLowerCase().replace(/[^a-z ]/g, '').trim();
@@ -450,44 +452,65 @@ function conjugateN(w) {
 }
 
 function getDistractors(correct, count, type) {
-    const others = W.filter(x => x.w !== correct.w);
+    const cIdx = correct._idx != null ? correct._idx : W.findIndex(x => x.w === correct.w);
+    const cTokens = cIdx >= 0 ? DEF_TOKEN_SETS[cIdx] : new Set(defTokens(correct.d));
     const SIM = 0.4;
-    const scored = others.map(c => {
-        const sim = defSimilarity(correct.d, c.d);
-        if (sim >= SIM) return null;
-        if (defContains(correct.d, c.d)) return null;
+    const scored = [];
+    for (let i = 0; i < W.length; i++) {
+        const c = W[i];
+        if (i === cIdx || c.w === correct.w) continue;
+        // Same part of speech is required — a lone noun among verbs is a free elimination
+        if (c.p !== correct.p) continue;
+        const sim = setSim(cTokens, DEF_TOKEN_SETS[i]);
+        if (sim >= SIM) continue; // near-synonym — could be a second right answer
+        if (defContains(correct.d, c.d)) continue;
         let s = Math.random() * 2;
-        if (c.p === correct.p) s += 10;
+        if (c.diff === correct.diff) s += 4; // same difficulty tier reads as equally plausible
         if (type === 'def') {
             const lr = Math.min(c.d.length, correct.d.length) / Math.max(c.d.length, correct.d.length);
-            s += lr * 5
+            s += lr * 5 // similar definition length — length imbalance gives the answer away
         }
-        if (sim > 0.05 && sim < SIM) s += sim * 6;
-        return {
+        if (sim > 0.05 && sim < SIM) s += sim * 6; // related-but-wrong is the best trap
+        // Confusable lookalikes (shared shape, different meaning) make classic SAT traps
+        if (c.w[0] === correct.w[0] && c.w.length >= 6 && Math.abs(c.w.length - correct.w.length) <= 2 && c.w.slice(-4) === correct.w.slice(-4)) s += 8;
+        scored.push({
             c,
+            i,
             s
-        }
-    }).filter(Boolean);
+        })
+    }
     scored.sort((a, b) => b.s - a.s);
-    const picks = [];
+    const picks = [],
+        pickSets = [];
     for (const {
-            c
+            c,
+            i
         }
         of scored) {
         if (picks.length >= count) break;
         let clash = false;
-        for (const p of picks) {
-            if (defSimilarity(p.d, c.d) >= SIM || defContains(p.d, c.d)) {
+        for (let p = 0; p < picks.length; p++) {
+            if (setSim(pickSets[p], DEF_TOKEN_SETS[i]) >= SIM || defContains(picks[p].d, c.d)) {
                 clash = true;
                 break
             }
         }
-        if (!clash) picks.push(c)
+        if (!clash) {
+            picks.push(c);
+            pickSets.push(DEF_TOKEN_SETS[i])
+        }
+    }
+    // Fallbacks: same-POS first, then anything (only tiny POS classes ever get here)
+    if (picks.length < count) {
+        for (const x of W) {
+            if (picks.length >= count) break;
+            if (x.w !== correct.w && x.p === correct.p && !picks.includes(x)) picks.push(x)
+        }
     }
     if (picks.length < count) {
-        for (const x of others) {
+        for (const x of W) {
             if (picks.length >= count) break;
-            if (!picks.includes(x)) picks.push(x)
+            if (x.w !== correct.w && !picks.includes(x)) picks.push(x)
         }
     }
     return type === 'def' ? picks.map(x => x.d) : picks.map(x => x.w)
@@ -728,16 +751,6 @@ function toggleCrossOut(idx) {
         document.getElementById('checkBtn').style.display = 'none'
     }
     opt.classList.toggle('crossed-out')
-}
-
-function findWordDef(w) {
-    const clean = w.replace(/^(a|an)\s+/i, '').toLowerCase();
-    const exact = W.find(x => x.w === clean);
-    if (exact) return exact;
-    for (const x of W) {
-        if (clean.startsWith(x.w)) return x
-    }
-    return null
 }
 
 function checkAnswer() {
@@ -1099,7 +1112,8 @@ function renderStats() {
     const accuracy = state.totalAnswered > 0 ? Math.round(state.totalCorrect / state.totalAnswered * 100) : 0;
     const m = countMastery();
     const learnedPct = Math.round(m.learned / W.length * 100);
-    const learningPct = Math.round(m.learning / W.length * 100);
+    // Clamp so rounding can't push learned% + learning% past 100 (bar overflow)
+    const learningPct = Math.min(Math.round(m.learning / W.length * 100), 100 - learnedPct);
     sv.innerHTML = `<div class="dash"><h2>Cumulative Record</h2><div class="dash-grid"><div class="dash-stat"><div class="num">${state.totalAnswered}</div><div class="label">Answered</div></div><div class="dash-stat"><div class="num">${state.totalCorrect}</div><div class="label">Correct</div></div><div class="dash-stat"><div class="num">${accuracy}%</div><div class="label">Accuracy</div></div><div class="dash-stat"><div class="num">${state.sessionsCompleted}</div><div class="label">Sittings</div></div></div><div class="mastery-bar"><h3>Word Mastery</h3><div class="mastery-track"><div class="mastery-fill"><div class="mf-learned" style="width:${learnedPct}%"></div><div class="mf-learning" style="width:${learningPct}%"></div></div></div><div class="mastery-legend"><span><span class="ml-dot" style="background:var(--good)"></span> Learned ${m.learned}</span><span><span class="ml-dot" style="background:var(--gold)"></span> Learning ${m.learning}</span><span><span class="ml-dot" style="background:var(--paper-tint);border-color:var(--line)"></span> Unseen ${m.unseen}</span></div></div><div class="dash-section"><h3>Accuracy by Difficulty</h3>${renderDiffStats()}</div><div class="dash-section"><h3>Daily Accuracy</h3>${chartScaleButtons()}${buildProgressChart()}</div><div class="dash-section"><h3>Session History</h3>${renderSessionHistory()}</div><div class="reset-btn"><button onclick="if(confirm('Erase all progress? This cannot be undone.')){state=defaults();save();renderStats();updateWordPoolInfo()}">Reset Record</button></div></div>`
 }
 
@@ -1169,7 +1183,7 @@ function renderCalendar() {
         if (log && log.answered >= getEffectiveGoal()) completedDays++
     }
     const calGoal = getEffectiveGoal();
-    cv.innerHTML = `<div class="streak-display"><div class="streak-num">${streak}</div><div class="streak-label">${streak===1?'Day':'Days'} streak</div><div class="streak-best">Best: ${state.bestStreak} day${state.bestStreak!==1?'s':''}</div></div><div class="cal"><h2>Daily Practice Log</h2><p class="cal-sub">${getDailyGoal()===Infinity?'Any practice':getEffectiveGoal()+' words'} per day to maintain your streak</p><div class="cal-nav"><button onclick="calMonth--;if(calMonth<0){calMonth=11;calYear--}renderCalendar()">&larr;</button><span class="cal-month">${MONTHS[calMonth]} ${calYear}</span><button onclick="calMonth++;if(calMonth>11){calMonth=0;calYear++}renderCalendar()">&rarr;</button></div><div class="cal-grid">${dayCells}</div><div class="cal-legend"><span><span class="leg-box leg-teal"></span> In progress</span><span><span class="leg-box leg-gold"></span> Completed (${getDailyGoal()===Infinity?'1':getEffectiveGoal()}+)</span><span>${completedDays} of ${totalDaysWorked||daysInMonth} days completed</span></div></div>`
+    cv.innerHTML = `<div class="streak-display"><div class="streak-num">${streak}</div><div class="streak-label">${streak===1?'Day':'Days'} streak</div><div class="streak-best">Best: ${state.bestStreak} day${state.bestStreak!==1?'s':''}</div></div><div class="cal"><h2>Daily Practice Log</h2><p class="cal-sub">${getDailyGoal()===Infinity?'Any practice':getEffectiveGoal()+' words'} per day to maintain your streak</p><div class="cal-nav"><button onclick="calMonth--;if(calMonth<0){calMonth=11;calYear--}renderCalendar()">&larr;</button><span class="cal-month">${MONTHS[calMonth]} ${calYear}</span><button onclick="calMonth++;if(calMonth>11){calMonth=0;calYear++}renderCalendar()">&rarr;</button></div><div class="cal-grid">${dayCells}</div><div class="cal-legend"><span><span class="leg-box leg-teal"></span> In progress</span><span><span class="leg-box leg-gold"></span> Completed (${getDailyGoal()===Infinity?'1':getEffectiveGoal()}+)</span><span>${completedDays} goal day${completedDays!==1?'s':''} &middot; ${totalDaysWorked} practice day${totalDaysWorked!==1?'s':''} this month</span></div></div>`
 }
 
 function setDailyGoal(n) {
@@ -1202,7 +1216,8 @@ function exportProgress() {
     a.href = url;
     a.download = `sat-vocab-backup-${todayKey()}.json`;
     a.click();
-    URL.revokeObjectURL(url)
+    // Revoke async — a synchronous revoke can race the download in Safari
+    setTimeout(() => URL.revokeObjectURL(url), 1000)
 }
 
 // Deep-validate an imported backup: every field is type/range-checked and
@@ -1419,18 +1434,6 @@ function renderWordList() {
         var bName = bucketName(bucket);
         var missed = state.missCount[i] || 0;
         var mastery = bucket === 5 ? 'learned' : bucket > 0 ? 'learning' : 'unseen';
-        var totalSeen = (l ? (l.wt || 0) + (l.dw || 0) + (l.sc || 0) + (l.sy || 0) : 0);
-        var sentences = typeof SENTENCES !== 'undefined' && SENTENCES[word.w];
-        var sentHtml = '';
-        if (sentences && sentences.length > 0) {
-            var shown = sentences.slice(0, 2);
-            sentHtml = shown.map(function(s) {
-                var text = Array.isArray(s) ? s[0] : s;
-                return '<div class="wl-ex-sentence">' + text.replace('_____', '<u>' + word.w + '</u>') + '</div>'
-            }).join('')
-        } else {
-            sentHtml = '<div class="wl-ex-sentence"><em>No examples available.</em></div>'
-        }
         html += '<div class="wl-item" data-word="' + word.w.toLowerCase() + '" data-diff="' + diff + '" data-missed="' + missed + '" data-idx="' + i + '" onclick="toggleWordExpand(this)">';
         html += '<div class="wl-main">';
         html += '<span class="wl-word">' + word.w + '</span>';
@@ -1442,18 +1445,44 @@ function renderWordList() {
         html += '<span class="wl-mastery ' + mastery + '">' + bName + '</span>';
         if (missed > 0) html += '<span class="wl-missed">' + missed + '&times; missed</span>';
         html += '</div>';
-        html += '<div class="wl-expand">';
-        html += '<div class="wl-ex-section"><div class="wl-ex-label">EXAMPLE USAGE</div>' + sentHtml + '</div>';
-        html += '<div class="wl-ex-stats"><span>Seen: ' + totalSeen + '</span><span>Missed: ' + missed + '</span><span>Box: ' + bName + '</span>' + (l && l.due ? '<span>Due: ' + l.due.slice(5) + '</span>' : '') + '</div>';
-        html += '</div>';
+        // Expanded detail is filled lazily on first expand — building example
+        // sentences for all 1,700+ rows up front dominated render time.
+        html += '<div class="wl-expand"></div>';
         html += '</div>'
     });
     html += '</div></div>';
     container.innerHTML = html
 }
 
+function buildWordExpand(i) {
+    var word = W[i];
+    var l = state.leitner[i];
+    var missed = state.missCount[i] || 0;
+    var bName = bucketName(l ? l.b : 0);
+    var totalSeen = (l ? (l.wt || 0) + (l.dw || 0) + (l.sc || 0) + (l.sy || 0) : 0);
+    var sentences = typeof SENTENCES !== 'undefined' && SENTENCES[word.w];
+    var sentHtml = '';
+    if (sentences && sentences.length > 0) {
+        sentHtml = sentences.slice(0, 2).map(function(s) {
+            var text = Array.isArray(s) ? s[0] : s;
+            return '<div class="wl-ex-sentence">' + text.replace('_____', '<u>' + word.w + '</u>') + '</div>'
+        }).join('')
+    } else {
+        sentHtml = '<div class="wl-ex-sentence"><em>No examples available.</em></div>'
+    }
+    return '<div class="wl-ex-section"><div class="wl-ex-label">EXAMPLE USAGE</div>' + sentHtml + '</div>' +
+        '<div class="wl-ex-stats"><span>Seen: ' + totalSeen + '</span><span>Missed: ' + missed + '</span><span>Box: ' + bName + '</span>' + (l && l.due ? '<span>Due: ' + esc(String(l.due).slice(5)) + '</span>' : '') + '</div>'
+}
+
 function toggleWordExpand(el) {
-    el.classList.toggle('expanded')
+    var expanded = el.classList.toggle('expanded');
+    if (expanded) {
+        var ex = el.querySelector('.wl-expand');
+        if (ex && !ex.dataset.loaded) {
+            ex.dataset.loaded = '1';
+            ex.innerHTML = buildWordExpand(Number(el.dataset.idx))
+        }
+    }
 }
 
 function filterWordList() {
@@ -1468,7 +1497,7 @@ function filterWordList() {
     document.getElementById('wlCount').textContent = count + ' words'
 }
 let timerInterval = null;
-let timerRemaining = 0;
+let timerDeadline = 0;
 
 function startTimer() {
     if (!state.timedMode) {
@@ -1476,7 +1505,10 @@ function startTimer() {
         return
     }
     clearInterval(timerInterval);
-    timerRemaining = state.timerSeconds || 30;
+    const totalMs = (state.timerSeconds || 30) * 1000;
+    // Wall-clock deadline instead of a decrementing counter — setInterval is
+    // throttled in background tabs and the old countdown drifted badly.
+    timerDeadline = Date.now() + totalMs;
     const bar = document.getElementById('timerBar');
     const text = document.getElementById('timerText');
     const top = document.getElementById('timerTop');
@@ -1492,10 +1524,10 @@ function startTimer() {
     bar.style.width = '100%';
     bar.classList.remove('timer-low');
     text.classList.remove('timer-low-text');
-    text.textContent = timerRemaining + 's';
+    text.textContent = (state.timerSeconds || 30) + 's';
     timerInterval = setInterval(() => {
-        timerRemaining--;
-        if (timerRemaining <= 0) {
+        const msLeft = timerDeadline - Date.now();
+        if (msLeft <= 0) {
             clearInterval(timerInterval);
             timerInterval = null;
             text.textContent = '0s';
@@ -1503,14 +1535,14 @@ function startTimer() {
             timeUp();
             return
         }
-        const pct = (timerRemaining / (state.timerSeconds || 30)) * 100;
-        bar.style.width = pct + '%';
-        text.textContent = timerRemaining + 's';
-        if (timerRemaining <= 5) {
+        const secLeft = Math.ceil(msLeft / 1000);
+        bar.style.width = (msLeft / totalMs * 100) + '%';
+        text.textContent = secLeft + 's';
+        if (secLeft <= 5) {
             bar.classList.add('timer-low');
             text.classList.add('timer-low-text')
         }
-    }, 1000)
+    }, 250)
 }
 
 function stopTimer() {
@@ -1555,6 +1587,7 @@ function showView(v) {
 function updateWordPoolInfo() {}
 document.addEventListener('keydown', e => {
     if (document.getElementById('quizActive').classList.contains('hidden')) return;
+    if (e.repeat) return; // a held Enter must not check-then-skip through feedback
     const card = document.getElementById('qCard');
     const key = e.key.toLowerCase();
     if (key === 'escape') {

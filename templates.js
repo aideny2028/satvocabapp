@@ -233,4 +233,13 @@ const TEMPLATES={
     d=>`The cat _____ watched from the window, observing in a way that seemed ${d}.`
   ]
 };
-function makeSentence(wordObj){let pool=TEMPLATES[wordObj.p]||TEMPLATES['adj.'];const template=pick(pool);return template(wordObj.d)}
+// Generic frames for POS classes without dedicated templates (conj., prep., …).
+// Adjective frames would produce nonsense for them ("described as _____, meaning
+// it was although; even though").
+const GENERIC_TEMPLATES=[
+  d=>`The tutor explained that "_____" is best understood as "${d}."`,
+  d=>`On the vocabulary list, "_____" was glossed simply: ${d}.`,
+  d=>`She underlined the word "_____" and wrote its meaning in the margin: ${d}.`,
+  d=>`The glossary entry read: "_____ — ${d}."`
+];
+function makeSentence(wordObj){let pool=TEMPLATES[wordObj.p]||GENERIC_TEMPLATES;const template=pick(pool);return template(wordObj.d)}
