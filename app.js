@@ -280,8 +280,6 @@ let session = {
     score: 0,
     streak: 0,
     answered: [],
-    retryQueue: [],
-    retryCounter: 0,
     total: 20
 };
 
@@ -319,7 +317,10 @@ function pickSessionWords() {
             _idx: i
         };
         const missed = state.missCount[i] || 0;
-        if (state.retryInSession && missed > 0 && l && l.b <= 1) {
+        // Words already missed today were just retried in-session; give them
+        // breathing room until tomorrow's Leitner review instead of again now.
+        const missedToday = (state.missDay || {})[i] === today;
+        if (state.retryInSession && missed > 0 && !missedToday && l && l.b <= 1) {
             obj._retry = true;
             retry.push(obj)
         } else if (!l || l.b === 0) {
@@ -334,8 +335,13 @@ function pickSessionWords() {
     shuffle(due);
     shuffle(unseen);
     shuffle(notDue);
-    const pool = [...retry, ...due, ...unseen, ...notDue];
-    return goal === Infinity ? pool : pool.slice(0, goal)
+    // Cap review words at ~1/3 of the session so a sitting is never wall-to-wall
+    // retries, and shuffle the final selection so they aren't front-loaded.
+    const cap = goal === Infinity ? retry.length : Math.ceil(goal / 3);
+    const pool = [...retry.slice(0, cap), ...due, ...unseen, ...retry.slice(cap), ...notDue];
+    const selected = goal === Infinity ? pool : pool.slice(0, goal);
+    shuffle(selected);
+    return selected
 }
 
 function setDiffFilter(f) {
@@ -506,8 +512,6 @@ function startSession() {
         score: 0,
         streak: 0,
         answered: [],
-        retryQueue: [],
-        retryCounter: 0,
         total: words.length,
         enabledTypes: getEnabledTypes()
     };
@@ -772,7 +776,9 @@ function checkAnswer() {
         session.score++;
         session.streak++;
         state.totalCorrect++;
-        if (wIdx >= 0) advanceLeitner(wIdx);
+        // A correct answer on an in-session retry doesn't advance the box —
+        // the word was just missed and still belongs in tomorrow's review.
+        if (wIdx >= 0 && !wordObj._requeued) advanceLeitner(wIdx);
         fb.innerHTML = `Correct — <em>${wordObj.w}</em>: ${wordObj.d}`;
         fb.className = 'feedback correct-fb';
         const sd = document.getElementById('scoreDisp');
@@ -788,11 +794,24 @@ function checkAnswer() {
         if (chosen >= 0) opts[chosen].classList.add('wrong');
         session.streak = 0;
         document.getElementById('streakDisp').textContent = 'Streak: 0';
-        if (wIdx >= 0) {
+        if (wIdx >= 0 && !wordObj._requeued) {
             state.missCount[wIdx] = (state.missCount[wIdx] || 0) + 1;
+            if (!state.missDay) state.missDay = {};
+            state.missDay[wIdx] = todayKey();
             resetLeitner(wIdx)
         }
-        session.retryQueue.push(wordObj);
+        // Within-session retry: re-queue the missed word once, 4–8 questions
+        // later, so it gets a second attempt this sitting with some spacing.
+        if (state.retryInSession && !wordObj._requeued) {
+            const again = {
+                ...wordObj,
+                _retry: true,
+                _requeued: true
+            };
+            const pos = Math.min(session.words.length, session.current + 4 + Math.floor(Math.random() * 5));
+            session.words.splice(pos, 0, again);
+            session.total = session.words.length
+        }
         fb.innerHTML = timedOut ? `Time's up — the answer is <em>${wordObj.w}</em>: ${wordObj.d}` : `Incorrect — the answer is <em>${wordObj.w}</em>: ${wordObj.d}`;
         fb.className = 'feedback wrong-fb'
     }
@@ -820,6 +839,7 @@ function checkAnswer() {
     session.answered.push({
         word: wordObj.w,
         def: wordObj.d,
+        idx: wIdx,
         correct: chosen === correct
     });
     save();
@@ -880,7 +900,9 @@ function showSummary() {
         const deduped = Object.values(missedMap);
         missedHtml = `<div class="missed-list"><h3>Entries requiring review</h3>${deduped.map(m=>`<div class="missed-item"><span class="mw">${m.word}</span>${m.count>1?` <span style="font-family:monospace;font-size:.75rem;opacity:.6">${m.count}&times;</span>`:''} — <span class="md">${m.def}</span></div>`).join('')}</div>`
     }
-    sv.innerHTML = `<div class="summary"><h2>${grade}</h2><div class="score-big">${session.score} <span class="of">/ ${total}</span></div><p style="text-align:center;opacity:.5;font-size:.85rem">${pct}% accuracy this sitting</p>${missedHtml}<div class="summary-btns"><button onclick="startSession()">New Sitting</button><button class="secondary" onclick="showView('review')">Missed Log</button><button class="secondary" onclick="showView('stats')">View Record</button></div></div>`
+    const missedCount = new Set(missed.map(m => m.word)).size;
+    const retryBtn = missedCount > 0 ? `<button class="teal" onclick="retrySessionMissed()">Retry Missed (${missedCount})</button>` : '';
+    sv.innerHTML = `<div class="summary"><h2>${grade}</h2><div class="score-big">${session.score} <span class="of">/ ${total}</span></div><p style="text-align:center;opacity:.5;font-size:.85rem">${pct}% accuracy this sitting</p>${missedHtml}<div class="summary-btns">${retryBtn}<button onclick="startSession()">New Sitting</button><button class="secondary" onclick="showView('review')">Missed Log</button><button class="secondary" onclick="showView('stats')">View Record</button></div></div>`
 }
 
 function bucketName(b) {
@@ -911,11 +933,13 @@ function renderReview() {
     rv.innerHTML = `<div class="review"><h2>Missed Words</h2><p class="review-sub">Words you've gotten wrong, sorted by frequency. Reset sends a word back to the start of the review cycle.</p>${missEntries.length>0?`<div class="review-actions" style="margin-bottom:20px;margin-top:0;padding-top:0;border-top:none"><button class="teal" onclick="practiceMissed()">Practice These</button></div>`:''}${listHtml}${missEntries.length>0?`<div class="review-actions"><button class="danger" onclick="clearMissed()">Clear List</button></div>`:''}</div>`
 }
 
-function practiceMissed() {
-    const missIdxs = Object.keys(state.missCount).map(Number).filter(i => W[i]);
+// Start a review session from a list of word indices
+function practiceList(idxs) {
+    const missIdxs = idxs.filter(i => W[i]);
     if (missIdxs.length === 0) return;
     shuffle(missIdxs);
-    const goal = Math.min(missIdxs.length, getDailyGoal());
+    const cap = getSessionSize() ?? getDailyGoal();
+    const goal = Math.min(missIdxs.length, cap);
     const words = missIdxs.slice(0, goal).map(i => ({
         ...W[i],
         _idx: i,
@@ -927,8 +951,6 @@ function practiceMissed() {
         score: 0,
         streak: 0,
         answered: [],
-        retryQueue: [],
-        retryCounter: 0,
         total: goal,
         enabledTypes: getEnabledTypes()
     };
@@ -938,6 +960,16 @@ function practiceMissed() {
     document.getElementById('summaryView').classList.add('hidden');
     document.body.classList.add('quiz-active');
     showQuestion()
+}
+
+function practiceMissed() {
+    practiceList(Object.keys(state.missCount).map(Number))
+}
+
+// Retry only the words missed in the sitting that just ended
+function retrySessionMissed() {
+    const idxs = [...new Set(session.answered.filter(a => !a.correct && a.idx >= 0).map(a => a.idx))];
+    practiceList(idxs)
 }
 
 function clearMissed() {
