@@ -2205,7 +2205,7 @@ const SENTENCES = {
 ],
 "actuary": [
 [
-"The insurance company hired an _____ to determine how much risk each new policyholder actually posed.",
+"The insurance company hired an _____ to determine how much risk each new policyholder truly posed.",
 "cartographer",
 "entomologist",
 "choreographer"
@@ -2235,7 +2235,7 @@ const SENTENCES = {
 "cartographer"
 ],
 [
-"The university's actuarial science program trains students to become an _____ skilled in probability and financial risk.",
+"The insurance firm hired an _____ to calculate how likely floods, crashes, and other losses really are.",
 "entomologist",
 "philologist",
 "curator"
@@ -4941,7 +4941,7 @@ const SENTENCES = {
 ],
 "anesthesia": [
 [
-"Before the surgery, the anesthesiologist administered _____ so the patient would feel nothing during the operation.",
+"Before the surgery, doctors administered _____ so the patient would feel nothing during the operation.",
 "stimulation",
 "exhilaration",
 "invigoration"
@@ -12591,7 +12591,7 @@ const SENTENCES = {
 "mutinous"
 ],
 [
-"A _____ patient follows every instruction the doctor provides without complaint.",
+"A _____ patient follows every instruction the doctor provides without objection.",
 "rebellious",
 "willful",
 "obdurate"
@@ -13471,7 +13471,7 @@ const SENTENCES = {
 "subordinate"
 ],
 [
-"The queen trusted no advisor more than her personal _____, who kept every confidence.",
+"The queen trusted no advisor more than her personal _____, the one person who knew all her secrets.",
 "benefactor",
 "subordinate",
 "protege"
@@ -14617,7 +14617,7 @@ const SENTENCES = {
 "honor"
 ],
 [
-"Leaking the confidential report would _____ the terms of her employment contract.",
+"Leaking the confidential report would _____ the terms of her employment agreement.",
 "honor",
 "fulfill",
 "ratify"
@@ -15333,7 +15333,7 @@ const SENTENCES = {
 "amplify"
 ],
 [
-"Engineers designed counterweights, shock absorbers, and stabilizers that _____ed the bridge's natural swaying.",
+"Engineers designed massive dampers, shock absorbers, and stabilizers that _____ed the bridge's natural swaying.",
 "amplify",
 "intensify",
 "aggravate"
@@ -16713,7 +16713,7 @@ const SENTENCES = {
 "flattering"
 ],
 [
-"Publishing _____ material about a private citizen can result in a defamation lawsuit.",
+"The tabloid was sued after printing _____ claims that falsely painted the mayor as a criminal.",
 "complimentary",
 "glowing",
 "commendatory"
@@ -25219,7 +25219,7 @@ const SENTENCES = {
 "uneven"
 ],
 [
-"Milk becomes _____ after homogenization, with fat evenly distributed throughout instead of separating.",
+"Processed milk is _____, with fat evenly distributed throughout instead of separating into layers.",
 "separated",
 "layered",
 "mottled"
@@ -27733,7 +27733,7 @@ const SENTENCES = {
 "deficit"
 ],
 [
-"The instructor increased the weight on the barbell in careful _____s to avoid injuring beginners.",
+"The instructor raised the weight on the barbell in careful _____s to avoid injuring beginners.",
 "reduction",
 "decrement",
 "cutback"
@@ -36145,7 +36145,7 @@ const SENTENCES = {
 "veiled"
 ],
 [
-"Unlike the covert surveillance operation, the police presence at the rally was entirely _____, with officers in plain view.",
+"Unlike the hidden surveillance operation, the police presence at the rally was entirely _____, with officers in plain view.",
 "surreptitious",
 "furtive",
 "concealed"
@@ -38501,7 +38501,7 @@ const SENTENCES = {
 "notary"
 ],
 [
-"Because the _____ had filed the initial complaint, her attorney delivered the opening statement.",
+"Because the _____ had initiated the lawsuit against the company, her attorney delivered the opening statement.",
 "defendant",
 "bailiff",
 "juror"
@@ -53687,7 +53687,7 @@ const SENTENCES = {
 "affirm"
 ],
 [
-"The underground river had slowly _____d the hillside for decades before the road above it finally caved in.",
+"The subterranean river had slowly _____d the hillside for decades before the road above it finally caved in.",
 "fortified",
 "stabilized",
 "reinforced"
@@ -55663,7 +55663,7 @@ const SENTENCES = {
 "scholarly"
 ],
 [
-"Rather than take the merger talks seriously, the CEO made _____ remarks about flipping a coin to decide the company's future.",
+"Rather than take the merger talks seriously, the CEO made _____ remarks about tossing a coin to decide the company's future.",
 "measured",
 "cautious",
 "formal"
