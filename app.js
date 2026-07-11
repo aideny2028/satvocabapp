@@ -1,5 +1,22 @@
 const LS_KEY = 'sat_vocab_v4';
 
+// Escape HTML special characters (used for any string that could come from imported data)
+function esc(s) {
+    return String(s).replace(/[&<>"']/g, c => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+    }[c]))
+}
+
+// Local-timezone date key (YYYY-MM-DD). Never use toISOString for day keys — it's UTC
+// and shifts evening practice onto the next day for anyone west of Greenwich.
+function dateKey(d) {
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0')
+}
+
 function getDailyGoal() {
     const g = state?.dailyGoal;
     if (g === 0) return Infinity;
@@ -32,6 +49,7 @@ function setSessionSize(n) {
     updateSittingDesc()
 }
 let state = load();
+pruneState(730); // bound state growth: drop daily-log entries older than 2 years
 
 function defaults() {
     return {
@@ -92,7 +110,7 @@ function advanceLeitner(idx) {
     l.b = Math.min(l.b + 1, 5);
     const d = new Date();
     d.setDate(d.getDate() + LEITNER_INTERVALS[l.b]);
-    l.due = d.toISOString().slice(0, 10);
+    l.due = dateKey(d);
     save()
 }
 
@@ -101,7 +119,7 @@ function resetLeitner(idx) {
     l.b = 1;
     const d = new Date();
     d.setDate(d.getDate() + 1);
-    l.due = d.toISOString().slice(0, 10);
+    l.due = dateKey(d);
     save()
 }
 
@@ -187,12 +205,35 @@ function load() {
     }
 }
 
+function pruneState(days) {
+    const cutoff = new Date();
+    cutoff.setDate(cutoff.getDate() - days);
+    const ck = dateKey(cutoff);
+    for (const k of Object.keys(state.dailyLog || {})) {
+        if (k < ck) delete state.dailyLog[k]
+    }
+    if (state.sessionHistory && state.sessionHistory.length > 100) state.sessionHistory = state.sessionHistory.slice(-100)
+}
+
 function save() {
-    localStorage.setItem(LS_KEY, JSON.stringify(state))
+    try {
+        localStorage.setItem(LS_KEY, JSON.stringify(state))
+    } catch (e) {
+        // Storage full — prune old history and retry once
+        pruneState(400);
+        try {
+            localStorage.setItem(LS_KEY, JSON.stringify(state))
+        } catch (e2) {
+            if (!save._warned) {
+                save._warned = true;
+                alert('Warning: progress could not be saved — browser storage is full.')
+            }
+        }
+    }
 }
 
 function todayKey() {
-    return new Date().toISOString().slice(0, 10)
+    return dateKey(new Date())
 }
 
 function getTodayLog() {
@@ -220,7 +261,7 @@ function calcStreak() {
     const todayDone = (state.dailyLog[tk]?.answered || 0) >= eg;
     if (!todayDone) d.setDate(d.getDate() - 1);
     while (true) {
-        const k = d.toISOString().slice(0, 10);
+        const k = dateKey(d);
         const log = state.dailyLog[k];
         if (log && log.answered >= eg) {
             streak++;
@@ -336,10 +377,44 @@ function defContains(a, b) {
     const lb = b.toLowerCase().replace(/[^a-z ]/g, '').trim();
     return la.length > 3 && lb.length > 3 && (la.includes(lb) || lb.includes(la))
 }
-const CONJ_DBL = new Set(['abet', 'abhor', 'annul', 'defer', 'deter', 'dispel', 'extol', 'compel', 'expel', 'impel', 'propel', 'repel', 'rebel', 'excel', 'control', 'patrol']);
+// Verbs that double their final consonant before -ed / -ing (final-syllable stress, CVC ending)
+const CONJ_DBL = new Set(['abet', 'abhor', 'annul', 'defer', 'deter', 'dispel', 'extol', 'compel', 'expel', 'impel', 'propel', 'repel', 'rebel', 'excel', 'control', 'patrol',
+    'occur', 'recur', 'incur', 'concur', 'demur', 'confer', 'infer', 'prefer', 'refer', 'transfer', 'aver', 'inter', 'abut', 'rebut', 'regret', 'commit', 'omit', 'emit', 'permit', 'remit', 'submit', 'transmit', 'admit', 'acquit', 'allot', 'befit', 'equip', 'enrol', 'instil', 'fulfil',
+    'strip', 'rob', 'plod', 'shun', 'stir', 'spur', 'blur', 'slur', 'jot', 'trot', 'swat', 'grip', 'whet', 'throb', 'prod', 'nod', 'skim', 'brim', 'trim', 'strut', 'jut', 'chat', 'wrap', 'swap', 'trap', 'strap', 'scrap', 'stop', 'prop', 'drop', 'grab', 'stab', 'nab', 'jab', 'snub', 'stub', 'scrub', 'drub', 'dub', 'sob', 'lob', 'fib', 'sag', 'nag', 'wag', 'flag', 'brag', 'drag', 'snag', 'lag', 'gag', 'beg', 'jog', 'flog', 'slog', 'clog', 'pin', 'span', 'plan', 'scan', 'ban', 'fan', 'tan', 'con', 'don', 'pun', 'stun', 'grin', 'sin', 'thin', 'skin', 'hum', 'drum', 'sum', 'dot', 'blot', 'clot', 'knot', 'plot', 'spot', 'top', 'chop', 'crop', 'flop', 'hop', 'mop', 'shop', 'slop', 'map', 'nap', 'tap', 'zap', 'dip', 'drip', 'flip', 'nip', 'quip', 'rip', 'ship', 'sip', 'skip', 'slip', 'snip', 'tip', 'trip', 'whip', 'zip', 'bar', 'mar', 'scar', 'star', 'jar', 'tar', 'war', 'bag', 'tag', 'dig', 'rig', 'log', 'hog', 'pet', 'net', 'vet', 'wet', 'bet', 'fret', 'jet', 'gut', 'cut', 'pat', 'mat', 'bat', 'rot', 'pot', 'wed', 'shred', 'thud', 'stud', 'bud', 'skid', 'pad', 'dam', 'cram', 'ram', 'slam', 'jam']);
+
+// Irregular simple-past forms — the naive +ed rule produces non-words for these
+// ("upholded", "withdrawed", "forsaked"…), which visibly breaks quiz options.
+const IRREG_PAST = {
+    uphold: 'upheld', withhold: 'withheld', hold: 'held', behold: 'beheld',
+    withdraw: 'withdrew', draw: 'drew', overdraw: 'overdrew',
+    forsake: 'forsook', shake: 'shook', take: 'took', partake: 'partook', overtake: 'overtook', undertake: 'undertook', mistake: 'mistook',
+    gainsay: 'gainsaid', say: 'said',
+    shrink: 'shrank', sink: 'sank', sing: 'sang', spring: 'sprang', ring: 'rang', swim: 'swam', begin: 'began', drink: 'drank',
+    forbid: 'forbade', forget: 'forgot', beget: 'begot', get: 'got',
+    forgo: 'forwent', forego: 'forewent', undergo: 'underwent', go: 'went',
+    rend: 'rent', cling: 'clung', fling: 'flung', sling: 'slung', slink: 'slunk', spin: 'spun', sting: 'stung', string: 'strung', swing: 'swung', wring: 'wrung', hang: 'hung',
+    weep: 'wept', sweep: 'swept', sleep: 'slept', keep: 'kept', creep: 'crept', leap: 'leapt',
+    seek: 'sought', beseech: 'besought', teach: 'taught', catch: 'caught', fight: 'fought', think: 'thought', bring: 'brought', buy: 'bought',
+    stand: 'stood', withstand: 'withstood', understand: 'understood',
+    strive: 'strove', thrive: 'throve', weave: 'wove', cleave: 'clove',
+    bear: 'bore', forbear: 'forbore', forswear: 'forswore', swear: 'swore', tear: 'tore', wear: 'wore',
+    steal: 'stole', speak: 'spoke', bespeak: 'bespoke', break: 'broke', choose: 'chose', freeze: 'froze',
+    rise: 'rose', arise: 'arose', write: 'wrote', ride: 'rode', stride: 'strode', drive: 'drove', strike: 'struck',
+    bind: 'bound', grind: 'ground', wind: 'wound', find: 'found',
+    fly: 'flew', flee: 'fled', slay: 'slew', blow: 'blew', grow: 'grew', outgrow: 'outgrew', know: 'knew', throw: 'threw', overthrow: 'overthrew',
+    run: 'ran', overrun: 'overran', come: 'came', become: 'became', overcome: 'overcame',
+    give: 'gave', forgive: 'forgave', see: 'saw', foresee: 'foresaw', oversee: 'oversaw', eat: 'ate', fall: 'fell', befall: 'befell',
+    lead: 'led', mislead: 'misled', feed: 'fed', breed: 'bred', bleed: 'bled', meet: 'met',
+    lose: 'lost', leave: 'left', mean: 'meant', deal: 'dealt', dwell: 'dwelt', kneel: 'knelt',
+    send: 'sent', spend: 'spent', lend: 'lent', bend: 'bent', build: 'built',
+    sell: 'sold', tell: 'told', foretell: 'foretold', retell: 'retold',
+    shine: 'shone', sit: 'sat', win: 'won', dig: 'dug', stick: 'stuck', shoot: 'shot',
+    burst: 'burst', cast: 'cast', broadcast: 'broadcast', cost: 'cost', cut: 'cut', hit: 'hit', hurt: 'hurt', let: 'let', put: 'put', quit: 'quit', shed: 'shed', shut: 'shut', split: 'split', spread: 'spread', thrust: 'thrust', beset: 'beset', set: 'set', bet: 'bet', rid: 'rid'
+};
 
 function conjugatePast(w) {
     w = w.toLowerCase();
+    if (IRREG_PAST[w]) return IRREG_PAST[w];
     if (CONJ_DBL.has(w)) return w + w.slice(-1) + 'ed';
     if (w.endsWith('e')) return w + 'd';
     if (/[^aeiou]y$/.test(w)) return w.slice(0, -1) + 'ied';
@@ -358,6 +433,7 @@ function conjugateS(w) {
     w = w.toLowerCase();
     if (/[sxz]$/.test(w) || /[sc]h$/.test(w)) return w + 'es';
     if (/[^aeiou]y$/.test(w)) return w.slice(0, -1) + 'ies';
+    if (/[^aeiou]o$/.test(w)) return w + 'es';
     return w + 's'
 }
 
@@ -480,16 +556,30 @@ function showQuestion() {
         qTypeEl.textContent = 'Define the term';
         qTextEl.innerHTML = `<span class="q-word">${wordObj.w}</span>${isRetry?'<span class="retry-badge">Review</span>':''}<div class="q-pos">${wordObj.p}</div>Select the correct definition.`;
         const distractors = getDistractors(wordObj, 3, 'def');
-        options = [wordObj.d, ...distractors];
-        shuffle(options);
-        correctIdx = options.indexOf(wordObj.d)
+        const optPairs = [{
+            t: wordObj.d,
+            c: true
+        }, ...distractors.map(t => ({
+            t,
+            c: false
+        }))];
+        shuffle(optPairs);
+        options = optPairs.map(o => o.t);
+        correctIdx = optPairs.findIndex(o => o.c)
     } else if (qType === 'defToWord') {
         qTypeEl.textContent = 'Identify the word';
         qTextEl.innerHTML = `Select the word that means:${isRetry?'<span class="retry-badge">Review</span>':''}<div style="margin-top:10px;font-style:italic;color:var(--ink);opacity:.7">"${wordObj.d}"</div>`;
         const distractors = getDistractors(wordObj, 3, 'word');
-        options = [wordObj.w, ...distractors];
-        shuffle(options);
-        correctIdx = options.indexOf(wordObj.w)
+        const optPairs = [{
+            t: wordObj.w,
+            c: true
+        }, ...distractors.map(t => ({
+            t,
+            c: false
+        }))];
+        shuffle(optPairs);
+        options = optPairs.map(o => o.t);
+        correctIdx = optPairs.findIndex(o => o.c)
     } else if (qType === 'sentence') {
         qTypeEl.textContent = 'Sentence completion';
         const sArr = typeof SENTENCES !== 'undefined' && SENTENCES[wordObj.w];
@@ -510,15 +600,20 @@ function showQuestion() {
         }
         const rawOpts = [wordObj.w, ...distractors];
         let displaySentence = sentence;
+        // Only strip a suffix after the blank when we know how to conjugate it;
+        // unknown suffixes stay in the sentence untouched.
+        const KNOWN_SUFFIXES = ['d', 'ed', 'ied', 'led', 'red', 'ted', 'ing', 'ting', 's', 'es', 'ies', 'n'];
         const sufMatch = sentence.match(/_____([a-z]+)/i);
         let conjForm = null;
-        if (sufMatch) {
-            conjForm = sufMatch[1];
+        if (sufMatch && KNOWN_SUFFIXES.includes(sufMatch[1].toLowerCase())) {
+            conjForm = sufMatch[1].toLowerCase();
             displaySentence = displaySentence.replace(/_____[a-z]+/i, '_____')
         }
         const artMatch = displaySentence.match(/\b(a|an)\s+_____/i);
-        let hasArt = false;
+        let hasArt = false,
+            artCap = false;
         if (artMatch) {
+            artCap = /^[A-Z]/.test(artMatch[1]);
             displaySentence = displaySentence.replace(/\b(a|an)\s+_____/i, '_____');
             hasArt = true
         }
@@ -534,21 +629,38 @@ function showQuestion() {
 
         function addArticle(w) {
             if (!hasArt) return w;
-            return (/^[aeiou]/i.test(w) ? 'an' : 'a') + ' ' + w
+            // Sound, not spelling: "a uniform/eulogy/utopian" but "an honest/heir/hour"
+            let art;
+            if (/^(honest|honor|honou?r|heir|hour)/i.test(w)) art = 'an';
+            else if (/^(uni(?![nmd])|unan|use|usu|usur|util|utop|ubiq|eu|ewe|once|one)/i.test(w)) art = 'a';
+            else art = /^[aeiou]/i.test(w) ? 'an' : 'a';
+            if (artCap) art = art.charAt(0).toUpperCase() + art.slice(1);
+            return art + ' ' + w
         }
-        const finalOpts = rawOpts.map(w => addArticle(conjW(w)));
-        shuffle(finalOpts);
-        const correctLabel = addArticle(conjW(wordObj.w));
-        correctIdx = finalOpts.indexOf(correctLabel);
-        options = finalOpts;
+        // Track the correct option through the shuffle instead of matching strings
+        // afterwards — string matching breaks when a distractor renders identically.
+        const optPairs = rawOpts.map((w, i) => ({
+            t: addArticle(conjW(w)),
+            c: i === 0
+        }));
+        shuffle(optPairs);
+        options = optPairs.map(o => o.t);
+        correctIdx = optPairs.findIndex(o => o.c);
         qTextEl.innerHTML = `${isRetry?'<span class="retry-badge">Review</span>':''}<div class="q-sentence">${displaySentence.replace('_____','<span class="blank">_____</span>')}</div><div style="margin-top:8px;opacity:.55;font-size:.85rem">Select the word that best fills the blank.</div>`
     } else if (qType === 'synonym') {
         qTypeEl.textContent = 'Closest in meaning';
         qTextEl.innerHTML = `<span class="q-word">${wordObj.w}</span>${isRetry?'<span class="retry-badge">Review</span>':''}<div class="q-pos">${wordObj.p}</div>Which description is closest in meaning?`;
         const distractors = getDistractors(wordObj, 3, 'def');
-        options = [wordObj.d, ...distractors];
-        shuffle(options);
-        correctIdx = options.indexOf(wordObj.d)
+        const optPairs = [{
+            t: wordObj.d,
+            c: true
+        }, ...distractors.map(t => ({
+            t,
+            c: false
+        }))];
+        shuffle(optPairs);
+        options = optPairs.map(o => o.t);
+        correctIdx = optPairs.findIndex(o => o.c)
     }
     optDiv.innerHTML = '';
     options.forEach((opt, i) => {
@@ -863,7 +975,7 @@ function buildProgressChart() {
         cutoff = new Date(now);
         cutoff.setDate(cutoff.getDate() - 365)
     }
-    const cutoffStr = cutoff ? cutoff.toISOString().slice(0, 10) : null;
+    const cutoffStr = cutoff ? dateKey(cutoff) : null;
     const days = cutoffStr ? allDays.filter(d => d >= cutoffStr) : allDays;
     if (days.length === 0) return '<div class="chart-empty">No data for this time range.</div>';
     if (days.length === 1) {
@@ -947,7 +1059,7 @@ function renderDiffStats() {
 function renderSessionHistory() {
     const hist = (state.sessionHistory || []).slice().reverse().slice(0, 20);
     if (hist.length === 0) return '<div class="chart-empty">No sessions recorded yet.</div>';
-    return `<div class="session-history-list">${hist.map(h=>`<div class="sh-row"><span class="sh-date">${h.date.slice(5)}</span><span class="sh-time">${h.time||''}</span><span class="sh-score">${h.score}/${h.total}</span><div class="sh-bar-track"><div class="sh-bar-fill${h.pct>=80?' good':h.pct>=60?' ok':' low'}" style="width:${h.pct}%"></div></div><span class="sh-pct">${h.pct}%</span></div>`).join('')}</div>`
+    return `<div class="session-history-list">${hist.map(h=>`<div class="sh-row"><span class="sh-date">${esc(String(h.date).slice(5))}</span><span class="sh-time">${esc(h.time||'')}</span><span class="sh-score">${h.score}/${h.total}</span><div class="sh-bar-track"><div class="sh-bar-fill${h.pct>=80?' good':h.pct>=60?' ok':' low'}" style="width:${h.pct}%"></div></div><span class="sh-pct">${h.pct}%</span></div>`).join('')}</div>`
 }
 
 function renderStats() {
@@ -1061,6 +1173,93 @@ function exportProgress() {
     URL.revokeObjectURL(url)
 }
 
+// Deep-validate an imported backup: every field is type/range-checked and
+// invalid entries are dropped, so a malformed or crafted file can't corrupt
+// state or inject markup into innerHTML render paths.
+function sanitizeImport(imp) {
+    const d = defaults();
+    const isDate = s => typeof s === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(s);
+    const nonNegInt = (v, max) => (typeof v === 'number' && isFinite(v) && v >= 0 && v <= (max || 1e9)) ? Math.floor(v) : null;
+    const out = d;
+    if (imp.missCount && typeof imp.missCount === 'object' && !Array.isArray(imp.missCount)) {
+        for (const [k, v] of Object.entries(imp.missCount)) {
+            const idx = nonNegInt(Number(k), 99999);
+            const n = nonNegInt(v, 99999);
+            if (idx !== null && n !== null && n > 0) out.missCount[idx] = n
+        }
+    }
+    out.sessionsCompleted = nonNegInt(imp.sessionsCompleted) ?? 0;
+    out.totalCorrect = nonNegInt(imp.totalCorrect) ?? 0;
+    out.totalAnswered = nonNegInt(imp.totalAnswered) ?? 0;
+    if (out.totalCorrect > out.totalAnswered) out.totalCorrect = out.totalAnswered;
+    if (imp.questionTypes && typeof imp.questionTypes === 'object') {
+        for (const k of Object.keys(out.questionTypes)) {
+            if (typeof imp.questionTypes[k] === 'boolean') out.questionTypes[k] = imp.questionTypes[k]
+        }
+    }
+    if (imp.dailyLog && typeof imp.dailyLog === 'object' && !Array.isArray(imp.dailyLog)) {
+        for (const [k, v] of Object.entries(imp.dailyLog)) {
+            if (!isDate(k) || !v || typeof v !== 'object') continue;
+            const a = nonNegInt(v.answered, 99999),
+                c = nonNegInt(v.correct, 99999);
+            if (a !== null && c !== null) out.dailyLog[k] = {
+                answered: a,
+                correct: Math.min(c, a)
+            }
+        }
+    }
+    out.bestStreak = nonNegInt(imp.bestStreak, 99999) ?? 0;
+    const goal = nonNegInt(imp.dailyGoal, 1000);
+    if (goal !== null) out.dailyGoal = goal;
+    if (imp.leitner && typeof imp.leitner === 'object' && !Array.isArray(imp.leitner)) {
+        for (const [k, v] of Object.entries(imp.leitner)) {
+            const idx = nonNegInt(Number(k), 99999);
+            if (idx === null || !v || typeof v !== 'object') continue;
+            const b = nonNegInt(v.b, 5);
+            if (b === null || !isDate(v.due)) continue;
+            out.leitner[idx] = {
+                b: b,
+                due: v.due,
+                wt: nonNegInt(v.wt, 99999) ?? 0,
+                dw: nonNegInt(v.dw, 99999) ?? 0,
+                sc: nonNegInt(v.sc, 99999) ?? 0,
+                sy: nonNegInt(v.sy, 99999) ?? 0
+            }
+        }
+    }
+    if (typeof imp.retryInSession === 'boolean') out.retryInSession = imp.retryInSession;
+    if (['all', 'easy', 'medium', 'hard'].includes(imp.difficultyFilter)) out.difficultyFilter = imp.difficultyFilter;
+    if (Array.isArray(imp.sessionHistory)) {
+        out.sessionHistory = imp.sessionHistory.filter(h => h && typeof h === 'object' && isDate(h.date)).map(h => ({
+            date: h.date,
+            time: typeof h.time === 'string' ? h.time.slice(0, 20) : '',
+            score: nonNegInt(h.score, 99999) ?? 0,
+            total: nonNegInt(h.total, 99999) ?? 0,
+            pct: nonNegInt(h.pct, 100) ?? 0
+        })).slice(-100)
+    }
+    if (typeof imp.timedMode === 'boolean') out.timedMode = imp.timedMode;
+    const ts = nonNegInt(imp.timerSeconds, 600);
+    if (ts !== null && ts >= 5) out.timerSeconds = ts;
+    if (typeof imp.timerHidden === 'boolean') out.timerHidden = imp.timerHidden;
+    const ss = imp.sessionSize === null ? null : nonNegInt(imp.sessionSize, 10000);
+    out.sessionSize = ss;
+    if (imp.diffStats && typeof imp.diffStats === 'object') {
+        for (const k of ['easy', 'medium', 'hard']) {
+            const s = imp.diffStats[k];
+            if (s && typeof s === 'object') {
+                const t = nonNegInt(s.total) ?? 0,
+                    c = nonNegInt(s.correct) ?? 0;
+                out.diffStats[k] = {
+                    correct: Math.min(c, t),
+                    total: t
+                }
+            }
+        }
+    }
+    return out
+}
+
 function importProgress() {
     const input = document.createElement('input');
     input.type = 'file';
@@ -1073,23 +1272,11 @@ function importProgress() {
             try {
                 const imported = JSON.parse(ev.target.result);
                 if (typeof imported !== 'object' || imported === null || Array.isArray(imported)) throw new Error('bad');
-                if (imported.leitner && typeof imported.leitner !== 'object') throw new Error('bad');
-                if (imported.sessionHistory && !Array.isArray(imported.sessionHistory)) throw new Error('bad');
-                const d = defaults();
-                state = {
-                    ...d,
-                    ...imported,
-                    dailyLog: imported.dailyLog || {},
-                    questionTypes: {
-                        ...d.questionTypes,
-                        ...(imported.questionTypes || {})
-                    },
-                    leitner: imported.leitner || {},
-                    sessionHistory: (imported.sessionHistory || []).slice(-100),
-                    diffStats: imported.diffStats || d.diffStats
-                };
+                state = sanitizeImport(imported);
                 save();
                 renderSettings();
+                updateDailyBanner();
+                updateSittingDesc();
                 alert('Progress imported successfully!')
             } catch (err) {
                 alert('Invalid backup file.')
@@ -1367,10 +1554,10 @@ function toggleTheme() {
     localStorage.setItem('sat_theme', isDark ? 'light' : 'dark');
     document.getElementById('themeToggle').innerHTML = isDark ? '&#9790;' : '&#9728;'
 }
+// Theme is applied by the inline <head> script before first paint (no flash);
+// here we only sync the toggle-button glyph.
 (function() {
-    const saved = localStorage.getItem('sat_theme');
-    if (saved === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
+    if (document.documentElement.getAttribute('data-theme') === 'dark') {
         document.getElementById('themeToggle').innerHTML = '&#9728;'
     }
 })();

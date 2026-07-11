@@ -3,7 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SAT vocabulary trainer — 1,700+ words with spaced repetition, sentence completion, and SAT-style practice questions.">
 <title>SAT Vocabulary Quiz</title>
+<script>
+// Apply theme before first paint to avoid a light-mode flash for dark users.
+(function(){
+  try {
+    var t = localStorage.getItem('sat_theme');
+    if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
+    if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  } catch (e) {}
+})();
+</script>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
