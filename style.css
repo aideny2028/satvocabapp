@@ -97,7 +97,7 @@ header{
   justify-content:center;
   margin-bottom:24px;
   padding-bottom:16px;
-  border-bottom:2px solid var(--ink);
+  border-bottom:1px solid var(--line);
   position:relative;
 }
 header h1{
@@ -105,7 +105,6 @@ header h1{
   font-weight:400;
   font-style:italic;
   letter-spacing:.3px;
-  opacity:.9;
 }
 .header-center{text-align:center;flex:1}
 
@@ -113,13 +112,14 @@ header h1{
   position:absolute;
   right:0;top:50%;transform:translateY(-50%);
   background:transparent;
-  border:2px solid var(--ink);
-  width:36px;height:36px;
+  border:1px solid var(--line-strong);
+  width:34px;height:34px;
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;
   font-size:1rem;
   color:var(--ink);
   transition:all .15s var(--ease);
+  border-radius:2px;
 }
 .theme-toggle:hover{
   background:var(--ink);color:var(--bg);
@@ -129,17 +129,17 @@ header h1{
 .nav{
   display:flex;
   gap:0;
-  margin-bottom:24px;
-  border:2px solid var(--ink);
+  margin-bottom:28px;
+  border:1px solid var(--line-strong);
 }
 .nav button{
   flex:1;
   background:transparent;
   border:none;
   border-right:1px solid var(--line);
-  padding:10px 8px;
+  padding:11px 8px;
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
-  font-size:.7rem;
+  font-size:.65rem;
   text-transform:uppercase;
   letter-spacing:1.5px;
   cursor:pointer;
@@ -168,10 +168,10 @@ header h1{
   width:100%;
   background:var(--ink);
   color:var(--bg);
-  border:2px solid var(--ink);
+  border:1px solid var(--ink);
   padding:16px;
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
-  font-size:.75rem;
+  font-size:.72rem;
   font-weight:700;
   text-transform:uppercase;
   letter-spacing:3px;
@@ -186,7 +186,7 @@ header h1{
 
 /* ─── Home Dashboard ─── */
 .home-dashboard{
-  border:2px solid var(--ink);
+  border:1px solid var(--line-strong);
   margin-bottom:24px;
   overflow:hidden;
 }
@@ -231,7 +231,7 @@ header h1{
 .exit-btn{
   background:transparent;
   color:var(--ink-secondary);
-  border:2px solid var(--line-strong);
+  border:1px solid var(--line-strong);
   padding:6px 14px;
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
   font-size:.6rem;
@@ -247,7 +247,7 @@ header h1{
 .info-btn{
   width:28px;height:28px;
   background:transparent;
-  border:2px solid var(--line-strong);
+  border:1px solid var(--line-strong);
   color:var(--ink-secondary);
   font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;
   font-size:.85rem;
@@ -259,7 +259,7 @@ header h1{
 }
 .info-btn:hover{color:var(--ink);border-color:var(--ink);background:var(--accent-soft)}
 .info-panel{
-  border:2px solid var(--line-strong);
+  border:1px solid var(--line-strong);
   background:var(--surface);
   padding:12px 16px;
   margin-bottom:8px;
@@ -311,7 +311,7 @@ header h1{
 
 /* ─── Question Card ─── */
 .question-card{
-  border:2px solid var(--ink);
+  border:1px solid var(--line-strong);
   padding:28px 24px;
   margin-bottom:16px;
   animation:cardIn .25s var(--ease);
@@ -355,7 +355,7 @@ header h1{
 .options{display:flex;flex-direction:column;gap:8px;margin-top:20px}
 .option{
   background:transparent;
-  border:2px solid var(--line-strong);
+  border:1px solid var(--line-strong);
   padding:14px 16px;
   cursor:pointer;
   display:flex;
@@ -377,7 +377,7 @@ header h1{
   width:26px;height:26px;
   display:flex;align-items:center;justify-content:center;
   background:transparent;
-  border:2px solid var(--line-strong);
+  border:1px solid var(--line-strong);
   flex-shrink:0;
   transition:all .12s var(--ease);
 }
@@ -389,7 +389,7 @@ header h1{
 .option.correct.show-correct{
   background:var(--good-soft);
   border-color:var(--good);
-  border-width:3px;
+  border-width:2px;
   animation:correctPop .4s var(--ease-bounce);
 }
 .option.correct.show-correct .letter{
@@ -407,7 +407,7 @@ header h1{
 .option.selected{
   border-color:var(--ink);
   background:var(--accent-soft);
-  border-width:3px;
+  border-width:2px;
 }
 .option.selected .letter{
   background:var(--ink);color:var(--bg);border-color:var(--ink);
@@ -448,8 +448,8 @@ header h1{
   border:2px solid transparent;
   transition:all .2s var(--ease);
 }
-.correct-fb{color:var(--good);border-color:var(--good);background:var(--good-soft);animation:feedbackIn .3s var(--ease)}
-.wrong-fb{color:var(--bad);border-color:var(--bad);background:var(--bad-soft);animation:feedbackIn .3s var(--ease)}
+.correct-fb{color:var(--good);border-color:var(--good);background:var(--good-soft);border-width:1px;animation:feedbackIn .3s var(--ease)}
+.wrong-fb{color:var(--bad);border-color:var(--bad);background:var(--bad-soft);border-width:1px;animation:feedbackIn .3s var(--ease)}
 @keyframes feedbackIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 .score-pop{animation:scorePop .4s var(--ease-bounce)}
 @keyframes scorePop{0%{transform:scale(1)}40%{transform:scale(1.3)}100%{transform:scale(1)}}
@@ -460,7 +460,7 @@ header h1{
   width:100%;
   background:var(--ink);
   color:var(--bg);
-  border:2px solid var(--ink);
+  border:1px solid var(--ink);
   padding:14px;
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
   font-size:.7rem;font-weight:700;
@@ -472,6 +472,7 @@ header h1{
 .next-btn:hover{
   background:var(--bg);
   color:var(--ink);
+  border-color:var(--ink);
 }
 .next-btn:active{opacity:.8}
 
@@ -481,7 +482,7 @@ header h1{
   width:100%;
   background:var(--ink);
   color:var(--bg);
-  border:2px solid var(--ink);
+  border:1px solid var(--ink);
   padding:14px;
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
   font-size:.7rem;font-weight:700;
@@ -493,6 +494,7 @@ header h1{
 .check-btn:hover{
   background:var(--bg);
   color:var(--ink);
+  border-color:var(--ink);
 }
 .check-btn:active{opacity:.8}
 
@@ -501,7 +503,7 @@ header h1{
 .q-sentence{font-size:1.1rem;line-height:1.8;margin:8px 0 4px}
 .q-sentence .blank{
   display:inline-block;
-  border-bottom:3px solid var(--ink);
+  border-bottom:2px solid var(--ink);
   padding:0 16px;
   font-weight:700;
   min-width:60px;
@@ -510,7 +512,7 @@ header h1{
 
 /* ─── Session Summary ─── */
 .summary{
-  border:2px solid var(--ink);
+  border:1px solid var(--line-strong);
   padding:32px 24px;
   text-align:center;
   animation:cardIn .25s var(--ease);
@@ -527,7 +529,7 @@ header h1{
 .summary-btns{display:flex;gap:10px;justify-content:center;margin-top:24px;flex-wrap:wrap}
 .summary-btns button{
   background:var(--ink);color:var(--bg);
-  border:2px solid var(--ink);
+  border:1px solid var(--ink);
   padding:12px 24px;
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
   font-size:.65rem;font-weight:700;
@@ -539,13 +541,13 @@ header h1{
   background:var(--bg);color:var(--ink);
 }
 .summary-btns button.secondary{
-  background:transparent;color:var(--ink);border:2px solid var(--line-strong);
+  background:transparent;color:var(--ink);border:1px solid var(--line-strong);
 }
 .summary-btns button.secondary:hover{
   border-color:var(--ink);background:var(--accent-soft);
 }
 
-.missed-list{text-align:left;margin-top:24px;border-top:2px solid var(--ink);padding-top:16px}
+.missed-list{text-align:left;margin-top:24px;border-top:1px solid var(--line-strong);padding-top:16px}
 .missed-list h3{
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
   font-size:.6rem;text-transform:uppercase;letter-spacing:2px;
@@ -561,9 +563,9 @@ header h1{
 
 /* ─── Daily Banner ─── */
 .daily-banner{
-  border:2px solid var(--ink);
+  border:1px solid var(--line-strong);
   padding:16px 20px;
-  margin-bottom:20px;
+  margin-bottom:24px;
   display:flex;
   align-items:center;
   gap:16px;
@@ -616,15 +618,15 @@ header h1{
 
 /* ─── Calendar ─── */
 .cal{
-  border:2px solid var(--ink);
+  border:1px solid var(--line-strong);
   padding:24px;
 }
 .cal h2{font-size:1.3rem;margin-bottom:4px;text-align:center;font-weight:400;font-style:italic}
 .cal-sub{text-align:center;color:var(--ink-secondary);font-size:.85rem;margin-bottom:16px}
 .cal-nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
 .cal-nav button{
-  background:transparent;border:2px solid var(--ink);
-  width:36px;height:36px;
+  background:transparent;border:1px solid var(--line-strong);
+  width:34px;height:34px;
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;font-size:1rem;font-weight:700;
   transition:all .15s var(--ease);
@@ -653,6 +655,7 @@ header h1{
 .cal-grid .cal-day.today{
   border:2px solid var(--ink);
   font-weight:700;
+  background:var(--accent-soft);
 }
 .cal-grid .cal-day.future{opacity:.4}
 .cal-day .cd-num{
@@ -683,7 +686,7 @@ header h1{
 /* ─── Streak Display ─── */
 .streak-display{
   text-align:center;padding:24px;margin-bottom:16px;
-  border:2px solid var(--ink);
+  border:1px solid var(--line-strong);
 }
 .streak-display .streak-num{
   font-size:2.8rem;font-weight:700;
@@ -701,7 +704,7 @@ header h1{
 
 /* ─── Stats / Record ─── */
 .dash{
-  border:2px solid var(--ink);
+  border:1px solid var(--line-strong);
   padding:28px 24px;
 }
 .dash h2{
@@ -753,7 +756,7 @@ header h1{
 .reset-btn button{
   background:transparent;
   color:var(--ink);
-  border:2px solid var(--ink);
+  border:1px solid var(--line-strong);
   padding:8px 20px;
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
   font-size:.6rem;text-transform:uppercase;letter-spacing:1.5px;
@@ -764,7 +767,7 @@ header h1{
 
 /* ─── Review ─── */
 .review{
-  border:2px solid var(--ink);
+  border:1px solid var(--line-strong);
   padding:28px 24px;
 }
 .review h2{
@@ -802,7 +805,7 @@ header h1{
 }
 .review-actions button{
   background:transparent;color:var(--ink);
-  border:2px solid var(--line-strong);
+  border:1px solid var(--line-strong);
   padding:10px 24px;
   cursor:pointer;
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
@@ -813,12 +816,12 @@ header h1{
 .review-actions button:hover{
   background:var(--ink);color:var(--bg);border-color:var(--ink);
 }
-.review-actions button.teal{border-color:var(--ink)}
-.review-actions button.teal:hover{background:var(--ink);color:var(--bg)}
-.review-actions button.danger{border-color:var(--ink)}
-.review-actions button.danger:hover{background:var(--ink);color:var(--bg)}
+.review-actions button.teal{border-color:var(--line-strong)}
+.review-actions button.teal:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.review-actions button.danger{border-color:var(--line-strong)}
+.review-actions button.danger:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 
-.review-filter{display:flex;gap:0;margin-bottom:20px;border:2px solid var(--ink)}
+.review-filter{display:flex;gap:0;margin-bottom:20px;border:1px solid var(--line-strong)}
 .review-filter button{
   flex:1;background:transparent;border:none;border-right:1px solid var(--line);
   padding:8px;
@@ -852,7 +855,7 @@ header h1{
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
   font-size:.5rem;text-transform:uppercase;letter-spacing:1px;
   padding:4px 10px;
-  border:2px solid var(--ink);color:var(--ink);
+  border:1px solid var(--line-strong);color:var(--ink);
   background:transparent;cursor:pointer;
   transition:all .15s var(--ease);white-space:nowrap;
 }
@@ -860,7 +863,7 @@ header h1{
 
 /* ─── Settings ─── */
 .settings-page{
-  border:2px solid var(--ink);
+  border:1px solid var(--line-strong);
   padding:28px 24px;
 }
 .settings-page h2{font-size:1.3rem;font-weight:400;font-style:italic;margin-bottom:4px;text-align:center}
@@ -879,7 +882,7 @@ header h1{
 
 .goal-options{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .goal-btn{
-  background:transparent;border:2px solid var(--line-strong);
+  background:transparent;border:1px solid var(--line-strong);
   padding:14px 8px;text-align:center;cursor:pointer;
   transition:all .15s var(--ease);
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
@@ -913,7 +916,7 @@ header h1{
 .chk-row input[type=checkbox]{
   -webkit-appearance:none;appearance:none;
   width:20px;height:20px;
-  border:2px solid var(--line-strong);
+  border:1px solid var(--line-strong);
   background:var(--bg);
   cursor:pointer;flex-shrink:0;position:relative;
   transition:all .1s var(--ease);
@@ -934,7 +937,7 @@ header h1{
 }
 
 /* ─── Most Missed ─── */
-.most-missed{margin-top:24px;border-top:2px solid var(--ink);padding-top:16px}
+.most-missed{margin-top:24px;border-top:1px solid var(--line-strong);padding-top:16px}
 .most-missed h3{
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
   font-size:.6rem;text-transform:uppercase;letter-spacing:2px;
@@ -1083,7 +1086,7 @@ body.quiz-active .feedback{
 .wl-search{
   flex:1;
   background:transparent;
-  border:2px solid var(--line-strong);
+  border:1px solid var(--line-strong);
   padding:10px 14px;
   font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;
   font-size:.95rem;
@@ -1103,7 +1106,7 @@ body.quiz-active .feedback{
 }
 .wl-list{
   flex:1;overflow-y:auto;
-  border-top:2px solid var(--ink);
+  border-top:1px solid var(--line-strong);
 }
 .wl-item{
   display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;
@@ -1173,7 +1176,7 @@ body.quiz-active .feedback{
   .home-stat-num{font-size:1.3rem}
   .nav{gap:0;padding:0}
   .nav button{padding:10px 4px;font-size:.5rem;letter-spacing:.5px;min-height:44px}
-  .theme-toggle{width:44px;height:44px;font-size:1.1rem}
+  .theme-toggle{width:44px;height:44px;font-size:1.1rem;border-radius:2px}
   .info-btn{width:44px;height:44px;font-size:.85rem}
   .score-big{font-size:2.5rem}
   .summary{padding:24px 16px}
