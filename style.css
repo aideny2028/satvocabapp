@@ -358,10 +358,12 @@ header h1{
   min-height:48px;
   position:relative;
 }
+@media(hover:hover){
 .option:hover{
   border-color:var(--ink);
   background:var(--accent-soft);
   transform:translateX(3px);
+}
 }
 .option:active{opacity:.8}
 .option .letter{
@@ -374,10 +376,12 @@ header h1{
   flex-shrink:0;
   transition:all .12s var(--ease);
 }
+@media(hover:hover){
 .option:hover .letter{
   background:var(--ink);
   color:var(--bg);
   border-color:var(--ink);
+}
 }
 .option.correct.show-correct{
   background:var(--good-soft);
@@ -949,7 +953,7 @@ body.quiz-active .container{
   display:flex;
   flex-direction:column;
   padding-top:12px;
-  padding-bottom:0;
+  padding-bottom:env(safe-area-inset-bottom, 0px);
 }
 
 /* ── Hide chrome during quiz (Duolingo pattern) ── */
@@ -1138,6 +1142,9 @@ body.quiz-active .feedback{
 /* ─── Mobile ─── */
 @media(max-width:600px){
   .container{padding:16px 14px 32px;overflow-x:hidden}
+  /* header: title must never run under the absolute theme toggle */
+  header h1{font-size:1.15rem}
+  .header-center{padding:0 48px}
   .question-card{padding:20px 16px}
   .q-text{font-size:1rem}
   .q-word{font-size:1.5rem}
@@ -1150,13 +1157,17 @@ body.quiz-active .feedback{
   .review-word{flex-direction:column;gap:4px}
   .review-word .rw-term{min-width:auto}
   .goal-options{grid-template-columns:repeat(2,1fr)}
-  .daily-banner{padding:14px 16px;gap:12px}
+  /* daily banner: label+count | streak on row 1, bar spans full width below */
+  .daily-banner{padding:14px 16px;display:grid;grid-template-columns:1fr auto;gap:10px 12px;align-items:center}
+  .daily-banner .db-left{min-width:0}
+  .daily-banner .db-streak{grid-column:2;grid-row:1}
+  .daily-banner .db-bar{grid-column:1 / -1;min-width:0}
   .home-stats{grid-template-columns:repeat(3,1fr)}
   .home-stat{padding:14px 6px}
   .home-stat-num{font-size:1.3rem}
   .nav{gap:0;padding:0}
-  .nav button{padding:10px 4px;font-size:.5rem;letter-spacing:.5px;min-height:44px}
-  .theme-toggle{width:44px;height:44px;font-size:1.1rem;border-radius:2px}
+  .nav button{padding:10px 2px;font-size:.6rem;letter-spacing:.2px;min-height:44px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .theme-toggle{width:40px;height:40px;font-size:1rem;border-radius:2px}
   .info-btn{width:44px;height:44px;font-size:.85rem}
   .score-big{font-size:2.5rem}
   .summary{padding:24px 16px}
@@ -1165,8 +1176,16 @@ body.quiz-active .feedback{
   .cal-nav button{width:44px;height:44px}
   .streak-display{padding:18px}
   .streak-display .streak-num{font-size:2.2rem}
+  /* word list: let definitions wrap instead of truncating */
   .wl-item{flex-direction:column;align-items:flex-start;gap:6px}
+  .wl-main{flex-wrap:wrap}
+  .wl-def{white-space:normal;overflow:visible;text-overflow:clip}
   .wl-tags{margin-left:0}
+  /* chip rows: label becomes its own line so wrapped chips align cleanly */
+  .diff-filter-label{width:100%!important;text-align:left!important;margin:0 0 6px!important}
+  .diff-chip{min-width:0;flex:1 1 40%}
+  .session-size-row .size-btn,.session-timer-row .size-btn,.wl-filter-row .size-btn{flex:1 1 auto}
+  .options-box.open{padding:16px 12px 8px}
 }
 
 /* ─── Difficulty Filter Chips ─── */
@@ -1246,7 +1265,7 @@ body.quiz-active .feedback{
 
 /* ─── Word Expand ─── */
 .wl-expand{max-height:0;overflow:hidden;width:100%;padding:0;border-top:0 solid transparent;margin-top:0;transition:max-height .3s var(--ease),padding .3s var(--ease),margin-top .3s var(--ease),border-top .3s var(--ease);opacity:0}
-.wl-item.expanded .wl-expand{max-height:300px;opacity:1;padding:12px 0 4px;border-top:1px solid var(--line);margin-top:10px;transition:max-height .35s var(--ease),padding .3s var(--ease),margin-top .3s var(--ease),border-top .3s var(--ease),opacity .25s var(--ease)}
+.wl-item.expanded .wl-expand{max-height:560px;opacity:1;padding:12px 0 4px;border-top:1px solid var(--line);margin-top:10px;transition:max-height .35s var(--ease),padding .3s var(--ease),margin-top .3s var(--ease),border-top .3s var(--ease),opacity .25s var(--ease)}
 .wl-item{cursor:pointer;transition:background .15s var(--ease)}
 .wl-item:hover{background:var(--accent-soft)}
 .wl-item.expanded{background:var(--accent-soft)}
