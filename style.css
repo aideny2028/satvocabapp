@@ -1184,9 +1184,10 @@ body.quiz-active .feedback{
 }
 
 /* ─── Difficulty Filter Chips ─── */
-.diff-filter{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;margin:16px 0 8px}
-.diff-filter-label{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--ink-secondary);margin-right:4px}
-.diff-chip{background:var(--accent-soft);color:var(--ink);border:1.5px solid var(--line);padding:6px 14px;border-radius:0;font-size:.78rem;cursor:pointer;font-family:inherit;transition:all .15s var(--ease);display:flex;align-items:center;gap:6px}
+.diff-filter{display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;margin:16px 0 8px}
+.diff-filter-label{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--ink-secondary);width:70px;text-align:right;margin-right:12px;flex-shrink:0}
+.diff-chip{background:var(--accent-soft);color:var(--ink);border:1px solid var(--line);border-right:none;padding:8px 0;min-width:90px;text-align:center;border-radius:0;font-size:.78rem;cursor:pointer;font-family:inherit;transition:all .15s var(--ease);display:flex;align-items:center;justify-content:center;gap:6px}
+.diff-chip:last-child{border-right:1px solid var(--line)}
 .diff-chip:hover{border-color:var(--ink)}
 .diff-chip.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .diff-chip.easy.active{background:var(--easy-color);border-color:var(--easy-color);color:#fff}
@@ -1210,9 +1211,9 @@ body.quiz-active .feedback{
 @keyframes timer-pulse{0%,100%{opacity:1}50%{opacity:.5}}
 
 /* ─── Session Size & Timer Row ─── */
-.session-size-row,.session-timer-row{display:flex;align-items:center;gap:0;margin-bottom:12px;flex-wrap:wrap}
-.session-size-row .diff-filter-label,.session-timer-row .diff-filter-label{margin-right:10px}
-.size-btn{background:var(--bg);color:var(--ink-secondary);border:1px solid var(--line);border-right:none;padding:6px 14px;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.7rem;letter-spacing:.5px;font-weight:600;cursor:pointer;transition:all .15s var(--ease)}
+.session-size-row,.session-timer-row{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:12px;flex-wrap:wrap}
+.session-size-row .diff-filter-label,.session-timer-row .diff-filter-label{width:70px;text-align:right;margin-right:12px;flex-shrink:0}
+.size-btn{background:var(--bg);color:var(--ink-secondary);border:1px solid var(--line);border-right:none;padding:8px 0;min-width:56px;text-align:center;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.7rem;letter-spacing:.5px;font-weight:600;cursor:pointer;transition:all .15s var(--ease)}
 .size-btn:last-child,.size-btn:last-of-type{border-right:1px solid var(--line)}
 .size-btn:hover{background:var(--accent-soft)}
 .size-btn.active{background:var(--ink);color:var(--bg)}
