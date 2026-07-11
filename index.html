@@ -26,6 +26,16 @@
 <div id="dailyBanner" class="daily-banner"></div>
 <div id="startScreen" class="start-screen"></div>
 <div id="quizActive" class="hidden">
+<div class="timer-top" id="timerTop">
+<div class="timer-content" id="timerContent">
+<div class="timer-bar-track"><div class="timer-bar-fill" id="timerBar"></div></div>
+<span class="timer-text" id="timerText"></span>
+<button class="timer-hide-btn" onclick="hideTimer()" title="Hide timer">&times;</button>
+</div>
+<div class="timer-show" id="timerShow" style="display:none">
+<button class="timer-show-btn" onclick="showTimerBar()">Show timer</button>
+</div>
+</div>
 <div class="exit-row">
 <button class="info-btn" onclick="toggleInfo()" aria-label="Keyboard shortcuts" title="Shortcuts">i</button>
 <button class="exit-btn" onclick="exitSession()">Save &amp; Exit</button>
@@ -39,7 +49,6 @@
 <tr><td>Esc</td><td>Save &amp; exit</td></tr>
 </table>
 </div>
-<div class="timer-wrap" id="timerWrap" style="display:none"><div class="timer-bar-track"><div class="timer-bar-fill" id="timerBar"></div></div><span class="timer-text" id="timerText"></span></div>
 <div class="progress-bar"><div class="progress-fill" id="progFill"></div></div>
 <div class="stats-row">
 <span id="qNum">Question 1 / 20</span>

@@ -1139,6 +1139,16 @@ body.quiz-active .feedback{
 }
 
 
+/* ─── Chart Scale Buttons ─── */
+.chart-scale-bar{display:flex;justify-content:center;gap:0;margin-bottom:12px;border:1px solid var(--line);width:fit-content;margin-left:auto;margin-right:auto}
+.chart-scale-btn{background:var(--bg);color:var(--ink-secondary);border:none;border-right:1px solid var(--line);padding:6px 14px;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.65rem;letter-spacing:.5px;font-weight:600;cursor:pointer;transition:all .15s var(--ease)}
+.chart-scale-btn:last-child{border-right:none}
+.chart-scale-btn:hover{background:var(--accent-soft)}
+.chart-scale-btn.active{background:var(--ink);color:var(--bg)}
+.chart-single{display:flex;justify-content:center;align-items:center;gap:16px;padding:40px 0;font-size:1.1rem}
+.chart-single-date{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;color:var(--ink-secondary)}
+.chart-single-pct{font-weight:700;font-size:1.5rem}
+
 /* ─── Mobile ─── */
 @media(max-width:600px){
   .container{padding:16px 14px 32px;overflow-x:hidden}
@@ -1176,7 +1186,7 @@ body.quiz-active .feedback{
 /* ─── Difficulty Filter Chips ─── */
 .diff-filter{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;margin:16px 0 8px}
 .diff-filter-label{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--ink-secondary);margin-right:4px}
-.diff-chip{background:var(--accent-soft);color:var(--ink);border:1.5px solid var(--line);padding:6px 14px;border-radius:20px;font-size:.78rem;cursor:pointer;font-family:inherit;transition:all .15s var(--ease);display:flex;align-items:center;gap:6px}
+.diff-chip{background:var(--accent-soft);color:var(--ink);border:1.5px solid var(--line);padding:6px 14px;border-radius:0;font-size:.78rem;cursor:pointer;font-family:inherit;transition:all .15s var(--ease);display:flex;align-items:center;gap:6px}
 .diff-chip:hover{border-color:var(--ink)}
 .diff-chip.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .diff-chip.easy.active{background:var(--easy-color);border-color:var(--easy-color);color:#fff}
@@ -1184,14 +1194,28 @@ body.quiz-active .feedback{
 .diff-chip.hard.active{background:var(--hard-color);border-color:var(--hard-color);color:#fff}
 .chip-count{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.7rem;opacity:.7}
 
-/* ─── Timer ─── */
-.timer-wrap{display:flex;align-items:center;gap:10px;padding:0 4px;margin-bottom:8px}
-.timer-bar-track{flex:1;height:10px;background:var(--accent-soft);border-radius:5px;overflow:hidden}
-.timer-bar-fill{height:100%;background:var(--ink);border-radius:5px;transition:width 1s linear}
+/* ─── Timer (Top Bar) ─── */
+.timer-top{display:none;margin-bottom:8px}
+.timer-content{display:flex;align-items:center;gap:10px;padding:6px 8px;border:1px solid var(--line);background:var(--bg)}
+.timer-bar-track{flex:1;height:8px;background:var(--accent-soft);border-radius:0;overflow:hidden}
+.timer-bar-fill{height:100%;background:var(--ink);border-radius:0;transition:width 1s linear}
 .timer-bar-fill.timer-low{background:var(--bad);animation:timer-pulse .6s ease-in-out infinite}
-.timer-text{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.85rem;color:var(--ink);min-width:28px;text-align:right;font-weight:600}
+.timer-text{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.8rem;color:var(--ink);min-width:28px;text-align:right;font-weight:600}
 .timer-text.timer-low-text{color:var(--bad)}
+.timer-hide-btn{background:none;border:none;color:var(--ink-secondary);cursor:pointer;font-size:1rem;padding:0 4px;line-height:1;opacity:.6;transition:opacity .15s}
+.timer-hide-btn:hover{opacity:1}
+.timer-show{text-align:center;padding:4px 0}
+.timer-show-btn{background:none;border:1px solid var(--line);color:var(--ink-secondary);cursor:pointer;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.65rem;letter-spacing:1px;text-transform:uppercase;padding:4px 14px}
+.timer-show-btn:hover{background:var(--accent-soft)}
 @keyframes timer-pulse{0%,100%{opacity:1}50%{opacity:.5}}
+
+/* ─── Session Size & Timer Row ─── */
+.session-size-row,.session-timer-row{display:flex;align-items:center;gap:0;margin-bottom:12px;flex-wrap:wrap}
+.session-size-row .diff-filter-label,.session-timer-row .diff-filter-label{margin-right:10px}
+.size-btn{background:var(--bg);color:var(--ink-secondary);border:1px solid var(--line);border-right:none;padding:6px 14px;font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.7rem;letter-spacing:.5px;font-weight:600;cursor:pointer;transition:all .15s var(--ease)}
+.size-btn:last-child,.size-btn:last-of-type{border-right:1px solid var(--line)}
+.size-btn:hover{background:var(--accent-soft)}
+.size-btn.active{background:var(--ink);color:var(--bg)}
 
 /* ─── Progress Chart ─── */
 .progress-chart{width:100%;max-width:580px;margin:12px auto;display:block}
@@ -1200,20 +1224,20 @@ body.quiz-active .feedback{
 /* ─── Difficulty Stats ─── */
 .diff-stat-row{display:flex;align-items:center;gap:10px;margin:8px 0}
 .diff-stat-label{width:70px;flex-shrink:0}
-.diff-stat-bar-track{flex:1;height:8px;background:var(--accent-soft);border-radius:4px;overflow:hidden}
-.diff-stat-bar-fill{height:100%;background:var(--ink);border-radius:4px;transition:width .3s var(--ease)}
+.diff-stat-bar-track{flex:1;height:8px;background:var(--accent-soft);border-radius:0;overflow:hidden}
+.diff-stat-bar-fill{height:100%;background:var(--ink);border-radius:0;transition:width .3s var(--ease)}
 .diff-stat-pct{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.8rem;min-width:36px;text-align:right;font-weight:600}
 .diff-stat-count{font-size:.75rem;color:var(--ink-secondary);min-width:48px;text-align:right}
 
 /* ─── Session History ─── */
-.session-history-list{max-height:300px;overflow-y:auto;border:1px solid var(--line);border-radius:8px}
+.session-history-list{max-height:300px;overflow-y:auto;border:1px solid var(--line);border-radius:0}
 .sh-row{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:.85rem}
 .sh-row:last-child{border-bottom:none}
 .sh-date{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.78rem;color:var(--ink-secondary);min-width:46px}
 .sh-time{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.72rem;color:var(--ink-secondary);min-width:50px;opacity:.6}
 .sh-score{font-weight:600;min-width:42px}
-.sh-bar-track{flex:1;height:6px;background:var(--accent-soft);border-radius:3px;overflow:hidden}
-.sh-bar-fill{height:100%;border-radius:3px;transition:width .3s}
+.sh-bar-track{flex:1;height:6px;background:var(--accent-soft);border-radius:0;overflow:hidden}
+.sh-bar-fill{height:100%;border-radius:0;transition:width .3s}
 .sh-bar-fill.good{background:var(--good)}
 .sh-bar-fill.ok{background:var(--gold)}
 .sh-bar-fill.low{background:var(--bad)}
