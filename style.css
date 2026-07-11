@@ -1218,8 +1218,9 @@ body.quiz-active .feedback{
 .options-toggle:hover{color:var(--ink);border-color:var(--ink)}
 .options-toggle.open{color:var(--ink);border-color:var(--ink)}
 .toggle-arrow{font-size:.6rem}
-.options-box{max-height:0;overflow:hidden;transition:max-height .3s var(--ease),opacity .25s var(--ease);opacity:0;padding-top:0}
-.options-box.open{max-height:300px;opacity:1;padding-top:8px}
+.options-box{max-height:0;overflow:hidden;transition:max-height .4s var(--ease),opacity .3s var(--ease),padding .3s var(--ease),border-color .3s var(--ease);opacity:0;padding:0 20px;border:1px solid transparent;margin-top:0}
+.options-box.open{max-height:300px;opacity:1;padding:20px 20px 8px;border-color:var(--line);margin-top:12px}
+.options-box .diff-filter,.options-box .session-size-row,.options-box .session-timer-row{justify-content:flex-start}
 
 /* ─── Session Size & Timer Row ─── */
 .session-size-row,.session-timer-row{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:12px;flex-wrap:wrap}
