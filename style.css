@@ -164,7 +164,7 @@ header h1{
 .start-screen{text-align:center;padding:16px 0}
 .start-screen h2{font-size:1.3rem;font-weight:400;font-style:italic;margin-bottom:12px}
 .start-screen p{font-size:.95rem;opacity:.6;line-height:1.6;margin-bottom:24px}
-.start-screen>button{
+.start-screen>button:not(.options-toggle){
   width:100%;
   background:var(--ink);
   color:var(--bg);
@@ -178,11 +178,11 @@ header h1{
   cursor:pointer;
   transition:all .15s var(--ease);
 }
-.start-screen>button:hover{
+.start-screen>button:not(.options-toggle):hover{
   background:var(--bg);
   color:var(--ink);
 }
-.start-screen>button:active{opacity:.8}
+.start-screen>button:not(.options-toggle):active{opacity:.8}
 
 /* ─── Home Dashboard ─── */
 .home-dashboard{
@@ -1092,6 +1092,9 @@ body.quiz-active .feedback{
   transition:border-color .15s var(--ease);
 }
 .wl-search::placeholder{color:var(--ink-secondary);font-style:italic}
+.wl-controls{margin-bottom:16px}
+.wl-filter-row{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:8px;flex-wrap:wrap}
+.wl-filter-row .diff-filter-label{width:50px;text-align:right;margin-right:12px;flex-shrink:0}
 .wl-search:focus{border-color:var(--ink)}
 .wl-count{
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
@@ -1210,10 +1213,18 @@ body.quiz-active .feedback{
 .timer-show-btn:hover{background:var(--accent-soft)}
 @keyframes timer-pulse{0%,100%{opacity:1}50%{opacity:.5}}
 
+/* ─── Customize Toggle ─── */
+.options-toggle{display:flex;align-items:center;justify-content:center;gap:6px;background:none;border:1px solid var(--line);color:var(--ink-secondary);font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.7rem;letter-spacing:1.5px;text-transform:uppercase;padding:8px 24px;margin:16px auto;cursor:pointer;transition:all .15s var(--ease)}
+.options-toggle:hover{color:var(--ink);border-color:var(--ink)}
+.options-toggle.open{color:var(--ink);border-color:var(--ink)}
+.toggle-arrow{font-size:.6rem}
+.options-box{max-height:0;overflow:hidden;transition:max-height .3s var(--ease),opacity .25s var(--ease);opacity:0;padding-top:0}
+.options-box.open{max-height:300px;opacity:1;padding-top:8px}
+
 /* ─── Session Size & Timer Row ─── */
 .session-size-row,.session-timer-row{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:12px;flex-wrap:wrap}
 .session-size-row .diff-filter-label,.session-timer-row .diff-filter-label{width:70px;text-align:right;margin-right:12px;flex-shrink:0}
-.size-btn{background:var(--accent-soft);color:var(--ink);border:1px solid var(--line);border-right:none;padding:8px 0;min-width:56px;text-align:center;font-family:inherit;font-size:.78rem;cursor:pointer;transition:all .15s var(--ease);display:flex;align-items:center;justify-content:center}
+.size-btn{background:var(--accent-soft);color:var(--ink);border:1px solid var(--line);border-right:none;padding:8px 12px;min-width:56px;text-align:center;font-family:inherit;font-size:.78rem;cursor:pointer;transition:all .15s var(--ease);display:flex;align-items:center;justify-content:center;box-sizing:border-box}
 .size-btn:last-child,.size-btn:last-of-type{border-right:1px solid var(--line)}
 .size-btn:hover{border-color:var(--ink)}
 .size-btn.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
