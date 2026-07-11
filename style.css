@@ -1,5 +1,6 @@
 /* ─── Reset & Base ─── */
 *{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 
 /* ─── Color System (Light) ─── */
 :root{
@@ -181,6 +182,7 @@ header h1{
 .start-screen>button:not(.options-toggle):hover{
   background:var(--bg);
   color:var(--ink);
+  transform:translateY(-1px);
 }
 .start-screen>button:not(.options-toggle):active{opacity:.8}
 
@@ -198,7 +200,7 @@ header h1{
   transition:background .15s;
 }
 .home-stat:last-child{border-right:none}
-.home-stat:hover{background:var(--accent-soft)}
+.home-stat:hover{background:var(--accent-soft);transform:translateY(-1px)}
 .home-stat-num{font-size:1.8rem;font-weight:700;font-style:italic}
 .home-stat-label{
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
@@ -369,6 +371,7 @@ header h1{
 .option:hover{
   border-color:var(--ink);
   background:var(--accent-soft);
+  transform:translateX(3px);
 }
 .option:active{opacity:.8}
 .option .letter{
@@ -593,7 +596,9 @@ header h1{
 }
 .daily-banner .db-bar-fill.complete{
   background:var(--good);
+  animation:barComplete .6s var(--ease);
 }
+@keyframes barComplete{0%{opacity:.6}100%{opacity:1}}
 .daily-banner .db-bar-text{
   position:absolute;top:0;left:0;right:0;bottom:0;
   display:flex;align-items:center;justify-content:center;
@@ -651,6 +656,10 @@ header h1{
   transition:all .15s var(--ease);
   border:1px solid var(--line);
 }
+.cal-grid .cal-day:not(.empty):not(.future):hover{
+  border-color:var(--ink);cursor:default;
+  background:var(--accent-soft);
+}
 .cal-grid .cal-day.empty{background:transparent;border-color:transparent}
 .cal-grid .cal-day.today{
   border:2px solid var(--ink);
@@ -691,6 +700,7 @@ header h1{
 .streak-display .streak-num{
   font-size:2.8rem;font-weight:700;
   line-height:1;
+  animation:scoreReveal .5s var(--ease-bounce);
 }
 .streak-display .streak-label{
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
@@ -718,7 +728,7 @@ header h1{
   transition:background .15s;
 }
 .dash-stat:last-child{border-right:none}
-.dash-stat:hover{background:var(--accent-soft)}
+.dash-stat:hover{background:var(--accent-soft);transform:translateY(-1px)}
 .dash-stat .num{font-size:1.9rem;font-weight:700;font-style:italic}
 .dash-stat .label{
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
@@ -781,11 +791,11 @@ header h1{
 }
 .review-word{
   border-bottom:1px solid var(--line);
-  padding:14px 0;
+  padding:14px 12px;
   display:flex;justify-content:space-between;align-items:flex-start;gap:16px;
-  transition:background .1s;
+  transition:background .15s var(--ease);
 }
-.review-word:hover{background:var(--accent-soft);margin:0 -12px;padding-left:12px;padding-right:12px}
+.review-word:hover{background:var(--accent-soft)}
 .review-word:last-child{border-bottom:none}
 .review-word .rw-term{
   font-weight:700;font-style:italic;font-size:1.05rem;
@@ -883,7 +893,7 @@ header h1{
 .goal-options{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .goal-btn{
   background:transparent;border:1px solid var(--line-strong);
-  padding:14px 8px;text-align:center;cursor:pointer;
+  padding:16px 8px;text-align:center;cursor:pointer;
   transition:all .15s var(--ease);
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
   font-size:.85rem;font-weight:700;letter-spacing:1px;
@@ -891,6 +901,7 @@ header h1{
 }
 .goal-btn:hover{
   background:var(--ink);color:var(--bg);border-color:var(--ink);
+  transform:translateY(-1px);
 }
 .goal-btn.active{
   background:var(--ink);color:var(--bg);border-color:var(--ink);
@@ -1080,6 +1091,11 @@ body.quiz-active .feedback{
 
 /* ─── Word List ─── */
 .wl-wrap{max-height:calc(100vh - 200px);display:flex;flex-direction:column}
+.wl-list::-webkit-scrollbar{width:6px}
+.wl-list::-webkit-scrollbar-track{background:transparent}
+.wl-list::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:3px}
+.wl-list::-webkit-scrollbar-thumb:hover{background:var(--ink-secondary)}
+.wl-list{scrollbar-width:thin;scrollbar-color:var(--line-strong) transparent}
 .wl-search-row{
   display:flex;align-items:center;gap:12px;margin-bottom:16px;
 }
@@ -1087,18 +1103,18 @@ body.quiz-active .feedback{
   flex:1;
   background:transparent;
   border:1px solid var(--line-strong);
-  padding:10px 14px;
+  padding:12px 16px;
   font-family:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,serif;
   font-size:1rem;
   color:var(--ink);
   outline:none;
-  transition:border-color .15s var(--ease);
+  transition:border-color .15s var(--ease),background .15s var(--ease);
 }
 .wl-search::placeholder{color:var(--ink-secondary);font-style:italic}
 .wl-controls{margin-bottom:16px}
 .wl-filter-row{display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:8px;flex-wrap:wrap}
 .wl-filter-row .diff-filter-label{width:50px;text-align:right;margin-right:12px;flex-shrink:0}
-.wl-search:focus{border-color:var(--ink)}
+.wl-search:focus{border-color:var(--ink);background:var(--accent-soft)}
 .wl-count{
   font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;
   font-size:.65rem;text-transform:uppercase;letter-spacing:1px;
@@ -1238,7 +1254,7 @@ body.quiz-active .feedback{
 .chart-empty{text-align:center;padding:24px 16px;color:var(--ink-secondary);font-style:italic;font-size:.9rem}
 
 /* ─── Difficulty Stats ─── */
-.diff-stat-row{display:flex;align-items:center;gap:10px;margin:8px 0}
+.diff-stat-row{display:flex;align-items:center;gap:10px;margin:10px 0}
 .diff-stat-label{width:70px;flex-shrink:0}
 .diff-stat-bar-track{flex:1;height:8px;background:var(--accent-soft);border-radius:0;overflow:hidden}
 .diff-stat-bar-fill{height:100%;background:var(--ink);border-radius:0;transition:width .3s var(--ease)}
@@ -1247,7 +1263,8 @@ body.quiz-active .feedback{
 
 /* ─── Session History ─── */
 .session-history-list{max-height:300px;overflow-y:auto;border:1px solid var(--line);border-radius:0}
-.sh-row{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:.9rem}
+.sh-row{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:.9rem;transition:background .15s var(--ease)}
+.sh-row:hover{background:var(--accent-soft)}
 .sh-row:last-child{border-bottom:none}
 .sh-date{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.82rem;color:var(--ink-secondary);min-width:46px}
 .sh-time{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.78rem;color:var(--ink-secondary);min-width:50px;opacity:.6}
@@ -1266,8 +1283,9 @@ body.quiz-active .feedback{
 /* ─── Word Expand ─── */
 .wl-expand{max-height:0;overflow:hidden;width:100%;padding:0;border-top:0 solid transparent;margin-top:0;transition:max-height .3s var(--ease),padding .3s var(--ease),margin-top .3s var(--ease),border-top .3s var(--ease);opacity:0}
 .wl-item.expanded .wl-expand{max-height:300px;opacity:1;padding:12px 0 4px;border-top:1px solid var(--line);margin-top:10px;transition:max-height .35s var(--ease),padding .3s var(--ease),margin-top .3s var(--ease),border-top .3s var(--ease),opacity .25s var(--ease)}
-.wl-item{cursor:pointer;transition:background .15s}
+.wl-item{cursor:pointer;transition:background .15s var(--ease)}
 .wl-item:hover{background:var(--accent-soft)}
+.wl-item.expanded{background:var(--accent-soft)}
 .wl-ex-label{font-family:'SF Mono',SFMono-Regular,Menlo,Consolas,monospace;font-size:.65rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--ink-secondary);margin-bottom:6px}
 .wl-ex-sentence{font-size:.95rem;color:var(--ink);line-height:1.55;margin-bottom:6px;padding-left:10px;border-left:2px solid var(--line)}
 .wl-ex-sentence u{text-decoration-color:var(--gold);text-underline-offset:3px}
