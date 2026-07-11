@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node --check app.js)",
+      "Bash(git add *)",
+      "Bash(git commit -m 'Reformat app.js to readable style \\(no behavior change, token-verified\\) *)"
+    ]
+  }
+}

@@ -583,6 +583,73 @@ function startSession() {
     showQuestion()
 }
 
+// ---- Session persistence: a reload or accidental close no longer loses a
+// sitting. Snapshot after every answer; offer Resume on the start screen. ----
+function persistSession() {
+    if (!session.words || session.words.length === 0 || session.current >= session.total) {
+        state.currentSession = null;
+        return
+    }
+    state.currentSession = {
+        w: session.words.map(x => ({
+            i: x._idx,
+            r: x._retry ? 1 : 0,
+            q: x._requeued ? 1 : 0
+        })),
+        c: session.current,
+        s: session.score,
+        k: session.streak,
+        a: session.answered,
+        t: session.total,
+        e: session.enabledTypes
+    }
+}
+
+function clearPersistedSession() {
+    state.currentSession = null;
+    save()
+}
+
+function resumeSession() {
+    const cs = state.currentSession;
+    if (!cs) return;
+    session = {
+        words: cs.w.map(x => ({
+            ...W[x.i],
+            _idx: x.i,
+            _retry: !!x.r,
+            _requeued: !!x.q
+        })),
+        current: cs.c,
+        score: cs.s,
+        streak: cs.k,
+        answered: cs.a || [],
+        total: cs.t,
+        enabledTypes: cs.e || getEnabledTypes()
+    };
+    showView('quiz');
+    document.getElementById('startScreen').classList.add('hidden');
+    document.getElementById('quizActive').classList.remove('hidden');
+    document.getElementById('summaryView').classList.add('hidden');
+    document.body.classList.add('quiz-active');
+    showQuestion()
+}
+
+// ---- Pronunciation via the browser's built-in speech synthesis ----
+function speakWord(w) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(w);
+    u.lang = 'en-US';
+    u.rate = 0.9;
+    window.speechSynthesis.speak(u)
+}
+
+function speakBtnHtml(w) {
+    if (!('speechSynthesis' in window)) return '';
+    return `<button class="speak-btn" onclick="event.stopPropagation();speakWord(${JSON.stringify(w).replace(/"/g,'&quot;')})" aria-label="Pronounce ${esc(w)}" title="Pronounce">&#128264;</button>`
+}
+
 // One-time hint — the shortcuts otherwise hide behind the "i" button
 function showFirstQuizHint() {
     if (state.hintShown) return;
@@ -600,6 +667,7 @@ function showFirstQuizHint() {
 
 function exitSession() {
     stopTimer();
+    persistSession(); // "Save & Exit" keeps the sitting resumable
     save();
     document.body.classList.remove('quiz-active');
     document.getElementById('quizActive').classList.add('hidden');
@@ -976,7 +1044,7 @@ function checkAnswer() {
         // A correct answer on an in-session retry doesn't advance the box —
         // the word was just missed and still belongs in tomorrow's review.
         if (wIdx >= 0 && !wordObj._requeued) advanceLeitner(wIdx);
-        fb.innerHTML = `Correct — <em>${wordObj.w}</em>: ${wordObj.d}` + exampleSentenceHtml(wordObj.w);
+        fb.innerHTML = `Correct — <em>${wordObj.w}</em>${speakBtnHtml(wordObj.w)}: ${wordObj.d}` + exampleSentenceHtml(wordObj.w);
         fb.className = 'feedback correct-fb';
         const sd = document.getElementById('scoreDisp');
         const sk = document.getElementById('streakDisp');
@@ -1015,7 +1083,7 @@ function checkAnswer() {
             const chosenText = opts[chosen] ? opts[chosen].children[1].textContent : '';
             whyBtn = ` <button class="ai-why-btn" onclick='aiExplainWrong(${JSON.stringify(wordObj.w)},${JSON.stringify(wordObj.d)},${JSON.stringify(chosenText).replace(/'/g, "&#39;")})'>Ask AI why</button>`
         }
-        fb.innerHTML = (timedOut ? `Time's up — the answer is <em>${wordObj.w}</em>: ${wordObj.d}` : `Incorrect — the answer is <em>${wordObj.w}</em>: ${wordObj.d}`) + whyBtn + exampleSentenceHtml(wordObj.w);
+        fb.innerHTML = (timedOut ? `Time's up — the answer is <em>${wordObj.w}</em>${speakBtnHtml(wordObj.w)}: ${wordObj.d}` : `Incorrect — the answer is <em>${wordObj.w}</em>${speakBtnHtml(wordObj.w)}: ${wordObj.d}`) + whyBtn + exampleSentenceHtml(wordObj.w);
         fb.className = 'feedback wrong-fb'
     }
     state.totalAnswered++;
@@ -1038,21 +1106,39 @@ function checkAnswer() {
         state.diffStats[wd].total++;
         if (chosen === correct) state.diffStats[wd].correct++
     }
+    const goalBefore = getTodayLog().answered >= getEffectiveGoal();
     addDailyAnswer(chosen === correct);
+    // Celebrate the moment the daily goal is crossed (once per day)
+    if (!goalBefore && getTodayLog().answered >= getEffectiveGoal()) showGoalToast();
     session.answered.push({
         word: wordObj.w,
         def: wordObj.d,
         idx: wIdx,
         correct: chosen === correct
     });
+    persistSession();
     save();
     updateDailyBanner();
     document.getElementById('nextBtn').style.display = 'block'
 }
 
+function showGoalToast() {
+    const streak = calcStreak();
+    const t = document.createElement('div');
+    t.className = 'goal-toast';
+    t.innerHTML = `Daily goal reached${streak>1?` &middot; ${streak}-day streak`:''} &#10003;`;
+    document.body.appendChild(t);
+    setTimeout(() => t.classList.add('show'), 20);
+    setTimeout(() => {
+        t.classList.remove('show');
+        setTimeout(() => t.remove(), 400)
+    }, 3200)
+}
+
 function nextQuestion() {
     session.current++;
     if (session.current >= session.total) {
+        clearPersistedSession();
         showSummary()
     } else {
         showQuestion()
@@ -1105,11 +1191,36 @@ function showSummary() {
     }
     const missedCount = new Set(missed.map(m => m.word)).size;
     const retryBtn = missedCount > 0 ? `<button class="teal" onclick="retrySessionMissed()">Retry Missed (${missedCount})</button>` : '';
+    const fiveMoreBtn = `<button class="secondary" onclick="startQuickFive()">5 More</button>`;
     // Streak / goal payoff line at the emotional peak of finishing a sitting
     const streakNow = calcStreak();
     const goalDone = getTodayLog().answered >= getEffectiveGoal();
     const payoff = goalDone && streakNow > 0 ? `<p class="summary-payoff">Daily goal reached — ${streakNow}-day streak</p>` : '';
-    sv.innerHTML = `<div class="summary"><h2>${grade}</h2><div class="score-big">${session.score} <span class="of">/ ${total}</span></div><p style="text-align:center;opacity:.65;font-size:.85rem">${pct}% accuracy this sitting</p>${payoff}${missedHtml}<div class="summary-btns">${retryBtn}<button onclick="startSession()">New Sitting</button><button class="secondary" onclick="showView('review')">Missed Log</button><button class="secondary" onclick="showView('stats')">View Record</button></div></div>`
+    sv.innerHTML = `<div class="summary"><h2>${grade}</h2><div class="score-big">${session.score} <span class="of">/ ${total}</span></div><p style="text-align:center;opacity:.65;font-size:.85rem">${pct}% accuracy this sitting</p>${payoff}${missedHtml}<div class="summary-btns">${retryBtn}<button onclick="startSession()">New Sitting</button>${fiveMoreBtn}<button class="secondary" onclick="showView('review')">Missed Log</button><button class="secondary" onclick="showView('stats')">View Record</button></div></div>`
+}
+
+// Micro-session: 5 words right now, without touching the saved session size
+function startQuickFive() {
+    const saved = state.sessionSize;
+    state.sessionSize = 5;
+    const words = pickSessionWords();
+    state.sessionSize = saved;
+    if (words.length === 0) return;
+    session = {
+        words,
+        current: 0,
+        score: 0,
+        streak: 0,
+        answered: [],
+        total: words.length,
+        enabledTypes: getEnabledTypes()
+    };
+    showView('quiz');
+    document.getElementById('startScreen').classList.add('hidden');
+    document.getElementById('quizActive').classList.remove('hidden');
+    document.getElementById('summaryView').classList.add('hidden');
+    document.body.classList.add('quiz-active');
+    showQuestion()
 }
 
 function bucketName(b) {
@@ -1326,6 +1437,31 @@ function chartCaption() {
     return best ? `<p class="chart-caption">Best day: ${best.p}% on ${best.d.slice(5)}</p>` : ''
 }
 
+// Anki-style forecast: how many reviews come due over the next 7 days
+function renderForecast() {
+    const days = [];
+    const d = new Date();
+    for (let i = 0; i < 7; i++) {
+        days.push({
+            key: dateKey(d),
+            label: i === 0 ? 'Today' : dateKey(d).slice(5),
+            count: 0
+        });
+        d.setDate(d.getDate() + 1)
+    }
+    for (const l of Object.values(state.leitner)) {
+        if (!l || l.b === 0 || l.b >= 5) continue;
+        if (l.due <= days[0].key) {
+            days[0].count++;
+            continue
+        }
+        const hit = days.find(x => x.key === l.due);
+        if (hit) hit.count++
+    }
+    const max = Math.max(1, ...days.map(x => x.count));
+    return `<div class="forecast">${days.map(x=>`<div class="fc-col"><div class="fc-count">${x.count||''}</div><div class="fc-bar" style="height:${Math.round(x.count/max*56)+2}px"></div><div class="fc-label">${x.label}</div></div>`).join('')}</div>`
+}
+
 function renderStats() {
     const sv = document.getElementById('statsView');
     const accuracy = state.totalAnswered > 0 ? Math.round(state.totalCorrect / state.totalAnswered * 100) : 0;
@@ -1336,7 +1472,7 @@ function renderStats() {
     // First-run: explain what will appear here instead of a wall of zeros
     const intro = state.totalAnswered === 0 ? `<p class="dash-empty">Your record will appear here after your first sitting.</p>` : '';
     // Hero stats first (mastery + accuracy — what actually motivates), raw counters second
-    sv.innerHTML = `<div class="dash"><h2>Cumulative Record</h2>${intro}<div class="dash-grid dash-hero"><div class="dash-stat"><div class="num">${m.learned}<span class="of-total"> / ${W.length}</span></div><div class="label">Words Learned</div></div><div class="dash-stat"><div class="num">${accuracy}%</div><div class="label">Accuracy</div></div></div><div class="dash-grid dash-secondary"><div class="dash-stat"><div class="num">${state.totalAnswered}</div><div class="label">Answered</div></div><div class="dash-stat"><div class="num">${state.totalCorrect}</div><div class="label">Correct</div></div><div class="dash-stat"><div class="num">${state.sessionsCompleted}</div><div class="label">Sittings</div></div></div><div class="mastery-bar"><h3>Word Mastery</h3><div class="mastery-track"><div class="mastery-fill"><div class="mf-learned" style="width:${learnedPct}%"></div><div class="mf-learning" style="width:${learningPct}%"></div></div></div><div class="mastery-legend"><span><span class="ml-dot" style="background:var(--good)"></span> Learned ${m.learned}</span><span><span class="ml-dot" style="background:var(--gold)"></span> Learning ${m.learning}</span><span><span class="ml-dot" style="background:var(--paper-tint);border-color:var(--line)"></span> Unseen ${m.unseen}</span></div></div><div class="dash-section"><h3>Accuracy by Difficulty</h3>${renderDiffStats()}</div><div class="dash-section"><h3>Daily Accuracy</h3>${chartScaleButtons()}${buildProgressChart()}${chartCaption()}</div><div class="dash-section"><h3>Session History</h3>${renderSessionHistory()}</div><div class="reset-btn"><button onclick="if(confirm('Erase all progress? This cannot be undone.')){state=defaults();save();renderStats();updateWordPoolInfo()}">Reset Record</button></div></div>`
+    sv.innerHTML = `<div class="dash"><h2>Cumulative Record</h2>${intro}<div class="dash-grid dash-hero"><div class="dash-stat"><div class="num">${m.learned}<span class="of-total"> / ${W.length}</span></div><div class="label">Words Learned</div></div><div class="dash-stat"><div class="num">${accuracy}%</div><div class="label">Accuracy</div></div></div><div class="dash-grid dash-secondary"><div class="dash-stat"><div class="num">${state.totalAnswered}</div><div class="label">Answered</div></div><div class="dash-stat"><div class="num">${state.totalCorrect}</div><div class="label">Correct</div></div><div class="dash-stat"><div class="num">${state.sessionsCompleted}</div><div class="label">Sittings</div></div></div><div class="mastery-bar"><h3>Word Mastery</h3><div class="mastery-track"><div class="mastery-fill"><div class="mf-learned" style="width:${learnedPct}%"></div><div class="mf-learning" style="width:${learningPct}%"></div></div></div><div class="mastery-legend"><span><span class="ml-dot" style="background:var(--good)"></span> Learned ${m.learned}</span><span><span class="ml-dot" style="background:var(--gold)"></span> Learning ${m.learning}</span><span><span class="ml-dot" style="background:var(--paper-tint);border-color:var(--line)"></span> Unseen ${m.unseen}</span></div></div><div class="dash-section"><h3>Reviews Coming Due</h3>${renderForecast()}</div><div class="dash-section"><h3>Accuracy by Difficulty</h3>${renderDiffStats()}</div><div class="dash-section"><h3>Daily Accuracy</h3>${chartScaleButtons()}${buildProgressChart()}${chartCaption()}</div><div class="dash-section"><h3>Session History</h3>${renderSessionHistory()}</div><div class="reset-btn"><button onclick="if(confirm('Erase all progress? This cannot be undone.')){state=defaults();save();renderStats();updateWordPoolInfo()}">Reset Record</button></div></div>`
 }
 
 function updateDailyBanner() {
@@ -1441,10 +1577,12 @@ function renderSettings() {
     const goal = getDailyGoal();
     const dgDisplay = goal === Infinity ? 'Any' : goal;
     const options = [5, 10, 15, 20, 25, 30, 40, 50];
-    sv.innerHTML = `<div class="settings-page"><h2>Settings</h2><p class="settings-sub">Configure your daily practice.</p><div class="setting-group"><h3>Daily goal (for streak)</h3><p>Minimum words per day to maintain your streak. Session size and timer can be set from the Practice tab.</p><div class="goal-options">${options.map(n=>`<div class="goal-btn${goal===n?' active':''}" onclick="setDailyGoal(${n})">${n}<div class="goal-label">words</div></div>`).join('')}<div class="goal-btn${goal===Infinity?' active':''}" onclick="setDailyGoal(0)">&infin;<div class="goal-label">any</div></div></div></div><div class="setting-group"><h3>Question types</h3><p>Toggle which question formats appear during practice.</p><div class="settings"><div class="chk-row"><input type="checkbox" id="sChkWordDef" ${state.questionTypes.wordToDef!==false?'checked':''}><label for="sChkWordDef">Define the term<span class="chk-desc">Given a word, select the correct definition</span></label></div><div class="chk-row"><input type="checkbox" id="sChkDefWord" ${state.questionTypes.defToWord!==false?'checked':''}><label for="sChkDefWord">Identify the word<span class="chk-desc">Given a definition, select the matching word</span></label></div><div class="chk-row"><input type="checkbox" id="sChkSentence" ${state.questionTypes.sentence!==false?'checked':''}><label for="sChkSentence">Sentence completion<span class="chk-desc">Fill in the blank with the word that fits the context</span></label></div><div class="chk-row"><input type="checkbox" id="sChkSynonym" ${state.questionTypes.synonym!==false?'checked':''}><label for="sChkSynonym">Closest in meaning<span class="chk-desc">Select the word most similar in meaning to the given term</span></label></div><div class="chk-row"><input type="checkbox" id="sChkContext" ${state.questionTypes.context!==false?'checked':''}><label for="sChkContext">Meaning in context<span class="chk-desc">SAT style: what a word most nearly means in a given sentence</span></label></div><div class="chk-row"><input type="checkbox" id="sChkPassage" ${state.questionTypes.passage!==false?'checked':''}><label for="sChkPassage">SAT passage completion<span class="chk-desc">Official digital-SAT format: complete a short passage with the most logical and precise word</span></label></div></div><div class="review-actions" style="margin-top:16px"><button onclick="saveSettingsTypes()">Save question types</button></div></div><div class="setting-group"><h3>Practice mode</h3><p>Adjust how your practice sessions work.</p><div class="settings"><div class="chk-row"><input type="checkbox" id="sChkRetry" ${state.retryInSession?'checked':''} onchange="state.retryInSession=this.checked;save()"><label for="sChkRetry">Retry missed words in session<span class="chk-desc">Words you get wrong will reappear later in the same sitting for another attempt</span></label></div></div></div>${typeof aiSettingsHtml==='function'?aiSettingsHtml():''}<div class="setting-group"><h3>Backup</h3><p>Export your progress to a file, or import a previous backup.</p><div class="review-actions" style="justify-content:flex-start;gap:12px"><button onclick="exportProgress()">Export Progress</button><button onclick="importProgress()">Import Progress</button></div></div><div class="setting-group"><h3>Reset</h3><p>Clear all progress data and start fresh.</p><div class="review-actions" style="justify-content:flex-start"><button class="danger" onclick="if(confirm('Erase all progress? This cannot be undone.')){state=defaults();save();renderSettings();updateWordPoolInfo();updateDailyBanner();updateSittingDesc()}">Reset all progress</button></div></div></div>`
+    sv.innerHTML = `<div class="settings-page"><h2>Settings</h2><p class="settings-sub">Configure your daily practice.</p><div class="setting-group"><h3>Daily goal (for streak)</h3><p>Minimum words per day to maintain your streak. Session size and timer can be set from the Practice tab.</p><div class="goal-options">${options.map(n=>`<div class="goal-btn${goal===n?' active':''}" onclick="setDailyGoal(${n})">${n}<div class="goal-label">words</div></div>`).join('')}<div class="goal-btn${goal===Infinity?' active':''}" onclick="setDailyGoal(0)">&infin;<div class="goal-label">any</div></div></div></div><div class="setting-group"><h3>Question types</h3><p>Toggle which question formats appear during practice.</p><div class="settings"><div class="chk-row"><input type="checkbox" id="sChkWordDef" ${state.questionTypes.wordToDef!==false?'checked':''}><label for="sChkWordDef">Define the term<span class="chk-desc">Given a word, select the correct definition</span></label></div><div class="chk-row"><input type="checkbox" id="sChkDefWord" ${state.questionTypes.defToWord!==false?'checked':''}><label for="sChkDefWord">Identify the word<span class="chk-desc">Given a definition, select the matching word</span></label></div><div class="chk-row"><input type="checkbox" id="sChkSentence" ${state.questionTypes.sentence!==false?'checked':''}><label for="sChkSentence">Sentence completion<span class="chk-desc">Fill in the blank with the word that fits the context</span></label></div><div class="chk-row"><input type="checkbox" id="sChkSynonym" ${state.questionTypes.synonym!==false?'checked':''}><label for="sChkSynonym">Closest in meaning<span class="chk-desc">Select the word most similar in meaning to the given term</span></label></div><div class="chk-row"><input type="checkbox" id="sChkContext" ${state.questionTypes.context!==false?'checked':''}><label for="sChkContext">Meaning in context<span class="chk-desc">SAT style: what a word most nearly means in a given sentence</span></label></div><div class="chk-row"><input type="checkbox" id="sChkPassage" ${state.questionTypes.passage!==false?'checked':''}><label for="sChkPassage">SAT passage completion<span class="chk-desc">Official digital-SAT format: complete a short passage with the most logical and precise word</span></label></div></div><div class="review-actions" style="margin-top:16px"><button onclick="saveSettingsTypes()">Save question types</button></div></div><div class="setting-group"><h3>Practice mode</h3><p>Adjust how your practice sessions work.</p><div class="settings"><div class="chk-row"><input type="checkbox" id="sChkRetry" ${state.retryInSession?'checked':''} onchange="state.retryInSession=this.checked;save()"><label for="sChkRetry">Retry missed words in session<span class="chk-desc">Words you get wrong will reappear later in the same sitting for another attempt</span></label></div></div></div>${typeof aiSettingsHtml==='function'?aiSettingsHtml():''}<div class="setting-group"><h3>Backup${state.sessionsCompleted-(state.lastExportSessions||0)>=15?' <span class="backup-nudge">backup recommended</span>':''}</h3><p>Export your progress to a file, or import a previous backup.</p><div class="review-actions" style="justify-content:flex-start;gap:12px"><button onclick="exportProgress()">Export Progress</button><button onclick="importProgress()">Import Progress</button></div></div><div class="setting-group"><h3>Reset</h3><p>Clear all progress data and start fresh.</p><div class="review-actions" style="justify-content:flex-start"><button class="danger" onclick="if(confirm('Erase all progress? This cannot be undone.')){state=defaults();save();renderSettings();updateWordPoolInfo();updateDailyBanner();updateSittingDesc()}">Reset all progress</button></div></div></div>`
 }
 
 function exportProgress() {
+    state.lastExportSessions = state.sessionsCompleted;
+    save();
     const data = JSON.stringify(state, null, 2);
     const blob = new Blob([data], {
         type: 'application/json'
@@ -1627,6 +1765,12 @@ function updateSittingDesc() {
         `<div style="width:${learnedPct}%;background:var(--learned-color)"></div>` +
         `<div style="width:${Math.min(learningPct,100-learnedPct)}%;background:var(--learning-color)"></div>` +
         `</div><div class="home-mastery-legend"><span><span class="ml-dot" style="background:var(--learned-color)"></span> ${m.learned} learned</span><span><span class="ml-dot" style="background:var(--learning-color)"></span> ${m.learning} learning</span><span><span class="ml-dot" style="background:var(--unseen-color)"></span> ${m.unseen} unseen</span></div></div></div>`;
+    // Interrupted sitting? Offer to pick it back up.
+    const cs = state.currentSession;
+    if (cs && cs.c < cs.t) {
+        html += `<button onclick="resumeSession()">Resume Sitting &mdash; ${cs.c} / ${cs.t} answered</button>`;
+        html += `<div style="height:10px"></div>`
+    }
     const cta = dn.due > 0 ? `Start — ${dn.due} due for review` : `Start Practicing`;
     html += `<button onclick="startSession()">${cta}</button>`;
     html += `<button id="optionsToggle" class="options-toggle${optionsOpen?' open':''}" onclick="toggleOptions()">Customize <span class="toggle-arrow">${optionsOpen?'▴':'▾'}</span></button>`;
@@ -1634,7 +1778,7 @@ function updateSittingDesc() {
     html += `<div class="diff-filter"><span class="diff-filter-label">Focus</span><button class="diff-chip${f==='all'?' active':''}" onclick="setDiffFilter('all')">All <span class="chip-count">${dc.all}</span></button><button class="diff-chip easy${f==='easy'?' active':''}" onclick="setDiffFilter('easy')">Easy <span class="chip-count">${dc.easy}</span></button><button class="diff-chip medium${f==='medium'?' active':''}" onclick="setDiffFilter('medium')">Medium <span class="chip-count">${dc.medium}</span></button><button class="diff-chip hard${f==='hard'?' active':''}" onclick="setDiffFilter('hard')">Hard <span class="chip-count">${dc.hard}</span></button></div>`;
     const ss = getSessionSize();
     const effectiveSize = ss !== null ? ss : getDailyGoal();
-    const sizeOptions = [10, 20, 30, 50];
+    const sizeOptions = [5, 10, 20, 30, 50];
     const isCustom = ss !== null && !sizeOptions.includes(ss) && ss !== Infinity;
     html += `<div class="session-size-row"><span class="diff-filter-label">Session</span>${sizeOptions.map(n=>`<button class="size-btn${effectiveSize===n?' active':''}" onclick="setSessionSize(${n})">${n}</button>`).join('')}<button class="size-btn${effectiveSize===Infinity?' active':''}" onclick="setSessionSize(0)">&infin;</button><button class="size-btn custom-size-btn${isCustom?' active':''}" onclick="promptCustomSize()">Custom</button></div>`;
     const timerOn = state.timedMode;
@@ -1767,7 +1911,7 @@ function buildWordExpand(i) {
     var aiBtn = typeof aiExplainWord === 'function' ?
         '<button class="ai-explain-btn" onclick="event.stopPropagation();aiExplainWord(' + JSON.stringify(word.w).replace(/"/g, '&quot;') + ',' + JSON.stringify(word.d).replace(/"/g, '&quot;') + ')">AI Explain</button>' : '';
     return '<div class="wl-ex-section"><div class="wl-ex-label">EXAMPLE USAGE</div>' + sentHtml + '</div>' +
-        '<div class="wl-ex-stats"><span>Seen: ' + totalSeen + '</span><span>Missed: ' + missed + '</span><span>Box: ' + bName + '</span>' + (l && l.due ? '<span>Due: ' + esc(String(l.due).slice(5)) + '</span>' : '') + aiBtn + '</div>'
+        '<div class="wl-ex-stats"><span>Seen: ' + totalSeen + '</span><span>Missed: ' + missed + '</span><span>Box: ' + bName + '</span>' + (l && l.due ? '<span>Due: ' + esc(String(l.due).slice(5)) + '</span>' : '') + speakBtnHtml(word.w) + aiBtn + '</div>'
 }
 
 function toggleWordExpand(el) {
@@ -1936,3 +2080,7 @@ function toggleTheme() {
 })();
 updateDailyBanner();
 updateSittingDesc();
+// Installable + offline: register the service worker (no-op on file://)
+if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}))
+}

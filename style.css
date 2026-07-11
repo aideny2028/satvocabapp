@@ -1324,6 +1324,18 @@ body.quiz-active .feedback{
 .ai-settings-row select,.ai-settings-row input{flex:1;padding:9px 10px;border:1px solid var(--line-strong);background:var(--bg);color:var(--ink);font-family:inherit;font-size:.92rem}
 body.quiz-active .ai-fab{display:none}
 @media(max-width:600px){.ai-panel{right:12px;bottom:76px}}
+/* --- Phase 9: toast, speech, forecast, nudge --- */
+.goal-toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--gold);color:#fff;font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;font-size:.72rem;letter-spacing:1.5px;text-transform:uppercase;padding:12px 22px;z-index:70;opacity:0;transition:opacity .3s var(--ease),transform .3s var(--ease);box-shadow:0 4px 16px rgba(0,0,0,.25);pointer-events:none}
+.goal-toast.show{opacity:1;transform:translate(-50%,0)}
+.speak-btn{background:none;border:none;cursor:pointer;font-size:.95rem;padding:0 4px;opacity:.55;transition:opacity .15s;vertical-align:middle;line-height:1}
+.speak-btn:hover{opacity:1}
+.forecast{display:flex;align-items:flex-end;gap:8px;justify-content:center;padding:8px 0 2px}
+.fc-col{display:flex;flex-direction:column;align-items:center;gap:4px;width:52px}
+.fc-bar{width:100%;background:var(--ink);opacity:.8;transition:height .3s var(--ease)}
+.fc-count{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;font-size:.7rem;color:var(--ink-secondary);min-height:1em}
+.fc-label{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;font-size:.6rem;letter-spacing:.5px;color:var(--ink-secondary);text-transform:uppercase}
+.backup-nudge{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:2px 8px;margin-left:8px;vertical-align:middle}
+@media(prefers-reduced-motion:reduce){.goal-toast{transition:none}}
 
 @media print{
   body{background:#fff;color:#000}
