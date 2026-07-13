@@ -1337,6 +1337,13 @@ body.quiz-active .ai-fab{display:none}
 .backup-nudge{font-family:"SF Mono",SFMono-Regular,Menlo,Consolas,monospace;font-size:.6rem;letter-spacing:1px;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:2px 8px;margin-left:8px;vertical-align:middle}
 @media(prefers-reduced-motion:reduce){.goal-toast{transition:none}}
 
+/* --- SAT question formats + answer eliminator --- */
+.q-stem{margin-top:12px;font-size:.95rem;font-weight:600;line-height:1.5}
+.q-passage{font-size:1.02rem;line-height:1.75}
+.opt-x{margin-left:auto;flex-shrink:0;align-self:center;background:none;border:1px solid var(--line);color:var(--ink-secondary);width:26px;height:26px;line-height:1;font-size:1rem;cursor:pointer;opacity:.4;transition:opacity .15s,border-color .15s,color .15s;border-radius:50%;font-family:inherit;display:flex;align-items:center;justify-content:center;padding:0}
+@media(hover:hover){.opt-x:hover{opacity:1;border-color:var(--bad);color:var(--bad)}}
+.option.disabled .opt-x,.option.correct .opt-x,.option.wrong .opt-x{display:none}
+@media(max-width:600px){.opt-x{width:32px;height:32px}}
 @media print{
   body{background:#fff;color:#000}
   .nav,.theme-toggle,.exit-row,.start-screen>button,.summary-btns{display:none}

@@ -909,7 +909,6 @@ function showQuestion() {
         div.appendChild(x);
         optDiv.appendChild(div)
     });
-    updateFlagBtn(wIdx);
     card.dataset.correctIdx = correctIdx;
     card.dataset.wordJson = JSON.stringify(wordObj);
     card.dataset.isRetry = isRetry;
@@ -933,28 +932,6 @@ function selectOption(idx) {
     opts[idx].setAttribute('aria-pressed', 'true');
     card.dataset.selectedIdx = idx;
     document.getElementById('checkBtn').style.display = 'block'
-}
-
-// Bluebook-style flag: mark the current word mid-quiz to revisit later.
-// Flagged words surface in the Review tab alongside missed words.
-function updateFlagBtn(wIdx) {
-    const btn = document.getElementById('flagBtn');
-    if (!btn) return;
-    const flagged = wIdx >= 0 && state.flagged && state.flagged[wIdx];
-    btn.classList.toggle('active', !!flagged)
-}
-
-function toggleFlagCurrent() {
-    const card = document.getElementById('qCard');
-    if (!card.dataset.wordJson) return;
-    const wordObj = JSON.parse(card.dataset.wordJson);
-    const wIdx = wordObj._idx != null ? wordObj._idx : W.findIndex(x => x.w === wordObj.w);
-    if (wIdx < 0) return;
-    if (!state.flagged) state.flagged = {};
-    if (state.flagged[wIdx]) delete state.flagged[wIdx];
-    else state.flagged[wIdx] = true;
-    save();
-    updateFlagBtn(wIdx)
 }
 
 function toggleInfo() {
@@ -1472,7 +1449,7 @@ function renderStats() {
     // First-run: explain what will appear here instead of a wall of zeros
     const intro = state.totalAnswered === 0 ? `<p class="dash-empty">Your record will appear here after your first sitting.</p>` : '';
     // Hero stats first (mastery + accuracy — what actually motivates), raw counters second
-    sv.innerHTML = `<div class="dash"><h2>Cumulative Record</h2>${intro}<div class="dash-grid dash-hero"><div class="dash-stat"><div class="num">${m.learned}<span class="of-total"> / ${W.length}</span></div><div class="label">Words Learned</div></div><div class="dash-stat"><div class="num">${accuracy}%</div><div class="label">Accuracy</div></div></div><div class="dash-grid dash-secondary"><div class="dash-stat"><div class="num">${state.totalAnswered}</div><div class="label">Answered</div></div><div class="dash-stat"><div class="num">${state.totalCorrect}</div><div class="label">Correct</div></div><div class="dash-stat"><div class="num">${state.sessionsCompleted}</div><div class="label">Sittings</div></div></div><div class="mastery-bar"><h3>Word Mastery</h3><div class="mastery-track"><div class="mastery-fill"><div class="mf-learned" style="width:${learnedPct}%"></div><div class="mf-learning" style="width:${learningPct}%"></div></div></div><div class="mastery-legend"><span><span class="ml-dot" style="background:var(--good)"></span> Learned ${m.learned}</span><span><span class="ml-dot" style="background:var(--gold)"></span> Learning ${m.learning}</span><span><span class="ml-dot" style="background:var(--paper-tint);border-color:var(--line)"></span> Unseen ${m.unseen}</span></div></div><div class="dash-section"><h3>Reviews Coming Due</h3>${renderForecast()}</div><div class="dash-section"><h3>Accuracy by Difficulty</h3>${renderDiffStats()}</div><div class="dash-section"><h3>Daily Accuracy</h3>${chartScaleButtons()}${buildProgressChart()}${chartCaption()}</div><div class="dash-section"><h3>Session History</h3>${renderSessionHistory()}</div><div class="reset-btn"><button onclick="if(confirm('Erase all progress? This cannot be undone.')){state=defaults();save();renderStats();updateWordPoolInfo()}">Reset Record</button></div></div>`
+    sv.innerHTML = `<div class="dash"><h2>Cumulative Record</h2>${intro}<div class="dash-grid"><div class="dash-stat"><div class="num">${state.totalAnswered}</div><div class="label">Answered</div></div><div class="dash-stat"><div class="num">${state.totalCorrect}</div><div class="label">Correct</div></div><div class="dash-stat"><div class="num">${accuracy}%</div><div class="label">Accuracy</div></div><div class="dash-stat"><div class="num">${state.sessionsCompleted}</div><div class="label">Sittings</div></div></div><div class="mastery-bar"><h3>Word Mastery</h3><div class="mastery-track"><div class="mastery-fill"><div class="mf-learned" style="width:${learnedPct}%"></div><div class="mf-learning" style="width:${learningPct}%"></div></div></div><div class="mastery-legend"><span><span class="ml-dot" style="background:var(--good)"></span> Learned ${m.learned}</span><span><span class="ml-dot" style="background:var(--gold)"></span> Learning ${m.learning}</span><span><span class="ml-dot" style="background:var(--paper-tint);border-color:var(--line)"></span> Unseen ${m.unseen}</span></div></div><div class="dash-section"><h3>Accuracy by Difficulty</h3>${renderDiffStats()}</div><div class="dash-section"><h3>Daily Accuracy</h3>${chartScaleButtons()}${buildProgressChart()}${chartCaption()}</div><div class="dash-section"><h3>Session History</h3>${renderSessionHistory()}</div><div class="reset-btn"><button onclick="if(confirm('Erase all progress? This cannot be undone.')){state=defaults();save();renderStats();updateWordPoolInfo()}">Reset Record</button></div></div>`
 }
 
 function updateDailyBanner() {
@@ -1751,28 +1728,13 @@ function updateSittingDesc() {
     let html = '';
     const dc = countByDiff();
     const f = state.difficultyFilter || 'all';
-    // Status-forward home: what's due, the streak, and mastery — before the CTA
-    const dn = countDueNew();
-    const m = countMastery();
-    const streak = calcStreak();
-    const learnedPct = m.learned / W.length * 100;
-    const learningPct = m.learning / W.length * 100;
-    html += `<div class="home-dashboard"><div class="home-stats">` +
-        `<div class="home-stat"><div class="home-stat-num">${dn.due}</div><div class="home-stat-label">Due today</div></div>` +
-        `<div class="home-stat"><div class="home-stat-num">${streak}</div><div class="home-stat-label">Day streak</div></div>` +
-        `<div class="home-stat"><div class="home-stat-num">${m.learned}</div><div class="home-stat-label">Learned</div></div>` +
-        `</div><div class="home-mastery"><div class="home-mastery-track" style="display:flex">` +
-        `<div style="width:${learnedPct}%;background:var(--learned-color)"></div>` +
-        `<div style="width:${Math.min(learningPct,100-learnedPct)}%;background:var(--learning-color)"></div>` +
-        `</div><div class="home-mastery-legend"><span><span class="ml-dot" style="background:var(--learned-color)"></span> ${m.learned} learned</span><span><span class="ml-dot" style="background:var(--learning-color)"></span> ${m.learning} learning</span><span><span class="ml-dot" style="background:var(--unseen-color)"></span> ${m.unseen} unseen</span></div></div></div>`;
-    // Interrupted sitting? Offer to pick it back up.
+    // Home is just the primary action: resume an interrupted sitting, or start a new one.
     const cs = state.currentSession;
     if (cs && cs.c < cs.t) {
         html += `<button onclick="resumeSession()">Resume Sitting &mdash; ${cs.c} / ${cs.t} answered</button>`;
         html += `<div style="height:10px"></div>`
     }
-    const cta = dn.due > 0 ? `Start — ${dn.due} due for review` : `Start Practicing`;
-    html += `<button onclick="startSession()">${cta}</button>`;
+    html += `<button onclick="startSession()">Start Practicing</button>`;
     html += `<button id="optionsToggle" class="options-toggle${optionsOpen?' open':''}" onclick="toggleOptions()">Customize <span class="toggle-arrow">${optionsOpen?'▴':'▾'}</span></button>`;
     html += `<div id="optionsBox" class="options-box${optionsOpen?' open':''}">`;
     html += `<div class="diff-filter"><span class="diff-filter-label">Focus</span><button class="diff-chip${f==='all'?' active':''}" onclick="setDiffFilter('all')">All <span class="chip-count">${dc.all}</span></button><button class="diff-chip easy${f==='easy'?' active':''}" onclick="setDiffFilter('easy')">Easy <span class="chip-count">${dc.easy}</span></button><button class="diff-chip medium${f==='medium'?' active':''}" onclick="setDiffFilter('medium')">Medium <span class="chip-count">${dc.medium}</span></button><button class="diff-chip hard${f==='hard'?' active':''}" onclick="setDiffFilter('hard')">Hard <span class="chip-count">${dc.hard}</span></button></div>`;
