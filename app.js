@@ -44,9 +44,17 @@ function showTimerBar() {
 }
 
 function setSessionSize(n) {
+    // Reconfiguring the sitting length means you want a different sitting —
+    // drop any paused one so Resume can't offer a stale, wrong-length deck.
+    if (n !== state.sessionSize) discardPausedSession();
     state.sessionSize = n;
     save();
     updateSittingDesc()
+}
+
+// Clear a paused sitting (its answers are already banked into stats)
+function discardPausedSession() {
+    if (state.currentSession) state.currentSession = null
 }
 let state = load();
 pruneState(730); // bound state growth: drop daily-log entries older than 2 years
@@ -347,6 +355,7 @@ function pickSessionWords() {
 }
 
 function setDiffFilter(f) {
+    if (f !== (state.difficultyFilter || 'all')) discardPausedSession();
     state.difficultyFilter = f;
     save();
     updateSittingDesc()
