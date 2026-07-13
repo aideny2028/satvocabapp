@@ -1,7 +1,7 @@
 // Service worker: precache the app shell so it works offline and loads
 // instantly (the data files alone are ~1.6MB). Bump CACHE_VERSION on deploys
 // that change any cached file.
-const CACHE_VERSION = 'satvocab-v1';
+const CACHE_VERSION = 'satvocab-v2';
 const CORE = [
   './',
   './index.html',
