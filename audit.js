@@ -5,7 +5,7 @@ const fs = require('fs');
 
 // --- load data + app logic with stubs ---
 global.localStorage = { getItem: () => null, setItem: () => {} };
-const mkEl = () => ({ classList: { add(){}, remove(){}, toggle(){ return true }, contains(){ return false } }, style: {}, dataset: {}, innerHTML: '', textContent: '', appendChild(){}, querySelector: () => mkEl() });
+const mkEl = () => ({ classList: { add(){}, remove(){}, toggle(){ return true }, contains(){ return false } }, style: {}, dataset: {}, innerHTML: '', textContent: '', appendChild(){}, querySelector: () => mkEl(), setAttribute(){}, removeAttribute(){}, getAttribute(){ return null } });
 global.document = { addEventListener(){}, getElementById: () => mkEl(), documentElement: { getAttribute: () => null, setAttribute(){} }, querySelector: () => mkEl(), querySelectorAll: () => [], body: { classList: { add(){}, remove(){} } }, createElement: () => mkEl() };
 global.alert = () => {};
 eval(fs.readFileSync(__dirname + '/words.js', 'utf8').replace(/^const /, 'var '));
