@@ -4,20 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="description" content="SAT vocabulary trainer — 1,700+ words with spaced repetition, sentence completion, and SAT-style practice questions.">
-<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#0a0a0a" id="themeColorMeta">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="manifest" href="manifest.json">
 <title>SAT Vocabulary Quiz</title>
 <script>
-// Apply theme before first paint to avoid a light-mode flash for dark users.
+// Apply theme before first paint to avoid a flash. Dark is the default:
+// only an explicit saved 'light' preference opts out.
 (function(){
   try {
-    var t = localStorage.getItem('sat_theme');
-    if (!t && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) t = 'dark';
-    if (t === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
-  } catch (e) {}
+    var t = localStorage.getItem('sat_theme') || 'dark';
+    if (t !== 'light') document.documentElement.setAttribute('data-theme', 'dark');
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'dark') }
 })();
 </script>
 <link rel="stylesheet" href="style.css">

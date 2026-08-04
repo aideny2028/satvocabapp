@@ -2050,14 +2050,17 @@ function toggleTheme() {
     const isDark = html.getAttribute('data-theme') === 'dark';
     html.setAttribute('data-theme', isDark ? 'light' : 'dark');
     localStorage.setItem('sat_theme', isDark ? 'light' : 'dark');
-    document.getElementById('themeToggle').innerHTML = isDark ? '&#9790;' : '&#9728;'
+    document.getElementById('themeToggle').innerHTML = isDark ? '&#9790;' : '&#9728;';
+    const tc = document.getElementById('themeColorMeta');
+    if (tc) tc.setAttribute('content', isDark ? '#ffffff' : '#0a0a0a')
 }
 // Theme is applied by the inline <head> script before first paint (no flash);
-// here we only sync the toggle-button glyph.
+// here we sync the toggle glyph and the PWA chrome color to the active theme.
 (function() {
-    if (document.documentElement.getAttribute('data-theme') === 'dark') {
-        document.getElementById('themeToggle').innerHTML = '&#9728;'
-    }
+    const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+    if (dark) document.getElementById('themeToggle').innerHTML = '&#9728;';
+    const tc = document.getElementById('themeColorMeta');
+    if (tc) tc.setAttribute('content', dark ? '#0a0a0a' : '#ffffff')
 })();
 updateDailyBanner();
 updateSittingDesc();

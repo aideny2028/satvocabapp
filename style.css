@@ -29,6 +29,9 @@ html{scroll-behavior:smooth}
   --unseen-color:#cccccc;
   --ease:cubic-bezier(.4,0,.2,1);
   --ease-bounce:cubic-bezier(.34,1.56,.64,1);
+  --radius:10px;
+  --radius-sm:7px;
+  --radius-lg:14px;
 }
 
 /* ─── Color System (Dark) ─── */
@@ -71,14 +74,16 @@ body{
   -moz-osx-font-smoothing:grayscale;
   transition:background .3s var(--ease),color .3s var(--ease);
   line-height:1.5;
-  font-size:19px;
+  /* Fluid base size: ~16px on small phones up to 19px on larger screens,
+     so everything (rem-based) scales smoothly instead of a single jump. */
+  font-size:clamp(16px, 14.4px + 0.5vw, 19px);
 }
 
 /* ─── Layout ─── */
 .container{
   max-width:960px;
   width:100%;
-  padding:24px 24px 48px;
+  padding:clamp(16px, 3vw, 24px) clamp(14px, 3vw, 24px) 48px;
 }
 
 /* ─── Header ─── */
@@ -1344,6 +1349,18 @@ body.quiz-active .ai-fab{display:none}
 @media(hover:hover){.opt-x:hover{opacity:1;border-color:var(--bad);color:var(--bad)}}
 .option.disabled .opt-x,.option.correct .opt-x,.option.wrong .opt-x{display:none}
 @media(max-width:600px){.opt-x{width:32px;height:32px}}
+/* --- Rounded corners (softer edges throughout) --- */
+.option .letter,.diff-tag,.wl-mastery,.wl-missed,.retry-badge,.bucket-label,.rw-count,.chip-count,.diff-chip .chip-count,.mf-learned,.mf-learning,.opt-x,.timer-hide-btn,.timer-show-btn{border-radius:var(--radius-sm)}
+.question-card,.info-panel,.feedback,.summary,.daily-banner,.home-dashboard,.dash,.streak-display,.cal,.review,.settings-page,.setting-group,.wl-wrap,.ai-panel,.timer-content,.timer-top,.options-box,.quiz-hint,.fb-example{border-radius:var(--radius)}
+.dash-grid,.nav{border-radius:var(--radius);overflow:hidden}
+.option,.wl-item,.review-word,.sh-row,.cal-day,.goal-btn,.home-stat,.dash-stat,.ai-msg,.missed-item,.info-panel td,.chk-row{border-radius:var(--radius-sm)}
+.start-screen>button,.check-btn,.next-btn,.exit-btn,.info-btn,.theme-toggle,.timer-show-btn,.timer-hide-btn,.summary-btns button,.review-actions button,.reset-btn button,.mark-review-btn,.cal-nav button,.options-toggle,.ai-input-row button,.ai-explain-btn,.ai-why-btn,.wl-search,.ai-input-row input,.ai-settings-row input,.ai-settings-row select,input[type=text],input[type=password],select{border-radius:var(--radius-sm)}
+.diff-chip,.size-btn,.chart-scale-btn{border-radius:0}
+.diff-filter .diff-chip:first-child,.session-size-row .size-btn:first-child,.session-timer-row .size-btn:first-child,.wl-filter-row .size-btn:first-child,.chart-scale-bar .chart-scale-btn:first-child{border-top-left-radius:var(--radius-sm);border-bottom-left-radius:var(--radius-sm)}
+.diff-filter .diff-chip:last-child,.session-size-row .size-btn:last-child,.session-timer-row .size-btn:last-child,.wl-filter-row .size-btn:last-child,.chart-scale-bar .chart-scale-btn:last-child{border-top-right-radius:var(--radius-sm);border-bottom-right-radius:var(--radius-sm)}
+.chart-scale-bar,.goal-options{border-radius:var(--radius-sm);overflow:hidden}
+.progress-bar,.mastery-track,.db-bar-track,.timer-bar-track,.diff-stat-bar-track,.sh-bar-track,.home-mastery-track,.cd-fill{border-radius:999px;overflow:hidden}
+.timer-bar-fill,.diff-stat-bar-fill,.sh-bar-fill,.progress-fill{border-radius:999px}
 @media print{
   body{background:#fff;color:#000}
   .nav,.theme-toggle,.exit-row,.start-screen>button,.summary-btns{display:none}
